@@ -257,9 +257,9 @@ pre .comment{color:var(--text-muted)}pre .keyword{color:var(--accent3)}pre .stri
     <h1><span class="hl">Claude Code</span><br><span class="num">101</span></h1>
     <p class="hero-sub">설치부터 실전 프로젝트까지,<br>AI 에이전틱 코딩의 모든 것을 마스터하세요.</p>
     <div class="hero-meta">
-      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>11개 모듈</div>
-      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>15~20시간</div>
-      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>입문~중급</div>
+      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>12개 모듈</div>
+      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>16~22시간</div>
+      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>비개발자~중급</div>
     </div>
   </div>
   <div class="scroll-cue" onclick="document.querySelector('#roadmap').scrollIntoView({behavior:'smooth'})">시작하기 ↓</div>
@@ -295,6 +295,62 @@ const SVG_CHECK = '<svg width="12" height="12" fill="none" stroke="white" stroke
 const SVG_CHEVRON = '<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6,9 12,15 18,9"/></svg>';
 
 const modules = [
+{
+  id:'prereq',num:'Pre',title:'터미널이 처음이라면',desc:'비개발자를 위한 사전 준비',time:'1시간',
+  goals:['터미널 기본 사용법 익히기','개발 환경 설치 완료','왜 터미널인지 이해'],
+  sections:[
+    {title:'터미널이란?',icon:'🖥️',iconClass:'green',subtitle:'컴퓨터에게 글자로 명령하는 도구',content:`
+      <p><strong>터미널(Terminal)</strong>은 컴퓨터에게 텍스트로 명령을 내리는 도구입니다. 마우스로 클릭하는 대신, 글자를 입력해서 폴더를 열고, 파일을 만들고, 프로그램을 실행합니다.</p>
+      <h4>터미널 여는 법</h4>
+      <div class="kv-item"><span class="kv-key">macOS</span><span class="kv-val">Spotlight(<code>⌘+Space</code>) → "터미널" 검색 → Enter</span></div>
+      <div class="kv-item"><span class="kv-key">Windows</span><span class="kv-val">시작 메뉴 → "PowerShell" 또는 "터미널" 검색</span></div>
+      <h4>꼭 알아야 할 명령어 5개</h4>
+      <table class="data-table"><thead><tr><th>명령어</th><th>뜻</th><th>비유</th></tr></thead><tbody>
+        <tr><td>pwd</td><td>현재 위치 확인</td><td>내가 어느 폴더에 있는지 (지도 앱의 현재 위치)</td></tr>
+        <tr><td>ls</td><td>파일 목록 보기</td><td>이 폴더에 뭐가 있는지 (탐색기 열기)</td></tr>
+        <tr><td>cd 폴더명</td><td>폴더 이동</td><td>그 폴더로 들어가기 (폴더 더블클릭)</td></tr>
+        <tr><td>mkdir 이름</td><td>새 폴더 만들기</td><td>마우스 우클릭 → 새 폴더</td></tr>
+        <tr><td>clear</td><td>화면 정리</td><td>터미널 깨끗하게 비우기</td></tr>
+      </tbody></table>
+      <div class="tip-box"><div class="tip-label">겁먹지 마세요</div><p>터미널은 무서운 게 아닙니다. 잘못 입력해도 컴퓨터가 고장나지 않습니다. "command not found" 에러가 뜰 뿐이에요. 다시 입력하면 됩니다.</p></div>`},
+    {title:'개발 환경 설치',icon:'⚙️',iconClass:'blue',subtitle:'Homebrew와 Node.js (10분이면 끝)',content:`
+      <p>Claude Code를 설치하려면 먼저 두 가지 도구가 필요합니다. 어렵지 않습니다 — 복사-붙여넣기만 하면 됩니다.</p>
+      <h4>Step 1: Homebrew 설치 (macOS)</h4>
+      <p>Homebrew는 macOS의 "앱스토어"와 비슷합니다. 터미널에서 프로그램을 설치할 때 사용합니다.</p>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># 터미널에 아래를 통째로 복사-붙여넣기 후 Enter</span>
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+<span class="comment"># 설치 확인 (버전 번호가 나오면 성공)</span>
+<span class="cmd">brew</span> <span class="flag">--version</span></pre></div>
+      <h4>Step 2: Node.js 설치</h4>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># macOS</span>
+<span class="cmd">brew</span> <span class="flag">install</span> node
+
+<span class="comment"># Windows — nodejs.org 에서 LTS 버전 다운로드 후 설치</span>
+
+<span class="comment"># 설치 확인 (v18 이상이면 OK)</span>
+<span class="cmd">node</span> <span class="flag">--version</span></pre></div>
+      <div class="warn-box"><div class="warn-label">Windows 사용자</div><p>Homebrew는 macOS 전용입니다. Windows는 <a href="https://nodejs.org" target="_blank">nodejs.org</a>에서 직접 다운로드하고, Claude Code는 <code>winget install Anthropic.ClaudeCode</code>로 설치합니다.</p></div>`},
+    {title:'왜 터미널에서 하나요?',icon:'💡',iconClass:'orange',subtitle:'claude.ai 웹이 있는데 왜 CLI를?',content:`
+      <p>Claude는 <a href="https://claude.ai" target="_blank">claude.ai</a> 웹에서도 사용할 수 있습니다. 그런데 <strong>무언가를 직접 만들려면</strong> 터미널 버전인 Claude Code가 훨씬 강력합니다.</p>
+      <div class="kv-item"><span class="kv-key">claude.ai (웹)</span><span class="kv-val">채팅으로 대화 → 코드를 복사해서 직접 파일에 붙여넣기 → 수동 반복</span></div>
+      <div class="kv-item"><span class="kv-key">Claude Code (터미널)</span><span class="kv-val">프로젝트 안에서 대화 → 파일 읽기/만들기/수정을 자동 수행 → 바로 실행</span></div>
+      <p style="margin-top:.8rem">웹 버전은 <strong>"조언해주는 친구"</strong>이고, Claude Code는 <strong>"옆에 앉아서 같이 만들어주는 동료"</strong>입니다.</p>
+      <div class="tip-box"><div class="tip-label">코드를 몰라도 됩니다</div><p>"할 일 목록 앱 만들어줘"라고 말하면 Claude Code가 알아서 만듭니다. 여러분은 <strong>무엇을 만들지</strong>만 설명하면 됩니다. 이것이 바이브 코딩(Vibe Coding)입니다.</p></div>`}
+  ],
+  practice:{
+    summary:'터미널을 열고, 기본 명령어를 실행하고, 개발 환경을 설치해보세요.',
+    steps:[
+      {title:'터미널 열기',desc:'macOS: <code>⌘+Space</code> → "터미널" 입력 → Enter. Windows: 시작 메뉴 → "PowerShell" 검색.',expected:'텍스트 화면이 열리고 커서가 깜빡이면 성공!'},
+      {title:'현재 위치 확인',desc:'<code>pwd</code>를 입력하고 Enter를 누르세요.',expected:'<code>/Users/이름</code> 같은 경로가 표시됩니다. 이게 지금 여러분이 있는 "폴더" 위치입니다.'},
+      {title:'파일 목록 보기',desc:'<code>ls</code>를 입력하고 Enter를 누르세요.',expected:'현재 폴더에 있는 파일과 폴더 이름들이 나열됩니다. Finder(탐색기)에서 보는 것과 같은 내용입니다.'},
+      {title:'폴더 만들고 이동하기',desc:'<code>mkdir my-first-project</code>를 입력 후 Enter. 그 다음 <code>cd my-first-project</code>를 입력하세요.',expected:'에러 없이 실행되면 성공. <code>pwd</code>로 확인하면 경로 끝에 my-first-project가 보입니다.'},
+      {title:'Homebrew 설치 (macOS)',desc:'위의 Homebrew 설치 명령어를 복사-붙여넣기하세요. 비밀번호를 물어보면 Mac 로그인 비밀번호를 입력합니다 (타이핑해도 화면에 안 보이는 게 정상).',expected:'<code>brew --version</code>을 입력하면 버전 번호가 표시됩니다. 설치에 5~10분 걸릴 수 있습니다.'},
+      {title:'Node.js 설치',desc:'<code>brew install node</code> (macOS) 또는 nodejs.org에서 다운로드 (Windows).',expected:'<code>node --version</code>으로 v18 이상이 표시되면 준비 완료!'}
+    ],
+    checklist:['터미널 열기 성공','pwd, ls, cd, mkdir 명령어 실행','Homebrew 설치 완료 (macOS)','Node.js v18+ 설치 확인','my-first-project 폴더 생성']
+  }
+},
 {
   id:'module0',num:'00',title:'Claude Code가 뭔가요?',desc:'개념, 역사, 왜 지금인가',time:'30분',
   goals:['Claude Code의 정체와 기존 도구 차이점 이해','2026년 현재 생태계 파악'],
