@@ -351,7 +351,19 @@ const modules = [
 <span class="cmd">/help</span>    <span class="comment"># 명령어 목록</span>
 <span class="cmd">/status</span>  <span class="comment"># 모델 상태</span>
 <span class="cmd">/model</span>   <span class="comment"># 모델 변경</span></pre></div>
-      <p>로그인 옵션: <strong>Claude.ai 구독</strong>(추천) / Console API / Bedrock / Vertex AI</p>`}
+      <p>로그인 옵션: <strong>Claude.ai 구독</strong>(추천) / Console API / Bedrock / Vertex AI</p>`},
+    {title:'IDE 연동',icon:'💻',iconClass:'purple',subtitle:'VS Code, JetBrains에서 사용하기',content:`
+      <p>Claude Code는 터미널 기반이지만, 익숙한 IDE 안에서도 바로 사용할 수 있습니다.</p>
+      <h4>VS Code</h4>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># VS Code 확장 설치</span>
+<span class="cmd">code</span> <span class="flag">--install-extension</span> anthropic.claude-code
+
+<span class="comment"># 또는 VS Code 내장 터미널에서 바로 실행</span>
+<span class="cmd">claude</span></pre></div>
+      <p>설치 후 VS Code 사이드바의 Claude Code 패널을 사용하거나, 내장 터미널에서 <code>claude</code>를 실행하세요.</p>
+      <h4>JetBrains (IntelliJ, WebStorm 등)</h4>
+      <p>Settings → Plugins → Marketplace에서 <strong>"Claude Code"</strong>를 검색하여 설치합니다. 내장 터미널에서도 바로 사용 가능합니다.</p>
+      <div class="tip-box"><div class="tip-label">팁</div><p>IDE 연동의 장점: 파일 탐색기와 Claude Code를 나란히 보며 작업할 수 있고, Claude가 수정한 파일이 즉시 에디터에 반영됩니다.</p></div>`}
   ],
   practice:{
     summary:'실제로 Claude Code를 설치하고, 빈 프로젝트에서 첫 대화를 나눠보세요.',
@@ -363,7 +375,7 @@ const modules = [
       {title:'첫 번째 대화',desc:'다음을 입력해보세요: <code>"이 폴더에 간단한 HTML 페이지를 만들어줘. Hello World를 표시하는 페이지."</code>',expected:'Claude가 index.html 파일을 생성합니다. 파일 생성 전 승인을 요청할 수 있습니다 (Normal Mode).'},
       {title:'결과 확인',desc:'<code>ls</code> 명령어나 파일 탐색기로 생성된 파일을 확인하세요. 브라우저에서 열어보세요.',expected:'index.html이 생성되어 있고, 브라우저에서 "Hello World"가 표시됩니다.'}
     ],
-    checklist:['Claude Code 설치 완료','로그인 성공','첫 번째 파일 생성 확인','/help, /status 명령어 테스트']
+    checklist:['Claude Code 설치 완료','로그인 성공','첫 번째 파일 생성 확인','/help, /status 명령어 테스트','IDE(VS Code 또는 JetBrains)에서 Claude Code 실행']
   }
 },
 {
@@ -402,7 +414,38 @@ const modules = [
 <span class="cmd">cat</span> error.log | <span class="cmd">claude</span> <span class="flag">-p</span> <span class="string">"이 에러를 분석해줘"</span>
 
 <span class="comment"># JSON 출력</span>
-<span class="cmd">claude</span> <span class="flag">-p --output-format json</span> <span class="string">"의존성 분석"</span></pre></div>`}
+<span class="cmd">claude</span> <span class="flag">-p --output-format json</span> <span class="string">"의존성 분석"</span></pre></div>`},
+    {title:'비용 & 토큰 관리',icon:'💰',iconClass:'orange',subtitle:'요금 폭탄 방지 필수 지식',content:`
+      <p>Claude Code는 API 토큰을 소비합니다. 플랜별 한도를 이해하고 사용량을 모니터링하는 것이 중요합니다.</p>
+      <h4>플랜별 차이</h4>
+      <table class="data-table"><thead><tr><th>플랜</th><th>가격</th><th>특징</th></tr></thead><tbody>
+        <tr><td>Pro</td><td>$20/월</td><td>기본 사용량, Sonnet 중심</td></tr>
+        <tr><td>Max 5x</td><td>$100/월</td><td>Opus 사용 가능, 5배 사용량</td></tr>
+        <tr><td>Max 20x</td><td>$200/월</td><td>Opus 무제한급, 20배 사용량</td></tr>
+        <tr><td>API (Console)</td><td>종량제</td><td>토큰당 과금 — 예산 설정 필수</td></tr>
+      </tbody></table>
+      <h4>사용량 확인 & 절약</h4>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># 현재 세션 토큰 사용량 확인</span>
+<span class="cmd">/cost</span>
+
+<span class="comment"># 대화 압축 (토큰 절약)</span>
+<span class="cmd">/compact</span>
+
+<span class="comment"># 커스텀 요약으로 압축</span>
+<span class="cmd">/compact</span> <span class="string">"인증 관련 내용만 유지해줘"</span></pre></div>
+      <div class="warn-box"><div class="warn-label">절약 팁</div><p>대화가 길어지면 <code>/compact</code>로 압축하세요. 단순 질문은 Sonnet, 복잡한 작업은 Opus로 모델을 전환하면 비용을 크게 줄일 수 있습니다.</p></div>`},
+    {title:'모델 선택 전략',icon:'🤖',iconClass:'blue',subtitle:'Opus vs Sonnet vs Haiku, 언제 뭘 쓸까',content:`
+      <p><code>/model</code>로 언제든 모델을 전환할 수 있습니다. 작업 유형에 따라 적절한 모델을 선택하면 비용과 속도를 최적화할 수 있습니다.</p>
+      <table class="data-table"><thead><tr><th>모델</th><th>적합한 작업</th><th>특징</th></tr></thead><tbody>
+        <tr><td>Opus 4.6</td><td>복잡한 아키텍처 설계, 대규모 리팩토링, 어려운 버그 수정</td><td>최고 품질, 느림, 비쌈</td></tr>
+        <tr><td>Sonnet 4.6</td><td>일반적인 코딩, 파일 수정, 테스트 작성</td><td>빠르고 균형 잡힌 성능, 가성비 최고</td></tr>
+        <tr><td>Haiku 4.5</td><td>간단한 질문, 코드 설명, 한 줄 수정</td><td>가장 빠르고 저렴</td></tr>
+      </tbody></table>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># 모델 변경</span>
+<span class="cmd">/model</span>                <span class="comment"># 대화형 선택</span>
+<span class="cmd">/model opus</span>           <span class="comment"># Opus로 변경</span>
+<span class="cmd">/model sonnet</span>         <span class="comment"># Sonnet으로 변경</span></pre></div>
+      <div class="tip-box"><div class="tip-label">추천 전략</div><p>평소에는 <strong>Sonnet</strong>으로 작업하고, 복잡한 설계나 디버깅이 필요할 때만 <strong>Opus</strong>로 전환하세요. 이것만으로 비용 50% 이상 절약 가능합니다.</p></div>`}
   ],
   practice:{
     summary:'3가지 권한 모드를 직접 전환하며 차이를 체감하세요.',
@@ -413,7 +456,7 @@ const modules = [
       {title:'비대화형 모드 테스트',desc:'별도 터미널에서 <code>claude -p "현재 디렉토리의 파일 목록을 알려줘"</code>를 실행하세요.',expected:'결과가 출력되고 자동으로 종료됩니다. 스크립트에서 활용 가능합니다.'},
       {title:'세션 이어하기',desc:'<code>claude</code>를 실행하고 대화한 뒤 종료. 다시 <code>claude</code> 실행 후 <code>/resume</code>으로 이전 세션을 선택하세요.',expected:'이전 대화 목록이 보이고, 선택하면 컨텍스트가 복원됩니다.'}
     ],
-    checklist:['Plan Mode에서 분석 실행','Normal Mode에서 파일 수정','Shift+Tab 모드 전환 3번 이상','비대화형 모드 (-p) 실행','/resume로 세션 이어하기']
+    checklist:['Plan Mode에서 분석 실행','Normal Mode에서 파일 수정','Shift+Tab 모드 전환 3번 이상','비대화형 모드 (-p) 실행','/resume로 세션 이어하기','/cost로 토큰 사용량 확인','/model로 Opus ↔ Sonnet 전환 테스트']
   }
 },
 {
@@ -488,7 +531,20 @@ const modules = [
 
 <span class="comment"># 2단계: 확인 후 Normal Mode</span>
 <span class="comment"># Shift+Tab → Normal</span>
-<span class="prompt">> </span><span class="string">"위 계획대로 실행해줘"</span></pre></div>`}
+<span class="prompt">> </span><span class="string">"위 계획대로 실행해줘"</span></pre></div>`},
+    {title:'컨텍스트 윈도우 이해',icon:'📊',iconClass:'green',subtitle:'대화가 길어지면 성능이 떨어지는 이유',content:`
+      <p>Claude Code는 매 요청마다 <strong>대화 전체 내용</strong>을 모델에 전송합니다. 대화가 길어지면 컨텍스트 윈도우가 차서 성능이 저하됩니다.</p>
+      <h4>컨텍스트 윈도우란?</h4>
+      <p>모델이 한 번에 처리할 수 있는 텍스트 양(토큰)의 한계입니다. 대화 + 파일 내용 + CLAUDE.md + MCP 도구 정의가 모두 이 안에 들어가야 합니다.</p>
+      <table class="data-table"><thead><tr><th>모델</th><th>컨텍스트</th></tr></thead><tbody>
+        <tr><td>Opus 4.6</td><td>200K (1M Beta)</td></tr>
+        <tr><td>Sonnet 4.6</td><td>200K</td></tr>
+      </tbody></table>
+      <h4>성능 저하 신호 & 해결법</h4>
+      <div class="kv-item"><span class="kv-key">이전 대화를 잊음</span><span class="kv-val"><code>/compact</code>로 압축 또는 <code>/clear</code> 후 새 세션</span></div>
+      <div class="kv-item"><span class="kv-key">응답이 느려짐</span><span class="kv-val">컨텍스트 가득 참 — <code>/cost</code>로 토큰 확인 후 압축</span></div>
+      <div class="kv-item"><span class="kv-key">엉뚱한 파일 수정</span><span class="kv-val">컨텍스트 혼잡 — 새 세션에서 작업 재시작</span></div>
+      <div class="tip-box"><div class="tip-label">핵심 원칙</div><p><strong>하나의 세션 = 하나의 작업.</strong> 기능 구현이 끝나면 새 세션을 시작하세요. 여러 작업을 하나의 세션에서 하면 컨텍스트가 오염됩니다. <code>/compact "요약 키워드"</code>로 필요한 맥락만 남길 수도 있습니다.</p></div>`}
   ],
   practice:{
     summary:'같은 기능을 다양한 프롬프트로 요청하여 결과 차이를 분석하세요.',
@@ -499,7 +555,7 @@ const modules = [
       {title:'@ 멘션 활용',desc:'프로젝트 내 특정 파일을 <code>@파일경로</code>로 참조하며 수정을 요청하세요.',expected:'Claude가 해당 파일의 맥락을 정확히 이해하고 수정합니다.'},
       {title:'결과 비교 정리',desc:'나쁜 프롬프트와 좋은 프롬프트의 결과를 비교하여 차이점을 3가지 이상 적어보세요.',expected:'프롬프트 품질이 결과물 품질에 직접적으로 영향을 미친다는 것을 체감합니다.'}
     ],
-    checklist:['나쁜 프롬프트 결과물 저장','좋은 프롬프트 결과물 저장','차이점 3가지 이상 정리','Plan Mode로 분석 실행','@ 멘션으로 파일 참조 사용']
+    checklist:['나쁜 프롬프트 결과물 저장','좋은 프롬프트 결과물 저장','차이점 3가지 이상 정리','Plan Mode로 분석 실행','@ 멘션으로 파일 참조 사용','/compact로 대화 압축 실행','새 세션 시작으로 컨텍스트 리셋 체험']
   }
 },
 {
