@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>고급 기능 & 팀 협업</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface-raised: #1a1a26;
+    --surface-hover: #22222f;
+    --border: #2a2a3a;
+    --border-bright: #3a3a5a;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --text-muted: #5a5a72;
+    --accent: #c4a0ff;
+    --accent-dim: #9070cc;
+    --accent-glow: rgba(196, 160, 255, 0.15);
+    --accent-glow-strong: rgba(196, 160, 255, 0.25);
+    --green: #7dd3a0;
+    --green-dim: rgba(125, 211, 160, 0.12);
+    --blue: #7daed3;
+    --blue-dim: rgba(125, 174, 211, 0.12);
+    --orange: #d3a07d;
+    --orange-dim: rgba(211, 160, 125, 0.12);
+    --pink: #d37da0;
+    --pink-dim: rgba(211, 125, 160, 0.12);
+    --yellow: #d3cc7d;
+    --yellow-dim: rgba(211, 204, 125, 0.12);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ---- BACK LINK ---- */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, var(--accent-glow-strong) 0%, transparent 65%);
+    pointer-events: none;
+    animation: pulse 6s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1px solid var(--border-bright);
+    background: var(--surface);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.8s ease;
+  }
+
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.8s ease 0.1s both;
+  }
+
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--accent) 0%, #7daed3 50%, var(--green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 2.2vw, 20px);
+    color: var(--text-dim);
+    text-align: center;
+    max-width: 620px;
+    margin-top: 24px;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.8s ease 0.2s both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    margin-top: 48px;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.8s ease 0.35s both;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s ease;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .btn-primary:hover {
+    background: #d4b4ff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(196, 160, 255, 0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border-bright);
+  }
+  .btn-outline:hover {
+    background: var(--surface-hover);
+    border-color: var(--accent-dim);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 12px;
+    animation: bounce 2s infinite 1.5s;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .scroll-hint svg {
+    width: 20px; height: 20px;
+    stroke: var(--text-muted);
+  }
+
+  /* ---- LAYOUT ---- */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 100px 0;
+  }
+
+  /* ---- NAV ---- */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-link {
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .nav-home {
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-home:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ---- SECTION HEADERS ---- */
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent-dim);
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4.5vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+
+  /* ---- CARDS ---- */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .card-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  .card-grid-2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+  .card-grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+  .card-icon {
+    width: 52px; height: 52px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ---- ANALOGY BOX ---- */
+  .analogy-box {
+    background: var(--accent-glow);
+    border: 1px solid rgba(196, 160, 255, 0.2);
+    border-radius: var(--radius-lg);
+    padding: 36px 40px;
+    margin: 40px 0;
+    position: relative;
+  }
+
+  .analogy-box::before {
+    content: '\1F4A1';
+    font-size: 28px;
+    position: absolute;
+    top: -16px;
+    left: 28px;
+  }
+
+  .analogy-box h4 {
+    font-size: 17px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .analogy-box p {
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+
+  /* ---- COMPARISON ---- */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  @media (max-width: 640px) {
+    .comparison { grid-template-columns: 1fr; }
+  }
+
+  .comp-bad, .comp-good {
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+  }
+
+  .comp-bad {
+    background: rgba(211, 100, 100, 0.06);
+    border: 1px solid rgba(211, 100, 100, 0.18);
+  }
+
+  .comp-good {
+    background: var(--green-dim);
+    border: 1px solid rgba(125, 211, 160, 0.2);
+  }
+
+  .comp-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .comp-bad .comp-label { color: #d36464; }
+  .comp-good .comp-label { color: var(--green); }
+
+  .comp-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    white-space: pre-wrap;
+  }
+
+  /* ---- CODE BLOCK ---- */
+  .code-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 24px 0;
+  }
+
+  .code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: var(--surface-raised);
+    border-bottom: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  .code-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .code-dots span {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--border-bright);
+  }
+
+  .code-body {
+    padding: 20px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-x: auto;
+    color: var(--text-dim);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .code-body .keyword { color: var(--accent); }
+  .code-body .string { color: var(--green); }
+  .code-body .comment { color: var(--text-muted); font-style: italic; }
+  .code-body .file { color: var(--orange); }
+  .code-body .desc { color: var(--blue); }
+
+  /* ---- STEP FLOW ---- */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    position: relative;
+  }
+
+  .step-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    background: var(--surface-raised);
+    border: 2px solid var(--accent-dim);
+    color: var(--accent);
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  .step-line {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(to bottom, var(--accent-dim) 0%, var(--border) 100%);
+    margin-top: 4px;
+  }
+
+  .step:last-child .step-line { display: none; }
+
+  .step-content {
+    padding-bottom: 48px;
+  }
+
+  .step-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-top: 8px;
+  }
+
+  .step-content p {
+    color: var(--text-dim);
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  /* ---- TAGS ---- */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+
+  .tag {
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .tag-purple { background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(196,160,255,0.2); }
+  .tag-green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(125,211,160,0.2); }
+  .tag-blue { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(125,174,211,0.2); }
+  .tag-orange { background: var(--orange-dim); color: var(--orange); border: 1px solid rgba(211,160,125,0.2); }
+  .tag-pink { background: var(--pink-dim); color: var(--pink); border: 1px solid rgba(211,125,160,0.2); }
+  .tag-yellow { background: var(--yellow-dim); color: var(--yellow); border: 1px solid rgba(211,204,125,0.2); }
+
+  /* ---- EXAMPLE GALLERY ---- */
+  .example-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .example-card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-2px);
+  }
+
+  .example-top {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .example-top h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .example-top p {
+    color: var(--text-dim);
+    font-size: 13px;
+  }
+
+  .example-bottom {
+    padding: 20px 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    background: var(--surface-raised);
+  }
+
+  /* ---- CHECKLIST ---- */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--text-dim);
+  }
+
+  .checklist li .check {
+    width: 24px; height: 24px;
+    border-radius: 6px;
+    background: var(--green-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .checklist li .check svg {
+    width: 14px; height: 14px;
+    stroke: var(--green);
+  }
+
+  /* ---- DECISION TREE ---- */
+  .decision-tree {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    margin: 32px 0;
+  }
+
+  .dt-question {
+    background: var(--accent-glow);
+    border: 1px solid rgba(196,160,255,0.2);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .dt-branches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 640px) {
+    .dt-branches { grid-template-columns: 1fr; }
+  }
+
+  .dt-branch {
+    border-radius: var(--radius);
+    padding: 16px 20px;
+  }
+
+  .dt-yes {
+    background: var(--green-dim);
+    border: 1px solid rgba(125,211,160,0.2);
+  }
+
+  .dt-no {
+    background: var(--orange-dim);
+    border: 1px solid rgba(211,160,125,0.2);
+  }
+
+  .dt-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .dt-yes .dt-label { color: var(--green); }
+  .dt-no .dt-label { color: var(--orange); }
+
+  .dt-branch p {
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  /* ---- TABLE OF BUILT-IN SKILLS ---- */
+  .skill-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 24px 0;
+  }
+
+  .skill-table th {
+    background: var(--surface-raised);
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-table td {
+    padding: 14px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .skill-table tr:last-child td { border-bottom: none; }
+
+  .skill-table tr:hover td { background: var(--surface-hover); }
+
+  .skill-name-cell {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 13px;
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 60px 24px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  footer a {
+    color: var(--accent-dim);
+    text-decoration: none;
+  }
+
+  /* ---- CHAPTER NAV ---- */
+  .chapter-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto 32px;
+    padding: 0 24px;
+  }
+
+  .chapter-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+
+  .chapter-nav a:hover {
+    color: var(--accent);
+    border-color: var(--accent-dim);
+    background: var(--accent-glow);
+  }
+
+  /* ---- DIVIDER ---- */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ---- TIP CALLOUT ---- */
+  .tip {
+    display: flex;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: var(--radius);
+    background: var(--blue-dim);
+    border: 1px solid rgba(125,174,211,0.2);
+    margin: 24px 0;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  .tip-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .tip strong { color: var(--blue); }
+
+  /* ---- ACCORDION ---- */
+  .accordion {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 16px 0;
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .accordion-item:last-child { border-bottom: none; }
+
+  .accordion-btn {
+    width: 100%;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface);
+    border: none;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+
+  .accordion-btn:hover { background: var(--surface-hover); }
+
+  .accordion-btn .arrow {
+    transition: transform 0.3s;
+    color: var(--text-muted);
+  }
+
+  .accordion-btn.open .arrow { transform: rotate(180deg); }
+
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .accordion-body-inner {
+    padding: 0 24px 24px;
+    color: var(--text-dim);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 640px) {
+    .card { padding: 24px; }
+    .analogy-box { padding: 28px; }
+    .decision-tree { padding: 24px; }
+    section { padding: 60px 0; }
+    .step { grid-template-columns: 44px 1fr; gap: 16px; }
+    .chapter-nav { flex-direction: column; gap: 12px; }
+    .chapter-nav a { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =================== BACK LINK =================== -->
+<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+
+<!-- =================== HERO =================== -->
+<div class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Module 09 &mdash; 끝판왕 기능
+  </div>
+  <h1>
+    <span class="highlight">고급 기능</span> &amp;<br>팀 협업
+  </h1>
+  <p class="hero-sub">
+    Worktree, Teleport, Agent Teams &mdash; Claude Code의 끝판왕 기능들
+  </p>
+  <div class="hero-cta">
+    <a href="#worktree" class="btn btn-primary">Worktree 알아보기</a>
+    <a href="#teams" class="btn btn-outline">Agent Teams &rarr;</a>
+  </div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    스크롤
+  </div>
+</div>
+
+<!-- =================== NAV =================== -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
+    <a href="#worktree" class="nav-link">Worktree</a>
+    <a href="#teleport" class="nav-link">Teleport</a>
+    <a href="#teams" class="nav-link">Agent Teams</a>
+    <a href="#slash" class="nav-link">커스텀 슬래시</a>
+    <a href="#context" class="nav-link">1M 컨텍스트</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+  </div>
+</nav>
+
+<!-- =================== SECTION 1: WORKTREE =================== -->
+<section id="worktree">
+  <div class="container">
+    <div class="section-number">01</div>
+    <h2 class="section-title">Worktree 격리</h2>
+    <p class="section-desc">
+      본 프로젝트를 건드리지 않고 <strong style="color:var(--accent)">안전한 실험 공간</strong>에서 작업하세요.
+    </p>
+
+    <div class="analogy-box">
+      <h4>"실험실" 비유로 이해하기</h4>
+      <p>
+        과학자가 실험할 때, 본 연구실의 시약을 직접 섞지 않습니다. 별도의 <strong style="color:var(--accent)">실험실</strong>에서 먼저 시도하죠.<br><br>
+        Worktree도 마찬가지입니다. 현재 프로젝트 코드를 복사해서 <strong style="color:var(--text)">격리된 작업 공간</strong>을 만들고, 거기서 마음껏 실험합니다.<br>
+        실험이 성공하면 본 프로젝트에 머지하고, 실패하면 그냥 삭제하면 됩니다. &mdash; 본 코드는 단 한 줄도 다치지 않습니다.
+      </p>
+    </div>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px;">Worktree 작업 흐름</h3>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>격리된 Worktree 생성</h3>
+          <p>Claude Code에서 Worktree 모드를 시작하면, 현재 브랜치를 기반으로 격리된 작업 공간이 만들어집니다.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>Terminal</span>
+            </div>
+            <div class="code-body"><span class="comment"># Worktree 모드로 Claude Code 시작</span>
+<span class="keyword">claude</span> -w
+
+<span class="comment"># 또는 대화 중에 worktree 요청</span>
+<span class="string">"worktree에서 이 리팩토링 작업 해줘"</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>격리 공간에서 작업</h3>
+          <p>Worktree 안에서는 파일 수정, 삭제, 구조 변경 등 무엇이든 자유롭게 할 수 있습니다. 원본에는 영향이 없습니다.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>Worktree 내부</span>
+            </div>
+            <div class="code-body"><span class="comment"># 격리된 공간의 경로</span>
+<span class="file">.claude/worktrees/my-experiment/</span>
+
+<span class="comment"># 이 안에서 마음껏 작업</span>
+<span class="keyword">claude</span> <span class="string">"아키텍처를 MVVM에서 TCA로 전환해줘"</span>
+<span class="comment"># 원본은 전혀 영향 없음!</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>결과 확인</h3>
+          <p>작업이 끝나면 빌드, 테스트를 실행해서 결과를 검증합니다.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>머지 또는 삭제</h3>
+          <p>성공하면 원본 브랜치에 머지하고, 실패하면 Worktree를 삭제합니다. 세션 종료 시 유지/삭제를 선택할 수 있습니다.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>Terminal</span>
+            </div>
+            <div class="code-body"><span class="comment"># 성공 → 머지</span>
+<span class="keyword">git</span> merge my-experiment-branch
+
+<span class="comment"># 실패 → 삭제 (세션 종료 시 자동 안내)</span>
+<span class="string">"Keep or remove this worktree?"</span> &rarr; Remove</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">&#x1F9EA;</span>
+      <div>
+        <strong>이럴 때 Worktree를 쓰세요:</strong> 위험한 리팩토링, 실험적 기능 개발, 대규모 아키텍처 변경 등 "혹시 실패하면 어쩌지?"가 걱정될 때. 원본 코드를 전혀 건드리지 않으므로 마음 편하게 도전할 수 있습니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 2: TELEPORT =================== -->
+<section id="teleport">
+  <div class="container">
+    <div class="section-number">02</div>
+    <h2 class="section-title">Teleport</h2>
+    <p class="section-desc">
+      <strong style="color:var(--accent)">로컬 &#x2194; 웹</strong> 세션을 자유롭게 이동하세요. 터미널에서 하던 작업을 웹으로, 웹에서 하던 작업을 터미널로.
+    </p>
+
+    <div class="analogy-box">
+      <h4>"작업 포탈" 비유로 이해하기</h4>
+      <p>
+        게임에서 <strong style="color:var(--accent)">포탈</strong>을 타면 다른 세계로 순간이동하듯이,<br>
+        Teleport를 사용하면 터미널에서 하던 작업을 <strong style="color:var(--text)">웹 브라우저</strong>로, 또는 웹에서 하던 작업을 <strong style="color:var(--text)">터미널</strong>로 순간이동할 수 있습니다.<br><br>
+        작업 컨텍스트가 통째로 이동하기 때문에, 대화 히스토리를 다시 설명할 필요가 없습니다.
+      </p>
+    </div>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px;">Teleport 작업 흐름</h3>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>세션 시작</h3>
+          <p>터미널(Claude Code CLI)이나 웹(claude.ai)에서 작업을 시작합니다.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>Teleport 명령</h3>
+          <p>작업 환경을 전환하고 싶을 때 Teleport 명령을 사용합니다.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>Terminal</span>
+            </div>
+            <div class="code-body"><span class="comment"># 터미널 → 웹으로 이동</span>
+<span class="keyword">/teleport</span>
+
+<span class="comment"># URL이 생성됨</span>
+<span class="string">https://claude.ai/teleport/abc123...</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>URL로 연결</h3>
+          <p>생성된 URL을 브라우저에서 열면 동일한 컨텍스트로 작업을 이어갈 수 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>다른 환경에서 작업 계속</h3>
+          <p>이전 대화 히스토리와 컨텍스트가 그대로 유지된 채 새로운 환경에서 이어서 작업합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">&#x1F465;</span>
+      <div>
+        <strong>팀 협업 팁:</strong> Teleport URL을 팀원에게 공유하면, 내가 작업하던 세션의 컨텍스트를 팀원이 이어받아 작업할 수 있습니다. "이 코드 좀 봐줘"를 넘어서 "내 작업 세션 자체"를 공유하는 겁니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 3: AGENT TEAMS =================== -->
+<section id="teams">
+  <div class="container">
+    <div class="section-number">03</div>
+    <h2 class="section-title">Agent Teams</h2>
+    <p class="section-desc">
+      여러 Claude 에이전트가 <strong style="color:var(--accent)">동시에 협업</strong>하는 멀티에이전트 오케스트레이션.
+    </p>
+
+    <div class="analogy-box">
+      <h4>"프로젝트 팀" 비유로 이해하기</h4>
+      <p>
+        혼자서 프론트엔드, 백엔드, QA, 문서화를 다 하면 시간이 오래 걸립니다.<br><br>
+        Agent Teams는 <strong style="color:var(--accent)">PM(메인 에이전트)</strong>이 작업을 분배하고,<br>
+        <strong style="color:var(--green)">프론트엔드 개발자</strong>, <strong style="color:var(--blue)">백엔드 개발자</strong>, <strong style="color:var(--orange)">QA 엔지니어</strong>가 각자의 Worktree에서 <strong style="color:var(--text)">동시에</strong> 작업합니다.<br><br>
+        마치 실제 개발팀처럼, 각 에이전트가 전문 영역을 맡아 병렬로 처리합니다.
+      </p>
+    </div>
+
+    <div class="card-grid card-grid-2" style="margin-top: 40px;">
+      <div class="card">
+        <div class="card-icon" style="background: var(--green-dim);">&#x26A1;</div>
+        <h3>장점: 병렬 처리</h3>
+        <p>여러 에이전트가 동시에 작업하므로, 순차적으로 처리하는 것보다 훨씬 빠릅니다. 프론트엔드 수정과 백엔드 수정을 동시에 진행할 수 있습니다.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--blue-dim);">&#x1F3AF;</div>
+        <h3>장점: 전문화</h3>
+        <p>각 에이전트에게 특정 역할과 컨텍스트를 부여할 수 있습니다. 프론트엔드 전문 에이전트는 UI/UX에만 집중하고, 백엔드 에이전트는 API에만 집중합니다.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--orange-dim);">&#x1F4B0;</div>
+        <h3>주의점: 비용</h3>
+        <p>여러 에이전트가 동시에 동작하므로 API 사용량이 늘어납니다. 간단한 작업에는 단일 에이전트가 더 효율적일 수 있으니, 복잡한 작업에만 사용하세요.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--pink-dim);">&#x26A0;</div>
+        <h3>주의점: 충돌 가능성</h3>
+        <p>여러 에이전트가 같은 파일을 수정하면 머지 충돌이 발생할 수 있습니다. 작업 영역을 명확히 분리하고, 메인 에이전트가 조율하도록 설계하세요.</p>
+      </div>
+    </div>
+
+    <div class="code-block" style="margin-top: 40px;">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span>Agent Teams 사용 예시</span>
+      </div>
+      <div class="code-body"><span class="comment"># 메인 에이전트에게 팀 작업 요청</span>
+<span class="keyword">claude</span> <span class="string">"이 프로젝트를 리팩토링해줘.
+프론트엔드, 백엔드, 테스트를 병렬로 처리해."</span>
+
+<span class="comment"># Claude가 자동으로 서브에이전트를 생성</span>
+<span class="desc">Agent 1 (Frontend)</span>: UI 컴포넌트 리팩토링
+<span class="desc">Agent 2 (Backend)</span>: API 엔드포인트 정리
+<span class="desc">Agent 3 (Test)</span>: 테스트 커버리지 확대
+
+<span class="comment"># 각 에이전트는 별도 Worktree에서 독립 작업</span>
+<span class="comment"># 메인 에이전트가 결과를 취합 & 머지</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 4: CUSTOM SLASH =================== -->
+<section id="slash">
+  <div class="container">
+    <div class="section-number">04</div>
+    <h2 class="section-title">커스텀 슬래시 커맨드</h2>
+    <p class="section-desc">
+      <code style="color:var(--accent)">.claude/commands/</code> 디렉토리에 마크다운 파일을 넣으면, 나만의 슬래시 커맨드가 됩니다.
+    </p>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px;">만드는 법</h3>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>폴더 생성</h3>
+          <p>프로젝트 루트에 <code style="color:var(--accent)">.claude/commands/</code> 디렉토리를 만듭니다.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>Terminal</span>
+            </div>
+            <div class="code-body"><span class="keyword">mkdir</span> -p .claude/commands</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>.md 파일 작성</h3>
+          <p>파일 이름이 곧 커맨드 이름이 됩니다. 내용에는 Claude가 수행할 작업을 적습니다.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>.claude/commands/review.md</span>
+            </div>
+            <div class="code-body"><span class="keyword"># 코드 리뷰</span>
+
+현재 스테이징된 변경사항을 리뷰해줘.
+
+<span class="desc">## 리뷰 기준</span>
+- 버그 가능성이 있는 코드
+- 성능 이슈
+- 네이밍 컨벤션 위반
+- 테스트 누락
+
+<span class="desc">## 출력 포맷</span>
+파일별로 정리하되, 심각도를 <span class="string">HIGH / MEDIUM / LOW</span>로 분류.
+마지막에 전체 요약을 1~2문장으로 작성.</div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>.claude/commands/test.md</span>
+            </div>
+            <div class="code-body"><span class="keyword"># 테스트 생성</span>
+
+<span class="file">$ARGUMENTS</span> 파일에 대한 유닛 테스트를 작성해줘.
+
+<span class="desc">## 규칙</span>
+- 테스트 프레임워크: 프로젝트에서 사용 중인 것
+- 엣지 케이스 포함
+- 각 테스트에 한글 설명 주석 추가
+- 성공/실패 케이스 모두 작성</div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>.claude/commands/deploy.md</span>
+            </div>
+            <div class="code-body"><span class="keyword"># 배포 체크리스트</span>
+
+배포 전 아래 항목을 확인해줘:
+
+1. <span class="string">모든 테스트 통과 여부</span> 확인
+2. <span class="string">린트 에러</span> 없는지 확인
+3. <span class="string">환경변수</span> 설정 누락 없는지 확인
+4. <span class="string">마이그레이션</span> 필요 여부 확인
+5. 문제가 없으면 <span class="desc">"배포 준비 완료"</span> 메시지 출력</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>사용하기</h3>
+          <p>Claude Code 대화 중에 슬래시(/)로 시작하면 자동 완성됩니다.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>Claude Code CLI</span>
+            </div>
+            <div class="code-body"><span class="comment"># 커스텀 커맨드 사용</span>
+<span class="keyword">/review</span>          <span class="comment">← 코드 리뷰 실행</span>
+<span class="keyword">/test</span> src/utils.ts <span class="comment">← 특정 파일 테스트 생성</span>
+<span class="keyword">/deploy</span>          <span class="comment">← 배포 체크리스트 실행</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">&#x1F465;</span>
+      <div>
+        <strong>팀 공유 팁:</strong> <code style="color:var(--accent)">.claude/commands/</code> 디렉토리를 Git에 커밋하면, 팀 전체가 동일한 커스텀 커맨드를 사용할 수 있습니다. 팀의 워크플로우를 코드로 관리하세요.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 5: CONTEXT =================== -->
+<section id="context">
+  <div class="container">
+    <div class="section-number">05</div>
+    <h2 class="section-title">1M 컨텍스트 &amp; 플러그인</h2>
+    <p class="section-desc">
+      <strong style="color:var(--accent)">Extended Context Window</strong> &mdash; 방대한 코드베이스도 한 번에 파악합니다.
+    </p>
+
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+      <span style="color: var(--accent)">&#9679;</span> 모델별 컨텍스트 크기 비교
+    </h3>
+
+    <table class="skill-table">
+      <thead>
+        <tr>
+          <th style="width: 200px;">모델</th>
+          <th>컨텍스트 윈도우</th>
+          <th style="width: 200px;">대략적 코드량</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="skill-name-cell">GPT-4</td>
+          <td style="color: var(--text-dim);">128K 토큰</td>
+          <td><span class="tag tag-orange">~300 파일</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">Claude 3.5 Sonnet</td>
+          <td style="color: var(--text-dim);">200K 토큰</td>
+          <td><span class="tag tag-blue">~500 파일</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">Claude (Extended)</td>
+          <td style="color: var(--text-dim);">1M 토큰</td>
+          <td><span class="tag tag-green">~2,500 파일</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">Claude Code + 탐색</td>
+          <td style="color: var(--text-dim);">1M+ (도구 활용)</td>
+          <td><span class="tag tag-purple">사실상 무제한</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card-grid card-grid-2" style="margin-top: 40px;">
+      <div class="card">
+        <div class="card-icon" style="background: var(--green-dim);">&#x1F50D;</div>
+        <h3>전체 코드베이스 분석</h3>
+        <p>대규모 프로젝트의 아키텍처를 한눈에 파악할 수 있습니다. "이 프로젝트의 전체 구조를 설명해줘"라고 하면, 수천 개의 파일을 탐색하고 종합적인 분석을 제공합니다.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--accent-glow);">&#x1F504;</div>
+        <h3>대규모 리팩토링</h3>
+        <p>API 변경, 네이밍 컨벤션 통일, 디자인 패턴 적용 등 프로젝트 전반에 걸친 변경을 안전하게 수행합니다. 모든 관련 파일을 파악하고 일관성 있게 수정합니다.</p>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top: 32px;">
+      <span class="tip-icon">&#x1F4A1;</span>
+      <div>
+        <strong>중요 포인트:</strong> 컨텍스트 윈도우가 아무리 커도 <code style="color:var(--accent)">/compact</code> 전략은 여전히 중요합니다. 불필요한 컨텍스트를 줄이면 응답 품질이 올라가고, 비용도 절약됩니다. 대용량 컨텍스트는 "필요할 때 쓸 수 있는 여유"이지, "항상 다 채워야 하는 공간"이 아닙니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 6: FAQ =================== -->
+<section id="faq">
+  <div class="container">
+    <div class="section-number">06</div>
+    <h2 class="section-title">자주 묻는 질문</h2>
+    <p class="section-desc">
+      고급 기능에 대해 가장 많이 궁금해하는 것들
+    </p>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Worktree와 Git branch의 차이는?
+          <span class="arrow">&#x25BC;</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            Git branch는 같은 작업 디렉토리에서 브랜치만 전환하는 것이고, Worktree는 <strong>물리적으로 별도의 디렉토리</strong>를 만들어서 작업합니다. Branch를 전환하면 현재 작업 중인 파일이 바뀌지만, Worktree는 원본 디렉토리는 그대로 두고 별도 공간에서 작업하므로 두 작업을 동시에 진행할 수 있습니다. Claude Code의 Worktree 모드는 이 Git Worktree 기능을 활용하여, 안전한 격리 환경에서 에이전트가 자유롭게 코드를 수정할 수 있도록 합니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Agent Teams로 동시에 몇 개까지 실행 가능?
+          <span class="arrow">&#x25BC;</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            기술적으로는 여러 개의 서브에이전트를 동시에 실행할 수 있지만, 일반적으로 <strong>3~5개</strong> 정도가 효율적입니다. 너무 많은 에이전트를 동시에 실행하면 API 비용이 급증하고, 머지 충돌 가능성도 높아집니다. 메인 에이전트가 작업을 잘 분배하도록 명확한 지시를 주는 것이 중요합니다. 시스템 리소스(CPU, 메모리)도 고려해야 합니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          커스텀 커맨드에 변수를 전달할 수 있나요?
+          <span class="arrow">&#x25BC;</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            네! .md 파일 안에서 <code style="color:var(--accent)">$ARGUMENTS</code> 플레이스홀더를 사용하면, 슬래시 커맨드 뒤에 입력한 텍스트가 해당 위치에 삽입됩니다. 예를 들어 <code style="color:var(--accent)">/test src/utils.ts</code>라고 입력하면, test.md 안의 <code style="color:var(--accent)">$ARGUMENTS</code>가 "src/utils.ts"로 치환됩니다. 이를 통해 하나의 커맨드를 다양한 대상에 재사용할 수 있습니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Teleport는 보안상 안전한가요?
+          <span class="arrow">&#x25BC;</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            Teleport URL은 <strong>일회용이며 시간 제한</strong>이 있습니다. URL을 아는 사람만 접근할 수 있고, 한 번 사용되면 만료됩니다. 다만, URL 자체를 공유할 때는 주의가 필요합니다. 민감한 코드가 포함된 세션의 URL을 불특정 다수에게 공개하는 것은 피해야 합니다. 팀 내부에서 신뢰할 수 있는 사람에게만 공유하세요. Anthropic의 보안 정책에 따라 데이터는 암호화되어 전송됩니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SUMMARY =================== -->
+<section style="padding: 80px 0;">
+  <div class="container">
+    <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.15); text-align: center; padding: 60px 40px;">
+      <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
+        요약하면 이겁니다
+      </h2>
+      <p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
+        Worktree = <strong style="color: var(--accent)">안전한 실험 공간</strong><br>
+        Teleport = <strong style="color: var(--green)">환경 간 순간이동</strong><br>
+        Agent Teams = <strong style="color: var(--orange)">멀티에이전트 병렬 처리</strong><br>
+        커스텀 슬래시 = <strong style="color: var(--blue)">나만의 워크플로우 자동화</strong>
+      </p>
+      <p style="color: var(--text-muted); font-size: 14px;">
+        이 기능들을 조합하면, Claude Code는 단순한 코딩 도우미가 아니라<br>
+        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">팀 전체의 개발 생산성 플랫폼</span>이 됩니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== CHAPTER NAV =================== -->
+<div class="chapter-nav">
+  <a href="workflow.html">&larr; 이전: 실전 워크플로우</a>
+  <a href="project.html">다음: 실전 프로젝트 &rarr;</a>
+</div>
+
+<footer>
+  <p>Made with Claude &middot; <a href="../index.html">Claude Code 101</a> &middot; <a href="https://docs.anthropic.com" target="_blank">Anthropic Docs</a></p>
+</footer>
+
+<script>
+function toggleAccordion(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+
+  // Close all
+  document.querySelectorAll('.accordion-btn').forEach(b => {
+    b.classList.remove('open');
+    b.nextElementSibling.style.maxHeight = null;
+  });
+
+  // Open clicked (if it was closed)
+  if (!isOpen) {
+    btn.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link:not(.nav-home)');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

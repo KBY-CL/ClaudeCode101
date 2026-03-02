@@ -299,7 +299,7 @@ const SVG_CHEVRON = '<svg width="13" height="13" fill="none" stroke="currentColo
 
 const modules = [
 {
-  id:'prereq',num:'Pre',title:'터미널이 처음이라면',desc:'비개발자를 위한 사전 준비',time:'1시간',
+  id:'prereq',num:'Pre',title:'터미널이 처음이라면',desc:'비개발자를 위한 사전 준비',time:'1시간',chapterUrl:'chapters/terminal.html',
   goals:['터미널 기본 사용법 익히기','개발 환경 설치 완료','왜 터미널인지 이해'],
   sections:[
     {title:'터미널이란?',icon:'🖥️',iconClass:'green',subtitle:'컴퓨터에게 글자로 명령하는 도구',content:`
@@ -355,7 +355,7 @@ const modules = [
   }
 },
 {
-  id:'module0',num:'00',title:'Claude Code가 뭔가요?',desc:'개념, 역사, 왜 지금인가',time:'30분',
+  id:'module0',num:'00',title:'Claude Code가 뭔가요?',desc:'개념, 역사, 왜 지금인가',time:'30분',chapterUrl:'chapters/what-is-claude-code.html',
   goals:['Claude Code의 정체와 기존 도구 차이점 이해','2026년 현재 생태계 파악'],
   sections:[
     {title:'Claude Code란?',icon:'💡',iconClass:'orange',subtitle:'에이전틱 코딩 도구의 핵심',content:`
@@ -386,7 +386,7 @@ const modules = [
   }
 },
 {
-  id:'module1',num:'01',title:'설치 & 첫 실행',desc:'환경설정, 로그인, 첫 대화',time:'1시간',
+  id:'module1',num:'01',title:'설치 & 첫 실행',desc:'환경설정, 로그인, 첫 대화',time:'1시간',chapterUrl:'chapters/install.html',
   goals:['OS별 Claude Code 설치 완료','로그인 및 첫 세션 실행'],
   sections:[
     {title:'설치 방법',icon:'⬇️',iconClass:'green',subtitle:'OS별 커맨드',content:`
@@ -438,7 +438,7 @@ const modules = [
   }
 },
 {
-  id:'module2',num:'02',title:'기본 사용법 마스터',desc:'명령어, 권한 모드, 세션 관리',time:'2시간',
+  id:'module2',num:'02',title:'기본 사용법 마스터',desc:'명령어, 권한 모드, 세션 관리',time:'2시간',chapterUrl:'chapters/basics.html',
   goals:['핵심 슬래시 커맨드 활용','3가지 권한 모드 이해','세션 관리와 비대화형 모드'],
   sections:[
     {title:'슬래시 커맨드',icon:'⌨️',iconClass:'blue',subtitle:'가장 많이 쓰는 10개',content:`
@@ -532,7 +532,7 @@ const modules = [
   }
 },
 {
-  id:'module3',num:'03',title:'CLAUDE.md — 프로젝트 메모리',desc:'컨텍스트 설정의 핵심',time:'1.5시간',
+  id:'module3',num:'03',title:'CLAUDE.md — 프로젝트 메모리',desc:'컨텍스트 설정의 핵심',time:'1.5시간',chapterUrl:'chapters/claude-md.html',
   goals:['CLAUDE.md 역할과 작성법 이해','프로젝트 컨텍스트 설계'],
   sections:[
     {title:'CLAUDE.md 개념',icon:'🧠',iconClass:'purple',subtitle:'세션마다 자동 로드되는 프로젝트 설명서',content:`
@@ -577,7 +577,7 @@ const modules = [
   }
 },
 {
-  id:'module4',num:'04',title:'효과적인 프롬프팅',desc:'좋은 프롬프트, Plan Mode, 컨텍스트',time:'2시간',
+  id:'module4',num:'04',title:'효과적인 프롬프팅',desc:'좋은 프롬프트, Plan Mode, 컨텍스트',time:'2시간',chapterUrl:'chapters/prompting.html',
   goals:['Claude Code 최적화 프롬프트 작성','Plan Mode 전략','@ 멘션과 컨텍스트 관리'],
   sections:[
     {title:'프롬프트 패턴 5가지',icon:'✍️',iconClass:'orange',subtitle:'결과를 결정하는 프롬프트 품질',content:`
@@ -631,7 +631,7 @@ const modules = [
   }
 },
 {
-  id:'module5',num:'05',title:'MCP 서버 연결',desc:'GitHub, DB, API 등 외부 도구 통합',time:'2시간',
+  id:'module5',num:'05',title:'MCP 서버 연결',desc:'GitHub, DB, API 등 외부 도구 통합',time:'2시간',chapterUrl:'chapters/mcp.html',
   goals:['MCP 개념 이해','외부 도구 연결 실습'],
   sections:[
     {title:'MCP 서버 추가',icon:'🔌',iconClass:'purple',subtitle:'외부 도구를 Claude Code에 연결',content:`
@@ -658,7 +658,7 @@ const modules = [
   }
 },
 {
-  id:'module6',num:'06',title:'서브에이전트 & 커스텀 에이전트',desc:'병렬 작업, 전문 에이전트',time:'2시간',
+  id:'module6',num:'06',title:'서브에이전트 & 커스텀 에이전트',desc:'병렬 작업, 전문 에이전트',time:'2시간',chapterUrl:'chapters/agents.html',
   goals:['서브에이전트 개념과 활용','커스텀 에이전트 직접 생성'],
   sections:[
     {title:'커스텀 에이전트 만들기',icon:'🛠️',iconClass:'blue',subtitle:'.claude/agents/ 에 마크다운으로 정의',content:`
@@ -744,7 +744,7 @@ const modules = [
   }
 },
 {
-  id:'module8',num:'08',title:'실전 워크플로우',desc:'Git, PR 리뷰, 디버깅 실전',time:'2시간',
+  id:'module8',num:'08',title:'실전 워크플로우',desc:'Git, PR 리뷰, 디버깅 실전',time:'2시간',chapterUrl:'chapters/workflow.html',
   goals:['Git 연동 실무 패턴','디버깅/리팩토링/PR 워크플로우'],
   sections:[
     {title:'Git + PR + 디버깅',icon:'🌿',iconClass:'green',subtitle:'실전 개발 플로우',content:`
@@ -775,7 +775,7 @@ const modules = [
   }
 },
 {
-  id:'module9',num:'09',title:'고급 기능 & 팀 협업',desc:'Agent Teams, Worktree, Teleport, Plugin',time:'2시간',
+  id:'module9',num:'09',title:'고급 기능 & 팀 협업',desc:'Agent Teams, Worktree, Teleport, Plugin',time:'2시간',chapterUrl:'chapters/advanced.html',
   goals:['Agent Teams 멀티에이전트','Worktree 격리','Teleport 원격 세션'],
   sections:[
     {title:'Agent Teams + Worktree + Teleport',icon:'🚀',iconClass:'blue',subtitle:'2026 최신 고급 기능',content:`
@@ -808,7 +808,7 @@ const modules = [
   }
 },
 {
-  id:'module10',num:'10',title:'실전 프로젝트',desc:'처음부터 끝까지 앱 완성',time:'3시간',
+  id:'module10',num:'10',title:'실전 프로젝트',desc:'처음부터 끝까지 앱 완성',time:'3시간',chapterUrl:'chapters/project.html',
   goals:['모듈 1~9 종합 적용','실제 앱 처음부터 완성'],
   sections:[
     {title:'DailyMemo — 전체 과정',icon:'📱',iconClass:'orange',subtitle:'SwiftUI + SwiftData 메모 앱',content:`

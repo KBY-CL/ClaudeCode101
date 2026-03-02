@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>효과적인 프롬프팅</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface-raised: #1a1a26;
+    --surface-hover: #22222f;
+    --border: #2a2a3a;
+    --border-bright: #3a3a5a;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --text-muted: #5a5a72;
+    --accent: #c4a0ff;
+    --accent-dim: #9070cc;
+    --accent-glow: rgba(196, 160, 255, 0.15);
+    --accent-glow-strong: rgba(196, 160, 255, 0.25);
+    --green: #7dd3a0;
+    --green-dim: rgba(125, 211, 160, 0.12);
+    --blue: #7daed3;
+    --blue-dim: rgba(125, 174, 211, 0.12);
+    --orange: #d3a07d;
+    --orange-dim: rgba(211, 160, 125, 0.12);
+    --pink: #d37da0;
+    --pink-dim: rgba(211, 125, 160, 0.12);
+    --yellow: #d3cc7d;
+    --yellow-dim: rgba(211, 204, 125, 0.12);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ---- BACK LINK ---- */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, var(--accent-glow-strong) 0%, transparent 65%);
+    pointer-events: none;
+    animation: pulse 6s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1px solid var(--border-bright);
+    background: var(--surface);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.8s ease;
+  }
+
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.8s ease 0.1s both;
+  }
+
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--accent) 0%, #7daed3 50%, var(--green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 2.2vw, 20px);
+    color: var(--text-dim);
+    text-align: center;
+    max-width: 620px;
+    margin-top: 24px;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.8s ease 0.2s both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    margin-top: 48px;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.8s ease 0.35s both;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s ease;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .btn-primary:hover {
+    background: #d4b4ff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(196, 160, 255, 0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border-bright);
+  }
+  .btn-outline:hover {
+    background: var(--surface-hover);
+    border-color: var(--accent-dim);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 12px;
+    animation: bounce 2s infinite 1.5s;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .scroll-hint svg {
+    width: 20px; height: 20px;
+    stroke: var(--text-muted);
+  }
+
+  /* ---- LAYOUT ---- */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 100px 0;
+  }
+
+  /* ---- NAV ---- */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-link {
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .nav-home {
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-home:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ---- SECTION HEADERS ---- */
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent-dim);
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4.5vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+
+  /* ---- CARDS ---- */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .card-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  .card-grid-2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+  .card-grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+  .card-icon {
+    width: 52px; height: 52px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ---- ANALOGY BOX ---- */
+  .analogy-box {
+    background: var(--accent-glow);
+    border: 1px solid rgba(196, 160, 255, 0.2);
+    border-radius: var(--radius-lg);
+    padding: 36px 40px;
+    margin: 40px 0;
+    position: relative;
+  }
+
+  .analogy-box::before {
+    content: '\1F4A1';
+    font-size: 28px;
+    position: absolute;
+    top: -16px;
+    left: 28px;
+  }
+
+  .analogy-box h4 {
+    font-size: 17px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .analogy-box p {
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+
+  /* ---- COMPARISON ---- */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  @media (max-width: 640px) {
+    .comparison { grid-template-columns: 1fr; }
+  }
+
+  .comp-bad, .comp-good {
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+  }
+
+  .comp-bad {
+    background: rgba(211, 100, 100, 0.06);
+    border: 1px solid rgba(211, 100, 100, 0.18);
+  }
+
+  .comp-good {
+    background: var(--green-dim);
+    border: 1px solid rgba(125, 211, 160, 0.2);
+  }
+
+  .comp-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .comp-bad .comp-label { color: #d36464; }
+  .comp-good .comp-label { color: var(--green); }
+
+  .comp-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    white-space: pre-wrap;
+  }
+
+  /* ---- CODE BLOCK ---- */
+  .code-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 24px 0;
+  }
+
+  .code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: var(--surface-raised);
+    border-bottom: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  .code-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .code-dots span {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--border-bright);
+  }
+
+  .code-body {
+    padding: 20px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-x: auto;
+    color: var(--text-dim);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .code-body .keyword { color: var(--accent); }
+  .code-body .string { color: var(--green); }
+  .code-body .comment { color: var(--text-muted); font-style: italic; }
+  .code-body .file { color: var(--orange); }
+  .code-body .desc { color: var(--blue); }
+
+  /* ---- STEP FLOW ---- */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    position: relative;
+  }
+
+  .step-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    background: var(--surface-raised);
+    border: 2px solid var(--accent-dim);
+    color: var(--accent);
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  .step-line {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(to bottom, var(--accent-dim) 0%, var(--border) 100%);
+    margin-top: 4px;
+  }
+
+  .step:last-child .step-line { display: none; }
+
+  .step-content {
+    padding-bottom: 48px;
+  }
+
+  .step-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-top: 8px;
+  }
+
+  .step-content p {
+    color: var(--text-dim);
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  /* ---- TAGS ---- */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+
+  .tag {
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .tag-purple { background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(196,160,255,0.2); }
+  .tag-green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(125,211,160,0.2); }
+  .tag-blue { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(125,174,211,0.2); }
+  .tag-orange { background: var(--orange-dim); color: var(--orange); border: 1px solid rgba(211,160,125,0.2); }
+  .tag-pink { background: var(--pink-dim); color: var(--pink); border: 1px solid rgba(211,125,160,0.2); }
+  .tag-yellow { background: var(--yellow-dim); color: var(--yellow); border: 1px solid rgba(211,204,125,0.2); }
+
+  /* ---- EXAMPLE GALLERY ---- */
+  .example-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .example-card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-2px);
+  }
+
+  .example-top {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .example-top h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .example-top p {
+    color: var(--text-dim);
+    font-size: 13px;
+  }
+
+  .example-bottom {
+    padding: 20px 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    background: var(--surface-raised);
+  }
+
+  /* ---- CHECKLIST ---- */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--text-dim);
+  }
+
+  .checklist li .check {
+    width: 24px; height: 24px;
+    border-radius: 6px;
+    background: var(--green-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .checklist li .check svg {
+    width: 14px; height: 14px;
+    stroke: var(--green);
+  }
+
+  /* ---- DECISION TREE ---- */
+  .decision-tree {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    margin: 32px 0;
+  }
+
+  .dt-question {
+    background: var(--accent-glow);
+    border: 1px solid rgba(196,160,255,0.2);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .dt-branches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 640px) {
+    .dt-branches { grid-template-columns: 1fr; }
+  }
+
+  .dt-branch {
+    border-radius: var(--radius);
+    padding: 16px 20px;
+  }
+
+  .dt-yes {
+    background: var(--green-dim);
+    border: 1px solid rgba(125,211,160,0.2);
+  }
+
+  .dt-no {
+    background: var(--orange-dim);
+    border: 1px solid rgba(211,160,125,0.2);
+  }
+
+  .dt-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .dt-yes .dt-label { color: var(--green); }
+  .dt-no .dt-label { color: var(--orange); }
+
+  .dt-branch p {
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  /* ---- TABLE OF BUILT-IN SKILLS ---- */
+  .skill-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 24px 0;
+  }
+
+  .skill-table th {
+    background: var(--surface-raised);
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-table td {
+    padding: 14px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .skill-table tr:last-child td { border-bottom: none; }
+
+  .skill-table tr:hover td { background: var(--surface-hover); }
+
+  .skill-name-cell {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 13px;
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 60px 24px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  footer a {
+    color: var(--accent-dim);
+    text-decoration: none;
+  }
+
+  /* ---- CHAPTER NAV ---- */
+  .chapter-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto 32px;
+    padding: 0 24px;
+  }
+
+  .chapter-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+
+  .chapter-nav a:hover {
+    color: var(--accent);
+    border-color: var(--accent-dim);
+    background: var(--accent-glow);
+  }
+
+  /* ---- DIVIDER ---- */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ---- TIP CALLOUT ---- */
+  .tip {
+    display: flex;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: var(--radius);
+    background: var(--blue-dim);
+    border: 1px solid rgba(125,174,211,0.2);
+    margin: 24px 0;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  .tip-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .tip strong { color: var(--blue); }
+
+  /* ---- ACCORDION ---- */
+  .accordion {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 16px 0;
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .accordion-item:last-child { border-bottom: none; }
+
+  .accordion-btn {
+    width: 100%;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface);
+    border: none;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+
+  .accordion-btn:hover { background: var(--surface-hover); }
+
+  .accordion-btn .arrow {
+    transition: transform 0.3s;
+    color: var(--text-muted);
+  }
+
+  .accordion-btn.open .arrow { transform: rotate(180deg); }
+
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .accordion-body-inner {
+    padding: 0 24px 24px;
+    color: var(--text-dim);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* ---- RECIPE CARD ---- */
+  .recipe-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 24px 0;
+    transition: all 0.3s ease;
+  }
+
+  .recipe-card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .recipe-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .recipe-header h4 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .recipe-header .recipe-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    background: var(--accent-glow);
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-weight: 600;
+  }
+
+  .recipe-body {
+    padding: 24px 28px;
+  }
+
+  .recipe-situation {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    background: var(--surface-raised);
+    border-radius: var(--radius-sm);
+  }
+
+  .recipe-situation strong {
+    color: var(--orange);
+  }
+
+  .recipe-why {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: var(--green-dim);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(125, 211, 160, 0.15);
+  }
+
+  .recipe-why strong {
+    color: var(--green);
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 640px) {
+    .card { padding: 24px; }
+    .analogy-box { padding: 28px; }
+    .decision-tree { padding: 24px; }
+    section { padding: 60px 0; }
+    .step { grid-template-columns: 44px 1fr; gap: 16px; }
+    .chapter-nav { flex-direction: column; gap: 12px; }
+    .chapter-nav a { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =================== BACK LINK =================== -->
+<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+
+<!-- =================== HERO =================== -->
+<div class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Module 04 &mdash; 효과적인 프롬프팅
+  </div>
+  <h1>
+    효과적인<br><span class="highlight">프롬프팅</span>
+  </h1>
+  <p class="hero-sub">
+    같은 Claude인데 결과가 천지차이,<br>
+    프롬프트가 답이다
+  </p>
+  <div class="hero-cta">
+    <a href="#patterns" class="btn btn-primary">핵심 패턴 보기</a>
+    <a href="#recipes" class="btn btn-outline">레시피 모음 &rarr;</a>
+  </div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    스크롤
+  </div>
+</div>
+
+<!-- =================== NAV =================== -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
+    <a href="#why" class="nav-link">왜 프롬프트가 중요한가</a>
+    <a href="#patterns" class="nav-link">핵심 패턴 5가지</a>
+    <a href="#plan-mode" class="nav-link">Plan Mode</a>
+    <a href="#mentions" class="nav-link">@ 멘션</a>
+    <a href="#context" class="nav-link">컨텍스트 관리</a>
+    <a href="#recipes" class="nav-link">레시피 모음</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+  </div>
+</nav>
+
+<!-- =================== SECTION 1: WHY =================== -->
+<section id="why">
+  <div class="container">
+    <div class="section-number">01</div>
+    <h2 class="section-title">프롬프트가 결과를 결정한다</h2>
+    <p class="section-desc">
+      같은 모델, 같은 도구인데 누구는 놀라운 결과를 뽑아내고, 누구는 "AI 별거 아니네"라고 합니다.<br>
+      차이는 <strong style="color:var(--accent)">프롬프트</strong>에 있습니다.
+    </p>
+
+    <div class="comparison">
+      <div class="comp-bad">
+        <div class="comp-label">&#10060; 흔한 프롬프트</div>
+        <div class="comp-code">할 일 앱 만들어줘</div>
+      </div>
+      <div class="comp-good">
+        <div class="comp-label">&#9989; 효과적인 프롬프트</div>
+        <div class="comp-code">React + TypeScript로 할 일 앱을 만들어줘.
+요구사항:
+- 할 일 추가/삭제/완료 토글
+- localStorage로 데이터 영속화
+- Tailwind CSS로 스타일링
+- 모바일 반응형
+
+먼저 컴포넌트 구조를 설계하고,
+그 다음 하나씩 구현해줘.</div>
+      </div>
+    </div>
+
+    <div class="comparison">
+      <div class="comp-bad">
+        <div class="comp-label">&#10060; 결과: 모호한 프롬프트</div>
+        <div class="comp-code">&rarr; 어떤 기술 스택? 바닐라 JS? React?
+&rarr; 어떤 기능까지? 최소한만? 풍부하게?
+&rarr; 스타일은? 못생겨도 되나?
+&rarr; Claude가 추측해서 만듦
+&rarr; 원하는 게 아닐 확률 높음 &#x1F625;</div>
+      </div>
+      <div class="comp-good">
+        <div class="comp-label">&#9989; 결과: 구체적인 프롬프트</div>
+        <div class="comp-code">&rarr; 기술 스택 확정 (React + TS)
+&rarr; 기능 범위 명확
+&rarr; 디자인 방향 제시 (Tailwind)
+&rarr; 작업 순서까지 지정
+&rarr; 원하는 결과 한 번에! &#x1F389;</div>
+      </div>
+    </div>
+
+    <div class="analogy-box">
+      <h4>요리 주문에 비유하면</h4>
+      <p>
+        식당에서 <strong style="color:var(--text)">"맛있는 거 주세요"</strong>라고 하면 셰프가 알아서 줍니다. 운이 좋으면 맛있고, 아니면 안 맞죠.<br><br>
+        하지만 <strong style="color:var(--text)">"매운맛 레벨 2의 토마토 파스타, 면은 알덴테로, 마늘은 많이, 치즈 토핑 추가요"</strong>라고 하면?<br>
+        거의 100% 원하는 음식이 나옵니다.<br><br>
+        Claude도 마찬가지입니다. <strong style="color:var(--accent)">구체적으로 주문할수록, 원하는 결과가 나옵니다.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 2: PATTERNS =================== -->
+<section id="patterns">
+  <div class="container">
+    <div class="section-number">02</div>
+    <h2 class="section-title">5가지 핵심 패턴</h2>
+    <p class="section-desc">
+      이 5가지만 기억하면 프롬프트 실력이 <strong style="color:var(--accent)">즉시</strong> 올라갑니다.
+    </p>
+
+    <div class="steps">
+
+      <!-- PATTERN 1 -->
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>구체적 지시 &mdash; 기술 스택, 패턴 명시</h3>
+          <p>"무엇을", "어떤 기술로", "어떤 패턴으로" 만들지를 구체적으로 알려주세요.</p>
+
+          <div class="comparison">
+            <div class="comp-bad">
+              <div class="comp-label">&#10060; 모호한 지시</div>
+              <div class="comp-code">로그인 기능 만들어줘</div>
+            </div>
+            <div class="comp-good">
+              <div class="comp-label">&#9989; 구체적 지시</div>
+              <div class="comp-code">Next.js 14 App Router + NextAuth.js로
+Google OAuth 로그인을 구현해줘.
+Prisma ORM으로 사용자 정보 저장.
+서버 컴포넌트에서 세션 체크.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PATTERN 2 -->
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>컨텍스트 제공 &mdash; 현재 상태, 목표 설명</h3>
+          <p>Claude는 당신의 프로젝트를 모릅니다. "지금 어떤 상태"이고, "어디로 가고 싶은지" 알려주세요.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>좋은 컨텍스트 제공 예시</span>
+            </div>
+            <div class="code-body"><span class="comment"># 현재 상태 설명</span>
+<span class="string">현재 Express.js 백엔드에 JWT 인증이 구현되어 있어.</span>
+<span class="string">사용자 모델은 /models/User.js에 있고,</span>
+<span class="string">라우트는 /routes/auth.js에 있어.</span>
+
+<span class="comment"># 목표 설명</span>
+<span class="string">여기에 비밀번호 재설정 기능을 추가하고 싶어.</span>
+<span class="string">이메일로 6자리 인증코드를 보내는 방식으로.</span>
+
+<span class="comment"># 제약 조건</span>
+<span class="string">기존 인증 로직은 건드리지 마.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PATTERN 3 -->
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>단계별 진행 &mdash; "먼저 A, 그 다음 B"</h3>
+          <p>한 번에 모든 걸 시키지 마세요. 단계를 나눠서 순서대로 지시하면 품질이 올라갑니다.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>단계별 지시 예시</span>
+            </div>
+            <div class="code-body"><span class="keyword">1단계:</span> <span class="string">먼저 DB 스키마를 설계해줘. 테이블과 관계를 보여줘.</span>
+<span class="keyword">2단계:</span> <span class="string">스키마 확인 후, API 엔드포인트 목록을 정리해줘.</span>
+<span class="keyword">3단계:</span> <span class="string">엔드포인트별로 하나씩 구현하자. POST /users부터.</span>
+<span class="keyword">4단계:</span> <span class="string">각 엔드포인트에 대한 테스트 코드를 작성해줘.</span></div>
+          </div>
+
+          <div class="tip">
+            <span class="tip-icon">&#x1F4A1;</span>
+            <div>
+              <strong>핵심:</strong> 복잡한 작업을 한 번에 시키면 Claude도 실수할 확률이 높아집니다. 사람에게 일 시키듯, 단계별로 나눠서 진행하세요. 각 단계의 결과를 확인한 후 다음으로 넘어가는 것이 이상적입니다.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PATTERN 4 -->
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>예시 제공 &mdash; "이런 형태로"</h3>
+          <p>원하는 결과의 "예시"를 보여주면 Claude가 정확히 이해합니다.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>예시 제공 프롬프트</span>
+            </div>
+            <div class="code-body"><span class="string">API 응답을 이런 형태로 만들어줘:</span>
+
+<span class="keyword">{</span>
+  <span class="desc">"success"</span>: <span class="string">true</span>,
+  <span class="desc">"data"</span>: <span class="keyword">{</span>
+    <span class="desc">"id"</span>: <span class="string">1</span>,
+    <span class="desc">"name"</span>: <span class="string">"홍길동"</span>,
+    <span class="desc">"email"</span>: <span class="string">"hong@example.com"</span>
+  <span class="keyword">}</span>,
+  <span class="desc">"meta"</span>: <span class="keyword">{</span>
+    <span class="desc">"timestamp"</span>: <span class="string">"2024-01-15T09:00:00Z"</span>,
+    <span class="desc">"version"</span>: <span class="string">"v1"</span>
+  <span class="keyword">}</span>
+<span class="keyword">}</span>
+
+<span class="comment">에러 시에는 이 형태:</span>
+<span class="keyword">{</span>
+  <span class="desc">"success"</span>: <span class="string">false</span>,
+  <span class="desc">"error"</span>: <span class="keyword">{</span>
+    <span class="desc">"code"</span>: <span class="string">"USER_NOT_FOUND"</span>,
+    <span class="desc">"message"</span>: <span class="string">"사용자를 찾을 수 없습니다"</span>
+  <span class="keyword">}</span>
+<span class="keyword">}</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PATTERN 5 -->
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">5</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>제약 조건 &mdash; "절대 X하지 말 것"</h3>
+          <p>Claude가 하지 말아야 할 것, 지켜야 할 규칙을 명시하면 예상치 못한 결과를 방지합니다.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>제약 조건 예시</span>
+            </div>
+            <div class="code-body"><span class="comment"># 하지 말 것 (금지 사항)</span>
+<span class="keyword">- 절대</span> <span class="string">any 타입을 사용하지 마</span>
+<span class="keyword">- 절대</span> <span class="string">console.log를 프로덕션 코드에 남기지 마</span>
+<span class="keyword">- 절대</span> <span class="string">기존 테스트를 삭제하거나 수정하지 마</span>
+
+<span class="comment"># 지킬 것 (필수 사항)</span>
+<span class="keyword">- 반드시</span> <span class="string">에러 핸들링을 포함할 것</span>
+<span class="keyword">- 반드시</span> <span class="string">함수마다 JSDoc 주석을 달 것</span>
+<span class="keyword">- 반드시</span> <span class="string">ESLint 규칙을 따를 것</span>
+
+<span class="comment"># 성능 제약</span>
+<span class="keyword">- 번들 사이즈</span> <span class="string">50KB 이하로 유지</span>
+<span class="keyword">- 외부 라이브러리</span> <span class="string">추가 금지 (기존 것만 사용)</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 3: PLAN MODE =================== -->
+<section id="plan-mode">
+  <div class="container">
+    <div class="section-number">03</div>
+    <h2 class="section-title">Plan Mode 전략</h2>
+    <p class="section-desc">
+      복잡한 작업 전에 <strong style="color:var(--accent)">/plan</strong>으로 먼저 계획을 세우면, 실수가 극적으로 줄어듭니다.
+    </p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>Plan Mode 진입</h3>
+          <p>Shift + Tab을 눌러 Plan Mode로 전환하거나, 프롬프트에 "계획만 먼저 세워줘"라고 말합니다.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>Plan Mode 진입</span>
+            </div>
+            <div class="code-body"><span class="comment"># 방법 1: 키보드 단축키</span>
+<span class="keyword">Shift + Tab</span> <span class="string">&rarr; Plan Mode 토글</span>
+
+<span class="comment"># 방법 2: 프롬프트로 요청</span>
+<span class="string">결제 시스템을 리팩토링하려고 해.</span>
+<span class="keyword">먼저 계획만 세워줘. 코드는 아직 수정하지 마.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>분석 요청</h3>
+          <p>Claude가 현재 코드를 분석하고, 변경 계획을 제시합니다. 이 단계에서는 코드를 수정하지 않습니다.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>분석 요청 예시</span>
+            </div>
+            <div class="code-body"><span class="string">현재 결제 로직이 PaymentController에 전부 들어있어.</span>
+<span class="string">이걸 서비스 레이어로 분리하고 싶은데,</span>
+<span class="keyword">어떤 파일을 어떻게 변경해야 할지 계획을 세워줘.</span>
+
+<span class="comment">포함해야 할 내용:</span>
+<span class="desc">- 변경할 파일 목록</span>
+<span class="desc">- 각 파일에서 할 작업</span>
+<span class="desc">- 작업 순서</span>
+<span class="desc">- 주의할 점</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>계획 리뷰</h3>
+          <p>Claude가 제시한 계획을 검토합니다. 빠진 것이 있거나 방향이 다르면 이 단계에서 수정합니다.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>실행 승인</h3>
+          <p>계획이 마음에 들면 "좋아, 실행해줘"라고 하면 Claude가 계획대로 코드를 수정합니다.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>실행 승인</span>
+            </div>
+            <div class="code-body"><span class="comment"># 전체 승인</span>
+<span class="string">좋아, 이 계획대로 진행해줘.</span>
+
+<span class="comment"># 부분 수정 후 승인</span>
+<span class="string">2번 단계에서 PaymentService 대신</span>
+<span class="string">BillingService로 이름 바꿔줘.</span>
+<span class="string">나머지는 계획대로 진행해.</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="comparison" style="margin-top: 48px;">
+      <div class="comp-bad">
+        <div class="comp-label">&#10060; 바로 실행</div>
+        <div class="comp-code">"결제 로직 리팩토링해줘"
+
+&rarr; Claude가 바로 코드 수정 시작
+&rarr; 의도와 다른 방향으로 갈 수 있음
+&rarr; 되돌리기 어려움
+&rarr; 큰 변경에서 실수 확률 높음</div>
+      </div>
+      <div class="comp-good">
+        <div class="comp-label">&#9989; Plan Mode 활용</div>
+        <div class="comp-code">"결제 로직 리팩토링 계획 세워줘"
+
+&rarr; 변경 계획을 먼저 확인
+&rarr; 방향 수정 가능
+&rarr; 확인 후 실행 &rarr; 안전
+&rarr; 복잡한 작업도 체계적으로</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">&#x1F3AF;</span>
+      <div>
+        <strong>경험 법칙:</strong> 파일 3개 이상 수정하는 작업, 아키텍처 변경, 리팩토링 등 복잡한 작업은 반드시 Plan Mode를 먼저 사용하세요. 간단한 버그 수정이나 한 줄 변경은 바로 실행해도 됩니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 4: MENTIONS =================== -->
+<section id="mentions">
+  <div class="container">
+    <div class="section-number">04</div>
+    <h2 class="section-title">@ 멘션과 파일 참조</h2>
+    <p class="section-desc">
+      Claude에게 정확한 파일을 가리켜주면, <strong style="color:var(--accent)">컨텍스트 정확도</strong>가 극적으로 올라갑니다.
+    </p>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span>@ 멘션 기본 사용법</span>
+      </div>
+      <div class="code-body"><span class="comment"># 특정 파일 참조</span>
+<span class="keyword">@src/components/Button.tsx</span> <span class="string">이 컴포넌트에 loading 상태를 추가해줘</span>
+
+<span class="comment"># 여러 파일 동시 참조</span>
+<span class="keyword">@src/api/auth.ts</span> <span class="string">와</span> <span class="keyword">@src/middleware/auth.ts</span> <span class="string">를 비교해서</span>
+<span class="string">인증 로직이 중복되는 부분을 찾아줘</span>
+
+<span class="comment"># 폴더 전체 참조</span>
+<span class="keyword">@src/utils/</span> <span class="string">이 폴더의 유틸 함수들을 분석해서</span>
+<span class="string">사용되지 않는 함수를 찾아줘</span></div>
+    </div>
+
+    <div class="card-grid card-grid-2" style="margin-top: 32px;">
+      <div class="card">
+        <div class="card-icon" style="background: var(--accent-glow);">&#x1F4C4;</div>
+        <h3>파일 참조 @파일경로</h3>
+        <p>특정 파일을 Claude의 컨텍스트에 직접 로드합니다. Claude가 해당 파일의 전체 내용을 읽고 이해한 상태에서 작업합니다. 정확한 수정이 필요할 때 필수입니다.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--green-dim);">&#x1F4C2;</div>
+        <h3>폴더 참조 @폴더/</h3>
+        <p>폴더 내의 파일 구조를 Claude에게 보여줍니다. 전체적인 구조를 파악하거나, 여러 파일에 걸친 패턴을 찾을 때 유용합니다.</p>
+      </div>
+    </div>
+
+    <div class="code-block" style="margin-top: 32px;">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span>실전 활용 패턴</span>
+      </div>
+      <div class="code-body"><span class="comment"># 패턴 1: 기존 파일 스타일에 맞추기</span>
+<span class="keyword">@src/api/users.ts</span> <span class="string">이 파일의 패턴을 따라서</span>
+<span class="string">새로운 /api/products.ts를 만들어줘</span>
+
+<span class="comment"># 패턴 2: 버그 위치 지정</span>
+<span class="keyword">@src/hooks/useAuth.ts</span> <span class="string">의 42번째 줄 근처에서</span>
+<span class="string">토큰 만료 시 무한 루프가 발생해. 고쳐줘</span>
+
+<span class="comment"># 패턴 3: 설정 파일 참조</span>
+<span class="keyword">@tsconfig.json</span> <span class="string">와</span> <span class="keyword">@package.json</span> <span class="string">을 확인하고</span>
+<span class="string">현재 프로젝트 설정에 맞는 테스트 환경을 구성해줘</span>
+
+<span class="comment"># 패턴 4: 테스트와 소스 함께 참조</span>
+<span class="keyword">@src/utils/format.ts</span> <span class="string">와</span> <span class="keyword">@tests/format.test.ts</span> <span class="string">를 보고</span>
+<span class="string">테스트가 커버하지 못하는 엣지 케이스를 찾아줘</span></div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">&#x1F3AF;</span>
+      <div>
+        <strong>핵심 원칙:</strong> Claude가 "알아서 찾겠지"라고 기대하지 마세요. 관련 파일을 @ 멘션으로 직접 지정해주면 정확도가 크게 올라갑니다. 특히 프로젝트가 클수록 @ 멘션의 효과가 큽니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 5: CONTEXT =================== -->
+<section id="context">
+  <div class="container">
+    <div class="section-number">05</div>
+    <h2 class="section-title">컨텍스트 윈도우 관리</h2>
+    <p class="section-desc">
+      Claude의 기억력에는 한계가 있습니다. <strong style="color:var(--accent)">/compact</strong>와 <strong style="color:var(--accent)">/clear</strong>로 효율적으로 관리하세요.
+    </p>
+
+    <div class="analogy-box">
+      <h4>책상 위 공간에 비유하면</h4>
+      <p>
+        Claude의 컨텍스트 윈도우는 <strong style="color:var(--text)">책상 위 공간</strong>과 같습니다.<br><br>
+        대화가 길어질수록 책상 위에 서류가 쌓입니다. 처음에는 넓었던 공간이 점점 좁아지고, 새 서류를 놓으려면 오래된 서류가 밀려납니다.<br><br>
+        <strong style="color:var(--accent)">/compact</strong> = 서류를 정리해서 <strong style="color:var(--text)">핵심 내용만 요약 메모</strong>로 바꾸기. 공간은 확보되고, 중요한 맥락은 유지됩니다.<br>
+        <strong style="color:var(--accent)">/clear</strong> = 책상을 <strong style="color:var(--text)">완전히 치우기</strong>. 깨끗한 상태에서 새 작업을 시작합니다.
+      </p>
+    </div>
+
+    <div class="decision-tree">
+      <div class="dt-question">&#x1F914; 대화가 느려졌다면?</div>
+      <div class="dt-branches">
+        <div class="dt-branch dt-yes">
+          <div class="dt-label">&#9989; /compact 사용</div>
+          <p>
+            같은 주제를 계속 작업 중이라면 <strong>/compact</strong>를 사용하세요.<br>
+            대화 내용을 요약하여 컨텍스트를 압축합니다. 이전 맥락을 유지하면서 공간을 확보합니다.
+          </p>
+        </div>
+        <div class="dt-branch dt-no">
+          <div class="dt-label">&#x1F504; /clear 사용</div>
+          <p>
+            완전히 다른 주제로 전환한다면 <strong>/clear</strong>를 사용하세요.<br>
+            이전 대화를 모두 지우고 깨끗한 상태에서 시작합니다. 이전 맥락이 오히려 방해가 될 때 유용합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;">상황별 추천 커맨드</h3>
+
+    <table class="skill-table">
+      <thead>
+        <tr>
+          <th style="width: 200px;">상황</th>
+          <th style="width: 120px;">커맨드</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color: var(--text-dim);">대화가 길어져서 느려짐</td>
+          <td class="skill-name-cell">/compact</td>
+          <td style="color: var(--text-dim);">대화를 요약하여 컨텍스트 공간 확보</td>
+        </tr>
+        <tr>
+          <td style="color: var(--text-dim);">완전히 다른 작업 시작</td>
+          <td class="skill-name-cell">/clear</td>
+          <td style="color: var(--text-dim);">이전 맥락을 지우고 깨끗하게 시작</td>
+        </tr>
+        <tr>
+          <td style="color: var(--text-dim);">Claude가 이상한 답을 함</td>
+          <td class="skill-name-cell">/clear</td>
+          <td style="color: var(--text-dim);">오염된 컨텍스트를 리셋</td>
+        </tr>
+        <tr>
+          <td style="color: var(--text-dim);">대규모 코드 리뷰 중</td>
+          <td class="skill-name-cell">/compact</td>
+          <td style="color: var(--text-dim);">리뷰 진행 상황을 유지하면서 공간 확보</td>
+        </tr>
+        <tr>
+          <td style="color: var(--text-dim);">토큰 한도에 도달</td>
+          <td class="skill-name-cell">/compact</td>
+          <td style="color: var(--text-dim);">자동으로 요약이 실행되지만, 수동으로 하면 더 정확</td>
+        </tr>
+        <tr>
+          <td style="color: var(--text-dim);">민감한 정보를 입력함</td>
+          <td class="skill-name-cell">/clear</td>
+          <td style="color: var(--text-dim);">컨텍스트에서 완전히 제거</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip">
+      <span class="tip-icon">&#x1F4A1;</span>
+      <div>
+        <strong>프로 팁:</strong> /compact에 커스텀 지시를 추가할 수 있습니다. <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/compact 현재 작업 중인 결제 모듈 관련 맥락은 반드시 유지해줘</code>처럼 쓰면, 중요한 맥락을 더 잘 보존합니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 6: RECIPES =================== -->
+<section id="recipes">
+  <div class="container">
+    <div class="section-number">06</div>
+    <h2 class="section-title">프롬프트 레시피 모음</h2>
+    <p class="section-desc">
+      바로 복사해서 쓸 수 있는 <strong style="color:var(--accent)">실전 프롬프트 템플릿</strong>입니다. 상황에 맞게 수정해서 사용하세요.
+    </p>
+
+    <!-- Recipe 1 -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <span class="recipe-num">#1</span>
+        <h4>코드 리뷰 요청</h4>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-situation"><strong>상황:</strong> 작성한 코드의 품질을 점검받고 싶을 때</div>
+        <div class="code-block" style="margin: 0;">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span>프롬프트</span>
+          </div>
+          <div class="code-body"><span class="keyword">@src/services/payment.ts</span> <span class="string">이 파일을 리뷰해줘.</span>
+
+<span class="string">다음 관점에서 검토해줘:</span>
+<span class="desc">1. 에러 핸들링이 충분한가</span>
+<span class="desc">2. 엣지 케이스를 놓친 게 있는가</span>
+<span class="desc">3. 성능 개선 포인트가 있는가</span>
+<span class="desc">4. 네이밍과 가독성은 괜찮은가</span>
+
+<span class="comment">각 항목별로 구체적인 라인 번호와 개선 코드를 포함해줘.</span></div>
+        </div>
+        <div class="recipe-why"><strong>왜 효과적인가:</strong> 리뷰 관점을 명시해서 Claude가 체계적으로 검토합니다. "코드 리뷰해줘"만 하면 피상적인 피드백만 나옵니다.</div>
+      </div>
+    </div>
+
+    <!-- Recipe 2 -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <span class="recipe-num">#2</span>
+        <h4>버그 수정</h4>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-situation"><strong>상황:</strong> 특정 조건에서 발생하는 버그를 고쳐야 할 때</div>
+        <div class="code-block" style="margin: 0;">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span>프롬프트</span>
+          </div>
+          <div class="code-body"><span class="keyword">버그 설명:</span>
+<span class="string">장바구니에서 수량을 0으로 바꾸면 음수가 되면서 결제 금액이 마이너스가 됨.</span>
+
+<span class="keyword">재현 경로:</span>
+<span class="desc">1. 상품 추가 &rarr; 2. 수량 감소 버튼 연타 &rarr; 3. 수량이 -1이 됨</span>
+
+<span class="keyword">예상 동작:</span>
+<span class="string">수량은 최소 1이어야 하고, 0이 되면 항목을 삭제해야 함.</span>
+
+<span class="keyword">관련 파일:</span>
+<span class="file">@src/hooks/useCart.ts</span>
+<span class="file">@src/components/CartItem.tsx</span>
+
+<span class="comment">수정하되, 기존 테스트가 깨지지 않게 해줘.</span></div>
+        </div>
+        <div class="recipe-why"><strong>왜 효과적인가:</strong> 버그 설명, 재현 경로, 예상 동작, 관련 파일을 모두 제공해서 Claude가 정확한 위치에서 정확한 수정을 할 수 있습니다.</div>
+      </div>
+    </div>
+
+    <!-- Recipe 3 -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <span class="recipe-num">#3</span>
+        <h4>리팩토링</h4>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-situation"><strong>상황:</strong> 복잡해진 코드를 깔끔하게 정리하고 싶을 때</div>
+        <div class="code-block" style="margin: 0;">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span>프롬프트</span>
+          </div>
+          <div class="code-body"><span class="keyword">@src/controllers/orderController.ts</span> <span class="string">이 파일을 리팩토링해줘.</span>
+
+<span class="keyword">문제:</span>
+<span class="string">하나의 함수가 200줄이 넘고, 주문 생성/검증/결제/알림을 전부 처리하고 있어.</span>
+
+<span class="keyword">목표:</span>
+<span class="desc">- 단일 책임 원칙에 따라 함수를 분리</span>
+<span class="desc">- OrderService, PaymentService, NotificationService로 분리</span>
+<span class="desc">- 각 서비스는 별도 파일로</span>
+
+<span class="keyword">제약 조건:</span>
+<span class="comment">- 외부 API 인터페이스는 변경하지 마 (컨트롤러의 라우트 시그니처 유지)</span>
+<span class="comment">- 먼저 계획을 보여주고, 승인 후 진행해줘</span></div>
+        </div>
+        <div class="recipe-why"><strong>왜 효과적인가:</strong> 현재 문제, 리팩토링 목표, 제약 조건을 명확히 제시합니다. 특히 "외부 인터페이스 유지"와 "계획 먼저" 조건이 안전한 리팩토링을 보장합니다.</div>
+      </div>
+    </div>
+
+    <!-- Recipe 4 -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <span class="recipe-num">#4</span>
+        <h4>테스트 작성</h4>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-situation"><strong>상황:</strong> 기존 코드에 대한 테스트를 추가하고 싶을 때</div>
+        <div class="code-block" style="margin: 0;">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span>프롬프트</span>
+          </div>
+          <div class="code-body"><span class="keyword">@src/utils/validator.ts</span> <span class="string">에 대한 단위 테스트를 작성해줘.</span>
+
+<span class="keyword">테스트 프레임워크:</span> <span class="string">Vitest</span>
+<span class="keyword">위치:</span> <span class="file">src/utils/__tests__/validator.test.ts</span>
+
+<span class="keyword">포함할 케이스:</span>
+<span class="desc">- 정상 입력 (happy path)</span>
+<span class="desc">- 빈 값, null, undefined</span>
+<span class="desc">- 경계값 (최소/최대)</span>
+<span class="desc">- 잘못된 타입 입력</span>
+<span class="desc">- 특수문자, 한글 입력</span>
+
+<span class="keyword">스타일:</span>
+<span class="comment">- describe/it 패턴 사용</span>
+<span class="comment">- 테스트 이름은 한국어로</span>
+<span class="comment">- AAA 패턴 (Arrange-Act-Assert)</span></div>
+        </div>
+        <div class="recipe-why"><strong>왜 효과적인가:</strong> 테스트 프레임워크, 파일 위치, 케이스 목록, 코딩 스타일까지 지정해서 바로 실행 가능한 테스트가 나옵니다.</div>
+      </div>
+    </div>
+
+    <!-- Recipe 5 -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <span class="recipe-num">#5</span>
+        <h4>문서화</h4>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-situation"><strong>상황:</strong> 코드에 대한 문서를 작성하거나, 주석을 추가하고 싶을 때</div>
+        <div class="code-block" style="margin: 0;">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span>프롬프트</span>
+          </div>
+          <div class="code-body"><span class="keyword">@src/api/</span> <span class="string">폴더의 모든 API 엔드포인트를 분석해서</span>
+<span class="string">API 문서를 작성해줘.</span>
+
+<span class="keyword">포맷:</span>
+<span class="desc">- 각 엔드포인트별로: 메서드, 경로, 설명, 파라미터, 응답 예시</span>
+<span class="desc">- 마크다운 테이블 형식</span>
+<span class="desc">- 인증이 필요한 엔드포인트는 별도 표시</span>
+
+<span class="keyword">추가 작업:</span>
+<span class="comment">- 각 라우트 핸들러에 JSDoc 주석도 추가해줘</span>
+<span class="comment">- 파라미터 타입과 반환 타입을 명시</span></div>
+        </div>
+        <div class="recipe-why"><strong>왜 효과적인가:</strong> 문서화의 범위, 포맷, 추가 작업을 구체적으로 지정해서 일관된 품질의 문서가 생성됩니다.</div>
+      </div>
+    </div>
+
+    <!-- Recipe 6 -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <span class="recipe-num">#6</span>
+        <h4>API 엔드포인트 추가</h4>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-situation"><strong>상황:</strong> 기존 API에 새로운 엔드포인트를 추가하고 싶을 때</div>
+        <div class="code-block" style="margin: 0;">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span>프롬프트</span>
+          </div>
+          <div class="code-body"><span class="keyword">@src/api/users.ts</span> <span class="string">의 패턴을 따라서</span>
+<span class="string">새로운 상품(Product) API를 만들어줘.</span>
+
+<span class="keyword">엔드포인트 목록:</span>
+<span class="desc">GET    /api/products        - 상품 목록 (페이지네이션)</span>
+<span class="desc">GET    /api/products/:id    - 상품 상세</span>
+<span class="desc">POST   /api/products        - 상품 등록 (관리자만)</span>
+<span class="desc">PUT    /api/products/:id    - 상품 수정 (관리자만)</span>
+<span class="desc">DELETE /api/products/:id    - 상품 삭제 (관리자만)</span>
+
+<span class="keyword">포함할 것:</span>
+<span class="comment">- Zod 스키마로 입력 검증</span>
+<span class="comment">- 적절한 에러 코드 (400, 401, 404, 500)</span>
+<span class="comment">- 관리자 권한 미들웨어 적용</span>
+<span class="comment">- 각 엔드포인트 테스트 코드</span></div>
+        </div>
+        <div class="recipe-why"><strong>왜 효과적인가:</strong> 기존 패턴 참조(@), 엔드포인트 명세, 포함 사항을 명시해서 일관된 코드가 생성됩니다.</div>
+      </div>
+    </div>
+
+    <!-- Recipe 7 -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <span class="recipe-num">#7</span>
+        <h4>성능 최적화</h4>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-situation"><strong>상황:</strong> 앱이 느려져서 성능을 개선하고 싶을 때</div>
+        <div class="code-block" style="margin: 0;">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span>프롬프트</span>
+          </div>
+          <div class="code-body"><span class="keyword">@src/pages/Dashboard.tsx</span> <span class="string">이 페이지가 렌더링이 느려.</span>
+
+<span class="keyword">증상:</span>
+<span class="string">대시보드 진입 시 3초 이상 걸리고, 스크롤이 끊김.</span>
+<span class="string">데이터는 약 500개 항목.</span>
+
+<span class="keyword">분석해줘:</span>
+<span class="desc">1. 불필요한 리렌더링이 있는지</span>
+<span class="desc">2. 무거운 연산이 메인 스레드에서 돌고 있는지</span>
+<span class="desc">3. 리스트 가상화가 필요한지</span>
+<span class="desc">4. API 호출을 최적화할 수 있는지</span>
+
+<span class="keyword">개선 후 기대:</span>
+<span class="comment">- 초기 로딩 1초 이내</span>
+<span class="comment">- 60fps 스크롤</span>
+<span class="comment">- React.memo, useMemo, useCallback 적절히 활용</span></div>
+        </div>
+        <div class="recipe-why"><strong>왜 효과적인가:</strong> 증상, 데이터 규모, 분석 관점, 개선 목표를 구체적으로 제시해서 실질적인 최적화를 받을 수 있습니다.</div>
+      </div>
+    </div>
+
+    <!-- Recipe 8 -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <span class="recipe-num">#8</span>
+        <h4>마이그레이션</h4>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-situation"><strong>상황:</strong> 기존 코드를 새로운 버전/프레임워크로 전환해야 할 때</div>
+        <div class="code-block" style="margin: 0;">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span>프롬프트</span>
+          </div>
+          <div class="code-body"><span class="keyword">마이그레이션 대상:</span>
+<span class="string">React Router v5 &rarr; v6으로 업그레이드</span>
+
+<span class="keyword">현재 상태:</span>
+<span class="file">@src/App.tsx</span> <span class="string">에서 Switch, Route, useHistory 사용 중</span>
+<span class="file">@src/routes/</span> <span class="string">폴더에 라우트 설정 파일들</span>
+
+<span class="keyword">작업 요청:</span>
+<span class="desc">1. 먼저 변경 범위를 분석해줘 (영향받는 파일 목록)</span>
+<span class="desc">2. v5 &rarr; v6 변경 사항 매핑표 만들어줘</span>
+<span class="desc">3. 승인 후 파일별로 하나씩 수정</span>
+<span class="desc">4. 각 수정 후 라우팅이 정상 동작하는지 확인</span>
+
+<span class="keyword">제약:</span>
+<span class="comment">- 한 번에 전체를 바꾸지 말고 점진적으로</span>
+<span class="comment">- 각 단계에서 앱이 동작 가능한 상태를 유지</span></div>
+        </div>
+        <div class="recipe-why"><strong>왜 효과적인가:</strong> 마이그레이션 대상, 현재 상태, 작업 순서, 점진적 접근 제약을 명시해서 안전한 마이그레이션이 가능합니다.</div>
+      </div>
+    </div>
+
+    <!-- Recipe 9 -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <span class="recipe-num">#9</span>
+        <h4>새 프로젝트 초기 설정</h4>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-situation"><strong>상황:</strong> 새 프로젝트를 처음부터 세팅하고 싶을 때</div>
+        <div class="code-block" style="margin: 0;">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span>프롬프트</span>
+          </div>
+          <div class="code-body"><span class="keyword">새 프로젝트를 세팅해줘:</span>
+
+<span class="keyword">기술 스택:</span>
+<span class="desc">- Next.js 14 (App Router)</span>
+<span class="desc">- TypeScript (strict mode)</span>
+<span class="desc">- Tailwind CSS</span>
+<span class="desc">- Prisma + PostgreSQL</span>
+<span class="desc">- Vitest + Testing Library</span>
+
+<span class="keyword">프로젝트 구조:</span>
+<span class="string">Feature 기반 폴더 구조 (src/features/)</span>
+
+<span class="keyword">포함할 설정:</span>
+<span class="comment">- ESLint + Prettier 설정</span>
+<span class="comment">- husky + lint-staged (pre-commit)</span>
+<span class="comment">- 환경 변수 템플릿 (.env.example)</span>
+<span class="comment">- GitHub Actions CI 파이프라인</span>
+<span class="comment">- Docker Compose (개발용 DB)</span>
+
+<span class="keyword">먼저 폴더 구조와 설정 파일만 만들어줘.</span>
+<span class="keyword">실제 기능 코드는 아직 작성하지 마.</span></div>
+        </div>
+        <div class="recipe-why"><strong>왜 효과적인가:</strong> 기술 스택, 프로젝트 구조, 개발 환경 설정까지 한 번에 명시하고, "설정만 먼저"라는 제약으로 단계적 진행을 유도합니다.</div>
+      </div>
+    </div>
+
+    <!-- Recipe 10 -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <span class="recipe-num">#10</span>
+        <h4>디버깅 도움 요청</h4>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-situation"><strong>상황:</strong> 에러의 원인을 모르겠고, 도움이 필요할 때</div>
+        <div class="code-block" style="margin: 0;">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span>프롬프트</span>
+          </div>
+          <div class="code-body"><span class="keyword">에러 메시지:</span>
+<span class="string">TypeError: Cannot read properties of undefined</span>
+<span class="string">(reading 'map') at UserList (UserList.tsx:23)</span>
+
+<span class="keyword">발생 상황:</span>
+<span class="string">페이지 첫 로딩 시 발생. 새로고침하면 정상 작동.</span>
+<span class="string">로컬에서만 재현, 프로덕션은 괜찮음.</span>
+
+<span class="keyword">시도한 것:</span>
+<span class="desc">- users?.map으로 옵셔널 체이닝 추가 &rarr; 에러는 사라지지만 빈 목록</span>
+<span class="desc">- console.log로 확인 &rarr; 첫 렌더에서 users가 undefined</span>
+
+<span class="keyword">관련 파일:</span>
+<span class="file">@src/components/UserList.tsx</span>
+<span class="file">@src/hooks/useUsers.ts</span>
+
+<span class="comment">근본 원인을 찾아서 올바른 방법으로 수정해줘.</span>
+<span class="comment">옵셔널 체이닝으로 에러만 숨기는 건 원하지 않아.</span></div>
+        </div>
+        <div class="recipe-why"><strong>왜 효과적인가:</strong> 에러 메시지, 발생 조건, 이미 시도한 것, 원하는 수정 방향까지 제공해서 Claude가 근본 원인을 파악하고 올바르게 수정합니다.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 7: FAQ =================== -->
+<section id="faq">
+  <div class="container">
+    <div class="section-number">07</div>
+    <h2 class="section-title">자주 묻는 질문</h2>
+    <p class="section-desc">
+      프롬프팅에 대해 가장 많이 궁금해하는 것들
+    </p>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          영어로 프롬프트하면 더 잘 되나요?
+          <span class="arrow">&#x25BC;</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            Claude는 한국어를 매우 잘 이해합니다. 일반적인 코딩 작업에서는 한국어와 영어의 결과 차이가 거의 없습니다. 다만 매우 전문적인 기술 용어나 특정 라이브러리의 API를 다룰 때는 영어 키워드를 섞어 쓰면 정확도가 약간 올라갈 수 있습니다. 예를 들어 "React의 useEffect에서 cleanup function을 구현해줘"처럼 기술 용어만 영어로 쓰는 하이브리드 방식이 실용적입니다. 중요한 것은 언어가 아니라 프롬프트의 구체성입니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          프롬프트가 너무 길면 안 좋나요?
+          <span class="arrow">&#x25BC;</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            프롬프트가 길다고 나쁜 것은 아닙니다. 오히려 구체적인 긴 프롬프트가 모호한 짧은 프롬프트보다 훨씬 좋은 결과를 냅니다. 다만 "장황한" 프롬프트와 "구체적인" 프롬프트는 다릅니다. 불필요한 배경 설명이나 반복은 오히려 핵심을 흐릴 수 있습니다. 핵심은 <strong>필요한 정보를 빠짐없이, 구조적으로</strong> 전달하는 것입니다. 목적, 컨텍스트, 요구사항, 제약조건을 명확한 섹션으로 나눠서 쓰면 길어도 효과적입니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Plan Mode에서 계획을 수정할 수 있나요?
+          <span class="arrow">&#x25BC;</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            네, 그게 Plan Mode의 핵심 장점입니다. Claude가 계획을 제시하면 실행 전에 자유롭게 수정할 수 있습니다. "2번 단계를 이렇게 바꿔줘", "3번 단계를 빼고 대신 이걸 추가해줘", "순서를 바꿔서 테스트부터 해줘" 등 원하는 만큼 조정할 수 있습니다. 계획이 만족스러울 때 "이대로 진행해줘"라고 하면 됩니다. 실행 중간에도 "잠깐, 여기서 멈춰"라고 하면 중단할 수 있습니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          이전 대화를 참조하게 할 수 있나요?
+          <span class="arrow">&#x25BC;</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            Claude Code는 같은 세션 내에서는 이전 대화를 기억합니다. 하지만 세션이 끝나면 (터미널을 닫거나 /clear를 하면) 대화 기록은 사라집니다. 이전 대화의 맥락을 유지하고 싶다면 두 가지 방법이 있습니다. 첫째, <strong>CLAUDE.md에 중요한 규칙을 적어두면</strong> 매 세션마다 자동으로 로드됩니다. 둘째, <strong>새 세션에서 이전 작업의 맥락을 간단히 요약해서 알려주면</strong> Claude가 이해합니다. 예: "어제 결제 모듈 리팩토링을 시작했고, PaymentService 분리까지 완료했어. 오늘은 NotificationService를 분리할 거야."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SUMMARY =================== -->
+<section style="padding: 80px 0;">
+  <div class="container">
+    <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.15); text-align: center; padding: 60px 40px;">
+      <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
+        요약하면 이겁니다
+      </h2>
+      <p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
+        핵심 패턴 = <strong style="color: var(--accent)">구체적 + 컨텍스트 + 단계별 + 예시 + 제약</strong><br>
+        복잡한 작업 = <strong style="color: var(--green)">Plan Mode 먼저</strong><br>
+        정확한 결과 = <strong style="color: var(--orange)">@ 멘션으로 파일 지정</strong>
+      </p>
+      <p style="color: var(--text-muted); font-size: 14px;">
+        프롬프트는 연습할수록 좋아집니다.<br>
+        위의 레시피부터 시작해서, 자신만의 패턴을 만들어보세요.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== CHAPTER NAV =================== -->
+<div class="chapter-nav">
+  <a href="claude-md.html">&larr; 이전: CLAUDE.md</a>
+  <a href="mcp.html">다음: MCP 서버 연결 &rarr;</a>
+</div>
+
+<footer>
+  <p>Made with Claude &middot; <a href="../index.html">Claude Code 101</a> &middot; <a href="https://docs.anthropic.com" target="_blank">Anthropic Docs</a></p>
+</footer>
+
+<script>
+function toggleAccordion(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+
+  // Close all
+  document.querySelectorAll('.accordion-btn').forEach(b => {
+    b.classList.remove('open');
+    b.nextElementSibling.style.maxHeight = null;
+  });
+
+  // Open clicked (if it was closed)
+  if (!isOpen) {
+    btn.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link:not(.nav-home)');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
