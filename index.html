@@ -208,6 +208,9 @@ pre .comment{color:var(--text-muted)}pre .keyword{color:var(--accent3)}pre .stri
 .overview-card .oc-time{font-family:var(--font-mono);font-size:.72rem;color:var(--text-muted);margin-top:.6rem;display:flex;align-items:center;gap:5px}
 .overview-card .oc-progress{height:3px;background:var(--border);border-radius:2px;margin-top:.5rem;overflow:hidden}
 .overview-card .oc-progress-fill{height:100%;background:var(--green);border-radius:2px;transition:width .3s}
+.overview-card .oc-chapter-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.2);border-radius:100px;font-family:var(--font-mono);font-size:.68rem;color:var(--accent3);margin-top:.5rem}
+.chapter-link{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:.82rem;color:var(--accent3);margin-left:1rem;padding:3px 10px;border:1px solid rgba(167,139,250,.2);border-radius:100px;transition:all .2s}
+.chapter-link:hover{color:var(--accent);border-color:rgba(249,115,22,.3);background:var(--accent-glow)}
 
 /* COMPLETION */
 .completion-row{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;padding-top:1.2rem;border-top:1px dashed var(--border)}
@@ -686,7 +689,7 @@ const modules = [
   }
 },
 {
-  id:'module7',num:'07',title:'Skills & Hooks',desc:'자동 스킬, 라이프사이클 자동화',time:'2시간',
+  id:'module7',num:'07',title:'Skills & Hooks',desc:'자동 스킬, 라이프사이클 자동화',time:'2시간',chapterUrl:'chapters/skill.html',
   goals:['Skills 온디맨드 로딩 이해','Hooks로 자동화 구축'],
   sections:[
     {title:'Skills 만들기',icon:'🎯',iconClass:'purple',subtitle:'작업에 따라 자동 활성화',content:`
@@ -849,9 +852,10 @@ sidebar.innerHTML = '<a href="#overview"><span class="pip"></span><span class="l
 const overviewGrid = document.getElementById('overviewGrid');
 modules.forEach(m=>{
   const c = document.createElement('a');
-  c.href = `#${m.id}`;
+  c.href = m.chapterUrl ? m.chapterUrl : `#${m.id}`;
   c.className = 'overview-card';
-  c.innerHTML = `<div class="oc-num">${m.num}</div><div class="oc-title">${m.title}</div><div class="oc-desc">${m.desc}</div><div class="oc-time"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>${m.time}</div><div class="oc-progress"><div class="oc-progress-fill" data-module="${m.id}" style="width:0%"></div></div>`;
+  const chapterBadge = m.chapterUrl ? '<div class="oc-chapter-badge">📖 챕터 보기</div>' : '';
+  c.innerHTML = `<div class="oc-num">${m.num}</div><div class="oc-title">${m.title}</div><div class="oc-desc">${m.desc}</div><div class="oc-time"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>${m.time}</div>${chapterBadge}<div class="oc-progress"><div class="oc-progress-fill" data-module="${m.id}" style="width:0%"></div></div>`;
   overviewGrid.appendChild(c);
 });
 
@@ -912,10 +916,11 @@ modules.forEach(m=>{
       </div>`;
   }
 
+  const chapterLink = m.chapterUrl ? `<a href="${m.chapterUrl}" class="chapter-link">상세 챕터 →</a>` : '';
   sec.innerHTML = `<div class="container">
     <div style="margin-bottom:2rem">
       <div class="module-number">Module ${m.num}</div>
-      <h2 class="module-title">${m.title}</h2>
+      <h2 class="module-title">${m.title}${chapterLink}</h2>
       <p class="module-desc">${m.desc}</p>
     </div>
     <div class="goals">${goalsH}</div>
