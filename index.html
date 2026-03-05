@@ -514,6 +514,14 @@ pre .comment{color:var(--text-muted)}pre .keyword{color:var(--accent3)}pre .stri
   </div>
 </section>
 
+<section id="feedback-section" style="border-top:1px solid var(--border);padding:3rem 2rem 0;">
+  <div class="container" style="max-width:860px;margin:0 auto;">
+    <p style="font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.4rem;">📣 피드백 &amp; 댓글</p>
+    <p style="font-size:.83rem;color:var(--text-muted);margin-bottom:1.2rem;">이 사이트가 도움이 됐나요? GitHub 계정으로 댓글이나 반응을 남겨주세요.</p>
+    <div id="giscus-main"></div>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="footer-logo">Claude Code <span class="hl">101</span></div>
   <p class="footer-text">개발자리 — AI 시대의 개발 교육 · 2026</p>
@@ -1271,6 +1279,44 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSupport()});
 (function(){
   const fab=document.getElementById('supportFab');
   fab.style.opacity='0';fab.style.pointerEvents='none';fab.style.transition='opacity .3s, transform .25s, background .25s, box-shadow .25s';
+})();
+</script>
+
+<script>
+// Giscus 메인 페이지 초기화
+(function(){
+  function getTheme(){
+    return localStorage.getItem('cc101-theme') || document.documentElement.getAttribute('data-theme') || 'light';
+  }
+  function loadGiscus(){
+    const container = document.getElementById('giscus-main');
+    if (!container || container.querySelector('script')) return;
+    const s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'm1zz/ClaudeCode101');
+    s.setAttribute('data-repo-id', 'R_kgDORW3WvA');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDORW3WvM4C3uH7');
+    s.setAttribute('data-mapping', 'specific');
+    s.setAttribute('data-term', 'ClaudeCode101-메인');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'top');
+    s.setAttribute('data-theme', getTheme());
+    s.setAttribute('data-lang', 'ko');
+    s.crossOrigin = 'anonymous';
+    s.async = true;
+    container.appendChild(s);
+  }
+  function sendTheme(theme){
+    const iframe = document.querySelector('#giscus-main iframe.giscus-frame');
+    if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme } } }, 'https://giscus.app');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', loadGiscus);
+  else loadGiscus();
+  const mo = new MutationObserver(() => sendTheme(getTheme()));
+  mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 })();
 </script>
 </body>
