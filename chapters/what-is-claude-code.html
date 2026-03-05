@@ -890,6 +890,7 @@
     <a href="#compare" class="nav-link">비교표</a>
     <a href="#usecases" class="nav-link">사용 사례</a>
     <a href="#how-it-works" class="nav-link">작동 원리</a>
+    <a href="#platforms" class="nav-link">플랫폼</a>
     <a href="#timeline" class="nav-link">타임라인</a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
@@ -1053,9 +1054,9 @@
 <section id="how-it-works">
   <div class="container">
     <div class="section-number">04</div>
-    <h2 class="section-title">작동 원리</h2>
+    <h2 class="section-title">작동 원리 &mdash; 에이전트 루프</h2>
     <p class="section-desc">
-      Claude Code는 <strong style="color:var(--accent)">Read &rarr; Understand &rarr; Plan &rarr; Execute &rarr; Verify</strong> 사이클로 작동합니다. 사람이 코드를 다루는 과정과 동일합니다.
+      Claude Code는 세 가지 단계가 서로 뒤섞인 <strong style="color:var(--accent)">에이전트 루프</strong>로 동작합니다. 작업이 완료될 때까지 이 루프를 반복하며, 사용자는 언제든지 중단할 수 있습니다.
     </p>
 
     <div class="steps">
@@ -1067,8 +1068,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>&#x1F4D6; Read &mdash; 코드 읽기</h3>
-          <p>사용자의 요청을 받으면, 먼저 프로젝트의 파일 구조와 관련 코드를 탐색합니다. <code style="color:var(--accent)">Glob</code>, <code style="color:var(--accent)">Grep</code>, <code style="color:var(--accent)">Read</code> 같은 도구를 활용해 필요한 파일을 찾아 읽습니다.</p>
+          <h3>&#x1F4D6; 컨텍스트 수집 (Context Gathering)</h3>
+          <p>사용자의 요청을 받으면, 먼저 프로젝트의 파일 구조와 관련 코드를 탐색합니다. <code style="color:var(--accent)">Glob</code>, <code style="color:var(--accent)">Grep</code>, <code style="color:var(--accent)">Read</code> 같은 도구를 활용해 필요한 파일을 찾아 읽고, 코드 전체의 관계와 맥락을 파악합니다.</p>
         </div>
       </div>
 
@@ -1079,8 +1080,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>&#x1F9E0; Understand &mdash; 맥락 이해</h3>
-          <p>읽은 코드의 구조, 의존성, 패턴을 파악합니다. "이 함수는 여기서 호출되고, 이 변수는 저기서 정의되고..."처럼 코드 전체의 관계를 이해합니다. 최대 100만 토큰(약 75,000줄)의 컨텍스트를 한 번에 처리할 수 있습니다.</p>
+          <h3>&#x270F;&#xFE0F; 작업 수행 (Task Execution)</h3>
+          <p><code style="color:var(--accent)">Edit</code>, <code style="color:var(--accent)">Write</code>, <code style="color:var(--accent)">Bash</code> 도구를 사용해 실제로 파일을 수정하거나 새로 만들고, 터미널 명령어를 실행해 패키지를 설치하거나 서버를 시작하거나 빌드를 수행합니다.</p>
         </div>
       </div>
 
@@ -1091,32 +1092,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>&#x1F4CB; Plan &mdash; 계획 수립</h3>
-          <p>어떤 파일을 어떤 순서로 수정할지 계획을 세웁니다. 복잡한 작업일수록 이 단계가 중요하며, 때로는 사용자에게 계획을 확인받기도 합니다.</p>
-        </div>
-      </div>
-
-      <!-- STEP 4 -->
-      <div class="step">
-        <div class="step-marker">
-          <div class="step-num">4</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-content">
-          <h3>&#x270F;&#xFE0F; Execute &mdash; 코드 작성/수정</h3>
-          <p><code style="color:var(--accent)">Edit</code>, <code style="color:var(--accent)">Write</code>, <code style="color:var(--accent)">Bash</code> 도구를 사용해 실제로 파일을 수정하거나 새로 만듭니다. 터미널 명령어를 실행해 패키지를 설치하거나 빌드를 수행하기도 합니다.</p>
-        </div>
-      </div>
-
-      <!-- STEP 5 -->
-      <div class="step">
-        <div class="step-marker">
-          <div class="step-num">5</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-content">
-          <h3>&#x2705; Verify &mdash; 검증</h3>
-          <p>수정한 코드가 의도대로 동작하는지 확인합니다. 테스트를 실행하고, 빌드가 성공하는지 체크하고, 린터 오류가 없는지 검증합니다. 문제가 발견되면 다시 Step 1로 돌아가 수정합니다.</p>
+          <h3>&#x2705; 결과 검증 (Result Verification)</h3>
+          <p>수정한 코드가 의도대로 동작하는지 확인합니다. 테스트를 실행하고, 빌드가 성공하는지 체크하고, 린터 오류가 없는지 검증합니다. 문제가 발견되면 다시 1단계로 돌아가 루프를 반복합니다.</p>
         </div>
       </div>
 
@@ -1125,21 +1102,112 @@
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>Claude Code 대화 예시</span>
+        <span>Claude Code 에이전트 루프 예시</span>
       </div>
       <div class="code-body">
 <span class="keyword">사용자</span>  <span class="string">"로그인 실패 시 에러 메시지가 안 보여. 고쳐줘"</span>
 
-<span class="comment">// Claude Code의 사고 과정:</span>
-<span class="desc">1. Read</span>     &rarr; auth/ 폴더의 로그인 관련 파일 탐색
-<span class="desc">2. Understand</span> &rarr; LoginForm.tsx에서 에러 상태가 UI에 바인딩 안 된 것 발견
-<span class="desc">3. Plan</span>     &rarr; 에러 상태 표시 컴포넌트 추가 + 에러 핸들링 개선
-<span class="desc">4. Execute</span>  &rarr; LoginForm.tsx 수정, ErrorMessage 컴포넌트 생성
-<span class="desc">5. Verify</span>   &rarr; 기존 테스트 실행 + 새 테스트 케이스 추가
+<span class="comment">// 루프 1회차:</span>
+<span class="desc">[수집]</span>  auth/ 폴더의 로그인 관련 파일 탐색
+<span class="desc">[수행]</span>  LoginForm.tsx 수정, ErrorMessage 컴포넌트 생성
+<span class="desc">[검증]</span>  테스트 실행 &rarr; 1개 실패 발견
+
+<span class="comment">// 루프 2회차:</span>
+<span class="desc">[수집]</span>  실패한 테스트 원인 분석
+<span class="desc">[수행]</span>  누락된 props 타입 추가
+<span class="desc">[검증]</span>  모든 테스트 통과 &#x2713;
 
 <span class="keyword">Claude</span>   <span class="string">"LoginForm.tsx에 에러 메시지 표시를 추가했습니다.</span>
           <span class="string">ErrorMessage 컴포넌트를 새로 만들었고,</span>
           <span class="string">테스트도 통과합니다. 변경 사항을 확인해주세요."</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">&#x26A0;&#xFE0F;</span>
+      <div>
+        <strong>언제든지 중단 가능:</strong> 에이전트 루프가 실행 중일 때 <code style="color:var(--blue)">Esc</code> 키를 누르면 즉시 작업을 중단할 수 있습니다. Claude Code는 파일을 편집하기 전에 스냅샷(체크포인트)을 찍기 때문에, <code style="color:var(--blue)">Esc</code>를 두 번 누르면 이전 상태로 되돌릴 수 있습니다. Git과 별개로 작동하는 파일 수준의 실행 취소 기능입니다.
+      </div>
+    </div>
+
+    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 20px;">5가지 도구 카테고리</h3>
+    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;">Claude Code가 에이전트 루프에서 사용하는 도구는 5가지 카테고리로 나뉩니다.</p>
+
+    <table class="skill-table">
+      <thead>
+        <tr>
+          <th style="width: 120px;">카테고리</th>
+          <th>할 수 있는 일</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag tag-purple">&#x1F4C4; 파일 작업</span></td>
+          <td style="color: var(--text-dim);">파일 읽기, 편집, 새로 만들기, 이름 바꾸기</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-blue">&#x1F50D; 검색</span></td>
+          <td style="color: var(--text-dim);">패턴으로 파일 찾기, 정규표현식으로 코드 검색</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-green">&#x26A1; 실행</span></td>
+          <td style="color: var(--text-dim);">셸 명령어 실행, 서버 시작, 테스트 실행, git 사용</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-orange">&#x1F310; 웹</span></td>
+          <td style="color: var(--text-dim);">웹 검색, 공식 문서 가져오기, 에러 메시지 조회</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-pink">&#x1F9E0; 코드 인텔리전스</span></td>
+          <td style="color: var(--text-dim);">편집 후 타입 에러 확인, 정의 위치로 이동 (플러그인 필요)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 20px;">권한 모드 (Permission Modes)</h3>
+    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;"><code style="color:var(--accent)">Shift+Tab</code>을 눌러 세 가지 모드를 순환할 수 있습니다.</p>
+
+    <div class="card-grid card-grid-3">
+      <div class="card">
+        <div class="card-icon" style="background: var(--accent-glow);">&#x1F6E1;&#xFE0F;</div>
+        <h3>기본값</h3>
+        <p>파일 편집 및 셸 명령어 실행 전에 항상 사용자에게 확인을 요청합니다. 처음 사용하거나 중요한 작업을 할 때 권장됩니다.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--green-dim);">&#x26A1;</div>
+        <h3>편집 자동 수락</h3>
+        <p>파일 편집은 자동으로 허용하되, 셸 명령어 실행 전에는 여전히 확인을 요청합니다. 빠른 반복 작업에 적합합니다.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--blue-dim);">&#x1F4CB;</div>
+        <h3>계획 모드</h3>
+        <p>읽기 전용 도구만 사용합니다. 파일을 수정하지 않고 분석과 계획만 수립해 사용자의 승인을 받은 뒤 실행합니다.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 20px;">세션 관리</h3>
+    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;">새 세션을 시작하면 컨텍스트 윈도우가 초기화됩니다. 이전 세션을 이어가거나 분기할 수 있습니다.</p>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span>세션 관련 명령어</span>
+      </div>
+      <div class="code-body">
+<span class="comment"># 마지막 세션 이어서 시작</span>
+<span class="keyword">claude</span> <span class="string">--continue</span>
+
+<span class="comment"># 세션 목록에서 선택해서 재개</span>
+<span class="keyword">claude</span> <span class="string">--resume</span>
+
+<span class="comment"># 기존 세션에 영향 없이 분기점 생성</span>
+<span class="keyword">claude</span> <span class="string">--continue --fork-session</span>
+
+<span class="comment"># 컨텍스트 사용량 확인</span>
+<span class="desc">/context</span>
+
+<span class="comment"># 대화 압축 (CLAUDE.md 내용은 유지됨)</span>
+<span class="desc">/compact</span>
       </div>
     </div>
   </div>
@@ -1147,10 +1215,79 @@
 
 <div class="divider"></div>
 
-<!-- =================== SECTION 5: TIMELINE =================== -->
-<section id="timeline">
+<!-- =================== SECTION 5: PLATFORMS =================== -->
+<section id="platforms">
   <div class="container">
     <div class="section-number">05</div>
+    <h2 class="section-title">어디서 실행할 수 있나?</h2>
+    <p class="section-desc">
+      Claude Code는 터미널에서만 쓰는 도구가 아닙니다. 다양한 환경에서 같은 AI 에이전트를 활용할 수 있습니다.
+    </p>
+
+    <div class="card-grid card-grid-3">
+      <div class="card">
+        <div class="card-icon" style="background: var(--accent-glow);">&#x1F4BB;</div>
+        <h3>터미널</h3>
+        <p>가장 기본적인 사용 방식입니다. <code style="color:var(--accent)">claude</code> 명령어 하나로 시작하며 전체 기능을 사용할 수 있습니다. 기존 개발 환경을 바꿀 필요가 없습니다.</p>
+        <div class="tag-row"><span class="tag tag-purple">Full-featured CLI</span></div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--blue-dim);">&#x1F9E9;</div>
+        <h3>VS Code / Cursor</h3>
+        <p>IDE 익스텐션으로 설치합니다. 에디터 안에서 바로 Claude Code를 사용하고, 변경 사항을 인라인 diff로 확인할 수 있습니다.</p>
+        <div class="tag-row"><span class="tag tag-blue">IDE Extension</span><span class="tag tag-green">Inline Diff</span></div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--orange-dim);">&#x1F6E0;&#xFE0F;</div>
+        <h3>JetBrains</h3>
+        <p>IntelliJ, PyCharm, WebStorm 등 JetBrains IDE에서 플러그인으로 사용할 수 있습니다.</p>
+        <div class="tag-row"><span class="tag tag-orange">IntelliJ</span><span class="tag tag-orange">PyCharm</span></div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--green-dim);">&#x1F5A5;&#xFE0F;</div>
+        <h3>Desktop App</h3>
+        <p>독립 실행형 데스크톱 앱으로 터미널 없이도 실행할 수 있습니다. 시각적인 diff 뷰를 제공합니다.</p>
+        <div class="tag-row"><span class="tag tag-green">Visual Diff</span><span class="tag tag-green">No Terminal</span></div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--pink-dim);">&#x1F310;</div>
+        <h3>Web</h3>
+        <p><strong>claude.ai/code</strong>에서 설치 없이 바로 사용합니다. 환경 설정 없이 빠르게 시작하고 싶을 때 적합합니다.</p>
+        <div class="tag-row"><span class="tag tag-pink">No Install</span></div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--yellow-dim);">&#x1F4F1;</div>
+        <h3>원격 제어</h3>
+        <p>로컬 세션을 폰이나 브라우저에서 원격으로 제어할 수 있습니다. PC를 떠나서도 작업을 모니터링하거나 지시할 수 있습니다.</p>
+        <div class="tag-row"><span class="tag tag-yellow">Remote Control</span></div>
+      </div>
+    </div>
+
+    <div class="card-grid" style="margin-top: 20px;">
+      <div class="card">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div>
+            <div class="card-icon" style="background: var(--accent-glow); margin-bottom: 12px;">&#x1F4AC;</div>
+            <h3>Slack 통합</h3>
+            <p style="color: var(--text-dim); font-size: 14px;">Slack 채널에서 <code style="color:var(--accent)">@Claude</code>를 멘션해 팀 워크플로우에 Claude Code를 직접 통합합니다.</p>
+          </div>
+          <div>
+            <div class="card-icon" style="background: var(--surface-raised); margin-bottom: 12px;">&#x2699;&#xFE0F;</div>
+            <h3>CI/CD 자동화</h3>
+            <p style="color: var(--text-dim); font-size: 14px;"><strong>GitHub Actions</strong> 및 <strong>GitLab CI/CD</strong>에서 Claude Code를 실행해 자동 코드 리뷰, PR 피드백, 테스트 생성을 자동화합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 6: TIMELINE =================== -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-number">06</div>
     <h2 class="section-title">타임라인 2025&ndash;2026</h2>
     <p class="section-desc">
       Claude Code는 빠르게 진화하고 있습니다. 주요 마일스톤을 살펴봅니다.
@@ -1256,10 +1393,10 @@
 
 <div class="divider"></div>
 
-<!-- =================== SECTION 6: FAQ =================== -->
+<!-- =================== SECTION 7: FAQ =================== -->
 <section id="faq">
   <div class="container">
-    <div class="section-number">06</div>
+    <div class="section-number">07</div>
     <h2 class="section-title">자주 묻는 질문</h2>
     <p class="section-desc">
       Claude Code를 처음 접하는 분들이 가장 많이 궁금해하는 것들
@@ -1285,7 +1422,8 @@
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네, 다릅니다. <strong>Claude.ai</strong>는 웹 브라우저에서 대화하는 AI 챗봇이고, <strong>Claude Code</strong>는 터미널에서 실행하는 코딩 전용 에이전트입니다. 같은 Claude AI를 기반으로 하지만, Claude Code는 여러분의 컴퓨터에서 직접 파일을 읽고, 수정하고, 명령어를 실행할 수 있는 "도구들"이 추가되어 있습니다. 쉽게 말하면, Claude.ai가 "대화만 가능한 상담사"라면, Claude Code는 "직접 손을 움직이는 실무자"입니다.
+            네, 다릅니다. <strong>Claude.ai</strong>는 웹 브라우저에서 대화하는 AI 챗봇이고, <strong>Claude Code</strong>는 파일을 읽고 수정하고 명령어를 실행하는 코딩 전용 에이전트입니다. 같은 Claude AI를 기반으로 하지만, Claude Code는 5가지 도구 카테고리(파일, 검색, 실행, 웹, 코드 인텔리전스)가 추가되어 있어 실제로 "손을 움직여" 작업합니다.<br><br>
+            Claude Code는 터미널 외에도 <strong>VS Code 익스텐션, JetBrains 플러그인, 데스크톱 앱, claude.ai/code(설치 불필요)</strong> 등 다양한 방식으로 이용할 수 있습니다.
           </div>
         </div>
       </div>
@@ -1316,6 +1454,19 @@
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
+          실수로 파일을 잘못 수정하면 어떻게 되나요?
+          <span class="arrow">&#x25BC;</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            Claude Code는 파일을 편집하기 전에 <strong>체크포인트(스냅샷)</strong>를 자동으로 저장합니다. 작업 중에 문제가 생겼다고 느끼면 <code>Esc</code> 키를 두 번 눌러 즉시 이전 상태로 되돌릴 수 있습니다. 이는 Git과 별개로 작동하는 파일 수준의 실행 취소 기능입니다.<br><br>
+            또한 기본 권한 모드에서는 파일 수정 및 명령어 실행 전에 항상 사용자에게 확인을 요청하기 때문에, 원하지 않는 변경이 자동으로 이루어지지 않습니다. <code>Shift+Tab</code>으로 권한 모드를 조절해 안전성과 속도의 균형을 맞출 수 있습니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
           보안은 안전한가요?
           <span class="arrow">&#x25BC;</span>
         </button>
@@ -1340,10 +1491,11 @@
       <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
         요약하면 이겁니다
       </h2>
-      <p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
-        Claude Code = <strong style="color: var(--accent)">터미널에서 동작하는 AI 코딩 에이전트</strong><br>
-        핵심 차별점 = <strong style="color: var(--green)">자율적으로 코드를 읽고, 쓰고, 검증</strong><br>
-        최적 활용 = <strong style="color: var(--orange)">복잡한 멀티파일 작업 &amp; 자동화</strong>
+      <p style="color: var(--text-dim); font-size: 17px; max-width: 580px; margin: 0 auto 32px; line-height: 1.8;">
+        Claude Code = <strong style="color: var(--accent)">에이전트 루프로 동작하는 AI 코딩 도구</strong><br>
+        핵심 차별점 = <strong style="color: var(--green)">수집 &rarr; 수행 &rarr; 검증 사이클을 자율 반복</strong><br>
+        사용 범위 = <strong style="color: var(--blue)">터미널, IDE, 웹, Slack, CI/CD 등 다양한 플랫폼</strong><br>
+        최적 활용 = <strong style="color: var(--orange)">복잡한 멀티파일 작업 &amp; 팀 자동화</strong>
       </p>
       <p style="color: var(--text-muted); font-size: 14px;">
         다음 챕터에서는 Claude Code를 직접 설치하고 첫 명령을 실행해봅시다!

@@ -891,6 +891,10 @@
     <a href="#commands" class="nav-link">필수 명령어 5개</a>
     <a href="#filesystem" class="nav-link">파일 시스템</a>
     <a href="#setup" class="nav-link">개발 환경 설치</a>
+    <a href="#cli-flags" class="nav-link">CLI 플래그</a>
+    <a href="#slash-commands" class="nav-link">슬래시 명령어</a>
+    <a href="#piping" class="nav-link">파이프 활용</a>
+    <a href="#terminal-tips" class="nav-link">터미널 최적화</a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
 </nav>
@@ -1315,10 +1319,679 @@
 
 <div class="divider"></div>
 
-<!-- =================== SECTION 6: FAQ =================== -->
-<section id="faq">
+<!-- =================== SECTION 6: CLI FLAGS =================== -->
+<section id="cli-flags">
   <div class="container">
     <div class="section-number">06</div>
+    <h2 class="section-title">Claude Code CLI 플래그</h2>
+    <p class="section-desc">
+      터미널에서 <code style="color:var(--accent)">claude</code> 명령어를 실행할 때 사용하는 주요 플래그들입니다. 공식 CLI 레퍼런스 기준 최신 내용입니다.
+    </p>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span>기본 실행 방법</span>
+      </div>
+      <div class="code-body">
+<span class="comment"># 대화형 세션 시작 (가장 기본)</span>
+<span class="keyword">claude</span>
+
+<span class="comment"># 초기 프롬프트와 함께 대화형 세션 시작</span>
+<span class="keyword">claude</span> <span class="string">"이 프로젝트를 설명해줘"</span>
+
+<span class="comment"># 출력 모드 (비대화형, 파이프 전용)</span>
+<span class="keyword">claude</span> <span class="desc">-p</span> <span class="string">"이 함수를 설명해줘"</span>
+
+<span class="comment"># 마지막 세션 이어서 시작</span>
+<span class="keyword">claude</span> <span class="desc">--continue</span>
+
+<span class="comment"># 세션 목록에서 선택해서 재개</span>
+<span class="keyword">claude</span> <span class="desc">--resume</span>
+
+<span class="comment"># 세션을 분기(포크)해서 재개</span>
+<span class="keyword">claude</span> <span class="desc">--continue --fork-session</span>
+
+<span class="comment"># ID 또는 이름으로 특정 세션 재개</span>
+<span class="keyword">claude</span> <span class="desc">-r</span> <span class="string">"auth-refactor"</span> <span class="string">"이 PR 마무리해줘"</span>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span>모델 및 도구 제어</span>
+      </div>
+      <div class="code-body">
+<span class="comment"># 사용할 모델 지정</span>
+<span class="keyword">claude</span> <span class="desc">--model</span> claude-sonnet-4-6
+
+<span class="comment"># 별칭으로도 지정 가능 (sonnet, opus)</span>
+<span class="keyword">claude</span> <span class="desc">--model</span> sonnet
+
+<span class="comment"># 추가 작업 디렉토리 지정</span>
+<span class="keyword">claude</span> <span class="desc">--add-dir</span> /path/to/other/project
+
+<span class="comment"># 허용할 도구만 지정 (권한 프롬프트 없이 실행)</span>
+<span class="keyword">claude</span> <span class="desc">--allowedTools</span> <span class="string">"Bash,Read"</span>
+
+<span class="comment"># 특정 도구 차단</span>
+<span class="keyword">claude</span> <span class="desc">--disallowedTools</span> <span class="string">"Write"</span>
+
+<span class="comment"># 사용 가능한 도구를 제한 (명명된 도구만)</span>
+<span class="keyword">claude</span> <span class="desc">--tools</span> <span class="string">"Bash,Edit,Read"</span>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span>서브에이전트(Subagent) 정의</span>
+      </div>
+      <div class="code-body">
+<span class="comment"># --agents 플래그로 세션 전용 서브에이전트 정의</span>
+<span class="keyword">claude</span> <span class="desc">--agents</span> <span class="string">'{
+  "code-reviewer": {
+    "description": "코드 변경 후 자동으로 리뷰",
+    "prompt": "당신은 시니어 코드 리뷰어입니다. 코드 품질, 보안, 베스트 프랙티스에 집중하세요.",
+    "tools": ["Read", "Grep", "Glob", "Bash"],
+    "model": "sonnet"
+  },
+  "debugger": {
+    "description": "오류 및 테스트 실패 디버깅 전문가",
+    "prompt": "당신은 전문 디버거입니다. 오류를 분석하고 근본 원인을 파악해서 수정안을 제시하세요."
+  }
+}'</span>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span>시스템 프롬프트 커스터마이징</span>
+      </div>
+      <div class="code-body">
+<span class="comment"># 기본 시스템 프롬프트에 지침 추가 (권장)</span>
+<span class="keyword">claude</span> <span class="desc">--append-system-prompt</span> <span class="string">"항상 TypeScript를 사용해줘"</span>
+
+<span class="comment"># 전체 시스템 프롬프트를 교체 (고급 사용)</span>
+<span class="keyword">claude</span> <span class="desc">--system-prompt</span> <span class="string">"당신은 Python 전문가입니다"</span>
+
+<span class="comment"># 파일에서 시스템 프롬프트 로드 (인쇄 모드만)</span>
+<span class="keyword">claude</span> -p <span class="desc">--system-prompt-file</span> ./prompts/code-review.txt <span class="string">"이 PR 리뷰해줘"</span>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span>출력 형식 및 자동화</span>
+      </div>
+      <div class="code-body">
+<span class="comment"># JSON 형식으로 출력 (스크립팅에 유용)</span>
+<span class="keyword">claude</span> -p <span class="string">"쿼리"</span> <span class="desc">--output-format</span> json
+
+<span class="comment"># 스트리밍 JSON 출력</span>
+<span class="keyword">claude</span> -p <span class="string">"쿼리"</span> <span class="desc">--output-format</span> stream-json
+
+<span class="comment"># 최대 에이전트 턴 수 제한 (인쇄 모드)</span>
+<span class="keyword">claude</span> -p <span class="desc">--max-turns</span> 5 <span class="string">"쿼리"</span>
+
+<span class="comment"># 최대 예산 설정 (인쇄 모드)</span>
+<span class="keyword">claude</span> -p <span class="desc">--max-budget-usd</span> 5.00 <span class="string">"쿼리"</span>
+
+<span class="comment"># 기본 모델 과부하 시 폴백 모델 지정 (인쇄 모드)</span>
+<span class="keyword">claude</span> -p <span class="desc">--fallback-model</span> sonnet <span class="string">"쿼리"</span>
+      </div>
+    </div>
+
+    <table class="skill-table" style="margin-top: 32px;">
+      <thead>
+        <tr>
+          <th style="width: 220px;">플래그</th>
+          <th>설명</th>
+          <th style="width: 120px;">모드</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="skill-name-cell">--continue, -c</td>
+          <td style="color: var(--text-dim);">현재 디렉토리에서 가장 최근 대화 로드</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--resume, -r</td>
+          <td style="color: var(--text-dim);">ID 또는 이름으로 특정 세션 재개, 또는 선택기 표시</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--fork-session</td>
+          <td style="color: var(--text-dim);">--resume 또는 --continue 시 새 세션 ID 생성 (분기)</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--model</td>
+          <td style="color: var(--text-dim);">모델 지정 (sonnet, opus, claude-sonnet-4-6 등)</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--add-dir</td>
+          <td style="color: var(--text-dim);">Claude가 접근할 추가 작업 디렉토리 추가</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--allowedTools</td>
+          <td style="color: var(--text-dim);">권한 프롬프트 없이 실행할 도구 지정</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--disallowedTools</td>
+          <td style="color: var(--text-dim);">모델의 컨텍스트에서 제거하고 사용 금지할 도구</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--tools</td>
+          <td style="color: var(--text-dim);">Claude가 사용할 수 있는 내장 도구 제한</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--agents</td>
+          <td style="color: var(--text-dim);">JSON으로 세션 전용 서브에이전트 동적 정의</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--print, -p</td>
+          <td style="color: var(--text-dim);">대화형 모드 없이 응답 출력 (파이프·자동화 용도)</td>
+          <td style="color: var(--text-dim);">인쇄 모드</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--output-format</td>
+          <td style="color: var(--text-dim);">출력 형식 지정: text, json, stream-json</td>
+          <td style="color: var(--text-dim);">인쇄 모드</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--max-turns</td>
+          <td style="color: var(--text-dim);">에이전트 턴 수 제한 (기본값: 무제한)</td>
+          <td style="color: var(--text-dim);">인쇄 모드</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--max-budget-usd</td>
+          <td style="color: var(--text-dim);">중지하기 전에 소비할 최대 API 예산 (달러)</td>
+          <td style="color: var(--text-dim);">인쇄 모드</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--system-prompt</td>
+          <td style="color: var(--text-dim);">전체 시스템 프롬프트를 사용자 정의 텍스트로 교체</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--append-system-prompt</td>
+          <td style="color: var(--text-dim);">기본 시스템 프롬프트 끝에 텍스트 추가</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--permission-mode</td>
+          <td style="color: var(--text-dim);">지정된 권한 모드로 시작 (예: plan)</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--mcp-config</td>
+          <td style="color: var(--text-dim);">JSON 파일 또는 문자열에서 MCP 서버 로드</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--verbose</td>
+          <td style="color: var(--text-dim);">자세한 로깅 활성화 (디버깅에 유용)</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--debug</td>
+          <td style="color: var(--text-dim);">디버그 모드 활성화, 카테고리 필터링 지원</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--version, -v</td>
+          <td style="color: var(--text-dim);">버전 번호 출력</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--worktree, -w</td>
+          <td style="color: var(--text-dim);">격리된 git worktree에서 Claude 시작</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--remote</td>
+          <td style="color: var(--text-dim);">claude.ai에서 새 웹 세션 생성</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">--dangerously-skip-permissions</td>
+          <td style="color: var(--text-dim);">모든 권한 프롬프트 건너뜀 (주의해서 사용)</td>
+          <td style="color: var(--text-dim);">전체</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip" style="margin-top: 24px;">
+      <span class="tip-icon">&#x1F4A1;</span>
+      <div>
+        <strong>팁:</strong> <code style="color:var(--accent)">--output-format json</code> 플래그는 스크립팅 및 자동화에 특히 유용합니다. Claude의 응답을 프로그래밍 방식으로 파싱할 수 있습니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 7: SLASH COMMANDS =================== -->
+<section id="slash-commands">
+  <div class="container">
+    <div class="section-number">07</div>
+    <h2 class="section-title">내장 슬래시 명령어</h2>
+    <p class="section-desc">
+      Claude Code 세션 안에서 <code style="color:var(--accent)">/</code>를 입력하면 사용 가능한 모든 명령어가 표시됩니다. 아래는 주요 내장 명령어 목록입니다.
+    </p>
+
+    <div class="tip">
+      <span class="tip-icon">&#x2139;&#xFE0F;</span>
+      <div>
+        <strong>사용 방법:</strong> Claude Code 세션 안에서 <code style="color:var(--accent)">/</code>를 입력하면 자동완성 목록이 나타납니다. <code style="color:var(--accent)">/</code> 뒤에 문자를 입력하면 필터링됩니다. 모든 명령어가 모든 사용자에게 표시되는 것은 아닙니다. 일부는 플랫폼, 요금제 또는 환경에 따라 다릅니다.
+      </div>
+    </div>
+
+    <table class="skill-table" style="margin-top: 24px;">
+      <thead>
+        <tr>
+          <th style="width: 200px;">명령어</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="skill-name-cell">/help</td>
+          <td style="color: var(--text-dim);">도움말 및 사용 가능한 명령어 표시</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/init</td>
+          <td style="color: var(--text-dim);"><code style="color:var(--accent)">CLAUDE.md</code> 가이드로 프로젝트 초기화</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/memory</td>
+          <td style="color: var(--text-dim);"><code style="color:var(--accent)">CLAUDE.md</code> 메모리 파일 편집, 자동 메모리 활성화/비활성화</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/model [model]</td>
+          <td style="color: var(--text-dim);">AI 모델 선택 또는 변경 (즉시 적용)</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/compact [instructions]</td>
+          <td style="color: var(--text-dim);">선택적 포커스 지침으로 대화 압축</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/context</td>
+          <td style="color: var(--text-dim);">현재 컨텍스트 사용량을 색상 그리드로 시각화</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/agents</td>
+          <td style="color: var(--text-dim);">서브에이전트(subagent) 구성 관리</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/fast [on|off]</td>
+          <td style="color: var(--text-dim);">빠른 모드(Fast Mode) 켜기 또는 끄기</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/permissions</td>
+          <td style="color: var(--text-dim);">도구 권한 보기 또는 업데이트 (별칭: /allowed-tools)</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/doctor</td>
+          <td style="color: var(--text-dim);">Claude Code 설치 및 설정 진단 및 확인</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/mcp</td>
+          <td style="color: var(--text-dim);">MCP 서버 연결 및 OAuth 인증 관리</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/clear</td>
+          <td style="color: var(--text-dim);">대화 기록을 지우고 컨텍스트 해제 (별칭: /reset, /new)</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/cost</td>
+          <td style="color: var(--text-dim);">토큰 사용 통계 및 세션 비용 표시</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/exit</td>
+          <td style="color: var(--text-dim);">CLI 종료 (별칭: /quit)</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/config</td>
+          <td style="color: var(--text-dim);">설정 인터페이스 열기 (별칭: /settings)</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/diff</td>
+          <td style="color: var(--text-dim);">커밋되지 않은 변경 사항 및 턴별 diff를 보여주는 대화형 diff 뷰어</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/resume [session]</td>
+          <td style="color: var(--text-dim);">ID 또는 이름으로 대화 재개 또는 세션 선택기 열기</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/fork [name]</td>
+          <td style="color: var(--text-dim);">현재 지점에서 대화 포크 생성</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/rewind</td>
+          <td style="color: var(--text-dim);">대화 및/또는 코드를 이전 지점으로 되돌리기 (별칭: /checkpoint)</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/review</td>
+          <td style="color: var(--text-dim);">코드 품질, 보안 등에 대한 풀 리퀘스트 리뷰 (gh CLI 필요)</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/security-review</td>
+          <td style="color: var(--text-dim);">현재 브랜치 변경 사항의 보안 취약점 분석</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/plan</td>
+          <td style="color: var(--text-dim);">프롬프트에서 직접 Plan Mode 진입</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/vim</td>
+          <td style="color: var(--text-dim);">Vim 및 일반 편집 모드 간 토글</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/theme</td>
+          <td style="color: var(--text-dim);">색상 테마 변경</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/skills</td>
+          <td style="color: var(--text-dim);">사용 가능한 skills 나열</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/tasks</td>
+          <td style="color: var(--text-dim);">백그라운드 작업 나열 및 관리</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/hooks</td>
+          <td style="color: var(--text-dim);">hook 구성 관리 (도구 이벤트용)</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/add-dir &lt;path&gt;</td>
+          <td style="color: var(--text-dim);">현재 세션에 새 작업 디렉토리 추가</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/pr-comments [PR]</td>
+          <td style="color: var(--text-dim);">GitHub 풀 리퀘스트 댓글 가져오기 (gh CLI 필요)</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/export [filename]</td>
+          <td style="color: var(--text-dim);">현재 대화를 일반 텍스트로 내보내기</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/status</td>
+          <td style="color: var(--text-dim);">버전, 모델, 계정, 연결성 표시</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/stats</td>
+          <td style="color: var(--text-dim);">일일 사용, 세션 기록, 연속 기록 및 모델 선호도 시각화</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/usage</td>
+          <td style="color: var(--text-dim);">요금제 사용 제한 및 속도 제한 상태 표시</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/feedback [report]</td>
+          <td style="color: var(--text-dim);">Claude Code에 대한 피드백 제출 (별칭: /bug)</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/release-notes</td>
+          <td style="color: var(--text-dim);">전체 변경 로그 보기</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="analogy-box" style="margin-top: 32px;">
+      <h4>빠른 입력 접두사</h4>
+      <p>
+        슬래시 명령어 외에도 Claude Code 입력창에서 특수 접두사를 사용할 수 있습니다:<br><br>
+        <strong style="color:var(--text)"><code style="color:var(--accent)">/</code></strong> &rarr; 명령어 또는 skill 실행<br>
+        <strong style="color:var(--text)"><code style="color:var(--accent)">!</code></strong> &rarr; Claude를 거치지 않고 bash 명령 직접 실행, 실행 결과를 대화 컨텍스트에 추가<br>
+        <strong style="color:var(--text)"><code style="color:var(--accent)">@</code></strong> &rarr; 파일 경로 자동완성 트리거
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 8: PIPING =================== -->
+<section id="piping">
+  <div class="container">
+    <div class="section-number">08</div>
+    <h2 class="section-title">파이프(Pipe) 활용</h2>
+    <p class="section-desc">
+      <code style="color:var(--accent)">claude -p</code>와 파이프(<code style="color:var(--accent)">|</code>)를 결합하면 터미널의 다른 명령어 출력을 Claude에게 바로 전달할 수 있습니다. 강력한 자동화 워크플로우를 만들 수 있는 기능입니다.
+    </p>
+
+    <div class="analogy-box">
+      <h4>파이프(|)란?</h4>
+      <p>
+        파이프는 한 명령어의 출력을 다른 명령어의 입력으로 연결하는 터미널 기능입니다.<br><br>
+        <code style="color:var(--accent)">명령어A | 명령어B</code><br><br>
+        명령어A의 결과가 자동으로 명령어B로 전달됩니다. <code style="color:var(--accent)">claude -p</code>는 비대화형 출력 모드이므로 파이프의 수신 측으로 완벽하게 작동합니다.
+      </p>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span>실전 파이프 예시</span>
+      </div>
+      <div class="code-body">
+<span class="comment"># 서버 로그를 실시간으로 Claude에게 보내서 오류 감지</span>
+<span class="keyword">tail</span> -f server.log | <span class="keyword">claude</span> -p <span class="string">"오류가 보이면 알려줘"</span>
+
+<span class="comment"># 변경된 파일 목록을 Claude에게 전달해서 보안 리뷰</span>
+<span class="keyword">git</span> diff main --name-only | <span class="keyword">claude</span> -p <span class="string">"변경된 파일들의 보안 이슈를 검토해줘"</span>
+
+<span class="comment"># 코드 파일을 읽어서 설명 요청</span>
+<span class="keyword">cat</span> app.py | <span class="keyword">claude</span> -p <span class="string">"이 코드를 설명해줘"</span>
+
+<span class="comment"># 새 문자열을 프랑스어로 번역해서 PR 생성</span>
+<span class="keyword">claude</span> -p <span class="string">"새 문자열을 프랑스어로 번역하고 PR을 올려줘"</span>
+
+<span class="comment"># 로그 파일을 Claude에게 전달해서 분석</span>
+<span class="keyword">cat</span> logs.txt | <span class="keyword">claude</span> -p <span class="string">"이 로그를 분석해서 문제를 찾아줘"</span>
+
+<span class="comment"># 디렉토리 구조를 Claude에게 전달</span>
+<span class="keyword">find</span> . -type f -name "*.ts" | <span class="keyword">claude</span> -p <span class="string">"TypeScript 파일 목록을 보고 아키텍처를 설명해줘"</span>
+
+<span class="comment"># JSON 출력 형식으로 받아서 파싱</span>
+<span class="keyword">cat</span> data.json | <span class="keyword">claude</span> -p --output-format json <span class="string">"이 데이터를 요약해줘"</span> | <span class="keyword">jq</span> '.result'
+      </div>
+    </div>
+
+    <div class="card-grid card-grid-2" style="margin-top: 32px;">
+      <div class="card">
+        <div class="card-icon" style="background: var(--green-dim);">&#x26A1;</div>
+        <h3>자동화 스크립트에서 활용</h3>
+        <p>CI/CD 파이프라인이나 쉘 스크립트 안에서 <code style="color:var(--accent)">claude -p</code>를 호출하면 AI 분석을 자동화된 워크플로우에 통합할 수 있습니다.</p>
+        <div class="code-block" style="margin-top: 16px;">
+          <div class="code-body" style="font-size: 12px;">
+<span class="comment">#!/bin/bash</span>
+<span class="comment"># 배포 전 보안 체크 자동화</span>
+<span class="keyword">git</span> diff HEAD~1 | <span class="keyword">claude</span> -p \
+  --output-format json \
+  <span class="string">"보안 취약점이 있으면 JSON으로 리포트해줘"</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--blue-dim);">&#x1F4CA;</div>
+        <h3>JSON 출력으로 데이터 파싱</h3>
+        <p><code style="color:var(--accent)">--output-format json</code>을 사용하면 Claude의 응답을 다른 도구(<code style="color:var(--accent)">jq</code> 등)로 파싱해서 추가 처리할 수 있습니다.</p>
+        <div class="code-block" style="margin-top: 16px;">
+          <div class="code-body" style="font-size: 12px;">
+<span class="keyword">claude</span> -p <span class="string">"쿼리"</span> \
+  --output-format json \
+  | <span class="keyword">jq</span> <span class="string">'.result'</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top: 24px;">
+      <span class="tip-icon">&#x1F4A1;</span>
+      <div>
+        <strong>핵심 차이:</strong> <code style="color:var(--accent)">claude</code>(인수 없음)는 대화형 세션을 시작하고, <code style="color:var(--accent)">claude -p "..."</code>는 응답만 출력하고 종료합니다. 파이프나 스크립트에서는 항상 <code style="color:var(--accent)">-p</code> 모드를 사용하세요.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 9: TERMINAL TIPS =================== -->
+<section id="terminal-tips">
+  <div class="container">
+    <div class="section-number">09</div>
+    <h2 class="section-title">터미널 최적화 팁</h2>
+    <p class="section-desc">
+      Claude Code를 더 쾌적하게 사용하기 위한 터미널 앱 추천과 설정 팁입니다.
+    </p>
+
+    <div class="card-grid card-grid-3">
+      <div class="card">
+        <div class="card-icon" style="background: var(--green-dim);">&#x1F34E;</div>
+        <h3>iTerm2 (macOS 추천)</h3>
+        <p>macOS 기본 터미널보다 훨씬 강력한 무료 터미널 앱입니다. Claude Code와의 호환성이 뛰어납니다.</p>
+        <div style="margin-top: 16px;">
+          <div class="tag-row">
+            <span class="tag tag-green">Option을 Meta로 설정</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">설정 → 프로필 → 키 → Left/Right Option 키를 "Esc+"로 설정하면 <code style="color:var(--accent)">Alt+B</code>, <code style="color:var(--accent)">Alt+F</code> 등 단축키를 사용할 수 있습니다.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--accent-glow);">&#x26A1;</div>
+        <h3>Warp (macOS/Linux)</h3>
+        <p>AI 기능이 내장된 현대적인 터미널입니다. 명령어 자동완성과 블록 단위 출력이 특징입니다.</p>
+        <div style="margin-top: 16px;">
+          <div class="tag-row">
+            <span class="tag tag-purple">AI 자동완성 내장</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">Shift+Enter 지원을 위해 Claude Code 안에서 <code style="color:var(--accent)">/terminal-setup</code>을 실행해서 키 바인딩을 설치하세요.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--blue-dim);">&#x1FA9F;</div>
+        <h3>Windows Terminal (Windows 추천)</h3>
+        <p>Microsoft가 만든 현대적인 Windows 터미널입니다. 여러 탭과 PowerShell, WSL을 동시에 사용할 수 있습니다.</p>
+        <div style="margin-top: 16px;">
+          <div class="tag-row">
+            <span class="tag tag-blue">탭 지원</span>
+            <span class="tag tag-blue">WSL 통합</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">Microsoft Store에서 무료로 다운로드할 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">Claude Code 인터랙티브 모드 키보드 단축키</h3>
+
+      <table class="skill-table">
+        <thead>
+          <tr>
+            <th style="width: 200px;">단축키</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="skill-name-cell">Ctrl+C</td>
+            <td style="color: var(--text-dim);">현재 입력 또는 생성 취소</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Ctrl+D</td>
+            <td style="color: var(--text-dim);">Claude Code 세션 종료 (EOF)</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Ctrl+G</td>
+            <td style="color: var(--text-dim);">기본 텍스트 편집기에서 프롬프트 열기</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Ctrl+L</td>
+            <td style="color: var(--text-dim);">터미널 화면 지우기 (대화 기록 유지)</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Ctrl+O</td>
+            <td style="color: var(--text-dim);">상세 출력 토글</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Ctrl+R</td>
+            <td style="color: var(--text-dim);">역방향 명령 기록 검색</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Ctrl+B</td>
+            <td style="color: var(--text-dim);">bash 명령 및 에이전트를 백그라운드로 실행</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Ctrl+T</td>
+            <td style="color: var(--text-dim);">작업 목록 토글</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Esc + Esc</td>
+            <td style="color: var(--text-dim);">되돌리기 또는 요약 (코드/대화를 이전 지점으로 복원)</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Shift+Tab</td>
+            <td style="color: var(--text-dim);">권한 모드 토글 (자동 수락 ↔ Plan Mode ↔ 일반)</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Option+P (Alt+P)</td>
+            <td style="color: var(--text-dim);">프롬프트를 지우지 않고 모델 전환</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">\ + Enter</td>
+            <td style="color: var(--text-dim);">여러 줄 입력 (모든 터미널에서 작동)</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Shift+Enter</td>
+            <td style="color: var(--text-dim);">여러 줄 입력 (iTerm2, WezTerm, Ghostty, Kitty 기본 지원)</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Option+Enter</td>
+            <td style="color: var(--text-dim);">여러 줄 입력 (macOS 기본값)</td>
+          </tr>
+          <tr>
+            <td class="skill-name-cell">Up/Down 화살표</td>
+            <td style="color: var(--text-dim);">명령 기록 탐색</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip" style="margin-top: 32px;">
+      <span class="tip-icon">&#x2139;&#xFE0F;</span>
+      <div>
+        <strong>Option/Alt 키 단축키 설정 (macOS):</strong> <code style="color:var(--accent)">Alt+B</code>, <code style="color:var(--accent)">Alt+F</code> 등의 단축키를 사용하려면 터미널에서 Option을 Meta로 설정해야 합니다.
+        <ul style="margin-top: 8px; padding-left: 20px; line-height: 2;">
+          <li><strong>iTerm2</strong>: 설정 → 프로필 → 키 → Left/Right Option 키를 "Esc+"로 설정</li>
+          <li><strong>Terminal.app</strong>: 설정 → 프로필 → 키보드 → "Option을 Meta 키로 사용" 체크</li>
+          <li><strong>VS Code</strong>: 설정 → 프로필 → 키 → Left/Right Option 키를 "Esc+"로 설정</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 10: FAQ =================== -->
+<section id="faq">
+  <div class="container">
+    <div class="section-number">10</div>
     <h2 class="section-title">자주 묻는 질문</h2>
     <p class="section-desc">
       터미널을 처음 접하는 분들이 가장 많이 궁금해하는 것들

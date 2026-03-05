@@ -872,8 +872,8 @@
     Claude Code로 실제 개발하는 전체 흐름을 마스터합시다
   </p>
   <div class="hero-cta">
-    <a href="#git" class="btn btn-primary">Git 워크플로우</a>
-    <a href="#debug" class="btn btn-outline">디버깅 패턴 &rarr;</a>
+    <a href="#planmode" class="btn btn-primary">Plan Mode</a>
+    <a href="#git" class="btn btn-outline">Git 워크플로우 &rarr;</a>
   </div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -885,6 +885,12 @@
 <nav class="sticky-nav">
   <div class="nav-inner">
     <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
+    <a href="#planmode" class="nav-link">Plan Mode</a>
+    <a href="#checkpoint" class="nav-link">체크포인팅</a>
+    <a href="#sessions" class="nav-link">세션 관리</a>
+    <a href="#worktrees" class="nav-link">Git Worktrees</a>
+    <a href="#thinking" class="nav-link">Extended Thinking</a>
+    <a href="#skills" class="nav-link">내장 Skills</a>
     <a href="#git" class="nav-link">Git 연동</a>
     <a href="#flow" class="nav-link">브랜치&rarr;PR 흐름</a>
     <a href="#review" class="nav-link">PR 리뷰</a>
@@ -895,10 +901,515 @@
   </div>
 </nav>
 
+<!-- =================== SECTION 0a: PLAN MODE =================== -->
+<section id="planmode">
+  <div class="container">
+    <div class="section-number">01</div>
+    <h2 class="section-title">Plan Mode &mdash; 먼저 계획, 그 다음 실행</h2>
+    <p class="section-desc">
+      위험한 변경 전에 Claude가 <strong style="color:var(--accent)">읽기 전용 모드로 코드베이스를 탐색</strong>하고 계획을 세운 뒤, 사용자 승인을 받고 나서 실행합니다.
+    </p>
+
+    <div class="analogy-box">
+      <h4>외과의사가 수술 전에 MRI를 먼저 보듯</h4>
+      <p>
+        복잡한 기능을 구현하거나 대규모 리팩토링을 앞뒀을 때, Claude가 먼저 파일을 읽고 의존성을 파악한 뒤 계획을 제시합니다.<br><br>
+        여러분은 그 계획을 검토하고 <strong style="color:var(--accent)">승인한 뒤에야 실제 코드 수정이 시작</strong>됩니다. 실수를 예방하는 가장 효과적인 방법입니다.
+      </p>
+    </div>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">Plan Mode 켜는 방법</h3>
+
+    <div class="card-grid card-grid-3" style="margin-bottom: 40px;">
+      <div class="card">
+        <div class="card-icon" style="background: var(--accent-glow);">&#x23E9;</div>
+        <h3>세션 중 전환</h3>
+        <p><strong style="color:var(--accent)">Shift+Tab 두 번</strong> 누르기<br><br>첫 번째: Auto-Accept Mode<br>두 번째: Plan Mode<br><br>터미널 하단에 <code style="color:var(--accent)">⏸ plan mode on</code> 표시됨</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--green-dim);">&#x1F680;</div>
+        <h3>처음부터 Plan Mode</h3>
+        <p>Claude를 Plan Mode로 시작하려면:</p>
+        <div class="code-block" style="margin-top: 12px;">
+          <div class="code-body" style="font-size: 12px;">claude --permission-mode plan</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--blue-dim);">&#x2699;&#xFE0F;</div>
+        <h3>기본값으로 설정</h3>
+        <p><code style="color:var(--accent)">.claude/settings.json</code>에 추가:</p>
+        <div class="code-block" style="margin-top: 12px;">
+          <div class="code-body" style="font-size: 12px;"><span class="comment">// .claude/settings.json</span>
+{
+  "permissions": {
+    "defaultMode": "plan"
+  }
+}</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">Plan Mode 실제 흐름</h3>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>Plan Mode 활성화 후 작업 요청</h3>
+          <p>Shift+Tab 두 번으로 Plan Mode를 켜고, 구현하고 싶은 기능을 설명합니다.</p>
+          <div class="code-block">
+            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>Plan Mode 활성화</span></div>
+            <div class="code-body">
+<span class="comment"># Shift+Tab 두 번 → plan mode on</span>
+<span class="keyword">You:</span> <span class="string">"인증 시스템을 OAuth2로 전환하는 마이그레이션 계획을 세워줘."</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>Claude가 읽기 전용으로 탐색</h3>
+          <p>이 단계에서 Claude는 <strong>파일을 수정하지 않습니다.</strong> 코드베이스를 탐색하고, 의존성을 파악하며, 영향 범위를 분석합니다.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>계획 제시 &amp; 질문</h3>
+          <p>Claude가 단계별 실행 계획을 제시하고, 필요한 경우 추가 요구사항을 질문합니다. <strong style="color:var(--accent)">Ctrl+G</strong>를 누르면 계획을 텍스트 편집기에서 직접 수정할 수 있습니다.</p>
+          <div class="code-block">
+            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>Claude의 계획 예시</span></div>
+            <div class="code-body">
+<span class="desc">Claude:</span>
+<span class="comment"># OAuth2 마이그레이션 계획</span>
+<span class="comment"># 1단계: 현재 JWT 인증 분석 (영향 파일: 8개)</span>
+<span class="comment"># 2단계: OAuth2 라이브러리 설치 및 설정</span>
+<span class="comment"># 3단계: 로그인 플로우 리팩토링</span>
+<span class="comment"># 4단계: 토큰 갱신 로직 마이그레이션</span>
+<span class="comment"># 5단계: 테스트 업데이트</span>
+<span class="comment"># 예상 작업 시간: 2시간</span>
+<span class="comment"># 하위 호환성 유지 방법은?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-marker">
+          <div class="step-num">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>승인 후 실행</h3>
+          <p>계획을 확인하고 승인하면, Claude가 Plan Mode를 해제하고 실제 코드 수정을 시작합니다.</p>
+          <div class="code-block">
+            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>승인</span></div>
+            <div class="code-body">
+<span class="keyword">You:</span> <span class="string">"좋아. 하위 호환성은 6개월 유지해줘. 실행해."</span>
+<span class="desc">&rarr; Claude가 계획대로 코드 수정 시작</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">&#x1F4A1;</span>
+      <div>
+        <strong>언제 Plan Mode를 쓸까:</strong> 여러 파일에 걸친 대규모 변경, 낯선 코드베이스 탐색, 되돌리기 어려운 작업(DB 스키마 변경, 인프라 수정 등)에 특히 효과적입니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 0b: CHECKPOINT =================== -->
+<section id="checkpoint">
+  <div class="container">
+    <div class="section-number">02</div>
+    <h2 class="section-title">체크포인팅 &amp; 되돌리기 (Undo)</h2>
+    <p class="section-desc">
+      Claude Code는 파일을 수정하기 전에 <strong style="color:var(--accent)">자동으로 스냅샷을 찍습니다.</strong> 잘못된 변경은 언제든 Esc+Esc로 되돌릴 수 있습니다.
+    </p>
+
+    <div class="analogy-box">
+      <h4>게임의 자동 저장 기능처럼</h4>
+      <p>
+        게임에서 보스 전 자동 저장이 되듯, Claude Code도 편집 전에 파일 상태를 저장합니다.<br><br>
+        이 체크포인트는 <strong style="color:var(--accent)">Git과 별도로 작동</strong>합니다. Git 커밋을 하지 않았어도 Claude의 각 작업 단위별로 스냅샷이 생성됩니다.
+      </p>
+    </div>
+
+    <div class="card-grid card-grid-2" style="margin-bottom: 40px;">
+      <div class="card">
+        <div class="card-icon" style="background: var(--accent-glow);">&#x23EA;</div>
+        <h3>Esc+Esc로 즉시 되돌리기</h3>
+        <p>Claude가 파일을 수정하는 도중 또는 직후에 <strong style="color:var(--accent)">Esc를 두 번</strong> 누르면, 해당 작업 이전 상태로 파일이 복원됩니다.</p>
+        <div class="code-block" style="margin-top: 16px;">
+          <div class="code-body" style="font-size: 12px;">
+<span class="comment"># Claude가 파일을 수정 중...</span>
+<span class="keyword">Esc Esc</span>
+<span class="desc">&rarr; 수정 이전 스냅샷으로 복원됨</span>
+<span class="comment"># Git 커밋 여부와 무관하게 동작</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--orange-dim);">&#x26A0;&#xFE0F;</div>
+        <h3>Git과의 차이점</h3>
+        <p>체크포인팅은 Claude Code 내부 기능입니다. Git revert/reset과 병행 사용하면 더욱 안전합니다.</p>
+        <div class="comparison" style="margin-top: 16px; gap: 12px;">
+          <div class="comp-bad" style="padding: 16px 20px;">
+            <div class="comp-label">Git Undo</div>
+            <div class="comp-code" style="font-size: 12px;">커밋 단위 되돌리기
+git revert / git reset</div>
+          </div>
+          <div class="comp-good" style="padding: 16px 20px;">
+            <div class="comp-label">Claude Undo</div>
+            <div class="comp-code" style="font-size: 12px;">작업 단위 되돌리기
+Esc+Esc (즉시)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">&#x1F4A1;</span>
+      <div>
+        <strong>실전 활용:</strong> Claude가 예상과 다른 방향으로 코드를 수정하기 시작하면, 완전히 끝날 때까지 기다리지 말고 Esc+Esc로 즉시 중단하세요. 그리고 더 명확한 지시사항으로 다시 요청하면 됩니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 0c: SESSIONS =================== -->
+<section id="sessions">
+  <div class="container">
+    <div class="section-number">03</div>
+    <h2 class="section-title">세션 재개 &amp; 포크</h2>
+    <p class="section-desc">
+      이전 대화를 <strong style="color:var(--accent)">이어서 계속하거나</strong>, 세션을 포크해서 다른 방향으로 실험할 수 있습니다.
+    </p>
+
+    <div class="card-grid card-grid-3" style="margin-bottom: 40px;">
+      <div class="card">
+        <div class="card-icon" style="background: var(--accent-glow);">&#x25B6;&#xFE0F;</div>
+        <h3>최근 세션 이어하기</h3>
+        <p>현재 디렉토리에서 가장 최근 대화를 자동으로 이어서 시작합니다.</p>
+        <div class="code-block" style="margin-top: 16px;">
+          <div class="code-body" style="font-size: 12px;">claude --continue</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--green-dim);">&#x1F4CB;</div>
+        <h3>세션 선택해서 재개</h3>
+        <p>대화형 선택기를 열거나, 세션 이름으로 바로 재개합니다.</p>
+        <div class="code-block" style="margin-top: 16px;">
+          <div class="code-body" style="font-size: 12px;"><span class="comment"># 선택기 열기</span>
+claude --resume
+
+<span class="comment"># 이름으로 바로 재개</span>
+claude --resume auth-refactor
+
+<span class="comment"># 세션 이름 붙이기 (세션 중)</span>
+/rename auth-refactor</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--blue-dim);">&#x1F500;</div>
+        <h3>세션 포크 (Fork)</h3>
+        <p>원본 세션을 유지하면서, 다른 방향으로 실험할 수 있는 새 분기를 만듭니다.</p>
+        <div class="code-block" style="margin-top: 16px;">
+          <div class="code-body" style="font-size: 12px;"><span class="comment"># 원본 영향 없이 분기</span>
+claude --continue --fork-session</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">세션 선택기 키보드 단축키</h3>
+    <table class="skill-table">
+      <thead>
+        <tr>
+          <th>단축키</th>
+          <th>동작</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code style="color:var(--accent)">↑ / ↓</code></td><td>세션 간 이동</td></tr>
+        <tr><td><code style="color:var(--accent)">Enter</code></td><td>선택한 세션 재개</td></tr>
+        <tr><td><code style="color:var(--accent)">P</code></td><td>세션 내용 미리보기</td></tr>
+        <tr><td><code style="color:var(--accent)">R</code></td><td>세션 이름 변경</td></tr>
+        <tr><td><code style="color:var(--accent)">/</code></td><td>세션 검색 필터</td></tr>
+        <tr><td><code style="color:var(--accent)">B</code></td><td>현재 git 브랜치 세션만 표시</td></tr>
+        <tr><td><code style="color:var(--accent)">Esc</code></td><td>선택기 종료</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip">
+      <span class="tip-icon">&#x1F4A1;</span>
+      <div>
+        <strong>포크 활용 사례:</strong> "TypeScript로 마이그레이션" 세션에서 두 가지 전략(점진적 vs 한 번에 전환)을 각각 실험하고 싶을 때, 원본 세션을 포크해서 둘 다 시도해볼 수 있습니다. 원본 대화는 그대로 보존됩니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 0d: WORKTREES =================== -->
+<section id="worktrees">
+  <div class="container">
+    <div class="section-number">04</div>
+    <h2 class="section-title">Git Worktrees로 병렬 Claude 세션</h2>
+    <p class="section-desc">
+      여러 기능을 동시에 개발할 때, Git Worktree를 사용하면 <strong style="color:var(--accent)">각 Claude 세션이 독립된 작업 디렉토리</strong>에서 충돌 없이 실행됩니다.
+    </p>
+
+    <div class="analogy-box">
+      <h4>병렬 우주처럼 &mdash; 같은 저장소, 다른 작업 공간</h4>
+      <p>
+        Git Worktree는 동일한 저장소 히스토리와 원격 연결을 공유하면서, 각각 자신의 파일과 브랜치를 가진 <strong style="color:var(--accent)">별도의 작업 디렉토리</strong>를 만듭니다.<br><br>
+        한 Worktree에서 기능을 개발하는 동안, 다른 Worktree에서 버그를 수정할 수 있고, 두 Claude 세션은 서로 방해하지 않습니다.
+      </p>
+    </div>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">방법 1: Claude 내장 --worktree 플래그 (권장)</h3>
+
+    <div class="code-block">
+      <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>--worktree 플래그 사용</span></div>
+      <div class="code-body">
+<span class="comment"># "feature-auth" worktree에서 Claude 시작</span>
+<span class="comment"># .claude/worktrees/feature-auth/ 디렉토리 자동 생성</span>
+<span class="keyword">claude</span> --worktree feature-auth
+
+<span class="comment"># 별도 터미널에서 다른 작업용 worktree 시작</span>
+<span class="keyword">claude</span> --worktree bugfix-123
+
+<span class="comment"># 이름 자동 생성 (예: bright-running-fox)</span>
+<span class="keyword">claude</span> --worktree
+      </div>
+    </div>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin: 40px 0 20px;">방법 2: Git 명령어로 수동 생성</h3>
+
+    <div class="code-block">
+      <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>Git worktree 수동 관리</span></div>
+      <div class="code-body">
+<span class="comment"># 새 브랜치로 worktree 생성</span>
+<span class="keyword">git</span> worktree add ../feature-branch -b feature-branch
+
+<span class="comment"># 해당 worktree에서 Claude 실행</span>
+<span class="keyword">cd</span> ../feature-branch && <span class="keyword">claude</span>
+
+<span class="comment"># 다른 터미널: 기존 브랜치로 또 다른 worktree</span>
+<span class="keyword">git</span> worktree add ../bugfix bugfix-123
+<span class="keyword">cd</span> ../bugfix && <span class="keyword">claude</span>
+
+<span class="comment"># 완료 후 정리</span>
+<span class="keyword">git</span> worktree list
+<span class="keyword">git</span> worktree remove ../feature-branch
+      </div>
+    </div>
+
+    <div class="card-grid card-grid-2" style="margin-top: 40px;">
+      <div class="card">
+        <div class="card-icon" style="background: var(--green-dim);">&#x2705;</div>
+        <h3>자동 정리 (--worktree 사용 시)</h3>
+        <p>세션 종료 시 Claude가 자동으로 처리합니다:</p>
+        <ul style="color:var(--text-dim); font-size:14px; margin-top:12px; padding-left:20px; line-height:2;">
+          <li>변경사항 없음 &rarr; worktree &amp; 브랜치 자동 삭제</li>
+          <li>변경사항 있음 &rarr; 유지 또는 삭제 선택 가능</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--blue-dim);">&#x1F4A1;</div>
+        <h3>권장 설정</h3>
+        <p><code style="color:var(--accent)">.gitignore</code>에 추가하여 worktree 내용이 주 저장소에 추적되지 않도록 합니다:</p>
+        <div class="code-block" style="margin-top: 12px;">
+          <div class="code-body" style="font-size: 12px;">.claude/worktrees/</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">&#x1F4A1;</span>
+      <div>
+        <strong>실전 활용:</strong> 각 새 worktree에서 개발 환경 초기화가 필요할 수 있습니다. <code>npm install</code>, 가상환경 설정 등 프로젝트의 표준 설정 과정을 따르세요.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 0e: EXTENDED THINKING =================== -->
+<section id="thinking">
+  <div class="container">
+    <div class="section-number">05</div>
+    <h2 class="section-title">Extended Thinking &amp; ultrathink</h2>
+    <p class="section-desc">
+      Claude가 응답 전에 <strong style="color:var(--accent)">더 깊이 추론</strong>하도록 설정할 수 있습니다. 복잡한 아키텍처 결정, 어려운 버그, 트레이드오프 분석에 탁월합니다.
+    </p>
+
+    <div class="analogy-box">
+      <h4>"빠른 답" vs "충분히 생각한 답"</h4>
+      <p>
+        Extended Thinking은 Claude가 응답하기 전에 내부적으로 더 많이 추론하는 시간을 줍니다.<br><br>
+        기본적으로 활성화되어 있으며, <strong style="color:var(--accent)">ultrathink</strong> 키워드를 프롬프트에 포함하면 해당 턴의 추론 깊이를 최고 수준으로 높일 수 있습니다.
+      </p>
+    </div>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">ultrathink 사용 방법</h3>
+
+    <div class="code-block">
+      <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>ultrathink 프롬프트 예시</span></div>
+      <div class="code-body">
+<span class="comment"># 복잡한 아키텍처 결정에</span>
+<span class="keyword">You:</span> <span class="string">"ultrathink &mdash; 마이크로서비스 vs 모노레포 중 우리 팀 상황에 최적인 구조를 분석해줘."</span>
+
+<span class="comment"># 찾기 어려운 버그 디버깅에</span>
+<span class="keyword">You:</span> <span class="string">"ultrathink &mdash; 이 레이스 컨디션 버그의 근본 원인을 찾아줘."</span>
+
+<span class="comment"># 성능 최적화 전략 수립에</span>
+<span class="keyword">You:</span> <span class="string">"ultrathink &mdash; 현재 DB 쿼리 구조에서 병목 지점과 최적화 방안을 제시해줘."</span>
+      </div>
+    </div>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin: 40px 0 20px;">Extended Thinking 설정 옵션</h3>
+
+    <table class="skill-table">
+      <thead>
+        <tr>
+          <th>방법</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="skill-name-cell">ultrathink 키워드</td>
+          <td>프롬프트에 포함 시 해당 턴의 추론 깊이를 최고(high)로 설정. 설정은 영구적으로 변경되지 않음</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">Option+T / Alt+T</td>
+          <td>현재 세션에서 Extended Thinking 켜기/끄기 토글</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">/config에서 토글</td>
+          <td>모든 프로젝트에 기본값 설정 (<code>alwaysThinkingEnabled</code>로 저장됨)</td>
+        </tr>
+        <tr>
+          <td class="skill-name-cell">Ctrl+O</td>
+          <td>Claude의 내부 추론 과정 보기 (자세한 모드 토글)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip">
+      <span class="tip-icon">&#x26A0;&#xFE0F;</span>
+      <div>
+        <strong>주의:</strong> "think", "think hard", "think more" 같은 구문은 일반 프롬프트 지시로 해석됩니다. 추론 깊이를 높이려면 반드시 <strong style="color:var(--accent)">ultrathink</strong> 키워드를 사용하세요.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =================== SECTION 0f: BUILT-IN SKILLS =================== -->
+<section id="skills">
+  <div class="container">
+    <div class="section-number">06</div>
+    <h2 class="section-title">내장 Skills: /simplify &amp; /batch</h2>
+    <p class="section-desc">
+      Claude Code에는 특정 작업을 위한 <strong style="color:var(--accent)">내장 Skill 명령어</strong>가 있습니다. 기능 구현 후 코드 정리, 대규모 병렬 변경 작업에 활용하세요.
+    </p>
+
+    <div class="card-grid card-grid-2" style="margin-bottom: 40px;">
+      <div class="card">
+        <div class="card-icon" style="background: var(--green-dim);">&#x2728;</div>
+        <h3>/simplify &mdash; 구현 후 코드 정리</h3>
+        <p>기능 구현이 끝난 뒤 자동으로 코드를 정리합니다. 불필요한 복잡성 제거, 가독성 향상, 중복 코드 통합을 수행합니다.</p>
+        <div class="code-block" style="margin-top: 16px;">
+          <div class="code-body" style="font-size: 12px;">
+<span class="comment"># 기능 구현 완료 후 실행</span>
+<span class="keyword">/simplify</span>
+
+<span class="desc">&rarr; Claude가 방금 작성한 코드를 검토하고
+   불필요한 복잡성을 제거합니다</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: var(--orange-dim);">&#x26A1;</div>
+        <h3>/batch &mdash; 대규모 병렬 변경</h3>
+        <p>여러 파일에 걸친 대규모 변경을 병렬로 처리합니다. 전체 코드베이스의 패턴 교체, 일괄 마이그레이션 등에 활용합니다.</p>
+        <div class="code-block" style="margin-top: 16px;">
+          <div class="code-body" style="font-size: 12px;">
+<span class="comment"># 대규모 일괄 변경 시</span>
+<span class="keyword">/batch</span>
+
+<span class="desc">&rarr; 여러 파일의 변경을 병렬로
+   효율적으로 처리합니다</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">실전 사용 예시</h3>
+
+    <div class="code-block">
+      <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>/simplify 활용</span></div>
+      <div class="code-body">
+<span class="comment"># 기능 구현 직후</span>
+<span class="keyword">You:</span> <span class="string">"사용자 인증 미들웨어 구현 완료. /simplify로 코드 정리해줘."</span>
+
+<span class="desc">Claude:</span>
+<span class="comment"># 중첩된 if-else를 early return 패턴으로 정리</span>
+<span class="comment"># 중복 에러 핸들링 코드 3군데 → 공통 함수로 추출</span>
+<span class="comment"># 불필요한 주석 제거 및 변수명 명확화</span>
+<span class="comment"># 코드 라인: 180 → 120 (-33%)</span>
+      </div>
+    </div>
+
+    <div class="code-block" style="margin-top: 24px;">
+      <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>/batch 활용</span></div>
+      <div class="code-body">
+<span class="comment"># 전체 코드베이스 일괄 변경</span>
+<span class="keyword">You:</span> <span class="string">"src/ 폴더의 모든 파일에서 console.log를 logger.info로 교체해줘. /batch 사용."</span>
+
+<span class="desc">Claude:</span>
+<span class="comment"># 47개 파일에서 병렬로 교체 작업 진행</span>
+<span class="comment"># 완료: 47/47 파일, console.log 총 203개 교체</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">&#x1F4A1;</span>
+      <div>
+        <strong>워크플로우 통합:</strong> 기능 구현 → <code>/simplify</code>로 정리 → 테스트 실행 → 커밋. 이 패턴을 습관화하면 항상 깔끔한 코드를 유지할 수 있습니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- =================== SECTION 1: GIT =================== -->
 <section id="git">
   <div class="container">
-    <div class="section-number">01</div>
+    <div class="section-number">07</div>
     <h2 class="section-title">Claude Code + Git = 최강 조합</h2>
     <p class="section-desc">
       Claude Code는 Git을 네이티브로 이해합니다. 커밋, 브랜치, PR까지 &mdash; <strong style="color:var(--accent)">대화만으로 Git 워크플로우 전체</strong>를 다룰 수 있습니다.
@@ -962,7 +1473,7 @@
 <!-- =================== SECTION 2: FLOW =================== -->
 <section id="flow">
   <div class="container">
-    <div class="section-number">02</div>
+    <div class="section-number">08</div>
     <h2 class="section-title">브랜치 &rarr; 작업 &rarr; 커밋 &rarr; PR 전체 흐름</h2>
     <p class="section-desc">
       실제 개발에서 가장 많이 쓰는 6단계 흐름을 Claude Code로 진행하는 방법입니다.
@@ -1142,7 +1653,7 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
 <!-- =================== SECTION 3: REVIEW =================== -->
 <section id="review">
   <div class="container">
-    <div class="section-number">03</div>
+    <div class="section-number">09</div>
     <h2 class="section-title">PR 리뷰 자동화</h2>
     <p class="section-desc">
       Claude Code를 CLI 파이프라인에 연결하면 <strong style="color:var(--accent)">PR 리뷰를 자동화</strong>할 수 있습니다. 사람 리뷰 전에 기본 검토를 끝내세요.
@@ -1204,7 +1715,7 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
 <!-- =================== SECTION 4: DEBUG =================== -->
 <section id="debug">
   <div class="container">
-    <div class="section-number">04</div>
+    <div class="section-number">10</div>
     <h2 class="section-title">버그 디버깅 패턴</h2>
     <p class="section-desc">
       에러가 발생했을 때 Claude Code와 함께 <strong style="color:var(--accent)">체계적으로 디버깅</strong>하는 패턴입니다.
@@ -1332,7 +1843,7 @@ at UserList.tsx:24
 <!-- =================== SECTION 5: REFACTOR =================== -->
 <section id="refactor">
   <div class="container">
-    <div class="section-number">05</div>
+    <div class="section-number">11</div>
     <h2 class="section-title">리팩토링 패턴</h2>
     <p class="section-desc">
       리팩토링은 "동작은 바꾸지 않으면서 코드 구조를 개선하는 것"입니다. Claude Code와 함께하면 <strong style="color:var(--accent)">안전하게</strong> 할 수 있습니다.
@@ -1459,7 +1970,7 @@ at UserList.tsx:24
 <!-- =================== SECTION 6: SCENARIOS =================== -->
 <section id="scenarios">
   <div class="container">
-    <div class="section-number">06</div>
+    <div class="section-number">12</div>
     <h2 class="section-title">실전 시나리오 Before/After</h2>
     <p class="section-desc">
       실제 개발 현장에서 흔히 만나는 3가지 시나리오를 <strong style="color:var(--accent)">수동 vs Claude Code</strong>로 비교합니다.
@@ -1570,7 +2081,7 @@ Claude가 코드베이스를 빠르게 탐색해서 원인 특정</div>
 <!-- =================== SECTION 7: FAQ =================== -->
 <section id="faq">
   <div class="container">
-    <div class="section-number">07</div>
+    <div class="section-number">13</div>
     <h2 class="section-title">자주 묻는 질문</h2>
     <p class="section-desc">
       실전 워크플로우에서 자주 나오는 질문들
@@ -1639,10 +2150,13 @@ Claude가 코드베이스를 빠르게 탐색해서 원인 특정</div>
       <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
         워크플로우 정리
       </h2>
-      <p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
-        Git 연동 = <strong style="color: var(--accent)">대화로 커밋, 브랜치, PR</strong><br>
-        디버깅 = <strong style="color: var(--green)">에러 붙여넣기 &rarr; 분석 &rarr; 수정</strong><br>
-        리팩토링 = <strong style="color: var(--orange)">테스트 &rarr; 변경 &rarr; 테스트</strong>
+      <p style="color: var(--text-dim); font-size: 17px; max-width: 600px; margin: 0 auto 32px; line-height: 1.9;">
+        Plan Mode = <strong style="color: var(--accent)">Shift+Tab 두 번 &rarr; 계획 확인 &rarr; 승인 후 실행</strong><br>
+        체크포인팅 = <strong style="color: var(--blue)">Esc+Esc로 즉시 되돌리기 (Git 없이도)</strong><br>
+        세션 관리 = <strong style="color: var(--green)">--continue / --resume / --fork-session</strong><br>
+        병렬 작업 = <strong style="color: var(--orange)">Git Worktree로 독립 세션 실행</strong><br>
+        깊은 추론 = <strong style="color: var(--pink)">ultrathink 키워드로 추론 깊이 최대화</strong><br>
+        코드 정리 = <strong style="color: var(--yellow)">/simplify (구현 후) / /batch (대규모 변경)</strong>
       </p>
       <p style="color: var(--text-muted); font-size: 14px;">
         핵심은 하나입니다 &mdash;<br>
