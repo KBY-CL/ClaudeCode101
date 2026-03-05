@@ -1,0 +1,88 @@
+/* =========================================================
+   Claude Code 101 — 챕터 공통 테마 (라이트 기본 / 다크 지원)
+   ========================================================= */
+
+/* ── Light (기본) ── */
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-raised: #f1f5f9;
+  --surface-hover: #e8f0f8;
+  --border: #e2e8f0;
+  --border-bright: #cbd5e1;
+  --text: #0f172a;
+  --text-dim: #475569;
+  --text-muted: #94a3b8;
+  --accent: #7c3aed;
+  --accent-dim: #6d28d9;
+  --accent-glow: rgba(124, 58, 237, 0.10);
+  --accent-glow-strong: rgba(124, 58, 237, 0.16);
+  --green: #16a34a;
+  --green-dim: rgba(22, 163, 74, 0.10);
+  --blue: #0284c7;
+  --blue-dim: rgba(2, 132, 199, 0.10);
+  --orange: #ea580c;
+  --orange-dim: rgba(234, 88, 12, 0.10);
+  --pink: #be185d;
+  --pink-dim: rgba(190, 24, 93, 0.10);
+  --yellow: #b45309;
+  --yellow-dim: rgba(180, 83, 9, 0.10);
+  --shadow-card: 0 2px 12px rgba(0,0,0,.08);
+  --shadow-md: 0 8px 32px rgba(0,0,0,.12);
+}
+
+/* ── Dark ── */
+[data-theme="dark"] {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --surface-raised: #1a1a26;
+  --surface-hover: #22222f;
+  --border: #2a2a3a;
+  --border-bright: #3a3a5a;
+  --text: #e8e8f0;
+  --text-dim: #8888a0;
+  --text-muted: #5a5a72;
+  --accent: #c4a0ff;
+  --accent-dim: #9070cc;
+  --accent-glow: rgba(196, 160, 255, 0.15);
+  --accent-glow-strong: rgba(196, 160, 255, 0.25);
+  --green: #7dd3a0;
+  --green-dim: rgba(125, 211, 160, 0.12);
+  --blue: #7daed3;
+  --blue-dim: rgba(125, 174, 211, 0.12);
+  --orange: #d3a07d;
+  --orange-dim: rgba(211, 160, 125, 0.12);
+  --pink: #d37da0;
+  --pink-dim: rgba(211, 125, 160, 0.12);
+  --yellow: #d3cc7d;
+  --yellow-dim: rgba(211, 204, 125, 0.12);
+  --shadow-card: 0 2px 12px rgba(0,0,0,.4);
+  --shadow-md: 0 8px 32px rgba(0,0,0,.5);
+}
+
+/* ── 다크모드 토글 버튼 ── */
+.theme-btn {
+  position: fixed;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  z-index: 900;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-bright);
+  background: var(--surface);
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: border-color .2s, transform .2s, background .2s;
+  line-height: 1;
+  padding: 0;
+}
+.theme-btn:hover {
+  border-color: var(--accent);
+  transform: scale(1.1);
+}

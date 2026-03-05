@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<script>
+/* 챕터 테마 초기화 — FOUC 방지 */
+(function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 생태계 한눈에 보기</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" rel="stylesheet">
+<style>
+:root {
+  --bp-bg:#f0f4f8; --bp-nav:#ffffff; --bp-border:#e2e8f0;
+  --bp-text:#1e293b; --bp-muted:#94a3b8; --bp-accent:#ea6c0a;
+}
+[data-theme="dark"] {
+  --bp-bg:#0a0f18; --bp-nav:#0d1219; --bp-border:#1a2233;
+  --bp-text:#e2e8f0; --bp-muted:#64748b; --bp-accent:#f97316;
+}
+* { margin:0; padding:0; box-sizing:border-box }
+html, body { width:100%; height:100%; overflow:hidden }
+body {
+  font-family:'Pretendard Variable', -apple-system, sans-serif;
+  background:var(--bp-bg);
+  display:flex; flex-direction:column;
+  transition:background .3s;
+}
+
+.topnav {
+  flex-shrink:0;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.65rem 1.4rem;
+  background:var(--bp-nav);
+  border-bottom:1px solid var(--bp-border);
+  transition:background .3s, border-color .3s;
+}
+.back {
+  display:inline-flex; align-items:center; gap:6px;
+  color:var(--bp-muted); font-size:.82rem; text-decoration:none; transition:color .2s;
+}
+.back:hover { color:var(--bp-accent) }
+.nav-title { font-size:.88rem; font-weight:700; color:var(--bp-text) }
+.btn {
+  background:none; border:1px solid var(--bp-border); border-radius:7px;
+  padding:4px 12px; cursor:pointer; color:var(--bp-muted); font-size:.78rem;
+  transition:all .2s; font-family:inherit; text-decoration:none;
+  display:inline-flex; align-items:center;
+}
+.btn:hover { border-color:var(--bp-accent); color:var(--bp-accent) }
+.nav-right { display:flex; align-items:center; gap:.6rem; }
+.theme-btn-bp {
+  width:32px; height:32px; border-radius:50%;
+  border:1px solid var(--bp-border); background:none;
+  color:var(--bp-muted); font-size:.9rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:border-color .2s;
+}
+.theme-btn-bp:hover { border-color:var(--bp-accent); }
+
+.wrap {
+  flex:1; overflow:auto; display:flex;
+  align-items:center; justify-content:center;
+  padding:1.5rem;
+}
+.wrap::-webkit-scrollbar { width:5px; height:5px }
+.wrap::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:3px }
+
+svg.diagram { width:100%; max-width:1100px; height:auto; display:block }
+
+/* Animations */
+@keyframes flow {
+  from { stroke-dashoffset: 24 }
+  to   { stroke-dashoffset: 0  }
+}
+@keyframes pulse-claude {
+  0%,100% { r:60 }
+  50%      { r:64 }
+}
+@keyframes spin {
+  from { transform: rotate(0deg) }
+  to   { transform: rotate(360deg) }
+}
+
+.flow { stroke-dasharray:6 4; animation:flow 1.4s linear infinite }
+.flow-slow { stroke-dasharray:6 4; animation:flow 2.2s linear infinite }
+.orbit-dot {
+  transform-origin: 548px 348px;
+  animation: spin 5s linear infinite;
+}
+.orbit-dot-rev {
+  transform-origin: 548px 348px;
+  animation: spin 7s linear infinite reverse;
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="back" href="../index.html">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M19 12H5M12 5l-7 7 7 7"/>
+    </svg>
+    목차로
+  </a>
+  <span class="nav-title">Claude 생태계 — 한눈에 보기</span>
+  <div class="nav-right">
+    <button class="theme-btn-bp" id="bpThemeBtn" onclick="bpToggleTheme()" title="테마 전환">🌙</button>
+    <a class="btn" href="concepts.html">개념 상세 →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<svg class="diagram" viewBox="0 0 1100 760" xmlns="http://www.w3.org/2000/svg"
+     font-family="'Pretendard Variable', -apple-system, sans-serif">
+<defs>
+  <radialGradient id="gClaude" cx="45%" cy="38%" r="65%">
+    <stop offset="0%" stop-color="#fb923c"/>
+    <stop offset="100%" stop-color="#c2410c"/>
+  </radialGradient>
+  <filter id="fShadow" x="-8%" y="-8%" width="116%" height="130%">
+    <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0f172a" flood-opacity=".09"/>
+  </filter>
+  <filter id="fClaudeShadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#ea6c0a" flood-opacity=".25"/>
+  </filter>
+  <marker id="mArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+    <path d="M1,1 L7,4 L1,7" fill="none" stroke-width="1.2" stroke="context-stroke"/>
+  </marker>
+</defs>
+
+<!-- ═══ BACKGROUND ═══ -->
+<rect width="1100" height="760" fill="#f0f4f8"/>
+
+<!-- ═══ CONTEXT WINDOW ═══ -->
+<rect x="115" y="72" width="870" height="518" rx="20"
+      fill="#faf8ff" stroke="#8b5cf6" stroke-width="1.6"
+      stroke-dasharray="14 7" filter="url(#fShadow)"/>
+<rect x="270" y="60" width="234" height="24" rx="12" fill="#8b5cf6"/>
+<text x="387" y="72" fill="#fff" font-size="11" font-weight="600"
+      text-anchor="middle" dominant-baseline="middle">
+  📦 Context Window — 최대 1M tokens
+</text>
+
+<!-- ═══ AGENT LOOP RING ═══ -->
+<ellipse cx="548" cy="348" rx="210" ry="162"
+         fill="rgba(59,130,246,.05)" stroke="#3b82f6"
+         stroke-width="1.4" stroke-dasharray="10 6"/>
+<!-- orbit labels -->
+<text x="548" y="174" fill="#3b82f6" font-size="10" font-weight="600"
+      text-anchor="middle" dominant-baseline="middle">① Plan</text>
+<text x="772" y="355" fill="#3b82f6" font-size="10" font-weight="600"
+      dominant-baseline="middle">② Act</text>
+<text x="548" y="524" fill="#3b82f6" font-size="10" font-weight="600"
+      text-anchor="middle" dominant-baseline="middle">③ Observe</text>
+<text x="326" y="355" fill="#3b82f6" font-size="10" font-weight="600"
+      text-anchor="end" dominant-baseline="middle">④ Reflect</text>
+<!-- orbit dots -->
+<g class="orbit-dot">
+  <circle cx="548" cy="186" r="5" fill="#60a5fa"/>
+</g>
+<g class="orbit-dot-rev">
+  <circle cx="548" cy="510" r="4" fill="#93c5fd" opacity=".7"/>
+</g>
+<!-- Agent label -->
+<text x="548" y="112" fill="#2563eb" font-size="10" font-weight="700"
+      text-anchor="middle" dominant-baseline="middle">🤖 Agent Loop</text>
+
+<!-- ═══ CLAUDE CORE ═══ -->
+<circle cx="548" cy="348" r="72" fill="#fff3ea" filter="url(#fClaudeShadow)"/>
+<circle cx="548" cy="348" r="64" fill="url(#gClaude)"/>
+<text x="548" y="336" font-size="28" text-anchor="middle" dominant-baseline="middle">🧠</text>
+<text x="548" y="360" fill="#fff" font-size="11.5" font-weight="700"
+      text-anchor="middle" dominant-baseline="middle">Claude Model</text>
+<text x="548" y="377" fill="rgba(255,255,255,.75)" font-size="8.5"
+      text-anchor="middle" dominant-baseline="middle" font-family="monospace">claude-sonnet-4-6</text>
+
+<!-- ═══ EXTENDED THINKING — top left ═══ -->
+<rect x="130" y="92" width="196" height="206" rx="14"
+      fill="rgba(236,72,153,.05)" stroke="#ec4899" stroke-width="1.3" filter="url(#fShadow)"/>
+<rect x="148" y="84" width="160" height="20" rx="10" fill="#ec4899"/>
+<text x="228" y="94" fill="#fff" font-size="10" font-weight="600"
+      text-anchor="middle" dominant-baseline="middle">💭 Extended Thinking</text>
+
+<!-- thinking blocks -->
+<rect x="142" y="106" width="172" height="52" rx="8" fill="#fdf2f8" stroke="#f9a8d4" stroke-width=".8"/>
+<text x="152" y="119" fill="#9d174d" font-size="7.5" font-family="monospace" dominant-baseline="middle">thinking</text>
+<text x="152" y="135" fill="#6b7280" font-size="8.5" dominant-baseline="middle">소인수분해 어려움에 기반,</text>
+<text x="152" y="149" fill="#6b7280" font-size="8.5" dominant-baseline="middle">p·q 역추적은 수천 년...</text>
+
+<rect x="142" y="162" width="172" height="52" rx="8" fill="#fdf2f8" stroke="#f9a8d4" stroke-width=".8"/>
+<text x="152" y="175" fill="#9d174d" font-size="7.5" font-family="monospace" dominant-baseline="middle">thinking</text>
+<text x="152" y="191" fill="#6b7280" font-size="8.5" dominant-baseline="middle">양자컴퓨터 위협 고려,</text>
+<text x="152" y="205" fill="#6b7280" font-size="8.5" dominant-baseline="middle">포스트-양자 전환 권고...</text>
+
+<rect x="142" y="218" width="172" height="66" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width=".8"/>
+<text x="152" y="231" fill="#166534" font-size="7.5" font-family="monospace" dominant-baseline="middle">✅ 최종 답변</text>
+<text x="152" y="247" fill="#374151" font-size="8.5" dominant-baseline="middle">RSA 2048비트는 현재 안전.</text>
+<text x="152" y="261" fill="#374151" font-size="8.5" dominant-baseline="middle">단, 양자 대비 전환 필요.</text>
+<text x="152" y="275" fill="#374151" font-size="8.5" dominant-baseline="middle">포스트-양자 표준 도입 검토.</text>
+
+<!-- Thinking → Claude -->
+<path d="M 326 222 Q 400 260 480 310" stroke="#ec4899" stroke-width="1.4"
+      fill="none" marker-end="url(#mArrow)" class="flow-slow"/>
+
+<!-- ═══ TOOLS — bottom left ═══ -->
+<rect x="130" y="316" width="196" height="258" rx="14"
+      fill="rgba(245,158,11,.05)" stroke="#f59e0b" stroke-width="1.3" filter="url(#fShadow)"/>
+<rect x="148" y="308" width="124" height="20" rx="10" fill="#f59e0b"/>
+<text x="210" y="318" fill="#fff" font-size="10" font-weight="600"
+      text-anchor="middle" dominant-baseline="middle">🛠️ Built-in Tools</text>
+
+<g font-size="9.5" dominant-baseline="middle">
+  <!-- bash -->
+  <rect x="142" y="330" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
+  <text x="158" y="346" font-size="13">💻</text>
+  <text x="178" y="342" fill="#374151" font-weight="600">bash</text>
+  <text x="178" y="356" fill="#9ca3af" font-size="8">셸 명령어 실행</text>
+
+  <rect x="142" y="366" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
+  <text x="158" y="382" font-size="13">📝</text>
+  <text x="178" y="378" fill="#374151" font-weight="600">text_editor</text>
+  <text x="178" y="392" fill="#9ca3af" font-size="8">파일 읽기·쓰기</text>
+
+  <rect x="142" y="402" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
+  <text x="158" y="418" font-size="13">🐍</text>
+  <text x="178" y="414" fill="#374151" font-weight="600">code_execution</text>
+  <text x="178" y="428" fill="#9ca3af" font-size="8">Python 샌드박스</text>
+
+  <rect x="142" y="438" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
+  <text x="158" y="454" font-size="13">🌐</text>
+  <text x="178" y="450" fill="#374151" font-weight="600">web_search</text>
+  <text x="178" y="464" fill="#9ca3af" font-size="8">실시간 웹 검색</text>
+
+  <rect x="142" y="474" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
+  <text x="158" y="490" font-size="13">🖥️</text>
+  <text x="178" y="486" fill="#374151" font-weight="600">computer_use</text>
+  <text x="178" y="500" fill="#9ca3af" font-size="8">마우스·키보드 제어</text>
+
+  <rect x="142" y="510" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
+  <text x="158" y="526" font-size="13">🔌</text>
+  <text x="178" y="522" fill="#374151" font-weight="600">mcp_toolset</text>
+  <text x="178" y="536" fill="#9ca3af" font-size="8">MCP 서버 도구 호출</text>
+</g>
+
+<!-- Tools ↔ Claude -->
+<path d="M 326 380 L 483 340" stroke="#f59e0b" stroke-width="1.4"
+      fill="none" marker-end="url(#mArrow)" class="flow" style="animation-delay:.3s"/>
+<path d="M 483 360 L 326 400" stroke="#f59e0b" stroke-width="1.4"
+      fill="none" marker-end="url(#mArrow)" class="flow-slow" opacity=".55"/>
+
+<!-- ═══ SKILLS — right ═══ -->
+<rect x="774" y="92" width="196" height="482" rx="14"
+      fill="rgba(16,185,129,.05)" stroke="#10b981" stroke-width="1.3" filter="url(#fShadow)"/>
+<rect x="792" y="84" width="160" height="20" rx="10" fill="#10b981"/>
+<text x="872" y="94" fill="#fff" font-size="10" font-weight="600"
+      text-anchor="middle" dominant-baseline="middle">⚡ Skills (SKILL.md)</text>
+
+<!-- Anthropic 제공 -->
+<text x="784" y="116" fill="#10b981" font-size="8" font-weight="700">Anthropic 제공</text>
+<g font-size="9.5" dominant-baseline="middle">
+  <rect x="784" y="122" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
+  <text x="800" y="138" font-size="13">📊</text><text x="820" y="134" fill="#374151" font-weight="600">xlsx</text>
+  <text x="820" y="147" fill="#9ca3af" font-size="8">스프레드시트 생성·분석</text>
+
+  <rect x="784" y="158" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
+  <text x="800" y="174" font-size="13">📑</text><text x="820" y="170" fill="#374151" font-weight="600">pptx</text>
+  <text x="820" y="183" fill="#9ca3af" font-size="8">프레젠테이션 생성</text>
+
+  <rect x="784" y="194" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
+  <text x="800" y="210" font-size="13">📄</text><text x="820" y="206" fill="#374151" font-weight="600">pdf</text>
+  <text x="820" y="219" fill="#9ca3af" font-size="8">텍스트 추출·양식 작성</text>
+
+  <rect x="784" y="230" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
+  <text x="800" y="246" font-size="13">📝</text><text x="820" y="242" fill="#374151" font-weight="600">docx</text>
+  <text x="820" y="255" fill="#9ca3af" font-size="8">Word 문서 생성·편집</text>
+</g>
+
+<!-- 커스텀 Skills -->
+<line x1="784" y1="274" x2="958" y2="274" stroke="#d1fae5" stroke-width="1"/>
+<text x="784" y="288" fill="#059669" font-size="8" font-weight="700">커스텀 Skills</text>
+<g font-size="9.5" dominant-baseline="middle">
+  <rect x="784" y="294" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
+  <text x="800" y="310" font-size="13">🔍</text><text x="820" y="306" fill="#374151" font-weight="600">code-reviewing</text>
+  <text x="820" y="319" fill="#9ca3af" font-size="8">PR 코드 품질·보안 분석</text>
+
+  <rect x="784" y="330" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
+  <text x="800" y="346" font-size="13">🐛</text><text x="820" y="342" fill="#374151" font-weight="600">git-committing</text>
+  <text x="820" y="355" fill="#9ca3af" font-size="8">커밋 메시지 자동 생성</text>
+
+  <rect x="784" y="366" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
+  <text x="800" y="382" font-size="13">🧪</text><text x="820" y="378" fill="#374151" font-weight="600">testing-code</text>
+  <text x="820" y="391" fill="#9ca3af" font-size="8">Unit/UI 테스트 생성</text>
+
+  <rect x="784" y="402" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
+  <text x="800" y="418" font-size="13">📈</text><text x="820" y="414" fill="#374151" font-weight="600">analyzing-bigquery</text>
+  <text x="820" y="427" fill="#9ca3af" font-size="8">비즈니스 데이터 분석</text>
+
+  <rect x="784" y="438" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
+  <text x="800" y="454" font-size="13">📖</text><text x="820" y="450" fill="#374151" font-weight="600">writing-docs</text>
+  <text x="820" y="463" fill="#9ca3af" font-size="8">API 문서·README 생성</text>
+
+  <rect x="784" y="474" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
+  <text x="800" y="490" font-size="13">📧</text><text x="820" y="486" fill="#374151" font-weight="600">writing-emails</text>
+  <text x="820" y="499" fill="#9ca3af" font-size="8">비즈니스 이메일 작성</text>
+</g>
+
+<!-- loading badge -->
+<rect x="784" y="516" width="174" height="46" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width=".8"/>
+<text x="871" y="530" fill="#059669" font-size="8" font-weight="600" text-anchor="middle" dominant-baseline="middle">점진적 공개 (Progressive Loading)</text>
+<text x="871" y="546" fill="#9ca3af" font-size="8" text-anchor="middle" dominant-baseline="middle" font-family="monospace">L1 ~100tok · L2 &lt;5K tok · L3 ∞</text>
+<text x="871" y="558" fill="#9ca3af" font-size="7.5" text-anchor="middle" dominant-baseline="middle">필요할 때만 로드 — 컨텍스트 절약</text>
+
+<!-- Claude ↔ Skills -->
+<path d="M 613 318 Q 700 270 775 220" stroke="#10b981" stroke-width="1.4"
+      fill="none" marker-end="url(#mArrow)" class="flow" style="animation-delay:.6s"/>
+<path d="M 775 260 Q 700 310 613 358" stroke="#10b981" stroke-width="1.4"
+      fill="none" marker-end="url(#mArrow)" class="flow-slow" opacity=".55" style="animation-delay:.2s"/>
+
+<!-- ═══ MCP PROTOCOL LAYER ═══ -->
+<rect x="350" y="606" width="400" height="46" rx="12"
+      fill="rgba(20,184,166,.07)" stroke="#14b8a6" stroke-width="1.4" filter="url(#fShadow)"/>
+<text x="550" y="625" fill="#0f766e" font-size="11" font-weight="700"
+      text-anchor="middle" dominant-baseline="middle">🔌 MCP Protocol</text>
+<text x="550" y="642" fill="#5eead4" font-size="9"
+      text-anchor="middle" dominant-baseline="middle" font-family="monospace">표준 통신 규약 — Claude ↔ 외부 서비스</text>
+
+<!-- Claude → MCP -->
+<path d="M 548 420 L 548 604" stroke="#14b8a6" stroke-width="1.5"
+      fill="none" marker-end="url(#mArrow)" class="flow" style="animation-delay:.9s"/>
+
+<!-- ═══ EXTERNAL SERVICES ═══ -->
+<!-- GitHub -->
+<rect x="78" y="680" width="140" height="56" rx="12"
+      fill="#fff" stroke="#bfdbfe" stroke-width="1.2" filter="url(#fShadow)"/>
+<text x="112" y="700" font-size="20" dominant-baseline="middle">⬛</text>
+<text x="138" y="697" fill="#1e40af" font-size="10" font-weight="700" dominant-baseline="middle">GitHub</text>
+<text x="138" y="714" fill="#9ca3af" font-size="8.5" dominant-baseline="middle">PR · Issue · Code</text>
+<path d="M 286" y1="700" x2="350" y2="628" stroke="#3b82f6" stroke-width="1.2" fill="none"
+      marker-end="url(#mArrow)" class="flow-slow" opacity=".5"/>
+<line x1="286" y1="700" x2="350" y2="628" stroke="#3b82f6" stroke-width="1.2"
+      stroke-dasharray="5 4" marker-end="url(#mArrow)" class="flow-slow" opacity=".45"/>
+
+<!-- Notion -->
+<rect x="238" y="680" width="140" height="56" rx="12"
+      fill="#fff" stroke="#fef08a" stroke-width="1.2" filter="url(#fShadow)"/>
+<text x="264" y="700" font-size="20" dominant-baseline="middle">📓</text>
+<text x="290" y="697" fill="#854d0e" font-size="10" font-weight="700" dominant-baseline="middle">Notion</text>
+<text x="290" y="714" fill="#9ca3af" font-size="8.5" dominant-baseline="middle">Page · DB · Block</text>
+<line x1="360" y1="700" x2="400" y2="652" stroke="#d97706" stroke-width="1.2"
+      stroke-dasharray="5 4" marker-end="url(#mArrow)" class="flow-slow" style="animation-delay:.3s" opacity=".45"/>
+
+<!-- Xcode -->
+<rect x="398" y="680" width="140" height="56" rx="12"
+      fill="#fff" stroke="#99f6e4" stroke-width="1.2" filter="url(#fShadow)"/>
+<text x="424" y="700" font-size="20" dominant-baseline="middle">🍎</text>
+<text x="450" y="697" fill="#0f766e" font-size="10" font-weight="700" dominant-baseline="middle">Xcode</text>
+<text x="450" y="714" fill="#9ca3af" font-size="8.5" dominant-baseline="middle">Build · Test · Deploy</text>
+<line x1="490" y1="680" x2="510" y2="652" stroke="#14b8a6" stroke-width="1.2"
+      stroke-dasharray="5 4" marker-end="url(#mArrow)" class="flow-slow" style="animation-delay:.6s" opacity=".45"/>
+
+<!-- Slack -->
+<rect x="558" y="680" width="140" height="56" rx="12"
+      fill="#fff" stroke="#e9d5ff" stroke-width="1.2" filter="url(#fShadow)"/>
+<text x="584" y="700" font-size="20" dominant-baseline="middle">💬</text>
+<text x="610" y="697" fill="#6d28d9" font-size="10" font-weight="700" dominant-baseline="middle">Slack</text>
+<text x="610" y="714" fill="#9ca3af" font-size="8.5" dominant-baseline="middle">Message · DM</text>
+<line x1="600" y1="680" x2="580" y2="652" stroke="#7c3aed" stroke-width="1.2"
+      stroke-dasharray="5 4" marker-end="url(#mArrow)" class="flow-slow" style="animation-delay:.9s" opacity=".45"/>
+
+<!-- PostgreSQL -->
+<rect x="718" y="680" width="140" height="56" rx="12"
+      fill="#fff" stroke="#bbf7d0" stroke-width="1.2" filter="url(#fShadow)"/>
+<text x="744" y="700" font-size="20" dominant-baseline="middle">🗄️</text>
+<text x="770" y="697" fill="#166534" font-size="10" font-weight="700" dominant-baseline="middle">PostgreSQL</text>
+<text x="770" y="714" fill="#9ca3af" font-size="8.5" dominant-baseline="middle">Query · Schema</text>
+<line x1="720" y1="680" x2="690" y2="652" stroke="#16a34a" stroke-width="1.2"
+      stroke-dasharray="5 4" marker-end="url(#mArrow)" class="flow-slow" style="animation-delay:1.2s" opacity=".45"/>
+
+<!-- Figma -->
+<rect x="878" y="680" width="140" height="56" rx="12"
+      fill="#fff" stroke="#fbcfe8" stroke-width="1.2" filter="url(#fShadow)"/>
+<text x="904" y="700" font-size="20" dominant-baseline="middle">🎨</text>
+<text x="930" y="697" fill="#9d174d" font-size="10" font-weight="700" dominant-baseline="middle">Figma</text>
+<text x="930" y="714" fill="#9ca3af" font-size="8.5" dominant-baseline="middle">Design · Token</text>
+<line x1="860" y1="680" x2="740" y2="652" stroke="#db2777" stroke-width="1.2"
+      stroke-dasharray="5 4" marker-end="url(#mArrow)" class="flow-slow" style="animation-delay:1.5s" opacity=".4"/>
+
+<!-- ═══ USER — TOP ═══ -->
+<rect x="448" y="14" width="200" height="44" rx="22"
+      fill="#fff" stroke="#e2e8f0" stroke-width="1.4" filter="url(#fShadow)"/>
+<text x="480" y="36" font-size="18" dominant-baseline="middle">👤</text>
+<text x="502" y="31" fill="#1e293b" font-size="11" font-weight="700" dominant-baseline="middle">사용자</text>
+<text x="502" y="47" fill="#94a3b8" font-size="9" dominant-baseline="middle">목표를 자연어로 전달</text>
+
+<!-- User ↓ request -->
+<path d="M 514 58 L 514 90" stroke="#94a3b8" stroke-width="1.3"
+      fill="none" marker-end="url(#mArrow)" stroke-dasharray="5 3"/>
+<rect x="470" y="64" width="42" height="16" rx="8" fill="#f1f5f9"/>
+<text x="491" y="72" fill="#94a3b8" font-size="8" text-anchor="middle" dominant-baseline="middle">요청</text>
+
+<!-- User ↑ response -->
+<path d="M 582 90 L 582 58" stroke="#ea6c0a" stroke-width="1.3"
+      fill="none" marker-end="url(#mArrow)" stroke-dasharray="5 3"/>
+<rect x="586" y="64" width="42" height="16" rx="8" fill="#fff7ed"/>
+<text x="607" y="72" fill="#ea6c0a" font-size="8" text-anchor="middle" dominant-baseline="middle">응답</text>
+
+<!-- ═══ LEGEND ═══ -->
+<rect x="116" y="614" width="216" height="70" rx="12"
+      fill="#fff" stroke="#e2e8f0" stroke-width="1" filter="url(#fShadow)"/>
+<text x="224" y="628" fill="#374151" font-size="9" font-weight="700"
+      text-anchor="middle" dominant-baseline="middle">색상 범례</text>
+
+<rect x="126" y="638" width="9" height="9" rx="2" fill="#8b5cf6" opacity=".5"/>
+<text x="140" y="643" fill="#6b7280" font-size="8.5" dominant-baseline="middle">Context Window</text>
+<rect x="210" y="638" width="9" height="9" rx="2" fill="#3b82f6" opacity=".5"/>
+<text x="224" y="643" fill="#6b7280" font-size="8.5" dominant-baseline="middle">Agent Loop</text>
+<rect x="290" y="638" width="9" height="9" rx="2" fill="#ec4899" opacity=".6"/>
+<text x="304" y="643" fill="#6b7280" font-size="8.5" dominant-baseline="middle">Thinking</text>
+
+<rect x="126" y="656" width="9" height="9" rx="2" fill="#f59e0b" opacity=".7"/>
+<text x="140" y="661" fill="#6b7280" font-size="8.5" dominant-baseline="middle">Tools</text>
+<rect x="210" y="656" width="9" height="9" rx="2" fill="#10b981" opacity=".7"/>
+<text x="224" y="661" fill="#6b7280" font-size="8.5" dominant-baseline="middle">Skills</text>
+<rect x="290" y="656" width="9" height="9" rx="2" fill="#14b8a6" opacity=".7"/>
+<text x="304" y="661" fill="#6b7280" font-size="8.5" dominant-baseline="middle">MCP</text>
+
+<rect x="126" y="674" width="9" height="9" rx="2" fill="#ea6c0a"/>
+<text x="140" y="679" fill="#6b7280" font-size="8.5" dominant-baseline="middle">Claude Model (Core)</text>
+
+</svg>
+</div>
+
+<script>
+(function(){
+  const KEY='cc101-chapter-theme';
+  const saved=localStorage.getItem(KEY)||'light';
+  document.documentElement.setAttribute('data-theme',saved);
+  function updateBtn(){
+    const btn=document.getElementById('bpThemeBtn');
+    if(btn) btn.textContent=(localStorage.getItem(KEY)||'light')==='dark'?'☀️':'🌙';
+  }
+  window.bpToggleTheme=function(){
+    const cur=document.documentElement.getAttribute('data-theme')||'light';
+    const next=cur==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    localStorage.setItem(KEY,next);
+    updateBtn();
+  };
+  document.addEventListener('DOMContentLoaded',updateBtn);
+})();
+</script>
+</body>
+</html>

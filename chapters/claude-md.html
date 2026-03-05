@@ -1,37 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
 <meta charset="UTF-8">
+<script>
+/* 챕터 테마 초기화 — FOUC 방지 */
+(function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CLAUDE.md — 프로젝트 메모리</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../theme.css">
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
-
   :root {
-    --bg: #0a0a0f;
-    --surface: #12121a;
-    --surface-raised: #1a1a26;
-    --surface-hover: #22222f;
-    --border: #2a2a3a;
-    --border-bright: #3a3a5a;
-    --text: #e8e8f0;
-    --text-dim: #8888a0;
-    --text-muted: #5a5a72;
-    --accent: #c4a0ff;
-    --accent-dim: #9070cc;
-    --accent-glow: rgba(196, 160, 255, 0.15);
-    --accent-glow-strong: rgba(196, 160, 255, 0.25);
-    --green: #7dd3a0;
-    --green-dim: rgba(125, 211, 160, 0.12);
-    --blue: #7daed3;
-    --blue-dim: rgba(125, 174, 211, 0.12);
-    --orange: #d3a07d;
-    --orange-dim: rgba(211, 160, 125, 0.12);
-    --pink: #d37da0;
-    --pink-dim: rgba(211, 125, 160, 0.12);
-    --yellow: #d3cc7d;
-    --yellow-dim: rgba(211, 204, 125, 0.12);
     --radius: 12px;
     --radius-sm: 8px;
     --radius-lg: 20px;
@@ -1558,5 +1541,11 @@ window.addEventListener('scroll', () => {
 });
 </script>
 
+
+<button class="theme-btn" id="themeBtn" onclick="toggleThemeBtn()" title="테마 전환">🌙</button>
+<script src="../theme.js"></script>
+
+<div id="community-widget"></div>
+<script src="../community.js"></script>
 </body>
 </html>

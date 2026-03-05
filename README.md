@@ -13,7 +13,7 @@
 - Claude Code를 시작하고 싶은 개발자
 - 영어 문서가 부담스러운 한국어 사용자
 
-## 커리큘럼 (12개 모듈)
+## 커리큘럼 (13개 모듈)
 
 | 모듈 | 주제 | 시간 |
 |------|------|------|
@@ -29,6 +29,7 @@
 | 08 | 실전 워크플로우 (Git, PR, 디버깅) | 2시간 |
 | 09 | 고급 기능 (Worktree, Teleport) | 2시간 |
 | 10 | 실전 프로젝트 — DailyMemo 앱 완성 | 3시간 |
+| 11 | 핵심 개념 시각화 — Agent · Skills · MCP | 30분 |
 
 ## 특징
 
@@ -57,3 +58,30 @@
 # 별도 빌드 필요 없음 — 브라우저에서 바로 열기
 open index.html
 ```
+
+---
+
+## 💬 커뮤니티
+
+- **오픈 카톡방**: [함께 공부해요 →](https://open.kakao.com/o/pWK34Oji) — 질문, 학습 인증, 정보 공유
+- **챕터 피드백**: 각 챕터 하단 Giscus 댓글 (GitHub 계정 필요)
+
+### Giscus 댓글 활성화 방법 (관리자용)
+
+1. Repo Settings → Features → **Discussions** 체크
+2. [github.com/apps/giscus](https://github.com/apps/giscus) 에서 앱 설치
+3. [giscus.app](https://giscus.app) 에서 `m1zz/ClaudeCode101` 입력 → **category-id** 복사
+4. `chapters/community.js` 의 `GISCUS_CATEGORY_ID` 값 교체
+
+---
+
+## ☕ 후원
+
+이 가이드가 도움이 됐다면, 커피 한 잔으로 다음 콘텐츠 제작을 응원해 주세요.
+**여러분의 후원이 더 빠른 콘텐츠 업데이트를 가져옵니다.**
+
+카카오페이 QR 코드로 후원하기 👇
+
+![카카오페이 후원 QR](kakaopay-qr.jpg)
+
+> 강의, 피드백, 협업 문의: [leeo.ghost.io](https://leeo.ghost.io)
