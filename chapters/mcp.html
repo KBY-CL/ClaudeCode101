@@ -218,6 +218,18 @@
   section {
     padding: 100px 0;
   }
+  section:nth-of-type(odd) {
+    background: #faf8f0;
+  }
+  section:nth-of-type(even) {
+    background: #f5faf0;
+  }
+  [data-theme="dark"] section:nth-of-type(odd) {
+    background: #141210;
+  }
+  [data-theme="dark"] section:nth-of-type(even) {
+    background: #111410;
+  }
 
   /* ---- NAV ---- */
   .sticky-nav {
