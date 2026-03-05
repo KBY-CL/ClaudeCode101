@@ -30,6 +30,15 @@
   --shadow-card: 0 2px 12px rgba(0,0,0,.08);
   --shadow-md: 0 8px 32px rgba(0,0,0,.12);
   --nav-bg: rgba(255, 255, 255, 0.90);
+  --red: #dc2626;
+  --red-dim: rgba(220, 38, 38, 0.08);
+  --red-border: rgba(220, 38, 38, 0.18);
+  --accent-border: rgba(124, 58, 237, 0.20);
+  --green-border: rgba(22, 163, 74, 0.20);
+  --blue-border: rgba(2, 132, 199, 0.20);
+  --orange-border: rgba(234, 88, 12, 0.20);
+  --pink-border: rgba(190, 24, 93, 0.20);
+  --yellow-border: rgba(180, 83, 9, 0.20);
 }
 
 /* ── Dark ── */
@@ -60,6 +69,15 @@
   --shadow-card: 0 2px 12px rgba(0,0,0,.4);
   --shadow-md: 0 8px 32px rgba(0,0,0,.5);
   --nav-bg: rgba(10, 10, 15, 0.85);
+  --red: #f87171;
+  --red-dim: rgba(248, 113, 113, 0.10);
+  --red-border: rgba(248, 113, 113, 0.18);
+  --accent-border: rgba(196, 160, 255, 0.20);
+  --green-border: rgba(125, 211, 160, 0.20);
+  --blue-border: rgba(125, 174, 211, 0.20);
+  --orange-border: rgba(211, 160, 125, 0.20);
+  --pink-border: rgba(211, 125, 160, 0.20);
+  --yellow-border: rgba(211, 204, 125, 0.20);
 }
 
 /* ── 다크모드 토글 버튼 ── */
