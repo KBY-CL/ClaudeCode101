@@ -17,7 +17,7 @@
   const GISCUS_REPO = 'm1zz/ClaudeCode101';
   const GISCUS_REPO_ID = 'R_kgDORW3WvA';
   const GISCUS_CATEGORY = 'General';
-  const GISCUS_CATEGORY_ID = 'REPLACE_WITH_CATEGORY_ID'; // giscus.app 에서 복사
+  const GISCUS_CATEGORY_ID = 'DIC_kwDORW3WvM4C3uH7'; // giscus.app 에서 복사
 
   const KEY = 'cc101-chapter-theme';
 
