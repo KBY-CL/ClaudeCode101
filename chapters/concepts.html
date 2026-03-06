@@ -46,16 +46,13 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;transition:background .3s,color .3s}
 
-/* NAV */
-.topnav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;background:var(--bg);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
-.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:.83rem;text-decoration:none;transition:color .2s}
+/* BACK LINK */
+.back-link{display:inline-flex;align-items:center;gap:6px;padding:14px 24px;font-size:14px;font-weight:500;color:var(--text-dim);text-decoration:none;transition:color .2s}
 .back-link:hover{color:var(--accent)}
-.nav-title{font-size:.85rem;font-weight:600;color:var(--text-dim)}
-/* theme-btn은 theme.css의 고정 원형 버튼 사용 */
 
 /* HERO */
-.hero{padding:7rem 1.5rem 3rem;text-align:center;max-width:800px;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:7px;padding:4px 14px;background:var(--accent-dim);border:1px solid rgba(234,108,10,.3);border-radius:100px;font-size:.75rem;color:var(--accent);margin-bottom:1.2rem;font-family:var(--mono)}
+.hero{padding:3rem 1.5rem 3rem;text-align:center;max-width:800px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;padding:4px 14px;background:var(--accent-glow);border:1px solid var(--accent-border);border-radius:100px;font-size:.75rem;color:var(--accent);margin-bottom:1.2rem;font-family:var(--mono)}
 .hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.15;letter-spacing:-.03em;margin-bottom:.8rem}
 .hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero p{color:var(--text-dim);font-size:1rem;max-width:520px;margin:0 auto 2rem}
@@ -200,13 +197,7 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 </head>
 <body>
 
-<nav class="topnav">
-  <a href="../index.html" class="back-link">
-    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    목차로
-  </a>
-  <span class="nav-title">Claude 핵심 개념 시각화</span>
-</nav>
+<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
 
 <!-- HERO -->
 <header class="hero" style="animation:fadeUp .5s ease both">
