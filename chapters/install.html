@@ -6,9 +6,10 @@
 /* 챕터 테마 초기화 — FOUC 방지 */
 (function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>설치 & 첫 실행 - Claude Code 101</title>
+<title>Installation &amp; First Run - Claude Code 101</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../theme.css">
 <style id="chapter-accent">
@@ -886,39 +887,41 @@
 <body>
 
 <!-- =================== BACK LINK =================== -->
-<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+<a href="../index.html" class="back-link">&larr; <span class="lang-ko">Claude Code 101로 돌아가기</span><span class="lang-en">Back to Claude Code 101</span></a>
 
 <!-- =================== HERO =================== -->
 <div class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    Module 01
+    <span class="lang-ko">Module 01 — 설치</span><span class="lang-en">Module 01 — Installation</span>
   </div>
   <h1>
-    <span class="highlight">설치</span> &amp; 첫 실행
+    <div class="lang-ko"><span class="highlight">설치</span> &amp; 첫 실행</div>
+    <div class="lang-en"><span class="highlight">Installing</span> Claude Code</div>
   </h1>
   <p class="hero-sub">
-    터미널, VS Code, JetBrains, 데스크톱 앱, 웹 &mdash; 원하는 방법으로 지금 바로 시작하세요
+    <span class="lang-ko">터미널, VS Code, JetBrains, 데스크톱 앱, 웹 &mdash; 원하는 방법으로 지금 바로 시작하세요</span>
+    <span class="lang-en">Terminal, VS Code, JetBrains, Desktop App, or Web &mdash; choose the method that works best for you</span>
   </p>
   <div class="hero-cta">
-    <a href="#prereq" class="btn btn-primary">설치하러 가기</a>
-    <a href="#first-run" class="btn btn-outline">첫 실행 보기 &rarr;</a>
+    <a href="#prereq" class="btn btn-primary"><span class="lang-ko">설치하러 가기</span><span class="lang-en">Get Started</span></a>
+    <a href="#first-run" class="btn btn-outline"><span class="lang-ko">첫 실행 보기 &rarr;</span><span class="lang-en">First Run &rarr;</span></a>
   </div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    스크롤
+    <span class="lang-ko">스크롤</span><span class="lang-en">Scroll</span>
   </div>
 </div>
 
 <!-- =================== NAV =================== -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
-    <a href="#prereq" class="nav-link">시스템 요구사항</a>
-    <a href="#install" class="nav-link">설치 방법</a>
-    <a href="#auth" class="nav-link">로그인 &amp; 인증</a>
-    <a href="#first-run" class="nav-link">첫 대화</a>
-    <a href="#ide" class="nav-link">IDE &amp; 앱 연동</a>
+    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; <span class="lang-ko">홈</span><span class="lang-en">Home</span></a>
+    <a href="#prereq" class="nav-link"><span class="lang-ko">시스템 요구사항</span><span class="lang-en">Requirements</span></a>
+    <a href="#install" class="nav-link"><span class="lang-ko">설치 방법</span><span class="lang-en">Installation</span></a>
+    <a href="#auth" class="nav-link"><span class="lang-ko">로그인 &amp; 인증</span><span class="lang-en">Authentication</span></a>
+    <a href="#first-run" class="nav-link"><span class="lang-ko">첫 대화</span><span class="lang-en">First Run</span></a>
+    <a href="#ide" class="nav-link"><span class="lang-ko">IDE &amp; 앱 연동</span><span class="lang-en">IDE &amp; Apps</span></a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
 </nav>
@@ -927,15 +930,28 @@
 <section id="prereq">
   <div class="container">
     <div class="section-number">01</div>
-    <h2 class="section-title">시스템 요구사항</h2>
-    <p class="section-desc">
-      Claude Code를 설치하기 전에 환경을 확인하세요. 네이티브 설치 방식은 Node.js가 필요 없습니다.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">시스템 요구사항</h2>
+      <p class="section-desc">
+        Claude Code를 설치하기 전에 환경을 확인하세요. 네이티브 설치 방식은 Node.js가 필요 없습니다.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">System Requirements</h2>
+      <p class="section-desc">
+        Check your environment before installing Claude Code. The native installer does not require Node.js.
+      </p>
+    </div>
 
     <div class="card-grid card-grid-2">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F4BB;</div>
-        <h3>운영체제</h3>
+        <div class="lang-ko">
+          <h3>운영체제</h3>
+        </div>
+        <div class="lang-en">
+          <h3>Operating System</h3>
+        </div>
         <div class="tag-row">
           <span class="tag tag-purple">macOS 13.0+</span>
           <span class="tag tag-blue">Windows 10 1809+</span>
@@ -943,36 +959,60 @@
           <span class="tag tag-green">Debian 10+</span>
           <span class="tag tag-orange">Alpine Linux 3.19+</span>
         </div>
-        <p style="margin-top: 12px;">Windows Server 2019+도 지원됩니다. Alpine은 추가 종속성이 필요합니다.</p>
+        <p style="margin-top: 12px;"><span class="lang-ko">Windows Server 2019+도 지원됩니다. Alpine은 추가 종속성이 필요합니다.</span><span class="lang-en">Windows Server 2019+ is also supported. Alpine requires additional dependencies.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x2705;</div>
-        <h3>필수 조건</h3>
-        <ul class="checklist" style="margin-top: 8px;">
-          <li>
-            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
-            <span><strong style="color:var(--text)">Claude 구독</strong> &mdash; <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">claude.com/pricing</a> 또는 Anthropic Console 계정</span>
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
-            <span><strong style="color:var(--text)">인터넷 연결</strong> &mdash; 설치 및 인증에 필요</span>
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
-            <span><strong style="color:var(--text)">RAM 4GB 이상</strong> &mdash; 원활한 사용을 위해 권장</span>
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
-            <span><strong style="color:var(--text)">Windows 전용</strong> &mdash; <a href="https://git-scm.com/downloads/win" target="_blank" style="color:var(--accent)">Git for Windows</a> 필요 (네이티브 설치 시)</span>
-          </li>
-        </ul>
+        <div class="lang-ko">
+          <h3>필수 조건</h3>
+          <ul class="checklist" style="margin-top: 8px;">
+            <li>
+              <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+              <span><strong style="color:var(--text)">Claude 구독</strong> &mdash; <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">claude.com/pricing</a> 또는 Anthropic Console 계정</span>
+            </li>
+            <li>
+              <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+              <span><strong style="color:var(--text)">인터넷 연결</strong> &mdash; 설치 및 인증에 필요</span>
+            </li>
+            <li>
+              <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+              <span><strong style="color:var(--text)">RAM 4GB 이상</strong> &mdash; 원활한 사용을 위해 권장</span>
+            </li>
+            <li>
+              <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+              <span><strong style="color:var(--text)">Windows 전용</strong> &mdash; <a href="https://git-scm.com/downloads/win" target="_blank" style="color:var(--accent)">Git for Windows</a> 필요 (네이티브 설치 시)</span>
+            </li>
+          </ul>
+        </div>
+        <div class="lang-en">
+          <h3>Prerequisites</h3>
+          <ul class="checklist" style="margin-top: 8px;">
+            <li>
+              <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+              <span><strong style="color:var(--text)">Claude subscription</strong> &mdash; <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">claude.com/pricing</a> or an Anthropic Console account</span>
+            </li>
+            <li>
+              <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+              <span><strong style="color:var(--text)">Internet connection</strong> &mdash; required for installation and authentication</span>
+            </li>
+            <li>
+              <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+              <span><strong style="color:var(--text)">4 GB RAM or more</strong> &mdash; recommended for smooth operation</span>
+            </li>
+            <li>
+              <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+              <span><strong style="color:var(--text)">Windows only</strong> &mdash; <a href="https://git-scm.com/downloads/win" target="_blank" style="color:var(--accent)">Git for Windows</a> required for the native installer</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>Node.js가 없어도 됩니다!</strong> 기존에는 npm으로 설치했지만, 이제 네이티브 설치 방식이 권장됩니다. Node.js 18+는 더 이상 사용되지 않는 npm 설치 방식에서만 필요합니다.
+        <span class="lang-ko"><strong>Node.js가 없어도 됩니다!</strong> 기존에는 npm으로 설치했지만, 이제 네이티브 설치 방식이 권장됩니다. Node.js 18+는 더 이상 사용되지 않는 npm 설치 방식에서만 필요합니다.</span>
+        <span class="lang-en"><strong>Node.js is not required!</strong> While Claude Code was previously installed via npm, the native installer is now the recommended approach. Node.js 18+ is only needed if you use the legacy npm installation method.</span>
       </div>
     </div>
   </div>
@@ -984,16 +1024,24 @@
 <section id="install">
   <div class="container">
     <div class="section-number">02</div>
-    <h2 class="section-title">설치 방법</h2>
-    <p class="section-desc">
-      터미널 CLI, VS Code, JetBrains, 데스크톱 앱, 웹 &mdash; <strong style="color:var(--accent)">5가지 방법</strong> 중 원하는 것을 선택하세요.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">설치 방법</h2>
+      <p class="section-desc">
+        터미널 CLI, VS Code, JetBrains, 데스크톱 앱, 웹 &mdash; <strong style="color:var(--accent)">5가지 방법</strong> 중 원하는 것을 선택하세요.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">Installation</h2>
+      <p class="section-desc">
+        Terminal CLI, VS Code, JetBrains, Desktop App, or Web &mdash; choose from <strong style="color:var(--accent)">5 installation methods</strong>.
+      </p>
+    </div>
 
     <!-- Terminal CLI -->
     <h3 style="font-size: 22px; font-weight: 800; margin: 0 0 8px; color: var(--text);">&#x1F5A5;&#xFE0F; Terminal CLI</h3>
-    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;">파일 편집, 명령 실행, 전체 프로젝트 관리를 명령줄에서 직접 수행하는 풀기능 CLI입니다.</p>
+    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;"><span class="lang-ko">파일 편집, 명령 실행, 전체 프로젝트 관리를 명령줄에서 직접 수행하는 풀기능 CLI입니다.</span><span class="lang-en">A full-featured CLI for editing files, running commands, and managing entire projects directly from the command line.</span></p>
 
-    <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 16px;">&#x2B50; 네이티브 설치 (권장) &mdash; 자동 업데이트 지원</h4>
+    <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 16px;">&#x2B50; <span class="lang-ko">네이티브 설치 (권장) &mdash; 자동 업데이트 지원</span><span class="lang-en">Native Install (Recommended) &mdash; Auto-updates included</span></h4>
 
     <div class="card-grid card-grid-3" style="margin-bottom: 32px;">
       <div class="card" style="padding: 24px;">
@@ -1039,11 +1087,12 @@
     <div class="tip">
       <span class="tip-icon">&#x1F504;</span>
       <div>
-        <strong>네이티브 설치는 백그라운드에서 자동 업데이트됩니다.</strong> 항상 최신 버전을 유지합니다. Windows에서는 먼저 <a href="https://git-scm.com/downloads/win" target="_blank" style="color:var(--accent)">Git for Windows</a>를 설치하세요.
+        <span class="lang-ko"><strong>네이티브 설치는 백그라운드에서 자동 업데이트됩니다.</strong> 항상 최신 버전을 유지합니다. Windows에서는 먼저 <a href="https://git-scm.com/downloads/win" target="_blank" style="color:var(--accent)">Git for Windows</a>를 설치하세요.</span>
+        <span class="lang-en"><strong>The native installer updates automatically in the background,</strong> keeping you on the latest version at all times. On Windows, install <a href="https://git-scm.com/downloads/win" target="_blank" style="color:var(--accent)">Git for Windows</a> first.</span>
       </div>
     </div>
 
-    <h4 style="font-size: 17px; font-weight: 700; margin: 40px 0 16px;">패키지 매니저로 설치 &mdash; 수동 업데이트 필요</h4>
+    <h4 style="font-size: 17px; font-weight: 700; margin: 40px 0 16px;"><span class="lang-ko">패키지 매니저로 설치 &mdash; 수동 업데이트 필요</span><span class="lang-en">Install via Package Manager &mdash; Manual updates required</span></h4>
 
     <div class="card-grid card-grid-2" style="margin-bottom: 32px;">
       <div class="card" style="padding: 24px;">
@@ -1059,7 +1108,7 @@
 <span class="comment"># 수동 업데이트:</span>
 <span class="keyword">brew</span> upgrade claude-code</div>
         </div>
-        <p style="font-size: 13px; color: var(--text-muted);">Homebrew는 자동 업데이트를 지원하지 않습니다. 주기적으로 수동 업데이트하세요.</p>
+        <p style="font-size: 13px; color: var(--text-muted);"><span class="lang-ko">Homebrew는 자동 업데이트를 지원하지 않습니다. 주기적으로 수동 업데이트하세요.</span><span class="lang-en">Homebrew does not support automatic updates. Remember to update manually on a regular basis.</span></p>
       </div>
       <div class="card" style="padding: 24px;">
         <div class="card-icon" style="background: var(--blue-dim); width: 40px; height: 40px; font-size: 18px; margin-bottom: 12px;">&#x1FA9F;</div>
@@ -1071,111 +1120,131 @@
           </div>
           <div class="code-body"><span class="keyword">winget</span> install Anthropic.ClaudeCode
 
-<span class="comment"># 수동 업데이트:</span>
+<span class="comment"># <span class="lang-ko">수동 업데이트:</span><span class="lang-en">Manual update:</span></span>
 <span class="keyword">winget</span> upgrade Anthropic.ClaudeCode</div>
         </div>
-        <p style="font-size: 13px; color: var(--text-muted);">WinGet도 자동 업데이트를 지원하지 않습니다. 주기적으로 수동 업데이트하세요.</p>
+        <p style="font-size: 13px; color: var(--text-muted);"><span class="lang-ko">WinGet도 자동 업데이트를 지원하지 않습니다. 주기적으로 수동 업데이트하세요.</span><span class="lang-en">WinGet also does not support automatic updates. Remember to update manually on a regular basis.</span></p>
       </div>
     </div>
 
     <div class="divider" style="margin: 48px 0;"></div>
 
     <!-- VS Code Extension -->
-    <h3 style="font-size: 22px; font-weight: 800; margin: 0 0 8px; color: var(--text);">&#x1F4D0; VS Code 확장 프로그램</h3>
-    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;">인라인 diff, @-멘션, 계획 검토, 대화 기록을 에디터 안에서 바로 사용할 수 있습니다. Cursor에서도 동작합니다.</p>
+    <h3 style="font-size: 22px; font-weight: 800; margin: 0 0 8px; color: var(--text);">&#x1F4D0; VS Code <span class="lang-ko">확장 프로그램</span><span class="lang-en">Extension</span></h3>
+    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;"><span class="lang-ko">인라인 diff, @-멘션, 계획 검토, 대화 기록을 에디터 안에서 바로 사용할 수 있습니다. Cursor에서도 동작합니다.</span><span class="lang-en">Use inline diffs, @-mentions, plan review, and conversation history directly inside your editor. Also works with Cursor.</span></p>
 
     <div class="card-grid card-grid-2">
       <div class="card" style="padding: 28px;">
-        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--accent);">방법 1: 링크로 바로 설치</h4>
+        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--accent);"><span class="lang-ko">방법 1: 링크로 바로 설치</span><span class="lang-en">Option 1: Install via link</span></h4>
         <div class="tag-row">
-          <a href="vscode:extension/anthropic.claude-code" class="tag tag-blue" style="text-decoration: none;">VS Code용 설치</a>
-          <a href="cursor:extension/anthropic.claude-code" class="tag tag-purple" style="text-decoration: none;">Cursor용 설치</a>
+          <a href="vscode:extension/anthropic.claude-code" class="tag tag-blue" style="text-decoration: none;"><span class="lang-ko">VS Code용 설치</span><span class="lang-en">Install for VS Code</span></a>
+          <a href="cursor:extension/anthropic.claude-code" class="tag tag-purple" style="text-decoration: none;"><span class="lang-ko">Cursor용 설치</span><span class="lang-en">Install for Cursor</span></a>
         </div>
       </div>
       <div class="card" style="padding: 28px;">
-        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--accent);">방법 2: 확장 프로그램 검색</h4>
-        <p style="font-size: 14px; color: var(--text-dim);">
-          확장 프로그램 보기를 열고 (<code style="color:var(--accent)">Cmd+Shift+X</code> / <code style="color:var(--accent)">Ctrl+Shift+X</code>)<br>
-          <strong>"Claude Code"</strong> 검색 후 설치 클릭.<br><br>
-          설치 후 명령 팔레트 (<code style="color:var(--accent)">Cmd+Shift+P</code>) 에서 "Claude Code" 입력 &rarr; <strong>새 탭에서 열기</strong> 선택.
-        </p>
+        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--accent);"><span class="lang-ko">방법 2: 확장 프로그램 검색</span><span class="lang-en">Option 2: Search Extensions</span></h4>
+        <div class="lang-ko">
+          <p style="font-size: 14px; color: var(--text-dim);">
+            확장 프로그램 보기를 열고 (<code style="color:var(--accent)">Cmd+Shift+X</code> / <code style="color:var(--accent)">Ctrl+Shift+X</code>)<br>
+            <strong>"Claude Code"</strong> 검색 후 설치 클릭.<br><br>
+            설치 후 명령 팔레트 (<code style="color:var(--accent)">Cmd+Shift+P</code>) 에서 "Claude Code" 입력 &rarr; <strong>새 탭에서 열기</strong> 선택.
+          </p>
+        </div>
+        <div class="lang-en">
+          <p style="font-size: 14px; color: var(--text-dim);">
+            Open the Extensions view (<code style="color:var(--accent)">Cmd+Shift+X</code> / <code style="color:var(--accent)">Ctrl+Shift+X</code>)<br>
+            Search for <strong>"Claude Code"</strong> and click Install.<br><br>
+            After installation, open the Command Palette (<code style="color:var(--accent)">Cmd+Shift+P</code>), type "Claude Code", and select <strong>Open in new tab</strong>.
+          </p>
+        </div>
       </div>
     </div>
 
     <div class="divider" style="margin: 48px 0;"></div>
 
     <!-- JetBrains Plugin -->
-    <h3 style="font-size: 22px; font-weight: 800; margin: 0 0 8px; color: var(--text);">&#x2699;&#xFE0F; JetBrains 플러그인</h3>
-    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;">IntelliJ IDEA, PyCharm, WebStorm 등 JetBrains IDE에서 대화형 diff 보기와 선택 컨텍스트 공유 기능을 사용할 수 있습니다.</p>
+    <h3 style="font-size: 22px; font-weight: 800; margin: 0 0 8px; color: var(--text);">&#x2699;&#xFE0F; JetBrains <span class="lang-ko">플러그인</span><span class="lang-en">Plugin</span></h3>
+    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;"><span class="lang-ko">IntelliJ IDEA, PyCharm, WebStorm 등 JetBrains IDE에서 대화형 diff 보기와 선택 컨텍스트 공유 기능을 사용할 수 있습니다.</span><span class="lang-en">Use interactive diff views and selection-based context sharing in IntelliJ IDEA, PyCharm, WebStorm, and other JetBrains IDEs.</span></p>
 
     <div class="card" style="padding: 28px;">
-      <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--accent);">JetBrains Marketplace에서 설치</h4>
-      <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 16px;">
-        JetBrains Marketplace에서 <a href="https://plugins.jetbrains.com/plugin/27310-claude-code-beta-" target="_blank" style="color:var(--accent)"><strong>Claude Code Beta</strong></a> 플러그인을 설치하고 IDE를 재시작합니다.<br><br>
-        또는 IDE에서 <strong>Settings &rarr; Plugins &rarr; Marketplace</strong> 탭에서 "Claude Code"를 검색하여 설치할 수도 있습니다.
-      </p>
+      <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--accent);"><span class="lang-ko">JetBrains Marketplace에서 설치</span><span class="lang-en">Install from JetBrains Marketplace</span></h4>
+      <div class="lang-ko">
+        <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 16px;">
+          JetBrains Marketplace에서 <a href="https://plugins.jetbrains.com/plugin/27310-claude-code-beta-" target="_blank" style="color:var(--accent)"><strong>Claude Code Beta</strong></a> 플러그인을 설치하고 IDE를 재시작합니다.<br><br>
+          또는 IDE에서 <strong>Settings &rarr; Plugins &rarr; Marketplace</strong> 탭에서 "Claude Code"를 검색하여 설치할 수도 있습니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 16px;">
+          Install the <a href="https://plugins.jetbrains.com/plugin/27310-claude-code-beta-" target="_blank" style="color:var(--accent)"><strong>Claude Code Beta</strong></a> plugin from JetBrains Marketplace and restart your IDE.<br><br>
+          Alternatively, search for "Claude Code" under <strong>Settings &rarr; Plugins &rarr; Marketplace</strong> from within your IDE.
+        </p>
+      </div>
       <div class="tag-row">
         <span class="tag tag-orange">IntelliJ IDEA</span>
         <span class="tag tag-green">PyCharm</span>
         <span class="tag tag-blue">WebStorm</span>
-        <span class="tag tag-purple">그 외 JetBrains IDE</span>
+        <span class="tag tag-purple"><span class="lang-ko">그 외 JetBrains IDE</span><span class="lang-en">Other JetBrains IDEs</span></span>
       </div>
     </div>
 
     <div class="divider" style="margin: 48px 0;"></div>
 
     <!-- Desktop App -->
-    <h3 style="font-size: 22px; font-weight: 800; margin: 0 0 8px; color: var(--text);">&#x1F5A5;&#xFE0F; 데스크톱 앱</h3>
-    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;">IDE나 터미널 없이도 Claude Code를 실행하는 독립 실행형 앱입니다. diff를 시각적으로 검토하고, 여러 세션을 나란히 실행할 수 있습니다.</p>
+    <h3 style="font-size: 22px; font-weight: 800; margin: 0 0 8px; color: var(--text);">&#x1F5A5;&#xFE0F; <span class="lang-ko">데스크톱 앱</span><span class="lang-en">Desktop App</span></h3>
+    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;"><span class="lang-ko">IDE나 터미널 없이도 Claude Code를 실행하는 독립 실행형 앱입니다. diff를 시각적으로 검토하고, 여러 세션을 나란히 실행할 수 있습니다.</span><span class="lang-en">A standalone app that runs Claude Code without an IDE or terminal. Review diffs visually and run multiple sessions side by side.</span></p>
 
     <div class="card-grid card-grid-3">
       <div class="card" style="padding: 28px; text-align: center;">
         <div class="card-icon" style="background: var(--accent-glow); margin: 0 auto 16px;">&#x1F34E;</div>
         <h3 style="font-size: 16px;">macOS</h3>
-        <p style="font-size: 13px; margin-bottom: 16px;">Intel 및 Apple Silicon 지원</p>
-        <a href="https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect?utm_source=claude_code&utm_medium=docs" target="_blank" class="tag tag-purple" style="text-decoration: none; display: inline-block;">다운로드</a>
+        <p style="font-size: 13px; margin-bottom: 16px;"><span class="lang-ko">Intel 및 Apple Silicon 지원</span><span class="lang-en">Intel &amp; Apple Silicon</span></p>
+        <a href="https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect?utm_source=claude_code&utm_medium=docs" target="_blank" class="tag tag-purple" style="text-decoration: none; display: inline-block;"><span class="lang-ko">다운로드</span><span class="lang-en">Download</span></a>
       </div>
       <div class="card" style="padding: 28px; text-align: center;">
         <div class="card-icon" style="background: var(--blue-dim); margin: 0 auto 16px;">&#x1FA9F;</div>
         <h3 style="font-size: 16px;">Windows</h3>
-        <p style="font-size: 13px; margin-bottom: 16px;">x64 지원</p>
-        <a href="https://claude.ai/api/desktop/win32/x64/exe/latest/redirect?utm_source=claude_code&utm_medium=docs" target="_blank" class="tag tag-blue" style="text-decoration: none; display: inline-block;">다운로드</a>
+        <p style="font-size: 13px; margin-bottom: 16px;"><span class="lang-ko">x64 지원</span><span class="lang-en">x64 supported</span></p>
+        <a href="https://claude.ai/api/desktop/win32/x64/exe/latest/redirect?utm_source=claude_code&utm_medium=docs" target="_blank" class="tag tag-blue" style="text-decoration: none; display: inline-block;"><span class="lang-ko">다운로드</span><span class="lang-en">Download</span></a>
       </div>
       <div class="card" style="padding: 28px; text-align: center;">
         <div class="card-icon" style="background: var(--orange-dim); margin: 0 auto 16px;">&#x1FA9F;</div>
         <h3 style="font-size: 16px;">Windows ARM64</h3>
-        <p style="font-size: 13px; margin-bottom: 16px;">원격 세션 전용</p>
-        <a href="https://claude.ai/api/desktop/win32/arm64/exe/latest/redirect?utm_source=claude_code&utm_medium=docs" target="_blank" class="tag tag-orange" style="text-decoration: none; display: inline-block;">다운로드</a>
+        <p style="font-size: 13px; margin-bottom: 16px;"><span class="lang-ko">원격 세션 전용</span><span class="lang-en">Remote sessions only</span></p>
+        <a href="https://claude.ai/api/desktop/win32/arm64/exe/latest/redirect?utm_source=claude_code&utm_medium=docs" target="_blank" class="tag tag-orange" style="text-decoration: none; display: inline-block;"><span class="lang-ko">다운로드</span><span class="lang-en">Download</span></a>
       </div>
     </div>
 
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>데스크톱 앱 사용 방법:</strong> 설치 후 Claude를 실행하고 로그인한 다음 <strong>Code</strong> 탭을 클릭하여 코딩을 시작합니다. <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">유료 구독</a>이 필요합니다.
+        <span class="lang-ko"><strong>데스크톱 앱 사용 방법:</strong> 설치 후 Claude를 실행하고 로그인한 다음 <strong>Code</strong> 탭을 클릭하여 코딩을 시작합니다. <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">유료 구독</a>이 필요합니다.</span>
+        <span class="lang-en"><strong>How to use the Desktop App:</strong> After installation, launch Claude, sign in, then click the <strong>Code</strong> tab to start coding. A <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">paid subscription</a> is required.</span>
       </div>
     </div>
 
     <div class="divider" style="margin: 48px 0;"></div>
 
     <!-- Web -->
-    <h3 style="font-size: 22px; font-weight: 800; margin: 0 0 8px; color: var(--text);">&#x1F310; 웹 (설치 불필요!)</h3>
-    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;">로컬 설치 없이 브라우저에서 바로 Claude Code를 사용할 수 있습니다. 데스크톱 브라우저와 Claude iOS 앱에서 사용 가능합니다.</p>
+    <h3 style="font-size: 22px; font-weight: 800; margin: 0 0 8px; color: var(--text);">&#x1F310; <span class="lang-ko">웹 (설치 불필요!)</span><span class="lang-en">Web (No installation needed!)</span></h3>
+    <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;"><span class="lang-ko">로컬 설치 없이 브라우저에서 바로 Claude Code를 사용할 수 있습니다. 데스크톱 브라우저와 Claude iOS 앱에서 사용 가능합니다.</span><span class="lang-en">Use Claude Code directly in your browser without any local installation. Available on desktop browsers and the Claude iOS app.</span></p>
 
     <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.2); padding: 36px;">
       <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap;">
-        <a href="https://claude.ai/code" target="_blank" class="btn btn-primary" style="font-size: 14px; padding: 12px 24px;">claude.ai/code 열기</a>
-        <span style="color: var(--text-muted); font-size: 14px;">로그인 후 바로 사용 가능</span>
+        <a href="https://claude.ai/code" target="_blank" class="btn btn-primary" style="font-size: 14px; padding: 12px 24px;"><span class="lang-ko">claude.ai/code 열기</span><span class="lang-en">Open claude.ai/code</span></a>
+        <span style="color: var(--text-muted); font-size: 14px;"><span class="lang-ko">로그인 후 바로 사용 가능</span><span class="lang-en">Ready to use after sign-in</span></span>
       </div>
       <div class="tag-row">
-        <span class="tag tag-green">설치 불필요</span>
-        <span class="tag tag-blue">장시간 작업 지원</span>
-        <span class="tag tag-purple">iOS 앱 연동</span>
-        <span class="tag tag-orange">/teleport 로 터미널 이동</span>
+        <span class="tag tag-green"><span class="lang-ko">설치 불필요</span><span class="lang-en">No installation</span></span>
+        <span class="tag tag-blue"><span class="lang-ko">장시간 작업 지원</span><span class="lang-en">Long-running tasks</span></span>
+        <span class="tag tag-purple"><span class="lang-ko">iOS 앱 연동</span><span class="lang-en">iOS app support</span></span>
+        <span class="tag tag-orange">/teleport <span class="lang-ko">로 터미널 이동</span><span class="lang-en">to terminal</span></span>
       </div>
       <p style="font-size: 14px; color: var(--text-dim); margin-top: 16px;">
-        오래 실행되는 작업을 시작하고 완료되면 다시 확인할 수 있습니다. 로컬에 없는 리포지토리에서 작업하거나, 여러 작업을 병렬로 실행할 수 있습니다.
-        <code style="color:var(--accent)">/teleport</code> 명령어로 웹 세션을 터미널로 가져올 수 있습니다.
+        <span class="lang-ko">오래 실행되는 작업을 시작하고 완료되면 다시 확인할 수 있습니다. 로컬에 없는 리포지토리에서 작업하거나, 여러 작업을 병렬로 실행할 수 있습니다.
+        <code style="color:var(--accent)">/teleport</code> 명령어로 웹 세션을 터미널로 가져올 수 있습니다.</span>
+        <span class="lang-en">Start long-running tasks and check back when they finish. Work on repositories not stored locally or run multiple tasks in parallel.
+        Use the <code style="color:var(--accent)">/teleport</code> command to bring a web session into your terminal.</span>
       </p>
     </div>
   </div>
@@ -1187,51 +1256,83 @@
 <section id="auth">
   <div class="container">
     <div class="section-number">03</div>
-    <h2 class="section-title">로그인 &amp; 인증</h2>
-    <p class="section-desc">
-      Claude Code를 사용하려면 인증이 필요합니다. 개인 사용자와 팀/기업 환경에 맞는 방법을 선택하세요.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">로그인 &amp; 인증</h2>
+      <p class="section-desc">
+        Claude Code를 사용하려면 인증이 필요합니다. 개인 사용자와 팀/기업 환경에 맞는 방법을 선택하세요.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">Login &amp; Authentication</h2>
+      <p class="section-desc">
+        Authentication is required to use Claude Code. Choose the method that fits your situation — individual user or team/enterprise environment.
+      </p>
+    </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">개인 사용자</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">개인 사용자</span><span class="lang-en">Individual Users</span></h3>
     <div class="card-grid card-grid-2" style="margin-bottom: 40px;">
       <div class="card" style="border-color: rgba(125, 211, 160, 0.3);">
         <div class="card-icon" style="background: var(--green-dim);">&#x2B50;</div>
-        <h3>Claude Pro / Max 플랜 <span style="color: var(--green); font-size: 13px;">(추천)</span></h3>
-        <p>Claude의 Pro 또는 Max 플랜을 구독하면 웹과 CLI를 모두 포함하는 통합 구독을 받습니다. Claude.ai 계정으로 로그인합니다.</p>
+        <div class="lang-ko">
+          <h3>Claude Pro / Max 플랜 <span style="color: var(--green); font-size: 13px;">(추천)</span></h3>
+          <p>Claude의 Pro 또는 Max 플랜을 구독하면 웹과 CLI를 모두 포함하는 통합 구독을 받습니다. Claude.ai 계정으로 로그인합니다.</p>
+        </div>
+        <div class="lang-en">
+          <h3>Claude Pro / Max Plan <span style="color: var(--green); font-size: 13px;">(Recommended)</span></h3>
+          <p>Subscribing to Claude Pro or Max gives you an all-in-one subscription covering both the web interface and CLI. Sign in with your Claude.ai account.</p>
+        </div>
         <div class="tag-row" style="margin-top: 12px;">
-          <a href="https://claude.ai/pricing" target="_blank" class="tag tag-green" style="text-decoration: none;">구독 페이지</a>
+          <a href="https://claude.ai/pricing" target="_blank" class="tag tag-green" style="text-decoration: none;"><span class="lang-ko">구독 페이지</span><span class="lang-en">Pricing page</span></a>
         </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F511;</div>
         <h3>Anthropic Console</h3>
-        <p>Console을 통해 연결하고 OAuth 프로세스를 완료합니다. Anthropic Console에서 활성 청구가 필요합니다. "Claude Code" 워크스페이스가 자동 생성됩니다.</p>
+        <p><span class="lang-ko">Console을 통해 연결하고 OAuth 프로세스를 완료합니다. Anthropic Console에서 활성 청구가 필요합니다. "Claude Code" 워크스페이스가 자동 생성됩니다.</span><span class="lang-en">Connect through the Console and complete the OAuth process. Active billing on Anthropic Console is required. A "Claude Code" workspace is created automatically.</span></p>
         <div class="tag-row" style="margin-top: 12px;">
-          <a href="https://console.anthropic.com" target="_blank" class="tag tag-purple" style="text-decoration: none;">Console 열기</a>
+          <a href="https://console.anthropic.com" target="_blank" class="tag tag-purple" style="text-decoration: none;"><span class="lang-ko">Console 열기</span><span class="lang-en">Open Console</span></a>
         </div>
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">팀 &amp; 조직</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">팀 &amp; 조직</span><span class="lang-en">Teams &amp; Organizations</span></h3>
     <div class="card-grid card-grid-3" style="margin-bottom: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F465;</div>
-        <h3>Claude for Teams / Enterprise <span style="color: var(--blue); font-size: 13px;">(추천)</span></h3>
-        <p>중앙 집중식 청구, 팀 관리, Claude Code와 웹 Claude에 대한 액세스를 제공합니다.</p>
+        <div class="lang-ko">
+          <h3>Claude for Teams / Enterprise <span style="color: var(--blue); font-size: 13px;">(추천)</span></h3>
+          <p>중앙 집중식 청구, 팀 관리, Claude Code와 웹 Claude에 대한 액세스를 제공합니다.</p>
+        </div>
+        <div class="lang-en">
+          <h3>Claude for Teams / Enterprise <span style="color: var(--blue); font-size: 13px;">(Recommended)</span></h3>
+          <p>Provides centralized billing, team management, and access to both Claude Code and web Claude.</p>
+        </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F4C4;</div>
-        <h3>Console 팀 청구</h3>
-        <p>공유 Console 조직을 설정하고 팀 멤버를 초대합니다. 역할 할당으로 사용 추적이 가능합니다.</p>
+        <div class="lang-ko">
+          <h3>Console 팀 청구</h3>
+          <p>공유 Console 조직을 설정하고 팀 멤버를 초대합니다. 역할 할당으로 사용 추적이 가능합니다.</p>
+        </div>
+        <div class="lang-en">
+          <h3>Console Team Billing</h3>
+          <p>Set up a shared Console organization and invite team members. Usage tracking is available via role assignment.</p>
+        </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--orange-dim);">&#x2601;&#xFE0F;</div>
-        <h3>클라우드 제공자</h3>
-        <p>Amazon Bedrock, Google Vertex AI, Microsoft Foundry를 통해 기존 클라우드 인프라와 통합합니다.</p>
+        <div class="lang-ko">
+          <h3>클라우드 제공자</h3>
+          <p>Amazon Bedrock, Google Vertex AI, Microsoft Foundry를 통해 기존 클라우드 인프라와 통합합니다.</p>
+        </div>
+        <div class="lang-en">
+          <h3>Cloud Providers</h3>
+          <p>Integrate with your existing cloud infrastructure via Amazon Bedrock, Google Vertex AI, or Microsoft Foundry.</p>
+        </div>
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 0 0 20px;">첫 로그인 방법 (Terminal CLI)</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin: 0 0 20px;"><span class="lang-ko">첫 로그인 방법 (Terminal CLI)</span><span class="lang-en">First Login (Terminal CLI)</span></h3>
     <div class="steps">
       <div class="step">
         <div class="step-marker">
@@ -1239,8 +1340,14 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>claude 실행</h3>
-          <p>터미널에서 <code style="color:var(--accent)">claude</code>를 입력하면 처음 사용 시 로그인 화면이 나옵니다.</p>
+          <div class="lang-ko">
+            <h3>claude 실행</h3>
+            <p>터미널에서 <code style="color:var(--accent)">claude</code>를 입력하면 처음 사용 시 로그인 화면이 나옵니다.</p>
+          </div>
+          <div class="lang-en">
+            <h3>Run claude</h3>
+            <p>Type <code style="color:var(--accent)">claude</code> in your terminal. On first use, a login screen will appear.</p>
+          </div>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1256,8 +1363,14 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>브라우저에서 인증</h3>
-          <p>자동으로 브라우저가 열리고, Claude.ai 계정으로 로그인하면 인증이 완료됩니다.</p>
+          <div class="lang-ko">
+            <h3>브라우저에서 인증</h3>
+            <p>자동으로 브라우저가 열리고, Claude.ai 계정으로 로그인하면 인증이 완료됩니다.</p>
+          </div>
+          <div class="lang-en">
+            <h3>Authenticate in your browser</h3>
+            <p>Your browser will open automatically. Sign in with your Claude.ai account to complete authentication.</p>
+          </div>
         </div>
       </div>
       <div class="step">
@@ -1266,8 +1379,14 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>완료!</h3>
-          <p>터미널로 돌아오면 바로 사용할 수 있습니다. 인증 정보는 로컬에 안전하게 저장됩니다.</p>
+          <div class="lang-ko">
+            <h3>완료!</h3>
+            <p>터미널로 돌아오면 바로 사용할 수 있습니다. 인증 정보는 로컬에 안전하게 저장됩니다.</p>
+          </div>
+          <div class="lang-en">
+            <h3>All done!</h3>
+            <p>Return to your terminal and you're ready to go. Your credentials are stored securely on your local machine.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1275,7 +1394,8 @@
     <div class="tip">
       <span class="tip-icon">&#x1F3AF;</span>
       <div>
-        <strong>어떤 플랜을 선택할지 모르겠다면?</strong> Claude Pro 구독이 가장 간편합니다. API 키(Anthropic Console)는 사용량에 따라 비용이 달라지고, 클라우드 제공업체(Bedrock / Vertex)는 기업 환경에 적합합니다. 자세한 가격은 <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">claude.com/pricing</a>에서 확인하세요.
+        <span class="lang-ko"><strong>어떤 플랜을 선택할지 모르겠다면?</strong> Claude Pro 구독이 가장 간편합니다. API 키(Anthropic Console)는 사용량에 따라 비용이 달라지고, 클라우드 제공업체(Bedrock / Vertex)는 기업 환경에 적합합니다. 자세한 가격은 <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">claude.com/pricing</a>에서 확인하세요.</span>
+        <span class="lang-en"><strong>Not sure which plan to pick?</strong> A Claude Pro subscription is the simplest choice. API keys (Anthropic Console) are billed by usage, and cloud providers (Bedrock / Vertex) are best suited for enterprise environments. See <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">claude.com/pricing</a> for details.</span>
       </div>
     </div>
   </div>
@@ -1287,10 +1407,18 @@
 <section id="first-run">
   <div class="container">
     <div class="section-number">04</div>
-    <h2 class="section-title">첫 대화 해보기</h2>
-    <p class="section-desc">
-      설치와 인증이 끝났으니, 이제 Claude Code와 <strong style="color:var(--accent)">첫 번째 대화</strong>를 해봅시다.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">첫 대화 해보기</h2>
+      <p class="section-desc">
+        설치와 인증이 끝났으니, 이제 Claude Code와 <strong style="color:var(--accent)">첫 번째 대화</strong>를 해봅시다.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">Your First Conversation</h2>
+      <p class="section-desc">
+        Installation and authentication are complete. Now let's have your <strong style="color:var(--accent)">first conversation</strong> with Claude Code.
+      </p>
+    </div>
 
     <div class="steps">
       <!-- STEP 1 -->
@@ -1300,14 +1428,20 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>프로젝트 폴더로 이동</h3>
-          <p>Claude Code는 현재 폴더를 기준으로 동작합니다. 먼저 작업할 프로젝트 폴더로 이동하세요.</p>
+          <div class="lang-ko">
+            <h3>프로젝트 폴더로 이동</h3>
+            <p>Claude Code는 현재 폴더를 기준으로 동작합니다. 먼저 작업할 프로젝트 폴더로 이동하세요.</p>
+          </div>
+          <div class="lang-en">
+            <h3>Navigate to your project folder</h3>
+            <p>Claude Code operates relative to your current directory. First, navigate to the project you want to work on.</p>
+          </div>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
               <span>Terminal</span>
             </div>
-            <div class="code-body"><span class="comment"># 기존 프로젝트로 이동하거나 새로 만들기</span>
+            <div class="code-body"><span class="comment"># <span class="lang-ko">기존 프로젝트로 이동하거나 새로 만들기</span><span class="lang-en">Navigate to an existing project or create a new one</span></span>
 <span class="keyword">mkdir</span> my-project
 <span class="keyword">cd</span> my-project</div>
           </div>
@@ -1321,8 +1455,14 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>claude 실행</h3>
-          <p>터미널에 <code style="color:var(--accent)">claude</code>만 입력하면 대화 모드가 시작됩니다.</p>
+          <div class="lang-ko">
+            <h3>claude 실행</h3>
+            <p>터미널에 <code style="color:var(--accent)">claude</code>만 입력하면 대화 모드가 시작됩니다.</p>
+          </div>
+          <div class="lang-en">
+            <h3>Run claude</h3>
+            <p>Type <code style="color:var(--accent)">claude</code> in your terminal to start conversation mode.</p>
+          </div>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1346,18 +1486,24 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>CLAUDE.md 초기화 (선택 사항)</h3>
-          <p>프로젝트에 맞는 지침 파일을 만들어두면 Claude가 매 세션마다 참고합니다.</p>
+          <div class="lang-ko">
+            <h3>CLAUDE.md 초기화 (선택 사항)</h3>
+            <p>프로젝트에 맞는 지침 파일을 만들어두면 Claude가 매 세션마다 참고합니다.</p>
+          </div>
+          <div class="lang-en">
+            <h3>Initialize CLAUDE.md (optional)</h3>
+            <p>Create a project-specific instructions file that Claude will reference at the start of every session.</p>
+          </div>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
               <span>Claude Code</span>
             </div>
             <div class="code-body"><span class="desc">/init</span>
-<span class="comment"># CLAUDE.md 파일을 생성하여 프로젝트 지침을 설정합니다</span>
+<span class="comment"># <span class="lang-ko">CLAUDE.md 파일을 생성하여 프로젝트 지침을 설정합니다</span><span class="lang-en">Creates a CLAUDE.md file with project instructions</span></span>
 
 <span class="desc">/help</span>
-<span class="comment"># 사용 가능한 모든 명령어 보기</span></div>
+<span class="comment"># <span class="lang-ko">사용 가능한 모든 명령어 보기</span><span class="lang-en">View all available commands</span></span></div>
           </div>
         </div>
       </div>
@@ -1369,8 +1515,14 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>첫 번째 질문하기</h3>
-          <p>아무거나 물어보세요! 예를 들어 간단한 HTML 페이지를 만들어달라고 해봅시다.</p>
+          <div class="lang-ko">
+            <h3>첫 번째 질문하기</h3>
+            <p>아무거나 물어보세요! 예를 들어 간단한 HTML 페이지를 만들어달라고 해봅시다.</p>
+          </div>
+          <div class="lang-en">
+            <h3>Ask your first question</h3>
+            <p>Ask anything! For example, let's ask Claude to create a simple HTML page.</p>
+          </div>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1392,21 +1544,27 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>결과 확인</h3>
-          <p>권한을 승인하면 Claude가 파일을 생성합니다. 폴더를 확인해보세요!</p>
+          <div class="lang-ko">
+            <h3>결과 확인</h3>
+            <p>권한을 승인하면 Claude가 파일을 생성합니다. 폴더를 확인해보세요!</p>
+          </div>
+          <div class="lang-en">
+            <h3>Check the result</h3>
+            <p>Once you approve the permission prompt, Claude will create the file. Check your folder!</p>
+          </div>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
               <span>Terminal</span>
             </div>
-            <div class="code-body"><span class="comment"># 생성된 파일 확인</span>
+            <div class="code-body"><span class="comment"># <span class="lang-ko">생성된 파일 확인</span><span class="lang-en">Check the created file</span></span>
 <span class="keyword">ls</span>
 <span class="string">index.html</span>
 
-<span class="comment"># 브라우저에서 열어보기 (macOS)</span>
+<span class="comment"># <span class="lang-ko">브라우저에서 열어보기 (macOS)</span><span class="lang-en">Open in browser (macOS)</span></span>
 <span class="keyword">open</span> index.html
 
-<span class="comment"># 설치된 버전 확인</span>
+<span class="comment"># <span class="lang-ko">설치된 버전 확인</span><span class="lang-en">Check installed version</span></span>
 <span class="keyword">claude</span> <span class="desc">--version</span></div>
           </div>
         </div>
@@ -1416,7 +1574,8 @@
     <div class="tip">
       <span class="tip-icon">&#x1F6A8;</span>
       <div>
-        <strong>권한 승인이 나오면 Y를 누르세요.</strong> Claude Code는 파일을 생성하거나 수정하기 전에 항상 허락을 구합니다. 안전하다고 판단되면 Y(Allow)를 눌러 승인하세요. 원하지 않는 작업이면 N(Deny)을 누르면 됩니다.
+        <span class="lang-ko"><strong>권한 승인이 나오면 Y를 누르세요.</strong> Claude Code는 파일을 생성하거나 수정하기 전에 항상 허락을 구합니다. 안전하다고 판단되면 Y(Allow)를 눌러 승인하세요. 원하지 않는 작업이면 N(Deny)을 누르면 됩니다.</span>
+        <span class="lang-en"><strong>Press Y when a permission prompt appears.</strong> Claude Code always asks for approval before creating or modifying files. Press Y (Allow) if the action looks safe. Press N (Deny) if you want to cancel.</span>
       </div>
     </div>
   </div>
@@ -1428,49 +1587,57 @@
 <section id="ide">
   <div class="container">
     <div class="section-number">05</div>
-    <h2 class="section-title">IDE &amp; 앱 연동 정리</h2>
-    <p class="section-desc">
-      각 환경은 동일한 Claude Code 엔진에 연결되므로 CLAUDE.md 파일, 설정, MCP 서버가 모든 환경에서 작동합니다.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">IDE &amp; 앱 연동 정리</h2>
+      <p class="section-desc">
+        각 환경은 동일한 Claude Code 엔진에 연결되므로 CLAUDE.md 파일, 설정, MCP 서버가 모든 환경에서 작동합니다.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">IDE &amp; App Integration Summary</h2>
+      <p class="section-desc">
+        All environments connect to the same Claude Code engine, so your CLAUDE.md files, settings, and MCP servers work across all of them.
+      </p>
+    </div>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th>환경</th>
-          <th>주요 특징</th>
-          <th>설치 방법</th>
+          <th><span class="lang-ko">환경</span><span class="lang-en">Environment</span></th>
+          <th><span class="lang-ko">주요 특징</span><span class="lang-en">Key Features</span></th>
+          <th><span class="lang-ko">설치 방법</span><span class="lang-en">How to Install</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><span class="skill-name-cell">Terminal CLI</span></td>
-          <td style="color: var(--text-dim); font-size: 13px;">파일 편집, 명령 실행, git 통합, MCP, 자동화</td>
+          <td style="color: var(--text-dim); font-size: 13px;"><span class="lang-ko">파일 편집, 명령 실행, git 통합, MCP, 자동화</span><span class="lang-en">File editing, command execution, git integration, MCP, automation</span></td>
           <td style="font-size: 13px;"><code style="color:var(--accent)">curl -fsSL https://claude.ai/install.sh | bash</code></td>
         </tr>
         <tr>
           <td><span class="skill-name-cell">VS Code</span></td>
-          <td style="color: var(--text-dim); font-size: 13px;">인라인 diff, @-멘션, 계획 검토, 대화 기록</td>
-          <td style="font-size: 13px;">Extensions에서 "Claude Code" 검색 또는 <a href="vscode:extension/anthropic.claude-code" style="color:var(--accent)">직접 설치</a></td>
+          <td style="color: var(--text-dim); font-size: 13px;"><span class="lang-ko">인라인 diff, @-멘션, 계획 검토, 대화 기록</span><span class="lang-en">Inline diff, @-mentions, plan review, conversation history</span></td>
+          <td style="font-size: 13px;"><span class="lang-ko">Extensions에서 "Claude Code" 검색 또는 </span><span class="lang-en">Search "Claude Code" in Extensions or </span><a href="vscode:extension/anthropic.claude-code" style="color:var(--accent)"><span class="lang-ko">직접 설치</span><span class="lang-en">install directly</span></a></td>
         </tr>
         <tr>
           <td><span class="skill-name-cell">Cursor</span></td>
-          <td style="color: var(--text-dim); font-size: 13px;">VS Code 확장 프로그램과 동일한 기능</td>
-          <td style="font-size: 13px;"><a href="cursor:extension/anthropic.claude-code" style="color:var(--accent)">Cursor용 설치 링크</a></td>
+          <td style="color: var(--text-dim); font-size: 13px;"><span class="lang-ko">VS Code 확장 프로그램과 동일한 기능</span><span class="lang-en">Same features as the VS Code extension</span></td>
+          <td style="font-size: 13px;"><a href="cursor:extension/anthropic.claude-code" style="color:var(--accent)"><span class="lang-ko">Cursor용 설치 링크</span><span class="lang-en">Cursor install link</span></a></td>
         </tr>
         <tr>
           <td><span class="skill-name-cell">JetBrains</span></td>
-          <td style="color: var(--text-dim); font-size: 13px;">대화형 diff 보기, 선택 컨텍스트 공유</td>
-          <td style="font-size: 13px;"><a href="https://plugins.jetbrains.com/plugin/27310-claude-code-beta-" target="_blank" style="color:var(--accent)">JetBrains Marketplace</a>에서 "Claude Code Beta"</td>
+          <td style="color: var(--text-dim); font-size: 13px;"><span class="lang-ko">대화형 diff 보기, 선택 컨텍스트 공유</span><span class="lang-en">Interactive diff view, selection-based context sharing</span></td>
+          <td style="font-size: 13px;"><a href="https://plugins.jetbrains.com/plugin/27310-claude-code-beta-" target="_blank" style="color:var(--accent)">JetBrains Marketplace</a><span class="lang-ko">에서 "Claude Code Beta"</span><span class="lang-en"> — search "Claude Code Beta"</span></td>
         </tr>
         <tr>
           <td><span class="skill-name-cell">Desktop App</span></td>
-          <td style="color: var(--text-dim); font-size: 13px;">시각적 diff 검토, 여러 세션 병렬 실행, 클라우드 세션</td>
-          <td style="font-size: 13px;"><a href="https://claude.ai" target="_blank" style="color:var(--accent)">claude.ai</a>에서 macOS / Windows 다운로드</td>
+          <td style="color: var(--text-dim); font-size: 13px;"><span class="lang-ko">시각적 diff 검토, 여러 세션 병렬 실행, 클라우드 세션</span><span class="lang-en">Visual diff review, multiple parallel sessions, cloud sessions</span></td>
+          <td style="font-size: 13px;"><a href="https://claude.ai" target="_blank" style="color:var(--accent)">claude.ai</a><span class="lang-ko">에서 macOS / Windows 다운로드</span><span class="lang-en"> — download for macOS / Windows</span></td>
         </tr>
         <tr>
           <td><span class="skill-name-cell">Web</span></td>
-          <td style="color: var(--text-dim); font-size: 13px;">설치 불필요, 장시간 작업, iOS 앱 연동</td>
-          <td style="font-size: 13px;"><a href="https://claude.ai/code" target="_blank" style="color:var(--accent)">claude.ai/code</a> 방문 후 바로 사용</td>
+          <td style="color: var(--text-dim); font-size: 13px;"><span class="lang-ko">설치 불필요, 장시간 작업, iOS 앱 연동</span><span class="lang-en">No installation, long-running tasks, iOS app integration</span></td>
+          <td style="font-size: 13px;"><a href="https://claude.ai/code" target="_blank" style="color:var(--accent)">claude.ai/code</a><span class="lang-ko"> 방문 후 바로 사용</span><span class="lang-en"> — use immediately after sign-in</span></td>
         </tr>
       </tbody>
     </table>
@@ -1478,7 +1645,8 @@
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>CLI 자체만으로도 충분합니다.</strong> IDE 연동은 선택사항입니다. 많은 개발자들이 터미널에서 <code style="color:var(--accent)">claude</code>만으로 모든 작업을 합니다. IDE 연동과 데스크톱 앱은 편의성을 높여줄 뿐, 필수가 아닙니다.
+        <span class="lang-ko"><strong>CLI 자체만으로도 충분합니다.</strong> IDE 연동은 선택사항입니다. 많은 개발자들이 터미널에서 <code style="color:var(--accent)">claude</code>만으로 모든 작업을 합니다. IDE 연동과 데스크톱 앱은 편의성을 높여줄 뿐, 필수가 아닙니다.</span>
+        <span class="lang-en"><strong>The CLI alone is perfectly sufficient.</strong> IDE integrations are optional. Many developers do everything from the terminal with just <code style="color:var(--accent)">claude</code>. IDE integrations and the Desktop App add convenience, but are not required.</span>
       </div>
     </div>
   </div>
@@ -1490,119 +1658,196 @@
 <section id="faq">
   <div class="container">
     <div class="section-number">06</div>
-    <h2 class="section-title">트러블슈팅 &amp; FAQ</h2>
-    <p class="section-desc">
-      설치 중 문제가 생겼나요? 가장 흔한 문제와 해결 방법을 모았습니다.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">트러블슈팅 &amp; FAQ</h2>
+      <p class="section-desc">
+        설치 중 문제가 생겼나요? 가장 흔한 문제와 해결 방법을 모았습니다.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">Troubleshooting &amp; FAQ</h2>
+      <p class="section-desc">
+        Running into trouble during installation? Here are the most common issues and how to fix them.
+      </p>
+    </div>
 
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          "command not found" 에러가 나요
+          <span class="lang-ko">"command not found" 에러가 나요</span><span class="lang-en">"command not found" error</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            이 에러는 Claude Code가 시스템 PATH에 등록되지 않았을 때 발생합니다.<br><br>
-            <strong>해결 방법:</strong><br>
-            1. 터미널을 완전히 닫고 다시 열어보세요.<br>
-            2. <code style="color:var(--accent)">claude doctor</code>를 실행하여 설치 타입과 버전을 확인하세요.<br>
-            3. 네이티브 설치의 경우 <code style="color:var(--accent)">~/.local/bin</code>이 PATH에 포함되어 있는지 확인하세요.<br>
-            4. Homebrew로 설치했다면 <code style="color:var(--accent)">brew link --cask claude-code</code>를 시도해보세요.<br>
-            5. Windows에서 Git Bash 경로를 지정하려면: <code style="color:var(--accent)">$env:CLAUDE_CODE_GIT_BASH_PATH="C:\Program Files\Git\bin\bash.exe"</code>
+            <div class="lang-ko">
+              이 에러는 Claude Code가 시스템 PATH에 등록되지 않았을 때 발생합니다.<br><br>
+              <strong>해결 방법:</strong><br>
+              1. 터미널을 완전히 닫고 다시 열어보세요.<br>
+              2. <code style="color:var(--accent)">claude doctor</code>를 실행하여 설치 타입과 버전을 확인하세요.<br>
+              3. 네이티브 설치의 경우 <code style="color:var(--accent)">~/.local/bin</code>이 PATH에 포함되어 있는지 확인하세요.<br>
+              4. Homebrew로 설치했다면 <code style="color:var(--accent)">brew link --cask claude-code</code>를 시도해보세요.<br>
+              5. Windows에서 Git Bash 경로를 지정하려면: <code style="color:var(--accent)">$env:CLAUDE_CODE_GIT_BASH_PATH="C:\Program Files\Git\bin\bash.exe"</code>
+            </div>
+            <div class="lang-en">
+              This error occurs when Claude Code is not registered in the system PATH.<br><br>
+              <strong>How to fix:</strong><br>
+              1. Fully close your terminal and reopen it.<br>
+              2. Run <code style="color:var(--accent)">claude doctor</code> to check the installation type and version.<br>
+              3. For native installs, verify that <code style="color:var(--accent)">~/.local/bin</code> is included in your PATH.<br>
+              4. If you installed via Homebrew, try <code style="color:var(--accent)">brew link --cask claude-code</code>.<br>
+              5. On Windows, to specify the Git Bash path: <code style="color:var(--accent)">$env:CLAUDE_CODE_GIT_BASH_PATH="C:\Program Files\Git\bin\bash.exe"</code>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          로그인이 안 돼요
+          <span class="lang-ko">로그인이 안 돼요</span><span class="lang-en">I can't log in</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            로그인 문제는 대부분 브라우저 또는 네트워크 설정과 관련이 있습니다.<br><br>
-            <strong>확인 사항:</strong><br>
-            1. 기본 브라우저가 정상적으로 열리는지 확인하세요.<br>
-            2. Claude.ai에 유효한 구독(Pro / Max / Team / Enterprise) 또는 Anthropic Console 계정이 있는지 확인하세요.<br>
-            3. VPN이나 프록시를 사용 중이라면 일시적으로 끄고 시도해보세요.<br>
-            4. <code style="color:var(--accent)">claude logout</code> 후 <code style="color:var(--accent)">claude</code>를 다시 실행하여 재인증을 시도하세요.
+            <div class="lang-ko">
+              로그인 문제는 대부분 브라우저 또는 네트워크 설정과 관련이 있습니다.<br><br>
+              <strong>확인 사항:</strong><br>
+              1. 기본 브라우저가 정상적으로 열리는지 확인하세요.<br>
+              2. Claude.ai에 유효한 구독(Pro / Max / Team / Enterprise) 또는 Anthropic Console 계정이 있는지 확인하세요.<br>
+              3. VPN이나 프록시를 사용 중이라면 일시적으로 끄고 시도해보세요.<br>
+              4. <code style="color:var(--accent)">claude logout</code> 후 <code style="color:var(--accent)">claude</code>를 다시 실행하여 재인증을 시도하세요.
+            </div>
+            <div class="lang-en">
+              Login issues are most commonly related to browser or network settings.<br><br>
+              <strong>Things to check:</strong><br>
+              1. Make sure your default browser opens normally.<br>
+              2. Verify that you have a valid subscription (Pro / Max / Team / Enterprise) or an Anthropic Console account on Claude.ai.<br>
+              3. If you are using a VPN or proxy, try disabling it temporarily.<br>
+              4. Run <code style="color:var(--accent)">claude logout</code>, then run <code style="color:var(--accent)">claude</code> again to re-authenticate.
+            </div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          어떤 구독 플랜이 필요한가요?
+          <span class="lang-ko">어떤 구독 플랜이 필요한가요?</span><span class="lang-en">Which subscription plan do I need?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            Claude Code를 사용하려면 다음 중 하나가 필요합니다:<br><br>
-            &middot; <strong style="color:var(--accent)">Claude Pro</strong> &mdash; 개인 사용자에게 추천. 충분한 사용량이 제공됩니다.<br>
-            &middot; <strong style="color:var(--accent)">Claude Max</strong> &mdash; 더 높은 사용량이 필요한 개인 사용자용.<br>
-            &middot; <strong style="color:var(--accent)">Claude Team</strong> &mdash; 팀 협업이 필요할 때.<br>
-            &middot; <strong style="color:var(--accent)">Claude Enterprise</strong> &mdash; 대규모 조직용. 관리 기능 포함.<br>
-            &middot; <strong style="color:var(--accent)">Anthropic Console</strong> &mdash; 사용량 기반 API 과금. 구독 없이도 사용 가능.<br><br>
-            무료 플랜으로는 Claude Code를 사용할 수 없습니다. 자세한 가격은 <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">claude.com/pricing</a>을 확인하세요.
+            <div class="lang-ko">
+              Claude Code를 사용하려면 다음 중 하나가 필요합니다:<br><br>
+              &middot; <strong style="color:var(--accent)">Claude Pro</strong> &mdash; 개인 사용자에게 추천. 충분한 사용량이 제공됩니다.<br>
+              &middot; <strong style="color:var(--accent)">Claude Max</strong> &mdash; 더 높은 사용량이 필요한 개인 사용자용.<br>
+              &middot; <strong style="color:var(--accent)">Claude Team</strong> &mdash; 팀 협업이 필요할 때.<br>
+              &middot; <strong style="color:var(--accent)">Claude Enterprise</strong> &mdash; 대규모 조직용. 관리 기능 포함.<br>
+              &middot; <strong style="color:var(--accent)">Anthropic Console</strong> &mdash; 사용량 기반 API 과금. 구독 없이도 사용 가능.<br><br>
+              무료 플랜으로는 Claude Code를 사용할 수 없습니다. 자세한 가격은 <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">claude.com/pricing</a>을 확인하세요.
+            </div>
+            <div class="lang-en">
+              To use Claude Code, you need one of the following:<br><br>
+              &middot; <strong style="color:var(--accent)">Claude Pro</strong> &mdash; Recommended for individual users. Comes with generous usage.<br>
+              &middot; <strong style="color:var(--accent)">Claude Max</strong> &mdash; For individuals who need higher usage limits.<br>
+              &middot; <strong style="color:var(--accent)">Claude Team</strong> &mdash; For teams that need to collaborate.<br>
+              &middot; <strong style="color:var(--accent)">Claude Enterprise</strong> &mdash; For large organizations. Includes admin features.<br>
+              &middot; <strong style="color:var(--accent)">Anthropic Console</strong> &mdash; Pay-as-you-go API billing. Works without a subscription.<br><br>
+              The free plan does not include Claude Code access. See <a href="https://claude.com/pricing" target="_blank" style="color:var(--accent)">claude.com/pricing</a> for full pricing details.
+            </div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          자동 업데이트를 끄고 싶어요
+          <span class="lang-ko">자동 업데이트를 끄고 싶어요</span><span class="lang-en">I want to disable automatic updates</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네이티브 설치는 기본적으로 자동 업데이트됩니다. 다음 방법으로 비활성화하거나 채널을 변경할 수 있습니다.<br><br>
-            <strong>자동 업데이트 비활성화:</strong><br>
-            <code style="color:var(--accent)">export DISABLE_AUTOUPDATER=1</code><br><br>
-            <strong>릴리스 채널 변경 (stable 채널 권장 - 약 1주 지연):</strong><br>
-            settings.json에 추가: <code style="color:var(--accent)">{ "autoUpdatesChannel": "stable" }</code><br><br>
-            또는 <code style="color:var(--accent)">/config</code> &rarr; <strong>자동 업데이트 채널</strong>에서 변경합니다.<br><br>
-            <strong>수동 업데이트:</strong><br>
-            <code style="color:var(--accent)">claude update</code>
+            <div class="lang-ko">
+              네이티브 설치는 기본적으로 자동 업데이트됩니다. 다음 방법으로 비활성화하거나 채널을 변경할 수 있습니다.<br><br>
+              <strong>자동 업데이트 비활성화:</strong><br>
+              <code style="color:var(--accent)">export DISABLE_AUTOUPDATER=1</code><br><br>
+              <strong>릴리스 채널 변경 (stable 채널 권장 - 약 1주 지연):</strong><br>
+              settings.json에 추가: <code style="color:var(--accent)">{ "autoUpdatesChannel": "stable" }</code><br><br>
+              또는 <code style="color:var(--accent)">/config</code> &rarr; <strong>자동 업데이트 채널</strong>에서 변경합니다.<br><br>
+              <strong>수동 업데이트:</strong><br>
+              <code style="color:var(--accent)">claude update</code>
+            </div>
+            <div class="lang-en">
+              The native installer enables automatic updates by default. You can disable them or change the channel as follows.<br><br>
+              <strong>Disable automatic updates:</strong><br>
+              <code style="color:var(--accent)">export DISABLE_AUTOUPDATER=1</code><br><br>
+              <strong>Change release channel (stable recommended — ~1 week delay):</strong><br>
+              Add to settings.json: <code style="color:var(--accent)">{ "autoUpdatesChannel": "stable" }</code><br><br>
+              Or go to <code style="color:var(--accent)">/config</code> &rarr; <strong>Auto-update channel</strong>.<br><br>
+              <strong>Manual update:</strong><br>
+              <code style="color:var(--accent)">claude update</code>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          방화벽 뒤에서도 사용할 수 있나요?
+          <span class="lang-ko">방화벽 뒤에서도 사용할 수 있나요?</span><span class="lang-en">Can I use it behind a firewall?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네, 가능합니다. 다만 몇 가지 설정이 필요할 수 있습니다.<br><br>
-            &middot; Claude Code는 <code style="color:var(--accent)">api.anthropic.com</code>에 HTTPS(443 포트)로 통신합니다. 이 도메인을 허용 목록에 추가하세요.<br>
-            &middot; 프록시 환경이라면 <code style="color:var(--accent)">HTTPS_PROXY</code> 환경변수를 설정하세요.<br>
-            &middot; AWS Bedrock이나 GCP Vertex를 사용하면 회사 내부 네트워크만으로도 사용 가능합니다.<br>
-            &middot; 인증 시 브라우저 접근이 필요하므로, 최초 인증은 외부 네트워크에서 하고 이후에는 토큰이 로컬에 저장됩니다.
+            <div class="lang-ko">
+              네, 가능합니다. 다만 몇 가지 설정이 필요할 수 있습니다.<br><br>
+              &middot; Claude Code는 <code style="color:var(--accent)">api.anthropic.com</code>에 HTTPS(443 포트)로 통신합니다. 이 도메인을 허용 목록에 추가하세요.<br>
+              &middot; 프록시 환경이라면 <code style="color:var(--accent)">HTTPS_PROXY</code> 환경변수를 설정하세요.<br>
+              &middot; AWS Bedrock이나 GCP Vertex를 사용하면 회사 내부 네트워크만으로도 사용 가능합니다.<br>
+              &middot; 인증 시 브라우저 접근이 필요하므로, 최초 인증은 외부 네트워크에서 하고 이후에는 토큰이 로컬에 저장됩니다.
+            </div>
+            <div class="lang-en">
+              Yes, it is possible, though some configuration may be required.<br><br>
+              &middot; Claude Code communicates with <code style="color:var(--accent)">api.anthropic.com</code> over HTTPS (port 443). Add this domain to your allowlist.<br>
+              &middot; If you are in a proxy environment, set the <code style="color:var(--accent)">HTTPS_PROXY</code> environment variable.<br>
+              &middot; Using AWS Bedrock or GCP Vertex allows operation entirely within your corporate network.<br>
+              &middot; Initial authentication requires browser access to the internet, but the token is stored locally afterward.
+            </div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          설치를 제거하려면?
+          <span class="lang-ko">설치를 제거하려면?</span><span class="lang-en">How do I uninstall?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            설치 방법에 따라 제거 방법이 다릅니다:<br><br>
-            <strong>네이티브 설치 (macOS / Linux / WSL):</strong><br>
-            <code style="color:var(--accent)">rm -f ~/.local/bin/claude &amp;&amp; rm -rf ~/.local/share/claude</code><br><br>
-            <strong>네이티브 설치 (Windows PowerShell):</strong><br>
-            <code style="color:var(--accent)">Remove-Item -Path "$env:USERPROFILE\.local\bin\claude.exe" -Force</code><br><br>
-            <strong>macOS (Homebrew):</strong><br>
-            <code style="color:var(--accent)">brew uninstall --cask claude-code</code><br><br>
-            <strong>Windows (WinGet):</strong><br>
-            <code style="color:var(--accent)">winget uninstall Anthropic.ClaudeCode</code><br><br>
-            <strong>npm (레거시):</strong><br>
-            <code style="color:var(--accent)">npm uninstall -g @anthropic-ai/claude-code</code><br><br>
-            설정 파일까지 삭제하려면: <code style="color:var(--accent)">rm -rf ~/.claude ~/.claude.json</code> (모든 설정, MCP, 기록이 삭제됩니다)
+            <div class="lang-ko">
+              설치 방법에 따라 제거 방법이 다릅니다:<br><br>
+              <strong>네이티브 설치 (macOS / Linux / WSL):</strong><br>
+              <code style="color:var(--accent)">rm -f ~/.local/bin/claude &amp;&amp; rm -rf ~/.local/share/claude</code><br><br>
+              <strong>네이티브 설치 (Windows PowerShell):</strong><br>
+              <code style="color:var(--accent)">Remove-Item -Path "$env:USERPROFILE\.local\bin\claude.exe" -Force</code><br><br>
+              <strong>macOS (Homebrew):</strong><br>
+              <code style="color:var(--accent)">brew uninstall --cask claude-code</code><br><br>
+              <strong>Windows (WinGet):</strong><br>
+              <code style="color:var(--accent)">winget uninstall Anthropic.ClaudeCode</code><br><br>
+              <strong>npm (레거시):</strong><br>
+              <code style="color:var(--accent)">npm uninstall -g @anthropic-ai/claude-code</code><br><br>
+              설정 파일까지 삭제하려면: <code style="color:var(--accent)">rm -rf ~/.claude ~/.claude.json</code> (모든 설정, MCP, 기록이 삭제됩니다)
+            </div>
+            <div class="lang-en">
+              The uninstall method depends on how you installed Claude Code:<br><br>
+              <strong>Native install (macOS / Linux / WSL):</strong><br>
+              <code style="color:var(--accent)">rm -f ~/.local/bin/claude &amp;&amp; rm -rf ~/.local/share/claude</code><br><br>
+              <strong>Native install (Windows PowerShell):</strong><br>
+              <code style="color:var(--accent)">Remove-Item -Path "$env:USERPROFILE\.local\bin\claude.exe" -Force</code><br><br>
+              <strong>macOS (Homebrew):</strong><br>
+              <code style="color:var(--accent)">brew uninstall --cask claude-code</code><br><br>
+              <strong>Windows (WinGet):</strong><br>
+              <code style="color:var(--accent)">winget uninstall Anthropic.ClaudeCode</code><br><br>
+              <strong>npm (legacy):</strong><br>
+              <code style="color:var(--accent)">npm uninstall -g @anthropic-ai/claude-code</code><br><br>
+              To also delete config files: <code style="color:var(--accent)">rm -rf ~/.claude ~/.claude.json</code> (removes all settings, MCP configs, and history)
+            </div>
           </div>
         </div>
       </div>
@@ -1614,14 +1859,26 @@
 <section style="padding: 80px 0;">
   <div class="container">
     <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.15); text-align: center; padding: 60px 40px;">
-      <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
-        축하합니다! 설치 완료
-      </h2>
-      <p style="color: var(--text-dim); font-size: 17px; max-width: 600px; margin: 0 auto 32px; line-height: 1.8;">
-        설치 = <strong style="color: var(--accent)">네이티브 스크립트 한 줄</strong> (또는 원하는 방법 선택)<br>
-        인증 = <strong style="color: var(--green)">브라우저 로그인 한 번</strong><br>
-        첫 대화 = <strong style="color: var(--orange)">cd 프로젝트 &rarr; claude 입력</strong>
-      </p>
+      <div class="lang-ko">
+        <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
+          축하합니다! 설치 완료
+        </h2>
+        <p style="color: var(--text-dim); font-size: 17px; max-width: 600px; margin: 0 auto 32px; line-height: 1.8;">
+          설치 = <strong style="color: var(--accent)">네이티브 스크립트 한 줄</strong> (또는 원하는 방법 선택)<br>
+          인증 = <strong style="color: var(--green)">브라우저 로그인 한 번</strong><br>
+          첫 대화 = <strong style="color: var(--orange)">cd 프로젝트 &rarr; claude 입력</strong>
+        </p>
+      </div>
+      <div class="lang-en">
+        <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
+          Congratulations! Installation complete
+        </h2>
+        <p style="color: var(--text-dim); font-size: 17px; max-width: 600px; margin: 0 auto 32px; line-height: 1.8;">
+          Install = <strong style="color: var(--accent)">one native script</strong> (or your preferred method)<br>
+          Authenticate = <strong style="color: var(--green)">one browser login</strong><br>
+          First chat = <strong style="color: var(--orange)">cd to project &rarr; type claude</strong>
+        </p>
+      </div>
       <div class="tag-row" style="justify-content: center; margin-bottom: 20px;">
         <span class="tag tag-purple">Terminal CLI</span>
         <span class="tag tag-blue">VS Code</span>
@@ -1630,7 +1887,8 @@
         <span class="tag tag-pink">Web</span>
       </div>
       <p style="color: var(--text-muted); font-size: 14px;">
-        이제 다음 챕터에서 기본 사용법을 배워봅시다!
+        <span class="lang-ko">이제 다음 챕터에서 기본 사용법을 배워봅시다!</span>
+        <span class="lang-en">Head to the next chapter to learn the basics!</span>
       </p>
     </div>
   </div>
@@ -1638,12 +1896,12 @@
 
 <!-- =================== CHAPTER NAV =================== -->
 <div class="chapter-nav">
-  <a href="what-is-claude-code.html">&larr; 이전: Claude Code가 뭔가요?</a>
-  <a href="basics.html">다음: 기본 사용법 &rarr;</a>
+  <a href="what-is-claude-code.html">&larr; <span class="lang-ko">이전: Claude Code가 뭔가요?</span><span class="lang-en">Prev: What is Claude Code?</span></a>
+  <a href="basics.html"><span class="lang-ko">다음: 기본 사용법 &rarr;</span><span class="lang-en">Next: Basic Usage &rarr;</span></a>
 </div>
 
 <footer>
-  <p>Made with Claude &middot; <a href="../index.html">Claude Code 101</a> &middot; <a href="https://code.claude.com/docs/ko/overview" target="_blank">공식 문서</a></p>
+  <p>Made with Claude &middot; <a href="../index.html">Claude Code 101</a> &middot; <a href="https://code.claude.com/docs/ko/overview" target="_blank"><span class="lang-ko">공식 문서</span><span class="lang-en">Official Docs</span></a></p>
 </footer>
 
 <script>
@@ -1691,5 +1949,6 @@ window.addEventListener('scroll', () => {
 
 <div id="community-widget"></div>
 <script src="community.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

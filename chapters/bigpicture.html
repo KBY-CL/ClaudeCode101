@@ -6,9 +6,10 @@
 /* 챕터 테마 초기화 — FOUC 방지 */
 (function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude 생태계 한눈에 보기</title>
+<title>Claude 생태계 한눈에 보기 / The Big Picture</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" rel="stylesheet">
 <style>
 :root {
@@ -102,12 +103,12 @@ svg.diagram { width:100%; max-width:1100px; height:auto; display:block }
     <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
       <path d="M19 12H5M12 5l-7 7 7 7"/>
     </svg>
-    목차로
+    <span class="lang-ko">목차로</span><span class="lang-en">Index</span>
   </a>
-  <span class="nav-title">Claude 생태계 — 한눈에 보기</span>
+  <span class="nav-title"><span class="lang-ko">Claude 생태계 — 한눈에 보기</span><span class="lang-en">Claude Ecosystem — The Big Picture</span></span>
   <div class="nav-right">
     <button class="theme-btn-bp" id="bpThemeBtn" onclick="bpToggleTheme()" title="테마 전환">🌙</button>
-    <a class="btn" href="concepts.html">개념 상세 →</a>
+    <a class="btn" href="concepts.html"><span class="lang-ko">개념 상세</span><span class="lang-en">Concepts Detail</span> →</a>
   </div>
 </nav>
 
@@ -140,7 +141,7 @@ svg.diagram { width:100%; max-width:1100px; height:auto; display:block }
 <rect x="270" y="60" width="234" height="24" rx="12" fill="#8b5cf6"/>
 <text x="387" y="72" fill="#fff" font-size="11" font-weight="600"
       text-anchor="middle" dominant-baseline="middle">
-  📦 Context Window — 최대 1M tokens
+  📦 Context Window
 </text>
 
 <!-- ═══ AGENT LOOP RING ═══ -->
@@ -186,19 +187,39 @@ svg.diagram { width:100%; max-width:1100px; height:auto; display:block }
 <!-- thinking blocks -->
 <rect x="142" y="106" width="172" height="52" rx="8" fill="#fdf2f8" stroke="#f9a8d4" stroke-width=".8"/>
 <text x="152" y="119" fill="#9d174d" font-size="7.5" font-family="monospace" dominant-baseline="middle">thinking</text>
+<g class="lang-ko">
 <text x="152" y="135" fill="#6b7280" font-size="8.5" dominant-baseline="middle">소인수분해 어려움에 기반,</text>
 <text x="152" y="149" fill="#6b7280" font-size="8.5" dominant-baseline="middle">p·q 역추적은 수천 년...</text>
+</g>
+<g class="lang-en">
+<text x="152" y="135" fill="#6b7280" font-size="8.5" dominant-baseline="middle">Based on difficulty of factoring,</text>
+<text x="152" y="149" fill="#6b7280" font-size="8.5" dominant-baseline="middle">reversing p·q takes millennia...</text>
+</g>
 
 <rect x="142" y="162" width="172" height="52" rx="8" fill="#fdf2f8" stroke="#f9a8d4" stroke-width=".8"/>
 <text x="152" y="175" fill="#9d174d" font-size="7.5" font-family="monospace" dominant-baseline="middle">thinking</text>
+<g class="lang-ko">
 <text x="152" y="191" fill="#6b7280" font-size="8.5" dominant-baseline="middle">양자컴퓨터 위협 고려,</text>
 <text x="152" y="205" fill="#6b7280" font-size="8.5" dominant-baseline="middle">포스트-양자 전환 권고...</text>
+</g>
+<g class="lang-en">
+<text x="152" y="191" fill="#6b7280" font-size="8.5" dominant-baseline="middle">Considering quantum threat,</text>
+<text x="152" y="205" fill="#6b7280" font-size="8.5" dominant-baseline="middle">post-quantum migration advised...</text>
+</g>
 
 <rect x="142" y="218" width="172" height="66" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width=".8"/>
+<g class="lang-ko">
 <text x="152" y="231" fill="#166534" font-size="7.5" font-family="monospace" dominant-baseline="middle">✅ 최종 답변</text>
 <text x="152" y="247" fill="#374151" font-size="8.5" dominant-baseline="middle">RSA 2048비트는 현재 안전.</text>
 <text x="152" y="261" fill="#374151" font-size="8.5" dominant-baseline="middle">단, 양자 대비 전환 필요.</text>
 <text x="152" y="275" fill="#374151" font-size="8.5" dominant-baseline="middle">포스트-양자 표준 도입 검토.</text>
+</g>
+<g class="lang-en">
+<text x="152" y="231" fill="#166534" font-size="7.5" font-family="monospace" dominant-baseline="middle">✅ Final Answer</text>
+<text x="152" y="247" fill="#374151" font-size="8.5" dominant-baseline="middle">RSA 2048-bit is currently safe.</text>
+<text x="152" y="261" fill="#374151" font-size="8.5" dominant-baseline="middle">However, quantum prep needed.</text>
+<text x="152" y="275" fill="#374151" font-size="8.5" dominant-baseline="middle">Post-quantum standards: consider.</text>
+</g>
 
 <!-- Thinking → Claude -->
 <path d="M 326 222 Q 400 260 480 310" stroke="#ec4899" stroke-width="1.4"
@@ -216,32 +237,38 @@ svg.diagram { width:100%; max-width:1100px; height:auto; display:block }
   <rect x="142" y="330" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
   <text x="158" y="346" font-size="13">💻</text>
   <text x="178" y="342" fill="#374151" font-weight="600">bash</text>
-  <text x="178" y="356" fill="#9ca3af" font-size="8">셸 명령어 실행</text>
+  <text x="178" y="356" fill="#9ca3af" font-size="8" class="lang-ko">셸 명령어 실행</text>
+  <text x="178" y="356" fill="#9ca3af" font-size="8" class="lang-en">Shell command exec</text>
 
   <rect x="142" y="366" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
   <text x="158" y="382" font-size="13">📝</text>
   <text x="178" y="378" fill="#374151" font-weight="600">text_editor</text>
-  <text x="178" y="392" fill="#9ca3af" font-size="8">파일 읽기·쓰기</text>
+  <text x="178" y="392" fill="#9ca3af" font-size="8" class="lang-ko">파일 읽기·쓰기</text>
+  <text x="178" y="392" fill="#9ca3af" font-size="8" class="lang-en">Read &amp; write files</text>
 
   <rect x="142" y="402" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
   <text x="158" y="418" font-size="13">🐍</text>
   <text x="178" y="414" fill="#374151" font-weight="600">code_execution</text>
-  <text x="178" y="428" fill="#9ca3af" font-size="8">Python 샌드박스</text>
+  <text x="178" y="428" fill="#9ca3af" font-size="8" class="lang-ko">Python 샌드박스</text>
+  <text x="178" y="428" fill="#9ca3af" font-size="8" class="lang-en">Python sandbox</text>
 
   <rect x="142" y="438" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
   <text x="158" y="454" font-size="13">🌐</text>
   <text x="178" y="450" fill="#374151" font-weight="600">web_search</text>
-  <text x="178" y="464" fill="#9ca3af" font-size="8">실시간 웹 검색</text>
+  <text x="178" y="464" fill="#9ca3af" font-size="8" class="lang-ko">실시간 웹 검색</text>
+  <text x="178" y="464" fill="#9ca3af" font-size="8" class="lang-en">Real-time web search</text>
 
   <rect x="142" y="474" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
   <text x="158" y="490" font-size="13">🖥️</text>
   <text x="178" y="486" fill="#374151" font-weight="600">computer_use</text>
-  <text x="178" y="500" fill="#9ca3af" font-size="8">마우스·키보드 제어</text>
+  <text x="178" y="500" fill="#9ca3af" font-size="8" class="lang-ko">마우스·키보드 제어</text>
+  <text x="178" y="500" fill="#9ca3af" font-size="8" class="lang-en">Mouse &amp; keyboard ctrl</text>
 
   <rect x="142" y="510" width="172" height="32" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width=".8"/>
   <text x="158" y="526" font-size="13">🔌</text>
   <text x="178" y="522" fill="#374151" font-weight="600">mcp_toolset</text>
-  <text x="178" y="536" fill="#9ca3af" font-size="8">MCP 서버 도구 호출</text>
+  <text x="178" y="536" fill="#9ca3af" font-size="8" class="lang-ko">MCP 서버 도구 호출</text>
+  <text x="178" y="536" fill="#9ca3af" font-size="8" class="lang-en">MCP server tool call</text>
 </g>
 
 <!-- Tools ↔ Claude -->
@@ -257,60 +284,74 @@ svg.diagram { width:100%; max-width:1100px; height:auto; display:block }
 <text x="872" y="94" fill="#fff" font-size="10" font-weight="600"
       text-anchor="middle" dominant-baseline="middle">⚡ Skills (SKILL.md)</text>
 
-<!-- Anthropic 제공 -->
-<text x="784" y="116" fill="#10b981" font-size="8" font-weight="700">Anthropic 제공</text>
+<!-- Anthropic 제공 / Provided by Anthropic -->
+<text x="784" y="116" fill="#10b981" font-size="8" font-weight="700" class="lang-ko">Anthropic 제공</text>
+<text x="784" y="116" fill="#10b981" font-size="8" font-weight="700" class="lang-en">Provided by Anthropic</text>
 <g font-size="9.5" dominant-baseline="middle">
   <rect x="784" y="122" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
   <text x="800" y="138" font-size="13">📊</text><text x="820" y="134" fill="#374151" font-weight="600">xlsx</text>
-  <text x="820" y="147" fill="#9ca3af" font-size="8">스프레드시트 생성·분석</text>
+  <text x="820" y="147" fill="#9ca3af" font-size="8" class="lang-ko">스프레드시트 생성·분석</text>
+  <text x="820" y="147" fill="#9ca3af" font-size="8" class="lang-en">Spreadsheet create &amp; analyze</text>
 
   <rect x="784" y="158" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
   <text x="800" y="174" font-size="13">📑</text><text x="820" y="170" fill="#374151" font-weight="600">pptx</text>
-  <text x="820" y="183" fill="#9ca3af" font-size="8">프레젠테이션 생성</text>
+  <text x="820" y="183" fill="#9ca3af" font-size="8" class="lang-ko">프레젠테이션 생성</text>
+  <text x="820" y="183" fill="#9ca3af" font-size="8" class="lang-en">Presentation generation</text>
 
   <rect x="784" y="194" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
   <text x="800" y="210" font-size="13">📄</text><text x="820" y="206" fill="#374151" font-weight="600">pdf</text>
-  <text x="820" y="219" fill="#9ca3af" font-size="8">텍스트 추출·양식 작성</text>
+  <text x="820" y="219" fill="#9ca3af" font-size="8" class="lang-ko">텍스트 추출·양식 작성</text>
+  <text x="820" y="219" fill="#9ca3af" font-size="8" class="lang-en">Text extract &amp; form fill</text>
 
   <rect x="784" y="230" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
   <text x="800" y="246" font-size="13">📝</text><text x="820" y="242" fill="#374151" font-weight="600">docx</text>
-  <text x="820" y="255" fill="#9ca3af" font-size="8">Word 문서 생성·편집</text>
+  <text x="820" y="255" fill="#9ca3af" font-size="8" class="lang-ko">Word 문서 생성·편집</text>
+  <text x="820" y="255" fill="#9ca3af" font-size="8" class="lang-en">Word document create &amp; edit</text>
 </g>
 
-<!-- 커스텀 Skills -->
+<!-- 커스텀 Skills / Custom Skills -->
 <line x1="784" y1="274" x2="958" y2="274" stroke="#d1fae5" stroke-width="1"/>
-<text x="784" y="288" fill="#059669" font-size="8" font-weight="700">커스텀 Skills</text>
+<text x="784" y="288" fill="#059669" font-size="8" font-weight="700" class="lang-ko">커스텀 Skills</text>
+<text x="784" y="288" fill="#059669" font-size="8" font-weight="700" class="lang-en">Custom Skills</text>
 <g font-size="9.5" dominant-baseline="middle">
   <rect x="784" y="294" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
   <text x="800" y="310" font-size="13">🔍</text><text x="820" y="306" fill="#374151" font-weight="600">code-reviewing</text>
-  <text x="820" y="319" fill="#9ca3af" font-size="8">PR 코드 품질·보안 분석</text>
+  <text x="820" y="319" fill="#9ca3af" font-size="8" class="lang-ko">PR 코드 품질·보안 분석</text>
+  <text x="820" y="319" fill="#9ca3af" font-size="8" class="lang-en">PR code quality &amp; security</text>
 
   <rect x="784" y="330" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
   <text x="800" y="346" font-size="13">🐛</text><text x="820" y="342" fill="#374151" font-weight="600">git-committing</text>
-  <text x="820" y="355" fill="#9ca3af" font-size="8">커밋 메시지 자동 생성</text>
+  <text x="820" y="355" fill="#9ca3af" font-size="8" class="lang-ko">커밋 메시지 자동 생성</text>
+  <text x="820" y="355" fill="#9ca3af" font-size="8" class="lang-en">Auto commit message gen</text>
 
   <rect x="784" y="366" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
   <text x="800" y="382" font-size="13">🧪</text><text x="820" y="378" fill="#374151" font-weight="600">testing-code</text>
-  <text x="820" y="391" fill="#9ca3af" font-size="8">Unit/UI 테스트 생성</text>
+  <text x="820" y="391" fill="#9ca3af" font-size="8" class="lang-ko">Unit/UI 테스트 생성</text>
+  <text x="820" y="391" fill="#9ca3af" font-size="8" class="lang-en">Unit/UI test generation</text>
 
   <rect x="784" y="402" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
   <text x="800" y="418" font-size="13">📈</text><text x="820" y="414" fill="#374151" font-weight="600">analyzing-bigquery</text>
-  <text x="820" y="427" fill="#9ca3af" font-size="8">비즈니스 데이터 분석</text>
+  <text x="820" y="427" fill="#9ca3af" font-size="8" class="lang-ko">비즈니스 데이터 분석</text>
+  <text x="820" y="427" fill="#9ca3af" font-size="8" class="lang-en">Business data analysis</text>
 
   <rect x="784" y="438" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
   <text x="800" y="454" font-size="13">📖</text><text x="820" y="450" fill="#374151" font-weight="600">writing-docs</text>
-  <text x="820" y="463" fill="#9ca3af" font-size="8">API 문서·README 생성</text>
+  <text x="820" y="463" fill="#9ca3af" font-size="8" class="lang-ko">API 문서·README 생성</text>
+  <text x="820" y="463" fill="#9ca3af" font-size="8" class="lang-en">API docs &amp; README gen</text>
 
   <rect x="784" y="474" width="174" height="32" rx="7" fill="#f0fdf4" stroke="#a7f3d0" stroke-width=".8"/>
   <text x="800" y="490" font-size="13">📧</text><text x="820" y="486" fill="#374151" font-weight="600">writing-emails</text>
-  <text x="820" y="499" fill="#9ca3af" font-size="8">비즈니스 이메일 작성</text>
+  <text x="820" y="499" fill="#9ca3af" font-size="8" class="lang-ko">비즈니스 이메일 작성</text>
+  <text x="820" y="499" fill="#9ca3af" font-size="8" class="lang-en">Business email writing</text>
 </g>
 
 <!-- loading badge -->
 <rect x="784" y="516" width="174" height="46" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width=".8"/>
-<text x="871" y="530" fill="#059669" font-size="8" font-weight="600" text-anchor="middle" dominant-baseline="middle">점진적 공개 (Progressive Loading)</text>
+<text x="871" y="530" fill="#059669" font-size="8" font-weight="600" text-anchor="middle" dominant-baseline="middle" class="lang-ko">점진적 공개 (Progressive Loading)</text>
+<text x="871" y="530" fill="#059669" font-size="8" font-weight="600" text-anchor="middle" dominant-baseline="middle" class="lang-en">Progressive Loading</text>
 <text x="871" y="546" fill="#9ca3af" font-size="8" text-anchor="middle" dominant-baseline="middle" font-family="monospace">L1 ~100tok · L2 &lt;5K tok · L3 ∞</text>
-<text x="871" y="558" fill="#9ca3af" font-size="7.5" text-anchor="middle" dominant-baseline="middle">필요할 때만 로드 — 컨텍스트 절약</text>
+<text x="871" y="558" fill="#9ca3af" font-size="7.5" text-anchor="middle" dominant-baseline="middle" class="lang-ko">필요할 때만 로드 — 컨텍스트 절약</text>
+<text x="871" y="558" fill="#9ca3af" font-size="7.5" text-anchor="middle" dominant-baseline="middle" class="lang-en">Load only when needed — saves context</text>
 
 <!-- Claude ↔ Skills -->
 <path d="M 613 318 Q 700 270 775 220" stroke="#10b981" stroke-width="1.4"
@@ -323,8 +364,10 @@ svg.diagram { width:100%; max-width:1100px; height:auto; display:block }
       fill="rgba(20,184,166,.07)" stroke="#14b8a6" stroke-width="1.4" filter="url(#fShadow)"/>
 <text x="550" y="625" fill="#0f766e" font-size="11" font-weight="700"
       text-anchor="middle" dominant-baseline="middle">🔌 MCP Protocol</text>
-<text x="550" y="642" fill="#5eead4" font-size="9"
+<text x="550" y="642" fill="#5eead4" font-size="9" class="lang-ko"
       text-anchor="middle" dominant-baseline="middle" font-family="monospace">표준 통신 규약 — Claude ↔ 외부 서비스</text>
+<text x="550" y="642" fill="#5eead4" font-size="9" class="lang-en"
+      text-anchor="middle" dominant-baseline="middle" font-family="monospace">Standard protocol — Claude ↔ External Services</text>
 
 <!-- Claude → MCP -->
 <path d="M 548 420 L 548 604" stroke="#14b8a6" stroke-width="1.5"
@@ -391,26 +434,32 @@ svg.diagram { width:100%; max-width:1100px; height:auto; display:block }
 <rect x="448" y="14" width="200" height="44" rx="22"
       fill="#fff" stroke="#e2e8f0" stroke-width="1.4" filter="url(#fShadow)"/>
 <text x="480" y="36" font-size="18" dominant-baseline="middle">👤</text>
-<text x="502" y="31" fill="#1e293b" font-size="11" font-weight="700" dominant-baseline="middle">사용자</text>
-<text x="502" y="47" fill="#94a3b8" font-size="9" dominant-baseline="middle">목표를 자연어로 전달</text>
+<text x="502" y="31" fill="#1e293b" font-size="11" font-weight="700" dominant-baseline="middle" class="lang-ko">사용자</text>
+<text x="502" y="31" fill="#1e293b" font-size="11" font-weight="700" dominant-baseline="middle" class="lang-en">User</text>
+<text x="502" y="47" fill="#94a3b8" font-size="9" dominant-baseline="middle" class="lang-ko">목표를 자연어로 전달</text>
+<text x="502" y="47" fill="#94a3b8" font-size="9" dominant-baseline="middle" class="lang-en">Convey goals in natural language</text>
 
 <!-- User ↓ request -->
 <path d="M 514 58 L 514 90" stroke="#94a3b8" stroke-width="1.3"
       fill="none" marker-end="url(#mArrow)" stroke-dasharray="5 3"/>
 <rect x="470" y="64" width="42" height="16" rx="8" fill="#f1f5f9"/>
-<text x="491" y="72" fill="#94a3b8" font-size="8" text-anchor="middle" dominant-baseline="middle">요청</text>
+<text x="491" y="72" fill="#94a3b8" font-size="8" text-anchor="middle" dominant-baseline="middle" class="lang-ko">요청</text>
+<text x="491" y="72" fill="#94a3b8" font-size="8" text-anchor="middle" dominant-baseline="middle" class="lang-en">Request</text>
 
 <!-- User ↑ response -->
 <path d="M 582 90 L 582 58" stroke="#ea6c0a" stroke-width="1.3"
       fill="none" marker-end="url(#mArrow)" stroke-dasharray="5 3"/>
 <rect x="586" y="64" width="42" height="16" rx="8" fill="#fff7ed"/>
-<text x="607" y="72" fill="#ea6c0a" font-size="8" text-anchor="middle" dominant-baseline="middle">응답</text>
+<text x="607" y="72" fill="#ea6c0a" font-size="8" text-anchor="middle" dominant-baseline="middle" class="lang-ko">응답</text>
+<text x="607" y="72" fill="#ea6c0a" font-size="8" text-anchor="middle" dominant-baseline="middle" class="lang-en">Response</text>
 
 <!-- ═══ LEGEND ═══ -->
 <rect x="116" y="614" width="216" height="70" rx="12"
       fill="#fff" stroke="#e2e8f0" stroke-width="1" filter="url(#fShadow)"/>
-<text x="224" y="628" fill="#374151" font-size="9" font-weight="700"
+<text x="224" y="628" fill="#374151" font-size="9" font-weight="700" class="lang-ko"
       text-anchor="middle" dominant-baseline="middle">색상 범례</text>
+<text x="224" y="628" fill="#374151" font-size="9" font-weight="700" class="lang-en"
+      text-anchor="middle" dominant-baseline="middle">Color Legend</text>
 
 <rect x="126" y="638" width="9" height="9" rx="2" fill="#8b5cf6" opacity=".5"/>
 <text x="140" y="643" fill="#6b7280" font-size="8.5" dominant-baseline="middle">Context Window</text>
@@ -451,5 +500,6 @@ svg.diagram { width:100%; max-width:1100px; height:auto; display:block }
   document.addEventListener('DOMContentLoaded',updateBtn);
 })();
 </script>
+<script src="lang.js"></script>
 </body>
 </html>

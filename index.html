@@ -2,6 +2,7 @@
 <html lang="ko" data-theme="light">
 <head>
 <meta charset="UTF-8">
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Claude Code 101 — 완전 입문 가이드 2026</title>
 <meta name="description" content="Claude Code 설치부터 실전 프로젝트까지, AI 에이전틱 코딩의 모든 것을 마스터하세요. 2026년 3월 최신 버전 기준.">
@@ -426,16 +427,16 @@ pre .comment{color:var(--text-muted)}pre .keyword{color:var(--accent3)}pre .stri
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-badge"><span class="dot"></span>2026.03 최신 — Opus 4.6 · v2.2.x</div>
+    <div class="hero-badge"><span class="dot"></span>2026.03 Latest — Opus 4.6 · v2.2.x</div>
     <h1><span class="hl">Claude Code</span><br><span class="num">101</span></h1>
-    <p class="hero-sub">설치부터 실전 프로젝트까지,<br>AI 에이전틱 코딩의 모든 것을 마스터하세요.</p>
+    <p class="hero-sub"><span class="lang-ko">설치부터 실전 프로젝트까지,<br>AI 에이전틱 코딩의 모든 것을 마스터하세요.</span><span class="lang-en">From installation to real-world projects,<br>master everything about AI agentic coding.</span></p>
     <div class="hero-meta">
-      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>12개 모듈</div>
-      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>16~22시간</div>
-      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>비개발자~중급</div>
+      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg><span class="lang-ko">12개 모듈</span><span class="lang-en">12 Modules</span></div>
+      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg><span class="lang-ko">16~22시간</span><span class="lang-en">16–22 hours</span></div>
+      <div class="hero-meta-item"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span class="lang-ko">비개발자~중급</span><span class="lang-en">Beginner–Intermediate</span></div>
     </div>
   </div>
-  <div class="scroll-cue" onclick="document.querySelector('#roadmap').scrollIntoView({behavior:'smooth'})">시작하기 ↓</div>
+  <div class="scroll-cue" onclick="document.querySelector('#roadmap').scrollIntoView({behavior:'smooth'})"><span class="lang-ko">시작하기 ↓</span><span class="lang-en">Get Started ↓</span></div>
 </section>
 
 <!-- ROADMAP -->
@@ -443,8 +444,8 @@ pre .comment{color:var(--text-muted)}pre .keyword{color:var(--accent3)}pre .stri
   <div class="container">
     <div style="margin-bottom:2rem">
       <div class="module-number">Roadmap</div>
-      <h2 class="module-title">학습 로드맵</h2>
-      <p class="module-desc">순서대로 따라가며 실습하세요. 진행률이 자동 저장됩니다.</p>
+      <h2 class="module-title"><span class="lang-ko">학습 로드맵</span><span class="lang-en">Learning Roadmap</span></h2>
+      <p class="module-desc"><span class="lang-ko">순서대로 따라가며 실습하세요. 진행률이 자동 저장됩니다.</span><span class="lang-en">Follow along in order with hands-on practice. Progress is saved automatically.</span></p>
     </div>
     <div class="overview-grid" id="overviewGrid"></div>
     <div style="text-align:center;margin-top:.8rem"><span class="progress-text" id="totalProgress">완료: 0 / 11</span></div>
@@ -456,7 +457,7 @@ pre .comment{color:var(--text-muted)}pre .keyword{color:var(--accent3)}pre .stri
 <!-- ── SUPPORT FLOATING BUTTON ── -->
 <button class="support-fab" id="supportFab" onclick="openSupport()" aria-label="후원하기">
   <span class="fab-icon">☕</span>
-  <span class="fab-label">후원</span>
+  <span class="fab-label"><span class="lang-ko">후원</span><span class="lang-en">Support</span></span>
 </button>
 
 <!-- ── SUPPORT MODAL ── -->
@@ -466,11 +467,10 @@ pre .comment{color:var(--text-muted)}pre .keyword{color:var(--accent3)}pre .stri
 
   <div class="support-header">
     <div class="support-pulse">☕</div>
-    <h3 class="support-title">학습이 즐거우셨나요?</h3>
+    <h3 class="support-title"><span class="lang-ko">학습이 즐거우셨나요?</span><span class="lang-en">Enjoying the course?</span></h3>
     <p class="support-sub">
-      여러분의 후원 한 잔이<br>
-      <strong>다음 챕터를 더 빠르게</strong> 만듭니다.<br>
-      <span class="support-sub-small">커피 한 잔 값이 콘텐츠 1시간을 앞당깁니다 ☕→📖</span>
+      <span class="lang-ko">여러분의 후원 한 잔이<br><strong>다음 챕터를 더 빠르게</strong> 만듭니다.<br><span class="support-sub-small">커피 한 잔 값이 콘텐츠 1시간을 앞당깁니다 ☕→📖</span></span>
+      <span class="lang-en">Your support helps us<br><strong>speed up the next chapter</strong>.<br><span class="support-sub-small">One coffee = 1 hour of content created sooner ☕→📖</span></span>
     </p>
   </div>
 
@@ -482,11 +482,11 @@ pre .comment{color:var(--text-muted)}pre .keyword{color:var(--accent3)}pre .stri
         <path d="M10 4.5C6.96 4.5 4.5 6.46 4.5 8.88c0 1.54.97 2.9 2.44 3.73l-.62 2.3a.19.19 0 0 0 .28.21l2.68-1.78c.23.03.47.04.72.04 3.04 0 5.5-1.96 5.5-4.38S13.04 4.5 10 4.5z" fill="#3C1E1E"/>
         <text x="24" y="14" font-family="Arial" font-weight="700" font-size="11" fill="#3C1E1E">pay</text>
       </svg>
-      <span>카카오페이로 스캔</span>
+      <span><span class="lang-ko">카카오페이로 스캔</span><span class="lang-en">Scan with KakaoPay</span></span>
     </div>
   </div>
 
-  <p class="support-thanks">후원해 주신 분들 덕분에 계속 쓸 수 있어요 🙏</p>
+  <p class="support-thanks"><span class="lang-ko">후원해 주신 분들 덕분에 계속 쓸 수 있어요 🙏</span><span class="lang-en">Thanks to your support, we can keep going 🙏</span></p>
 </div>
 
 <section class="community-cta">
@@ -494,19 +494,19 @@ pre .comment{color:var(--text-muted)}pre .keyword{color:var(--accent3)}pre .stri
     <div class="cta-grid">
       <a class="cta-card cta-kakao" href="https://open.kakao.com/o/pWK34Oji" target="_blank" rel="noopener noreferrer">
         <div class="cta-body">
-          <strong>💬 오픈 카톡방 참여하기</strong>
-          <span>막히는 부분 질문 · 학습 인증 · 정보 공유</span>
+          <strong>💬 <span class="lang-ko">오픈 카톡방 참여하기</span><span class="lang-en">Join Open KakaoTalk</span></strong>
+          <span><span class="lang-ko">막히는 부분 질문 · 학습 인증 · 정보 공유</span><span class="lang-en">Ask questions · Share progress · Exchange tips</span></span>
         </div>
         <div class="cta-qr-wrap">
           <img src="kakao-openchat-qr.jpg" alt="오픈채팅 QR" class="cta-qr"/>
-          <div class="cta-qr-label">카메라로 스캔</div>
+          <div class="cta-qr-label"><span class="lang-ko">카메라로 스캔</span><span class="lang-en">Scan with camera</span></div>
         </div>
       </a>
       <a class="cta-card cta-github" href="https://github.com/m1zz/ClaudeCode101" target="_blank" rel="noopener noreferrer">
         <div class="cta-icon">⭐</div>
         <div class="cta-body">
-          <strong>GitHub Star 주기</strong>
-          <span>오픈소스 프로젝트를 응원해 주세요</span>
+          <strong><span class="lang-ko">GitHub Star 주기</span><span class="lang-en">Give a GitHub Star</span></strong>
+          <span><span class="lang-ko">오픈소스 프로젝트를 응원해 주세요</span><span class="lang-en">Support this open-source project</span></span>
         </div>
         <svg class="cta-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -516,17 +516,17 @@ pre .comment{color:var(--text-muted)}pre .keyword{color:var(--accent3)}pre .stri
 
 <section id="feedback-section" style="border-top:1px solid var(--border);padding:3rem 2rem 0;">
   <div class="container" style="max-width:860px;margin:0 auto;">
-    <p style="font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.4rem;">📣 피드백 &amp; 댓글</p>
-    <p style="font-size:.83rem;color:var(--text-muted);margin-bottom:1.2rem;">이 사이트가 도움이 됐나요? GitHub 계정으로 댓글이나 반응을 남겨주세요.</p>
+    <p style="font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.4rem;">📣 <span class="lang-ko">피드백 &amp; 댓글</span><span class="lang-en">Feedback &amp; Comments</span></p>
+    <p style="font-size:.83rem;color:var(--text-muted);margin-bottom:1.2rem;"><span class="lang-ko">이 사이트가 도움이 됐나요? GitHub 계정으로 댓글이나 반응을 남겨주세요.</span><span class="lang-en">Was this site helpful? Leave a comment or reaction with your GitHub account.</span></p>
     <div id="giscus-main"></div>
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="footer-logo">Claude Code <span class="hl">101</span></div>
-  <p class="footer-text">개발자리 — AI 시대의 개발 교육 · 2026</p>
+  <p class="footer-text"><span class="lang-ko">개발자리 — AI 시대의 개발 교육 · 2026</span><span class="lang-en">Gaebalja — AI-Era Developer Education · 2026</span></p>
   <div class="footer-links">
-    <a href="https://code.claude.com/docs" target="_blank">공식 문서</a>
+    <a href="https://code.claude.com/docs" target="_blank"><span class="lang-ko">공식 문서</span><span class="lang-en">Official Docs</span></a>
     <a href="https://github.com/anthropics/claude-code" target="_blank">GitHub</a>
     <a href="https://claudelog.com/claude-code-changelog" target="_blank">Changelog</a>
   </div>
@@ -536,12 +536,16 @@ pre .comment{color:var(--text-muted)}pre .keyword{color:var(--accent3)}pre .stri
 const SVG_CHECK = '<svg width="12" height="12" fill="none" stroke="white" stroke-width="3" viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>';
 const SVG_CHEVRON = '<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6,9 12,15 18,9"/></svg>';
 
+function getLang() { return localStorage.getItem('cc101-lang') || 'ko'; }
+
 const modules = [
 {
   id:'prereq',num:'Pre',title:'터미널이 처음이라면',desc:'비개발자를 위한 사전 준비',time:'1시간',chapterUrl:'chapters/terminal.html',
+  title_en:'New to Terminals?',desc_en:'Prerequisites for non-developers',
   goals:['터미널 기본 사용법 익히기','개발 환경 설치 완료','왜 터미널인지 이해'],
+  goals_en:['Learn basic terminal usage','Complete development environment setup','Understand why we use the terminal'],
   sections:[
-    {title:'터미널이란?',icon:'🖥️',iconClass:'green',subtitle:'컴퓨터에게 글자로 명령하는 도구',content:`
+    {title:'터미널이란?',title_en:'What is a Terminal?',icon:'🖥️',iconClass:'green',subtitle:'컴퓨터에게 글자로 명령하는 도구',subtitle_en:'A tool to give your computer text commands',content:`
       <p><strong>터미널(Terminal)</strong>은 컴퓨터에게 텍스트로 명령을 내리는 도구입니다. 마우스로 클릭하는 대신, 글자를 입력해서 폴더를 열고, 파일을 만들고, 프로그램을 실행합니다.</p>
       <h4>터미널 여는 법</h4>
       <div class="kv-item"><span class="kv-key">macOS</span><span class="kv-val">Spotlight(<code>⌘+Space</code>) → "터미널" 검색 → Enter</span></div>
@@ -555,7 +559,7 @@ const modules = [
         <tr><td>clear</td><td>화면 정리</td><td>터미널 깨끗하게 비우기</td></tr>
       </tbody></table>
       <div class="tip-box"><div class="tip-label">겁먹지 마세요</div><p>터미널은 무서운 게 아닙니다. 잘못 입력해도 컴퓨터가 고장나지 않습니다. "command not found" 에러가 뜰 뿐이에요. 다시 입력하면 됩니다.</p></div>`},
-    {title:'개발 환경 설치',icon:'⚙️',iconClass:'blue',subtitle:'Homebrew와 Node.js (10분이면 끝)',content:`
+    {title:'개발 환경 설치',title_en:'Setting Up Dev Environment',icon:'⚙️',iconClass:'blue',subtitle:'Homebrew와 Node.js (10분이면 끝)',subtitle_en:'Homebrew and Node.js (done in 10 min)',content:`
       <p>Claude Code를 설치하려면 먼저 두 가지 도구가 필요합니다. 어렵지 않습니다 — 복사-붙여넣기만 하면 됩니다.</p>
       <h4>Step 1: Homebrew 설치 (macOS)</h4>
       <p>Homebrew는 macOS의 "앱스토어"와 비슷합니다. 터미널에서 프로그램을 설치할 때 사용합니다.</p>
@@ -573,7 +577,7 @@ const modules = [
 <span class="comment"># 설치 확인 (v18 이상이면 OK)</span>
 <span class="cmd">node</span> <span class="flag">--version</span></pre></div>
       <div class="warn-box"><div class="warn-label">Windows 사용자</div><p>Homebrew는 macOS 전용입니다. Windows는 <a href="https://nodejs.org" target="_blank">nodejs.org</a>에서 직접 다운로드하고, Claude Code는 <code>winget install Anthropic.ClaudeCode</code>로 설치합니다.</p></div>`},
-    {title:'왜 터미널에서 하나요?',icon:'💡',iconClass:'orange',subtitle:'claude.ai 웹이 있는데 왜 CLI를?',content:`
+    {title:'왜 터미널에서 하나요?',title_en:'Why the Terminal?',icon:'💡',iconClass:'orange',subtitle:'claude.ai 웹이 있는데 왜 CLI를?',subtitle_en:"There's claude.ai — why use CLI?",content:`
       <p>Claude는 <a href="https://claude.ai" target="_blank">claude.ai</a> 웹에서도 사용할 수 있습니다. 그런데 <strong>무언가를 직접 만들려면</strong> 터미널 버전인 Claude Code가 훨씬 강력합니다.</p>
       <div class="kv-item"><span class="kv-key">claude.ai (웹)</span><span class="kv-val">채팅으로 대화 → 코드를 복사해서 직접 파일에 붙여넣기 → 수동 반복</span></div>
       <div class="kv-item"><span class="kv-key">Claude Code (터미널)</span><span class="kv-val">프로젝트 안에서 대화 → 파일 읽기/만들기/수정을 자동 수행 → 바로 실행</span></div>
@@ -582,29 +586,33 @@ const modules = [
   ],
   practice:{
     summary:'터미널을 열고, 기본 명령어를 실행하고, 개발 환경을 설치해보세요.',
+    summary_en:'Open the terminal, run basic commands, and install your dev environment.',
     steps:[
-      {title:'터미널 열기',desc:'macOS: <code>⌘+Space</code> → "터미널" 입력 → Enter. Windows: 시작 메뉴 → "PowerShell" 검색.',expected:'텍스트 화면이 열리고 커서가 깜빡이면 성공!'},
+      {title:'터미널 열기',title_en:'Open Terminal',desc:'macOS: <code>⌘+Space</code> → "터미널" 입력 → Enter. Windows: 시작 메뉴 → "PowerShell" 검색.',expected:'텍스트 화면이 열리고 커서가 깜빡이면 성공!',expected_en:'A text screen opens with a blinking cursor!'},
       {title:'현재 위치 확인',desc:'<code>pwd</code>를 입력하고 Enter를 누르세요.',expected:'<code>/Users/이름</code> 같은 경로가 표시됩니다. 이게 지금 여러분이 있는 "폴더" 위치입니다.'},
       {title:'파일 목록 보기',desc:'<code>ls</code>를 입력하고 Enter를 누르세요.',expected:'현재 폴더에 있는 파일과 폴더 이름들이 나열됩니다. Finder(탐색기)에서 보는 것과 같은 내용입니다.'},
       {title:'폴더 만들고 이동하기',desc:'<code>mkdir my-first-project</code>를 입력 후 Enter. 그 다음 <code>cd my-first-project</code>를 입력하세요.',expected:'에러 없이 실행되면 성공. <code>pwd</code>로 확인하면 경로 끝에 my-first-project가 보입니다.'},
       {title:'Homebrew 설치 (macOS)',desc:'위의 Homebrew 설치 명령어를 복사-붙여넣기하세요. 비밀번호를 물어보면 Mac 로그인 비밀번호를 입력합니다 (타이핑해도 화면에 안 보이는 게 정상).',expected:'<code>brew --version</code>을 입력하면 버전 번호가 표시됩니다. 설치에 5~10분 걸릴 수 있습니다.'},
       {title:'Node.js 설치',desc:'<code>brew install node</code> (macOS) 또는 nodejs.org에서 다운로드 (Windows).',expected:'<code>node --version</code>으로 v18 이상이 표시되면 준비 완료!'}
     ],
-    checklist:['터미널 열기 성공','pwd, ls, cd, mkdir 명령어 실행','Homebrew 설치 완료 (macOS)','Node.js v18+ 설치 확인','my-first-project 폴더 생성']
+    checklist:['터미널 열기 성공','pwd, ls, cd, mkdir 명령어 실행','Homebrew 설치 완료 (macOS)','Node.js v18+ 설치 확인','my-first-project 폴더 생성'],
+    checklist_en:['Open terminal successfully','Run pwd, ls, cd, mkdir commands','Install Homebrew (macOS)','Confirm Node.js v18+ installed','Create my-first-project folder']
   }
 },
 {
   id:'module0',num:'00',title:'Claude Code가 뭔가요?',desc:'개념, 역사, 왜 지금인가',time:'30분',chapterUrl:'chapters/what-is-claude-code.html',
+  title_en:'What is Claude Code?',desc_en:'Concepts, history, why now',
   goals:['Claude Code의 정체와 기존 도구 차이점 이해','2026년 현재 생태계 파악'],
+  goals_en:['Understand Claude Code and how it differs from other tools','Survey the 2026 ecosystem'],
   sections:[
-    {title:'Claude Code란?',icon:'💡',iconClass:'orange',subtitle:'에이전틱 코딩 도구의 핵심',content:`
+    {title:'Claude Code란?',title_en:'What is Claude Code?',icon:'💡',iconClass:'orange',subtitle:'에이전틱 코딩 도구의 핵심',subtitle_en:'The core of agentic coding tools',content:`
       <p><strong>Claude Code</strong>는 터미널에서 동작하는 <strong>에이전틱(Agentic) 코딩 도구</strong>입니다. 코드 자동완성이 아니라, 코드베이스를 읽고 → 이해하고 → 계획하고 → 실행하고 → 검증하는 전 과정을 자율 수행합니다.</p>
       <h4>기존 도구와의 차이</h4>
       <div class="kv-item"><span class="kv-key">Copilot</span><span class="kv-val">타이핑 중 다음 줄 제안 → 수동적 보조</span></div>
       <div class="kv-item"><span class="kv-key">Cursor</span><span class="kv-val">IDE 내 AI 채팅 → 편집기에 묶임</span></div>
       <div class="kv-item"><span class="kv-key">Claude Code</span><span class="kv-val">터미널 에이전트 — 파일 읽기/쓰기, bash, git, 테스트까지 자율 수행</span></div>
       <div class="tip-box"><div class="tip-label">핵심</div><p>"코드 써주는 도구"가 아닌 "시니어 개발자가 옆에 앉아서 같이 일하는 것"에 가깝습니다.</p></div>`},
-    {title:'타임라인 (2025~2026)',icon:'📅',iconClass:'blue',subtitle:'1년간의 폭발적 진화',content:`
+    {title:'타임라인 (2025~2026)',title_en:'Timeline (2025–2026)',icon:'📅',iconClass:'blue',subtitle:'1년간의 폭발적 진화',subtitle_en:'One year of explosive evolution',content:`
       <div class="timeline">
         <div class="timeline-item"><span class="timeline-date">2025.02</span><div class="timeline-text">최초 출시 (Preview)</div></div>
         <div class="timeline-item"><span class="timeline-date">2025.05</span><div class="timeline-text">GA 정식 출시 + Claude 4</div></div>
@@ -617,17 +625,21 @@ const modules = [
   ],
   practice:{
     summary:'Claude Code 공식 문서를 탐색하고 주요 기능을 정리해보세요.',
+    summary_en:'Explore the official docs and note the key features.',
     steps:[
       {title:'공식 사이트 방문',desc:'<a href="https://code.claude.com/docs" target="_blank">code.claude.com/docs</a>에 접속하세요.',expected:'Quickstart, Configuration, Hooks 등의 메뉴가 보입니다.'},
       {title:'Quickstart 문서 읽기',desc:'Getting Started 섹션을 처음부터 끝까지 읽어보세요. 설치 방법, 로그인 방식, 첫 사용법을 파악합니다.',expected:'설치 명령어, 로그인 옵션(Claude.ai / Console / Bedrock), 기본 사용 흐름을 이해합니다.'},
       {title:'핵심 개념 노트 작성',desc:'다음 질문에 답을 메모해보세요: (1) Claude Code는 무엇인가? (2) Copilot/Cursor와 어떻게 다른가? (3) 어떤 플랜이 필요한가?',expected:'자신만의 말로 Claude Code를 설명할 수 있게 됩니다.'}
     ],
-    checklist:['공식 문서 Quickstart 읽기 완료','Claude Code vs Copilot vs Cursor 차이점 정리','필요한 플랜(Pro/Max) 결정']
+    checklist:['공식 문서 Quickstart 읽기 완료','Claude Code vs Copilot vs Cursor 차이점 정리','필요한 플랜(Pro/Max) 결정'],
+    checklist_en:['Read official docs Quickstart','Summarize Claude Code vs Copilot vs Cursor','Decide on needed plan (Pro/Max)']
   }
 },
 {
   id:'module1',num:'01',title:'설치 & 첫 실행',desc:'환경설정, 로그인, 첫 대화',time:'1시간',chapterUrl:'chapters/install.html',
+  title_en:'Install & First Run',desc_en:'Setup, login, first conversation',
   goals:['OS별 Claude Code 설치 완료','로그인 및 첫 세션 실행'],
+  goals_en:['Install Claude Code for your OS','Login and run the first session'],
   sections:[
     {title:'설치 방법',icon:'⬇️',iconClass:'green',subtitle:'OS별 커맨드',content:`
       <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># macOS (추천)</span>
@@ -679,7 +691,9 @@ const modules = [
 },
 {
   id:'module2',num:'02',title:'기본 사용법 마스터',desc:'명령어, 권한 모드, 세션 관리',time:'2시간',chapterUrl:'chapters/basics.html',
+  title_en:'Master the Basics',desc_en:'Commands, permission modes, session management',
   goals:['핵심 슬래시 커맨드 활용','3가지 권한 모드 이해','세션 관리와 비대화형 모드'],
+  goals_en:['Use core slash commands','Understand 3 permission modes','Session management and headless mode'],
   sections:[
     {title:'슬래시 커맨드',icon:'⌨️',iconClass:'blue',subtitle:'가장 많이 쓰는 10개',content:`
       <table class="data-table"><thead><tr><th>커맨드</th><th>설명</th></tr></thead><tbody>
@@ -773,7 +787,9 @@ const modules = [
 },
 {
   id:'module3',num:'03',title:'CLAUDE.md — 프로젝트 메모리',desc:'컨텍스트 설정의 핵심',time:'1.5시간',chapterUrl:'chapters/claude-md.html',
+  title_en:'Project Configuration File (CLAUDE.md)',desc_en:'Give Claude persistent instructions',
   goals:['CLAUDE.md 역할과 작성법 이해','프로젝트 컨텍스트 설계'],
+  goals_en:['Write a CLAUDE.md that fits your project','Understand global vs local configuration'],
   sections:[
     {title:'CLAUDE.md 개념',icon:'🧠',iconClass:'purple',subtitle:'세션마다 자동 로드되는 프로젝트 설명서',content:`
       <p>프로젝트 루트의 <code>CLAUDE.md</code>는 매 세션 시작 시 자동으로 로드됩니다. <code>/init</code>으로 자동 생성할 수 있습니다.</p>
@@ -818,7 +834,9 @@ const modules = [
 },
 {
   id:'module4',num:'04',title:'효과적인 프롬프팅',desc:'좋은 프롬프트, Plan Mode, 컨텍스트',time:'2시간',chapterUrl:'chapters/prompting.html',
+  title_en:'Prompting Strategies',desc_en:'Context management, effective instructions',
   goals:['Claude Code 최적화 프롬프트 작성','Plan Mode 전략','@ 멘션과 컨텍스트 관리'],
+  goals_en:['Write context-rich prompts','Understand token economy'],
   sections:[
     {title:'프롬프트 패턴 5가지',icon:'✍️',iconClass:'orange',subtitle:'결과를 결정하는 프롬프트 품질',content:`
       <h4>❌ 나쁜 프롬프트</h4>
@@ -872,7 +890,9 @@ const modules = [
 },
 {
   id:'module5',num:'05',title:'MCP 서버 연결',desc:'GitHub, DB, API 등 외부 도구 통합',time:'2시간',chapterUrl:'chapters/mcp.html',
+  title_en:'MCP — External Tool Integration',desc_en:'Connect Slack, GitHub, databases and more',
   goals:['MCP 개념 이해','외부 도구 연결 실습'],
+  goals_en:['Install and configure an MCP server','Use Claude Code with external services'],
   sections:[
     {title:'MCP 서버 추가',icon:'🔌',iconClass:'purple',subtitle:'외부 도구를 Claude Code에 연결',content:`
       <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># GitHub MCP 추가</span>
@@ -899,7 +919,9 @@ const modules = [
 },
 {
   id:'module6',num:'06',title:'서브에이전트 & 커스텀 에이전트',desc:'병렬 작업, 전문 에이전트',time:'2시간',chapterUrl:'chapters/agents.html',
+  title_en:'Agent System & Multi-agent',desc_en:'Parallel execution, orchestrator patterns',
   goals:['서브에이전트 개념과 활용','커스텀 에이전트 직접 생성'],
+  goals_en:['Run background agents','Build an orchestrator + sub-agent pattern'],
   sections:[
     {title:'커스텀 에이전트 만들기',icon:'🛠️',iconClass:'blue',subtitle:'.claude/agents/ 에 마크다운으로 정의',content:`
       <div class="code-block"><div class="code-header"><span class="lang"><span class="dot md"></span>.claude/agents/code-reviewer.md</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment">---</span>
@@ -930,7 +952,9 @@ const modules = [
 },
 {
   id:'module7',num:'07',title:'Skills & Hooks',desc:'자동 스킬, 라이프사이클 자동화',time:'2시간',chapterUrl:'chapters/skill.html',
+  title_en:'Skills — Complete Guide',desc_en:'Custom slash commands and automation',
   goals:['Skills 온디맨드 로딩 이해','Hooks로 자동화 구축'],
+  goals_en:['Create a custom slash command','Build a reusable skill'],
   sections:[
     {title:'Skills 만들기',icon:'🎯',iconClass:'purple',subtitle:'작업에 따라 자동 활성화',content:`
       <div class="code-block"><div class="code-header"><span class="lang"><span class="dot md"></span>.claude/skills/swift-patterns/SKILL.md</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment">---</span>
@@ -985,7 +1009,9 @@ const modules = [
 },
 {
   id:'module8',num:'08',title:'실전 워크플로우',desc:'Git, PR 리뷰, 디버깅 실전',time:'2시간',chapterUrl:'chapters/workflow.html',
+  title_en:'Real-world Workflow',desc_en:'From code review to deployment automation',
   goals:['Git 연동 실무 패턴','디버깅/리팩토링/PR 워크플로우'],
+  goals_en:['Build a CI/CD automation workflow','Optimize git workflow with Claude Code'],
   sections:[
     {title:'Git + PR + 디버깅',icon:'🌿',iconClass:'green',subtitle:'실전 개발 플로우',content:`
       <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>실전 프롬프트</span></div><pre><span class="comment"># 기능 구현</span>
@@ -1016,7 +1042,9 @@ const modules = [
 },
 {
   id:'module9',num:'09',title:'고급 기능 & 팀 협업',desc:'Agent Teams, Worktree, Teleport, Plugin',time:'2시간',chapterUrl:'chapters/advanced.html',
+  title_en:'Advanced Features',desc_en:'Hooks, extended thinking, enterprise usage',
   goals:['Agent Teams 멀티에이전트','Worktree 격리','Teleport 원격 세션'],
+  goals_en:['Configure hooks for automation','Use extended thinking for complex problems'],
   sections:[
     {title:'Agent Teams + Worktree + Teleport',icon:'🚀',iconClass:'blue',subtitle:'2026 최신 고급 기능',content:`
       <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># Worktree 격리</span>
@@ -1049,7 +1077,9 @@ const modules = [
 },
 {
   id:'module10',num:'10',title:'실전 프로젝트',desc:'처음부터 끝까지 앱 완성',time:'3시간',chapterUrl:'chapters/project.html',
+  title_en:'Real-world Project Build',desc_en:'End-to-end development with Claude Code',
   goals:['모듈 1~9 종합 적용','실제 앱 처음부터 완성'],
+  goals_en:['Build a real project from scratch','Apply all learned techniques'],
   sections:[
     {title:'DailyMemo — 전체 과정',icon:'📱',iconClass:'orange',subtitle:'SwiftUI + SwiftData 메모 앱',content:`
       <h4>Phase 1: 프로젝트 셋업</h4>
@@ -1083,7 +1113,9 @@ const modules = [
 },
 {
   id:'concepts',num:'11',title:'핵심 개념 시각화',desc:'Agent · Skills · Tools · MCP 시각적 이해',time:'30분',chapterUrl:'chapters/concepts.html',
+  title_en:'Core Concepts Visualized',desc_en:'Visual understanding of Agent · Skills · Tools · MCP',
   goals:['추상 개념을 시각적으로 이해','각 개념의 관계와 차이 파악'],
+  goals_en:['Understand abstract concepts visually','Grasp the relationships and differences between concepts'],
   sections:[
     {title:'전체 생태계 한눈에 보기',icon:'🗺️',iconClass:'purple',subtitle:'전체 아키텍처 다이어그램',content:`<p><a href="chapters/bigpicture.html" style="color:var(--accent2)">→ 전체 생태계 다이어그램 보기</a> — Claude Model · Agent Loop · Skills · Tools · MCP · Extended Thinking · 외부 서비스가 한 화면에 표시됩니다.</p>`},
     {title:'인터랙티브 개념 가이드',icon:'🎨',iconClass:'purple',subtitle:'관계도 · 카드 · 흐름도 · 비교표',content:`<p>Agent, Skills, Tools, MCP, Context Window, Extended Thinking 등 Claude 플랫폼의 핵심 개념을 인터랙티브 다이어그램으로 시각화합니다.</p>`}
@@ -1103,8 +1135,8 @@ modules.forEach(m=>{
   const c = document.createElement('a');
   c.href = m.chapterUrl ? m.chapterUrl : `#${m.id}`;
   c.className = 'overview-card';
-  const chapterBadge = m.chapterUrl ? '<div class="oc-chapter-badge">📖 챕터 보기</div>' : '';
-  c.innerHTML = `<div class="oc-num">${m.num}</div><div class="oc-title">${m.title}</div><div class="oc-desc">${m.desc}</div><div class="oc-time"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>${m.time}</div>${chapterBadge}<div class="oc-progress"><div class="oc-progress-fill" data-module="${m.id}" style="width:0%"></div></div>`;
+  const chapterBadge = m.chapterUrl ? '<div class="oc-chapter-badge">📖 <span class="lang-ko">챕터 보기</span><span class="lang-en">View Chapter</span></div>' : '';
+  c.innerHTML = `<div class="oc-num">${m.num}</div><div class="oc-title"><span class="lang-ko">${m.title}</span><span class="lang-en">${m.title_en||m.title}</span></div><div class="oc-desc"><span class="lang-ko">${m.desc}</span><span class="lang-en">${m.desc_en||m.desc}</span></div><div class="oc-time"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>${m.time}</div>${chapterBadge}<div class="oc-progress"><div class="oc-progress-fill" data-module="${m.id}" style="width:0%"></div></div>`;
   overviewGrid.appendChild(c);
 });
 
@@ -1117,13 +1149,15 @@ modules.forEach(m=>{
   const sec = document.createElement('section');
   sec.className = 'module-section'; sec.id = m.id;
 
-  const goalsH = m.goals.map(g=>`<span class="goal-tag"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>${g}</span>`).join('');
+  const goalsKo = m.goals.map((g,i)=>`<span class="goal-tag lang-ko"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>${g}</span>`).join('');
+  const goalsEn = (m.goals_en||m.goals).map((g,i)=>`<span class="goal-tag lang-en"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>${g}</span>`).join('');
+  const goalsH = goalsKo + goalsEn;
 
   const secH = m.sections.map(s=>`
     <div class="content-card" data-card>
       <div class="card-header" onclick="toggleCard(this)">
         <div class="card-icon ${s.iconClass}">${s.icon}</div>
-        <div class="card-title-area"><div class="card-title">${s.title}</div><div class="card-subtitle">${s.subtitle}</div></div>
+        <div class="card-title-area"><div class="card-title"><span class="lang-ko">${s.title}</span><span class="lang-en">${s.title_en||s.title}</span></div><div class="card-subtitle"><span class="lang-ko">${s.subtitle}</span><span class="lang-en">${s.subtitle_en||s.subtitle}</span></div></div>
         <div class="card-toggle">${SVG_CHEVRON}</div>
       </div>
       <div class="card-body"><div class="card-content">${s.content}</div></div>
@@ -1151,33 +1185,33 @@ modules.forEach(m=>{
     practiceH = `
       <div class="practice-box" data-practice>
         <div class="practice-header" onclick="togglePractice(this)">
-          <div class="practice-badge">🎯 실습 과제</div>
-          <div class="practice-title">${p.summary}</div>
+          <div class="practice-badge">🎯 <span class="lang-ko">실습 과제</span><span class="lang-en">Practice</span></div>
+          <div class="practice-title"><span class="lang-ko">${p.summary}</span><span class="lang-en">${p.summary_en||p.summary}</span></div>
           <div class="card-toggle">${SVG_CHEVRON}</div>
         </div>
         <div class="practice-body">
           <div class="practice-content">
-            <h4>Step-by-Step 가이드</h4>
+            <h4><span class="lang-ko">Step-by-Step 가이드</span><span class="lang-en">Step-by-Step Guide</span></h4>
             ${stepsH}
-            ${p.checklist?`<h4>완료 체크리스트</h4>${clH}`:''}
+            ${p.checklist?`<h4><span class="lang-ko">완료 체크리스트</span><span class="lang-en">Completion Checklist</span></h4>${clH}`:''}
           </div>
         </div>
       </div>`;
   }
 
-  const chapterLink = m.chapterUrl ? `<a href="${m.chapterUrl}" class="chapter-link">상세 챕터 →</a>` : '';
+  const chapterLink = m.chapterUrl ? `<a href="${m.chapterUrl}" class="chapter-link"><span class="lang-ko">상세 챕터 →</span><span class="lang-en">Full Chapter →</span></a>` : '';
   sec.innerHTML = `<div class="container">
     <div style="margin-bottom:2rem">
       <div class="module-number">Module ${m.num}</div>
-      <h2 class="module-title">${m.title}${chapterLink}</h2>
-      <p class="module-desc">${m.desc}</p>
+      <h2 class="module-title"><span class="lang-ko">${m.title}</span><span class="lang-en">${m.title_en||m.title}</span>${chapterLink}</h2>
+      <p class="module-desc"><span class="lang-ko">${m.desc}</span><span class="lang-en">${m.desc_en||m.desc}</span></p>
     </div>
     <div class="goals">${goalsH}</div>
     ${secH}
     ${practiceH}
     <div class="completion-row">
       <button class="check-btn" onclick="toggleComplete('${m.id}',this)">
-        <span class="ci">${SVG_CHECK}</span>이 모듈 학습 완료
+        <span class="ci">${SVG_CHECK}</span><span class="lang-ko">이 모듈 학습 완료</span><span class="lang-en">Mark as Complete</span>
       </button>
       <span class="progress-text">${m.time}</span>
     </div>
@@ -1215,7 +1249,7 @@ function updateUI(){
     else btn.classList.remove('checked');
   });
   const count=Object.values(completed).filter(Boolean).length;
-  document.getElementById('totalProgress').textContent=`완료: ${count} / ${modules.length}`;
+  document.getElementById('totalProgress').textContent=getLang()==='ko'?`완료: ${count} / ${modules.length}`:`Completed: ${count} / ${modules.length}`;
   document.querySelectorAll('.oc-progress-fill').forEach(el=>{
     el.style.width=completed[el.dataset.module]?'100%':'0%';
   });
@@ -1235,7 +1269,7 @@ document.querySelectorAll('.module-section').forEach(s=>{
   function updateBtn(){
     const dark = document.documentElement.getAttribute('data-theme') === 'dark';
     toggle.textContent = dark ? '☀️' : '🌙';
-    toggle.title = dark ? '라이트 모드로 전환' : '다크 모드로 전환';
+    toggle.title = dark ? (getLang()==='ko' ? '라이트 모드로 전환' : 'Switch to Light Mode') : (getLang()==='ko' ? '다크 모드로 전환' : 'Switch to Dark Mode');
   }
   updateBtn();
   toggle.addEventListener('click', ()=>{
@@ -1320,5 +1354,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSupport()});
   mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 })();
 </script>
+
+<script src="lang.js"></script>
 </body>
 </html>

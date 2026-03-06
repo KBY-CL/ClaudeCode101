@@ -6,9 +6,10 @@
 /* 챕터 테마 초기화 — FOUC 방지 */
 (function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>고급 기능 & 팀 협업</title>
+<title>고급 기능 & 팀 협업 / Advanced Features & Team Collaboration</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../theme.css">
 <style id="chapter-accent">
@@ -886,45 +887,45 @@
 <body>
 
 <!-- =================== BACK LINK =================== -->
-<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+<a href="../index.html" class="back-link">&larr; <span class="lang-ko">Claude Code 101로 돌아가기</span><span class="lang-en">Back to Claude Code 101</span></a>
 
 <!-- =================== HERO =================== -->
 <div class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    Module 09 &mdash; 끝판왕 기능
+    Module 09 &mdash; <span class="lang-ko">끝판왕 기능</span><span class="lang-en">Ultimate Features</span>
   </div>
   <h1>
-    <span class="highlight">고급 기능</span> &amp;<br>팀 협업
+    <span class="highlight"><span class="lang-ko">고급 기능</span><span class="lang-en">Advanced Features</span></span> &amp;<br><span class="lang-ko">팀 협업</span><span class="lang-en">Team Collaboration</span>
   </h1>
   <p class="hero-sub">
-    Worktree, Teleport, Fast Mode, Remote Control, Settings &mdash; Claude Code의 끝판왕 기능들
+    <span class="lang-ko">Worktree, Teleport, Fast Mode, Remote Control, Settings &mdash; Claude Code의 끝판왕 기능들</span><span class="lang-en">Worktree, Teleport, Fast Mode, Remote Control, Settings &mdash; Claude Code's ultimate features</span>
   </p>
   <div class="hero-cta">
-    <a href="#worktree" class="btn btn-primary">Worktree 알아보기</a>
+    <a href="#worktree" class="btn btn-primary"><span class="lang-ko">Worktree 알아보기</span><span class="lang-en">Learn about Worktree</span></a>
     <a href="#fast-mode" class="btn btn-outline">Fast Mode &rarr;</a>
   </div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    스크롤
+    <span class="lang-ko">스크롤</span><span class="lang-en">scroll</span>
   </div>
 </div>
 
 <!-- =================== NAV =================== -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
+    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; <span class="lang-ko">홈</span><span class="lang-en">Home</span></a>
     <a href="#worktree" class="nav-link">Worktree</a>
     <a href="#teleport" class="nav-link">Teleport</a>
     <a href="#teams" class="nav-link">Agent Teams</a>
-    <a href="#slash" class="nav-link">커스텀 슬래시</a>
-    <a href="#context" class="nav-link">1M 컨텍스트</a>
+    <a href="#slash" class="nav-link"><span class="lang-ko">커스텀 슬래시</span><span class="lang-en">Custom Slash</span></a>
+    <a href="#context" class="nav-link"><span class="lang-ko">1M 컨텍스트</span><span class="lang-en">1M Context</span></a>
     <a href="#fast-mode" class="nav-link">Fast Mode</a>
     <a href="#remote" class="nav-link">Remote Control</a>
-    <a href="#keyboard" class="nav-link">키보드 단축키</a>
-    <a href="#settings" class="nav-link">설정 & 구성</a>
-    <a href="#headless" class="nav-link">Headless 모드</a>
-    <a href="#integrations" class="nav-link">통합</a>
+    <a href="#keyboard" class="nav-link"><span class="lang-ko">키보드 단축키</span><span class="lang-en">Keyboard Shortcuts</span></a>
+    <a href="#settings" class="nav-link"><span class="lang-ko">설정 & 구성</span><span class="lang-en">Settings & Config</span></a>
+    <a href="#headless" class="nav-link"><span class="lang-ko">Headless 모드</span><span class="lang-en">Headless Mode</span></a>
+    <a href="#integrations" class="nav-link"><span class="lang-ko">통합</span><span class="lang-en">Integrations</span></a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
 </nav>
@@ -933,21 +934,30 @@
 <section id="worktree">
   <div class="container">
     <div class="section-number">01</div>
-    <h2 class="section-title">Worktree 격리</h2>
+    <h2 class="section-title"><span class="lang-ko">Worktree 격리</span><span class="lang-en">Worktree Isolation</span></h2>
     <p class="section-desc">
-      본 프로젝트를 건드리지 않고 <strong style="color:var(--accent)">안전한 실험 공간</strong>에서 작업하세요.
+      <span class="lang-ko">본 프로젝트를 건드리지 않고 <strong style="color:var(--accent)">안전한 실험 공간</strong>에서 작업하세요.</span><span class="lang-en">Work in a safe <strong style="color:var(--accent)">experiment space</strong> without touching your main project.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>"실험실" 비유로 이해하기</h4>
+      <h4><span class="lang-ko">"실험실" 비유로 이해하기</span><span class="lang-en">Understanding it with the "Laboratory" analogy</span></h4>
+      <div class="lang-ko">
       <p>
         과학자가 실험할 때, 본 연구실의 시약을 직접 섞지 않습니다. 별도의 <strong style="color:var(--accent)">실험실</strong>에서 먼저 시도하죠.<br><br>
         Worktree도 마찬가지입니다. 현재 프로젝트 코드를 복사해서 <strong style="color:var(--text)">격리된 작업 공간</strong>을 만들고, 거기서 마음껏 실험합니다.<br>
         실험이 성공하면 본 프로젝트에 머지하고, 실패하면 그냥 삭제하면 됩니다. &mdash; 본 코드는 단 한 줄도 다치지 않습니다.
       </p>
+      </div>
+      <div class="lang-en">
+      <p>
+        When a scientist experiments, they don't mix reagents directly in the main lab. They try it first in a separate <strong style="color:var(--accent)">laboratory</strong>.<br><br>
+        Worktree works the same way. It copies your current project code to create an <strong style="color:var(--text)">isolated workspace</strong>, where you can experiment freely.<br>
+        If the experiment succeeds, merge it into the main project. If it fails, just delete it. &mdash; Not a single line of your original code is touched.
+      </p>
+      </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px;">Worktree 작업 흐름</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px;"><span class="lang-ko">Worktree 작업 흐름</span><span class="lang-en">Worktree Workflow</span></h3>
 
     <div class="steps">
       <div class="step">
@@ -956,8 +966,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>격리된 Worktree 생성</h3>
-          <p>Claude Code에서 Worktree 모드를 시작하면, 현재 브랜치를 기반으로 격리된 작업 공간이 만들어집니다.</p>
+          <h3><span class="lang-ko">격리된 Worktree 생성</span><span class="lang-en">Create Isolated Worktree</span></h3>
+          <p><span class="lang-ko">Claude Code에서 Worktree 모드를 시작하면, 현재 브랜치를 기반으로 격리된 작업 공간이 만들어집니다.</span><span class="lang-en">Starting Worktree mode in Claude Code creates an isolated workspace based on the current branch.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -978,12 +988,12 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>격리 공간에서 작업</h3>
-          <p>Worktree 안에서는 파일 수정, 삭제, 구조 변경 등 무엇이든 자유롭게 할 수 있습니다. 원본에는 영향이 없습니다.</p>
+          <h3><span class="lang-ko">격리 공간에서 작업</span><span class="lang-en">Work in Isolated Space</span></h3>
+          <p><span class="lang-ko">Worktree 안에서는 파일 수정, 삭제, 구조 변경 등 무엇이든 자유롭게 할 수 있습니다. 원본에는 영향이 없습니다.</span><span class="lang-en">Inside the Worktree, you can freely modify, delete, or restructure files. The original is unaffected.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>Worktree 내부</span>
+              <span><span class="lang-ko">Worktree 내부</span><span class="lang-en">Inside Worktree</span></span>
             </div>
             <div class="code-body"><span class="comment"># 격리된 공간의 경로</span>
 <span class="file">.claude/worktrees/my-experiment/</span>
@@ -1001,8 +1011,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>결과 확인</h3>
-          <p>작업이 끝나면 빌드, 테스트를 실행해서 결과를 검증합니다.</p>
+          <h3><span class="lang-ko">결과 확인</span><span class="lang-en">Verify Results</span></h3>
+          <p><span class="lang-ko">작업이 끝나면 빌드, 테스트를 실행해서 결과를 검증합니다.</span><span class="lang-en">When work is done, run builds and tests to verify the results.</span></p>
         </div>
       </div>
 
@@ -1012,8 +1022,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>머지 또는 삭제</h3>
-          <p>성공하면 원본 브랜치에 머지하고, 실패하면 Worktree를 삭제합니다. 세션 종료 시 유지/삭제를 선택할 수 있습니다.</p>
+          <h3><span class="lang-ko">머지 또는 삭제</span><span class="lang-en">Merge or Delete</span></h3>
+          <p><span class="lang-ko">성공하면 원본 브랜치에 머지하고, 실패하면 Worktree를 삭제합니다. 세션 종료 시 유지/삭제를 선택할 수 있습니다.</span><span class="lang-en">If successful, merge into the original branch. If not, delete the Worktree. At session end, you can choose to keep or remove it.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1032,7 +1042,7 @@
     <div class="tip">
       <span class="tip-icon">&#x1F9EA;</span>
       <div>
-        <strong>이럴 때 Worktree를 쓰세요:</strong> 위험한 리팩토링, 실험적 기능 개발, 대규모 아키텍처 변경 등 "혹시 실패하면 어쩌지?"가 걱정될 때. 원본 코드를 전혀 건드리지 않으므로 마음 편하게 도전할 수 있습니다.
+        <span class="lang-ko"><strong>이럴 때 Worktree를 쓰세요:</strong> 위험한 리팩토링, 실험적 기능 개발, 대규모 아키텍처 변경 등 "혹시 실패하면 어쩌지?"가 걱정될 때. 원본 코드를 전혀 건드리지 않으므로 마음 편하게 도전할 수 있습니다.</span><span class="lang-en"><strong>Use Worktree when:</strong> You're worried about risky refactoring, experimental feature development, or large-scale architecture changes. Since the original code is never touched, you can take on challenges with peace of mind.</span>
       </div>
     </div>
   </div>
@@ -1046,19 +1056,28 @@
     <div class="section-number">02</div>
     <h2 class="section-title">Teleport</h2>
     <p class="section-desc">
-      <strong style="color:var(--accent)">로컬 &#x2194; 웹</strong> 세션을 자유롭게 이동하세요. 터미널에서 하던 작업을 웹으로, 웹에서 하던 작업을 터미널로.
+      <span class="lang-ko"><strong style="color:var(--accent)">로컬 &#x2194; 웹</strong> 세션을 자유롭게 이동하세요. 터미널에서 하던 작업을 웹으로, 웹에서 하던 작업을 터미널로.</span><span class="lang-en">Move freely between <strong style="color:var(--accent)">local &#x2194; web</strong> sessions. Continue terminal work on the web, or web work in the terminal.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>"작업 포탈" 비유로 이해하기</h4>
+      <h4><span class="lang-ko">"작업 포탈" 비유로 이해하기</span><span class="lang-en">Understanding it with the "Portal" analogy</span></h4>
+      <div class="lang-ko">
       <p>
         게임에서 <strong style="color:var(--accent)">포탈</strong>을 타면 다른 세계로 순간이동하듯이,<br>
         Teleport를 사용하면 터미널에서 하던 작업을 <strong style="color:var(--text)">웹 브라우저</strong>로, 또는 웹에서 하던 작업을 <strong style="color:var(--text)">터미널</strong>로 순간이동할 수 있습니다.<br><br>
         작업 컨텍스트가 통째로 이동하기 때문에, 대화 히스토리를 다시 설명할 필요가 없습니다.
       </p>
+      </div>
+      <div class="lang-en">
+      <p>
+        Just like stepping through a <strong style="color:var(--accent)">portal</strong> in a game teleports you to another world,<br>
+        Teleport lets you instantly move work from the terminal to a <strong style="color:var(--text)">web browser</strong>, or from the web to the <strong style="color:var(--text)">terminal</strong>.<br><br>
+        The entire work context moves with you, so there's no need to re-explain the conversation history.
+      </p>
+      </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px;">Teleport 작업 흐름</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px;"><span class="lang-ko">Teleport 작업 흐름</span><span class="lang-en">Teleport Workflow</span></h3>
 
     <div class="steps">
       <div class="step">
@@ -1067,8 +1086,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>세션 시작</h3>
-          <p>터미널(Claude Code CLI)이나 웹(claude.ai)에서 작업을 시작합니다.</p>
+          <h3><span class="lang-ko">세션 시작</span><span class="lang-en">Start Session</span></h3>
+          <p><span class="lang-ko">터미널(Claude Code CLI)이나 웹(claude.ai)에서 작업을 시작합니다.</span><span class="lang-en">Start working in the terminal (Claude Code CLI) or on the web (claude.ai).</span></p>
         </div>
       </div>
 
@@ -1078,8 +1097,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>Teleport 명령</h3>
-          <p>작업 환경을 전환하고 싶을 때 Teleport 명령을 사용합니다.</p>
+          <h3><span class="lang-ko">Teleport 명령</span><span class="lang-en">Teleport Command</span></h3>
+          <p><span class="lang-ko">작업 환경을 전환하고 싶을 때 Teleport 명령을 사용합니다.</span><span class="lang-en">Use the Teleport command when you want to switch environments.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1100,8 +1119,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>URL로 연결</h3>
-          <p>생성된 URL을 브라우저에서 열면 동일한 컨텍스트로 작업을 이어갈 수 있습니다.</p>
+          <h3><span class="lang-ko">URL로 연결</span><span class="lang-en">Connect via URL</span></h3>
+          <p><span class="lang-ko">생성된 URL을 브라우저에서 열면 동일한 컨텍스트로 작업을 이어갈 수 있습니다.</span><span class="lang-en">Open the generated URL in a browser to continue work in the same context.</span></p>
         </div>
       </div>
 
@@ -1111,8 +1130,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>다른 환경에서 작업 계속</h3>
-          <p>이전 대화 히스토리와 컨텍스트가 그대로 유지된 채 새로운 환경에서 이어서 작업합니다.</p>
+          <h3><span class="lang-ko">다른 환경에서 작업 계속</span><span class="lang-en">Continue in New Environment</span></h3>
+          <p><span class="lang-ko">이전 대화 히스토리와 컨텍스트가 그대로 유지된 채 새로운 환경에서 이어서 작업합니다.</span><span class="lang-en">Continue working in the new environment with the previous conversation history and context fully intact.</span></p>
         </div>
       </div>
     </div>
@@ -1120,7 +1139,7 @@
     <div class="tip">
       <span class="tip-icon">&#x1F465;</span>
       <div>
-        <strong>팀 협업 팁:</strong> Teleport URL을 팀원에게 공유하면, 내가 작업하던 세션의 컨텍스트를 팀원이 이어받아 작업할 수 있습니다. "이 코드 좀 봐줘"를 넘어서 "내 작업 세션 자체"를 공유하는 겁니다.
+        <span class="lang-ko"><strong>팀 협업 팁:</strong> Teleport URL을 팀원에게 공유하면, 내가 작업하던 세션의 컨텍스트를 팀원이 이어받아 작업할 수 있습니다. "이 코드 좀 봐줘"를 넘어서 "내 작업 세션 자체"를 공유하는 겁니다.</span><span class="lang-en"><strong>Team collaboration tip:</strong> Share the Teleport URL with teammates so they can pick up where you left off in your session. It goes beyond "take a look at this code" — you're sharing your entire work session.</span>
       </div>
     </div>
   </div>
@@ -1134,46 +1153,52 @@
     <div class="section-number">03</div>
     <h2 class="section-title">Agent Teams</h2>
     <p class="section-desc">
-      여러 Claude 에이전트가 <strong style="color:var(--accent)">동시에 협업</strong>하는 멀티에이전트 오케스트레이션.
+      <span class="lang-ko">여러 Claude 에이전트가 <strong style="color:var(--accent)">동시에 협업</strong>하는 멀티에이전트 오케스트레이션.</span><span class="lang-en">Multi-agent orchestration where multiple Claude agents <strong style="color:var(--accent)">collaborate simultaneously</strong>.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>"프로젝트 팀" 비유로 이해하기</h4>
-      <p>
+      <h4><span class="lang-ko">"프로젝트 팀" 비유로 이해하기</span><span class="lang-en">Understanding via the "Project Team" Analogy</span></h4>
+      <div class="lang-ko"><p>
         혼자서 프론트엔드, 백엔드, QA, 문서화를 다 하면 시간이 오래 걸립니다.<br><br>
         Agent Teams는 <strong style="color:var(--accent)">PM(메인 에이전트)</strong>이 작업을 분배하고,<br>
         <strong style="color:var(--green)">프론트엔드 개발자</strong>, <strong style="color:var(--blue)">백엔드 개발자</strong>, <strong style="color:var(--orange)">QA 엔지니어</strong>가 각자의 Worktree에서 <strong style="color:var(--text)">동시에</strong> 작업합니다.<br><br>
         마치 실제 개발팀처럼, 각 에이전트가 전문 영역을 맡아 병렬로 처리합니다.
-      </p>
+      </p></div>
+      <div class="lang-en"><p>
+        Doing frontend, backend, QA, and documentation alone takes a long time.<br><br>
+        Agent Teams has the <strong style="color:var(--accent)">PM (main agent)</strong> distribute work,<br>
+        while the <strong style="color:var(--green)">frontend developer</strong>, <strong style="color:var(--blue)">backend developer</strong>, and <strong style="color:var(--orange)">QA engineer</strong> work <strong style="color:var(--text)">simultaneously</strong> in their own Worktrees.<br><br>
+        Just like a real dev team, each agent handles their specialty area in parallel.
+      </p></div>
     </div>
 
     <div class="card-grid card-grid-2" style="margin-top: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x26A1;</div>
-        <h3>장점: 병렬 처리</h3>
-        <p>여러 에이전트가 동시에 작업하므로, 순차적으로 처리하는 것보다 훨씬 빠릅니다. 프론트엔드 수정과 백엔드 수정을 동시에 진행할 수 있습니다.</p>
+        <h3><span class="lang-ko">장점: 병렬 처리</span><span class="lang-en">Advantage: Parallel Processing</span></h3>
+        <p><span class="lang-ko">여러 에이전트가 동시에 작업하므로, 순차적으로 처리하는 것보다 훨씬 빠릅니다. 프론트엔드 수정과 백엔드 수정을 동시에 진행할 수 있습니다.</span><span class="lang-en">Multiple agents work simultaneously, making it much faster than sequential processing. Frontend and backend changes can proceed at the same time.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F3AF;</div>
-        <h3>장점: 전문화</h3>
-        <p>각 에이전트에게 특정 역할과 컨텍스트를 부여할 수 있습니다. 프론트엔드 전문 에이전트는 UI/UX에만 집중하고, 백엔드 에이전트는 API에만 집중합니다.</p>
+        <h3><span class="lang-ko">장점: 전문화</span><span class="lang-en">Advantage: Specialization</span></h3>
+        <p><span class="lang-ko">각 에이전트에게 특정 역할과 컨텍스트를 부여할 수 있습니다. 프론트엔드 전문 에이전트는 UI/UX에만 집중하고, 백엔드 에이전트는 API에만 집중합니다.</span><span class="lang-en">Each agent can be given a specific role and context. The frontend specialist focuses only on UI/UX, while the backend agent focuses only on APIs.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--orange-dim);">&#x1F4B0;</div>
-        <h3>주의점: 비용</h3>
-        <p>여러 에이전트가 동시에 동작하므로 API 사용량이 늘어납니다. 간단한 작업에는 단일 에이전트가 더 효율적일 수 있으니, 복잡한 작업에만 사용하세요.</p>
+        <h3><span class="lang-ko">주의점: 비용</span><span class="lang-en">Caution: Cost</span></h3>
+        <p><span class="lang-ko">여러 에이전트가 동시에 동작하므로 API 사용량이 늘어납니다. 간단한 작업에는 단일 에이전트가 더 효율적일 수 있으니, 복잡한 작업에만 사용하세요.</span><span class="lang-en">Running multiple agents simultaneously increases API usage. A single agent may be more efficient for simple tasks, so use this only for complex work.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--pink-dim);">&#x26A0;</div>
-        <h3>주의점: 충돌 가능성</h3>
-        <p>여러 에이전트가 같은 파일을 수정하면 머지 충돌이 발생할 수 있습니다. 작업 영역을 명확히 분리하고, 메인 에이전트가 조율하도록 설계하세요.</p>
+        <h3><span class="lang-ko">주의점: 충돌 가능성</span><span class="lang-en">Caution: Conflict Risk</span></h3>
+        <p><span class="lang-ko">여러 에이전트가 같은 파일을 수정하면 머지 충돌이 발생할 수 있습니다. 작업 영역을 명확히 분리하고, 메인 에이전트가 조율하도록 설계하세요.</span><span class="lang-en">If multiple agents modify the same file, merge conflicts can occur. Clearly separate work areas and design the main agent to coordinate.</span></p>
       </div>
     </div>
 
     <div class="code-block" style="margin-top: 40px;">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>Agent Teams 사용 예시</span>
+        <span><span class="lang-ko">Agent Teams 사용 예시</span><span class="lang-en">Agent Teams Usage Example</span></span>
       </div>
       <div class="code-body"><span class="comment"># 메인 에이전트에게 팀 작업 요청</span>
 <span class="keyword">claude</span> <span class="string">"이 프로젝트를 리팩토링해줘.
@@ -1196,12 +1221,12 @@
 <section id="slash">
   <div class="container">
     <div class="section-number">04</div>
-    <h2 class="section-title">커스텀 슬래시 커맨드</h2>
+    <h2 class="section-title"><span class="lang-ko">커스텀 슬래시 커맨드</span><span class="lang-en">Custom Slash Commands</span></h2>
     <p class="section-desc">
-      <code style="color:var(--accent)">.claude/commands/</code> 디렉토리에 마크다운 파일을 넣으면, 나만의 슬래시 커맨드가 됩니다.
+      <span class="lang-ko"><code style="color:var(--accent)">.claude/commands/</code> 디렉토리에 마크다운 파일을 넣으면, 나만의 슬래시 커맨드가 됩니다.</span><span class="lang-en">Place markdown files in the <code style="color:var(--accent)">.claude/commands/</code> directory to create your own slash commands.</span>
     </p>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px;">만드는 법</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px;"><span class="lang-ko">만드는 법</span><span class="lang-en">How to Create</span></h3>
 
     <div class="steps">
       <div class="step">
@@ -1210,8 +1235,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>폴더 생성</h3>
-          <p>프로젝트 루트에 <code style="color:var(--accent)">.claude/commands/</code> 디렉토리를 만듭니다.</p>
+          <h3><span class="lang-ko">폴더 생성</span><span class="lang-en">Create Folder</span></h3>
+          <p><span class="lang-ko">프로젝트 루트에 <code style="color:var(--accent)">.claude/commands/</code> 디렉토리를 만듭니다.</span><span class="lang-en">Create the <code style="color:var(--accent)">.claude/commands/</code> directory in the project root.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1228,8 +1253,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>.md 파일 작성</h3>
-          <p>파일 이름이 곧 커맨드 이름이 됩니다. 내용에는 Claude가 수행할 작업을 적습니다.</p>
+          <h3><span class="lang-ko">.md 파일 작성</span><span class="lang-en">Write the .md File</span></h3>
+          <p><span class="lang-ko">파일 이름이 곧 커맨드 이름이 됩니다. 내용에는 Claude가 수행할 작업을 적습니다.</span><span class="lang-en">The filename becomes the command name. Write the task you want Claude to perform in the content.</span></p>
 
           <div class="code-block">
             <div class="code-header">
@@ -1291,8 +1316,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>사용하기</h3>
-          <p>Claude Code 대화 중에 슬래시(/)로 시작하면 자동 완성됩니다.</p>
+          <h3><span class="lang-ko">사용하기</span><span class="lang-en">Using the Command</span></h3>
+          <p><span class="lang-ko">Claude Code 대화 중에 슬래시(/)로 시작하면 자동 완성됩니다.</span><span class="lang-en">During a Claude Code conversation, start with a slash (/) and it will autocomplete.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1310,7 +1335,7 @@
     <div class="tip">
       <span class="tip-icon">&#x1F465;</span>
       <div>
-        <strong>팀 공유 팁:</strong> <code style="color:var(--accent)">.claude/commands/</code> 디렉토리를 Git에 커밋하면, 팀 전체가 동일한 커스텀 커맨드를 사용할 수 있습니다. 팀의 워크플로우를 코드로 관리하세요.
+        <span class="lang-ko"><strong>팀 공유 팁:</strong> <code style="color:var(--accent)">.claude/commands/</code> 디렉토리를 Git에 커밋하면, 팀 전체가 동일한 커스텀 커맨드를 사용할 수 있습니다. 팀의 워크플로우를 코드로 관리하세요.</span><span class="lang-en"><strong>Team sharing tip:</strong> Commit the <code style="color:var(--accent)">.claude/commands/</code> directory to Git and the entire team can use the same custom commands. Manage your team's workflow as code.</span>
       </div>
     </div>
   </div>
@@ -1322,43 +1347,43 @@
 <section id="context">
   <div class="container">
     <div class="section-number">05</div>
-    <h2 class="section-title">1M 컨텍스트 &amp; 플러그인</h2>
+    <h2 class="section-title"><span class="lang-ko">1M 컨텍스트 &amp; 플러그인</span><span class="lang-en">1M Context &amp; Plugins</span></h2>
     <p class="section-desc">
-      <strong style="color:var(--accent)">Extended Context Window</strong> &mdash; 방대한 코드베이스도 한 번에 파악합니다.
+      <strong style="color:var(--accent)">Extended Context Window</strong> &mdash; <span class="lang-ko">방대한 코드베이스도 한 번에 파악합니다.</span><span class="lang-en">Grasp even massive codebases all at once.</span>
     </p>
 
     <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
-      <span style="color: var(--accent)">&#9679;</span> 모델별 컨텍스트 크기 비교
+      <span style="color: var(--accent)">&#9679;</span> <span class="lang-ko">모델별 컨텍스트 크기 비교</span><span class="lang-en">Context Size Comparison by Model</span>
     </h3>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th style="width: 200px;">모델</th>
-          <th>컨텍스트 윈도우</th>
-          <th style="width: 200px;">대략적 코드량</th>
+          <th style="width: 200px;"><span class="lang-ko">모델</span><span class="lang-en">Model</span></th>
+          <th><span class="lang-ko">컨텍스트 윈도우</span><span class="lang-en">Context Window</span></th>
+          <th style="width: 200px;"><span class="lang-ko">대략적 코드량</span><span class="lang-en">Approx. Code Volume</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">GPT-4</td>
-          <td style="color: var(--text-dim);">128K 토큰</td>
-          <td><span class="tag tag-orange">~300 파일</span></td>
+          <td style="color: var(--text-dim);">128K tokens</td>
+          <td><span class="tag tag-orange"><span class="lang-ko">~300 파일</span><span class="lang-en">~300 files</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Claude 3.5 Sonnet</td>
-          <td style="color: var(--text-dim);">200K 토큰</td>
-          <td><span class="tag tag-blue">~500 파일</span></td>
+          <td style="color: var(--text-dim);">200K tokens</td>
+          <td><span class="tag tag-blue"><span class="lang-ko">~500 파일</span><span class="lang-en">~500 files</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Claude (Extended)</td>
-          <td style="color: var(--text-dim);">1M 토큰</td>
-          <td><span class="tag tag-green">~2,500 파일</span></td>
+          <td style="color: var(--text-dim);">1M tokens</td>
+          <td><span class="tag tag-green"><span class="lang-ko">~2,500 파일</span><span class="lang-en">~2,500 files</span></span></td>
         </tr>
         <tr>
-          <td class="skill-name-cell">Claude Code + 탐색</td>
-          <td style="color: var(--text-dim);">1M+ (도구 활용)</td>
-          <td><span class="tag tag-purple">사실상 무제한</span></td>
+          <td class="skill-name-cell"><span class="lang-ko">Claude Code + 탐색</span><span class="lang-en">Claude Code + Exploration</span></td>
+          <td style="color: var(--text-dim);">1M+ (<span class="lang-ko">도구 활용</span><span class="lang-en">tool-assisted</span>)</td>
+          <td><span class="tag tag-purple"><span class="lang-ko">사실상 무제한</span><span class="lang-en">Effectively unlimited</span></span></td>
         </tr>
       </tbody>
     </table>
@@ -1366,20 +1391,20 @@
     <div class="card-grid card-grid-2" style="margin-top: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F50D;</div>
-        <h3>전체 코드베이스 분석</h3>
-        <p>대규모 프로젝트의 아키텍처를 한눈에 파악할 수 있습니다. "이 프로젝트의 전체 구조를 설명해줘"라고 하면, 수천 개의 파일을 탐색하고 종합적인 분석을 제공합니다.</p>
+        <h3><span class="lang-ko">전체 코드베이스 분석</span><span class="lang-en">Full Codebase Analysis</span></h3>
+        <p><span class="lang-ko">대규모 프로젝트의 아키텍처를 한눈에 파악할 수 있습니다. "이 프로젝트의 전체 구조를 설명해줘"라고 하면, 수천 개의 파일을 탐색하고 종합적인 분석을 제공합니다.</span><span class="lang-en">Understand the architecture of large-scale projects at a glance. Say "explain the full structure of this project" and it will explore thousands of files to provide a comprehensive analysis.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F504;</div>
-        <h3>대규모 리팩토링</h3>
-        <p>API 변경, 네이밍 컨벤션 통일, 디자인 패턴 적용 등 프로젝트 전반에 걸친 변경을 안전하게 수행합니다. 모든 관련 파일을 파악하고 일관성 있게 수정합니다.</p>
+        <h3><span class="lang-ko">대규모 리팩토링</span><span class="lang-en">Large-Scale Refactoring</span></h3>
+        <p><span class="lang-ko">API 변경, 네이밍 컨벤션 통일, 디자인 패턴 적용 등 프로젝트 전반에 걸친 변경을 안전하게 수행합니다. 모든 관련 파일을 파악하고 일관성 있게 수정합니다.</span><span class="lang-en">Safely perform project-wide changes like API updates, naming convention unification, and design pattern application. Identify all related files and modify them consistently.</span></p>
       </div>
     </div>
 
     <div class="tip" style="margin-top: 32px;">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>중요 포인트:</strong> 컨텍스트 윈도우가 아무리 커도 <code style="color:var(--accent)">/compact</code> 전략은 여전히 중요합니다. 불필요한 컨텍스트를 줄이면 응답 품질이 올라가고, 비용도 절약됩니다. 대용량 컨텍스트는 "필요할 때 쓸 수 있는 여유"이지, "항상 다 채워야 하는 공간"이 아닙니다.
+        <span class="lang-ko"><strong>중요 포인트:</strong> 컨텍스트 윈도우가 아무리 커도 <code style="color:var(--accent)">/compact</code> 전략은 여전히 중요합니다. 불필요한 컨텍스트를 줄이면 응답 품질이 올라가고, 비용도 절약됩니다. 대용량 컨텍스트는 "필요할 때 쓸 수 있는 여유"이지, "항상 다 채워야 하는 공간"이 아닙니다.</span><span class="lang-en"><strong>Key point:</strong> No matter how large the context window, the <code style="color:var(--accent)">/compact</code> strategy still matters. Reducing unnecessary context improves response quality and saves cost. A large context is "room available when needed," not "a space that must always be filled."</span>
       </div>
     </div>
   </div>
@@ -1393,22 +1418,26 @@
     <div class="section-number">06</div>
     <h2 class="section-title">Fast Mode</h2>
     <p class="section-desc">
-      <strong style="color:var(--accent)">/fast</strong> 명령 한 번으로 응답 속도를 2.5배 향상시키세요. 빠른 반복 작업과 라이브 디버깅에 최적화되어 있습니다.
+      <span class="lang-ko"><strong style="color:var(--accent)">/fast</strong> 명령 한 번으로 응답 속도를 2.5배 향상시키세요. 빠른 반복 작업과 라이브 디버깅에 최적화되어 있습니다.</span><span class="lang-en">Boost response speed 2.5x with a single <strong style="color:var(--accent)">/fast</strong> command. Optimized for rapid iteration and live debugging.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>Fast Mode란?</h4>
-      <p>
+      <h4><span class="lang-ko">Fast Mode란?</span><span class="lang-en">What is Fast Mode?</span></h4>
+      <div class="lang-ko"><p>
         Fast Mode는 <strong style="color:var(--accent)">다른 모델이 아닙니다.</strong> 동일한 Opus 4.6 모델을 사용하되, 비용 효율성보다 속도를 우선시하는 다른 API 구성을 사용합니다.<br><br>
         동일한 품질과 기능을 얻으며, 응답만 더 빠릅니다. 활성화되면 프롬프트 옆에 <strong style="color:var(--text)">↯ 아이콘</strong>이 나타납니다.
-      </p>
+      </p></div>
+      <div class="lang-en"><p>
+        Fast Mode is <strong style="color:var(--accent)">not a different model.</strong> It uses the same Opus 4.6 model but with a different API configuration that prioritizes speed over cost efficiency.<br><br>
+        You get the same quality and capabilities, just with faster responses. When active, a <strong style="color:var(--text)">↯ icon</strong> appears next to the prompt.
+      </p></div>
     </div>
 
     <div class="card-grid card-grid-2" style="margin-top: 32px;">
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x26A1;</div>
-        <h3>Fast Mode 켜기 / 끄기</h3>
-        <p style="margin-bottom: 16px;">CLI에서 <code style="color:var(--accent)">/fast</code>를 입력해 Tab을 눌러 전환합니다. 또는 settings.json에 설정으로 고정할 수 있습니다.</p>
+        <h3><span class="lang-ko">Fast Mode 켜기 / 끄기</span><span class="lang-en">Toggle Fast Mode On / Off</span></h3>
+        <p style="margin-bottom: 16px;"><span class="lang-ko">CLI에서 <code style="color:var(--accent)">/fast</code>를 입력해 Tab을 눌러 전환합니다. 또는 settings.json에 설정으로 고정할 수 있습니다.</span><span class="lang-en">In the CLI, type <code style="color:var(--accent)">/fast</code> and press Tab to toggle. Or fix it permanently in settings.json.</span></p>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1425,20 +1454,20 @@
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F4CA;</div>
-        <h3>언제 쓸까?</h3>
-        <p>Fast Mode는 응답 지연 시간이 비용보다 중요한 상황에 최적입니다.</p>
+        <h3><span class="lang-ko">언제 쓸까?</span><span class="lang-en">When to Use?</span></h3>
+        <p><span class="lang-ko">Fast Mode는 응답 지연 시간이 비용보다 중요한 상황에 최적입니다.</span><span class="lang-en">Fast Mode is ideal when response latency matters more than cost.</span></p>
         <div style="margin-top: 16px;">
-          <div style="margin-bottom: 8px;"><span class="tag tag-green">적합</span></div>
+          <div style="margin-bottom: 8px;"><span class="tag tag-green"><span class="lang-ko">적합</span><span class="lang-en">Good for</span></span></div>
           <ul style="color: var(--text-dim); font-size: 14px; padding-left: 18px; line-height: 2;">
-            <li>코드 변경에 대한 빠른 반복</li>
-            <li>라이브 디버깅 세션</li>
-            <li>긴급 마감이 있는 시간 민감 작업</li>
+            <li><span class="lang-ko">코드 변경에 대한 빠른 반복</span><span class="lang-en">Rapid iteration on code changes</span></li>
+            <li><span class="lang-ko">라이브 디버깅 세션</span><span class="lang-en">Live debugging sessions</span></li>
+            <li><span class="lang-ko">긴급 마감이 있는 시간 민감 작업</span><span class="lang-en">Time-sensitive tasks with urgent deadlines</span></li>
           </ul>
-          <div style="margin: 12px 0 8px;"><span class="tag tag-orange">비적합</span></div>
+          <div style="margin: 12px 0 8px;"><span class="tag tag-orange"><span class="lang-ko">비적합</span><span class="lang-en">Not ideal for</span></span></div>
           <ul style="color: var(--text-dim); font-size: 14px; padding-left: 18px; line-height: 2;">
-            <li>장기 자동화 작업 (비용 부담)</li>
-            <li>배치 처리 / CI·CD 파이프라인</li>
-            <li>비용 민감 워크로드</li>
+            <li><span class="lang-ko">장기 자동화 작업 (비용 부담)</span><span class="lang-en">Long-running automation tasks (cost burden)</span></li>
+            <li><span class="lang-ko">배치 처리 / CI·CD 파이프라인</span><span class="lang-en">Batch processing / CI·CD pipelines</span></li>
+            <li><span class="lang-ko">비용 민감 워크로드</span><span class="lang-en">Cost-sensitive workloads</span></li>
           </ul>
         </div>
       </div>
@@ -1447,7 +1476,7 @@
     <div class="tip" style="margin-top: 32px;">
       <span class="tip-icon">&#x1F4B0;</span>
       <div>
-        <strong>비용 트레이드오프:</strong> Fast Mode는 표준 Opus 4.6보다 토큰당 가격이 더 높습니다. 대화 중간에 전환하면 전체 컨텍스트에 대해 Fast Mode 요금이 적용됩니다. 세션 시작 시 활성화하는 것이 비용 효율적입니다. 속도 제한 도달 시 자동으로 표준 모드로 폴백됩니다.
+        <span class="lang-ko"><strong>비용 트레이드오프:</strong> Fast Mode는 표준 Opus 4.6보다 토큰당 가격이 더 높습니다. 대화 중간에 전환하면 전체 컨텍스트에 대해 Fast Mode 요금이 적용됩니다. 세션 시작 시 활성화하는 것이 비용 효율적입니다. 속도 제한 도달 시 자동으로 표준 모드로 폴백됩니다.</span><span class="lang-en"><strong>Cost trade-off:</strong> Fast Mode has a higher per-token price than standard Opus 4.6. Switching mid-conversation applies Fast Mode pricing to the entire context. Activating at session start is more cost-efficient. Automatically falls back to standard mode when rate limits are reached.</span>
       </div>
     </div>
   </div>
@@ -1461,15 +1490,19 @@
     <div class="section-number">07</div>
     <h2 class="section-title">Remote Control</h2>
     <p class="section-desc">
-      로컬 터미널 세션을 <strong style="color:var(--accent)">폰이나 브라우저</strong>에서 원격으로 이어받으세요. 자리를 벗어나도 Claude Code 작업을 계속할 수 있습니다.
+      <span class="lang-ko">로컬 터미널 세션을 <strong style="color:var(--accent)">폰이나 브라우저</strong>에서 원격으로 이어받으세요. 자리를 벗어나도 Claude Code 작업을 계속할 수 있습니다.</span><span class="lang-en">Continue your local terminal session remotely from your <strong style="color:var(--accent)">phone or browser</strong>. Keep working on Claude Code even when away from your desk.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>"원격 데스크탑" 비유로 이해하기</h4>
-      <p>
+      <h4><span class="lang-ko">"원격 데스크탑" 비유로 이해하기</span><span class="lang-en">Understanding via the "Remote Desktop" Analogy</span></h4>
+      <div class="lang-ko"><p>
         마치 원격 데스크탑처럼, <strong style="color:var(--accent)">로컬에서 실행 중인 Claude Code 세션</strong>을 클라우드를 통해 어디서든 접근할 수 있습니다.<br><br>
         사무실 컴퓨터에서 작업을 시작하고, 이동 중에 폰으로 이어받아 계속하고, 집에서 다시 PC로 돌아올 수 있습니다.
-      </p>
+      </p></div>
+      <div class="lang-en"><p>
+        Just like remote desktop, you can access your <strong style="color:var(--accent)">locally running Claude Code session</strong> from anywhere via the cloud.<br><br>
+        Start work on your office computer, continue on your phone while commuting, and return to your PC at home.
+      </p></div>
     </div>
 
     <div class="steps">
@@ -1479,8 +1512,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>Remote 모드로 세션 시작</h3>
-          <p>로컬 터미널에서 <code style="color:var(--accent)">--remote</code> 플래그로 Claude Code를 시작합니다.</p>
+          <h3><span class="lang-ko">Remote 모드로 세션 시작</span><span class="lang-en">Start Session in Remote Mode</span></h3>
+          <p><span class="lang-ko">로컬 터미널에서 <code style="color:var(--accent)">--remote</code> 플래그로 Claude Code를 시작합니다.</span><span class="lang-en">Start Claude Code in the local terminal with the <code style="color:var(--accent)">--remote</code> flag.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1498,8 +1531,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>claude.ai/code에서 이어받기</h3>
-          <p>브라우저 또는 폰에서 <strong>claude.ai/code</strong>에 접속하여 Remote Control 옵션으로 로컬 세션에 연결합니다.</p>
+          <h3><span class="lang-ko">claude.ai/code에서 이어받기</span><span class="lang-en">Pick Up at claude.ai/code</span></h3>
+          <p><span class="lang-ko">브라우저 또는 폰에서 <strong>claude.ai/code</strong>에 접속하여 Remote Control 옵션으로 로컬 세션에 연결합니다.</span><span class="lang-en">Access <strong>claude.ai/code</strong> from a browser or phone and connect to the local session via the Remote Control option.</span></p>
         </div>
       </div>
 
@@ -1509,8 +1542,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>/teleport로 웹 → 로컬 이동</h3>
-          <p>반대 방향도 가능합니다. 웹 세션에서 <code style="color:var(--accent)">/teleport</code> 명령을 사용하면 해당 세션을 로컬 터미널로 이동시킬 수 있습니다.</p>
+          <h3><span class="lang-ko">/teleport로 웹 → 로컬 이동</span><span class="lang-en">Move Web → Local with /teleport</span></h3>
+          <p><span class="lang-ko">반대 방향도 가능합니다. 웹 세션에서 <code style="color:var(--accent)">/teleport</code> 명령을 사용하면 해당 세션을 로컬 터미널로 이동시킬 수 있습니다.</span><span class="lang-en">The reverse is also possible. Use the <code style="color:var(--accent)">/teleport</code> command in a web session to move that session to the local terminal.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1527,7 +1560,7 @@
     <div class="tip">
       <span class="tip-icon">&#x1F4F1;</span>
       <div>
-        <strong>활용 시나리오:</strong> 회의실에서 폰으로 코드 리뷰를 지시하고, 사무실 돌아와서 터미널로 이어받아 실행 → 이동 중 브라우저로 PRD 분석 지시 → 귀가 후 로컬에서 코드 결과 확인. 작업 컨텍스트가 끊기지 않습니다.
+        <span class="lang-ko"><strong>활용 시나리오:</strong> 회의실에서 폰으로 코드 리뷰를 지시하고, 사무실 돌아와서 터미널로 이어받아 실행 → 이동 중 브라우저로 PRD 분석 지시 → 귀가 후 로컬에서 코드 결과 확인. 작업 컨텍스트가 끊기지 않습니다.</span><span class="lang-en"><strong>Usage scenario:</strong> Direct a code review on your phone in a meeting room, return to the office and continue in the terminal → Direct PRD analysis from a browser while commuting → Check code results locally after getting home. Work context never breaks.</span>
       </div>
     </div>
   </div>
@@ -1539,44 +1572,44 @@
 <section id="keyboard">
   <div class="container">
     <div class="section-number">08</div>
-    <h2 class="section-title">키보드 단축키</h2>
+    <h2 class="section-title"><span class="lang-ko">키보드 단축키</span><span class="lang-en">Keyboard Shortcuts</span></h2>
     <p class="section-desc">
-      Claude Code를 더 빠르게 조작하는 <strong style="color:var(--accent)">필수 단축키</strong>들. 손이 키보드를 떠나지 않아도 됩니다.
+      <span class="lang-ko">Claude Code를 더 빠르게 조작하는 <strong style="color:var(--accent)">필수 단축키</strong>들. 손이 키보드를 떠나지 않아도 됩니다.</span><span class="lang-en"><strong style="color:var(--accent)">Essential shortcuts</strong> for faster Claude Code operation. Keep your hands on the keyboard.</span>
     </p>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th style="width: 220px;">단축키</th>
-          <th>기능</th>
-          <th style="width: 180px;">상황</th>
+          <th style="width: 220px;"><span class="lang-ko">단축키</span><span class="lang-en">Shortcut</span></th>
+          <th><span class="lang-ko">기능</span><span class="lang-en">Function</span></th>
+          <th style="width: 180px;"><span class="lang-ko">상황</span><span class="lang-en">Context</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">Shift + Tab</td>
-          <td style="color: var(--text-dim);">권한 모드 순환 (Auto Accept → Manual → Plan Only)</td>
-          <td><span class="tag tag-purple">권한 제어</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">권한 모드 순환 (Auto Accept → Manual → Plan Only)</span><span class="lang-en">Cycle permission modes (Auto Accept → Manual → Plan Only)</span></td>
+          <td><span class="tag tag-purple"><span class="lang-ko">권한 제어</span><span class="lang-en">Permission Control</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Ctrl + B</td>
-          <td style="color: var(--text-dim);">현재 작업을 백그라운드로 이동 &mdash; 다른 작업 시작 가능</td>
-          <td><span class="tag tag-blue">멀티태스킹</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">현재 작업을 백그라운드로 이동 &mdash; 다른 작업 시작 가능</span><span class="lang-en">Move current task to background &mdash; start another task</span></td>
+          <td><span class="tag tag-blue"><span class="lang-ko">멀티태스킹</span><span class="lang-en">Multitasking</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Esc</td>
-          <td style="color: var(--text-dim);">Claude 응답 중단 (생성 중인 응답 즉시 중지)</td>
-          <td><span class="tag tag-orange">중단</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">Claude 응답 중단 (생성 중인 응답 즉시 중지)</span><span class="lang-en">Stop Claude response (immediately stop generation)</span></td>
+          <td><span class="tag tag-orange"><span class="lang-ko">중단</span><span class="lang-en">Stop</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Esc × 2</td>
-          <td style="color: var(--text-dim);">마지막 파일 변경 취소 (Undo last file change)</td>
-          <td><span class="tag tag-pink">실행 취소</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">마지막 파일 변경 취소 (Undo last file change)</span><span class="lang-en">Undo last file change</span></td>
+          <td><span class="tag tag-pink"><span class="lang-ko">실행 취소</span><span class="lang-en">Undo</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Ctrl + R</td>
-          <td style="color: var(--text-dim);">대화 히스토리 검색 (터미널에서 이전 명령 탐색)</td>
-          <td><span class="tag tag-green">히스토리</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">대화 히스토리 검색 (터미널에서 이전 명령 탐색)</span><span class="lang-en">Search conversation history (navigate previous commands in terminal)</span></td>
+          <td><span class="tag tag-green"><span class="lang-ko">히스토리</span><span class="lang-en">History</span></span></td>
         </tr>
       </tbody>
     </table>
@@ -1584,20 +1617,20 @@
     <div class="card-grid card-grid-2" style="margin-top: 32px;">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F3AE;</div>
-        <h3>권한 모드 순환 (Shift+Tab)</h3>
-        <p>Shift+Tab을 누를 때마다 권한 모드가 순환됩니다. <strong style="color:var(--green)">Auto Accept</strong>(자동 승인) → <strong style="color:var(--orange)">Manual</strong>(매번 확인) → <strong style="color:var(--blue)">Plan Only</strong>(계획만 보기) 순으로 전환됩니다. 위험한 작업 전엔 Manual로 전환하세요.</p>
+        <h3><span class="lang-ko">권한 모드 순환 (Shift+Tab)</span><span class="lang-en">Permission Mode Cycle (Shift+Tab)</span></h3>
+        <p><span class="lang-ko">Shift+Tab을 누를 때마다 권한 모드가 순환됩니다. <strong style="color:var(--green)">Auto Accept</strong>(자동 승인) → <strong style="color:var(--orange)">Manual</strong>(매번 확인) → <strong style="color:var(--blue)">Plan Only</strong>(계획만 보기) 순으로 전환됩니다. 위험한 작업 전엔 Manual로 전환하세요.</span><span class="lang-en">Each Shift+Tab press cycles through permission modes: <strong style="color:var(--green)">Auto Accept</strong> → <strong style="color:var(--orange)">Manual</strong> (confirm each time) → <strong style="color:var(--blue)">Plan Only</strong> (view plan only). Switch to Manual before risky operations.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--orange-dim);">&#x270B;</div>
-        <h3>Esc 두 번으로 되돌리기</h3>
-        <p>Claude가 파일을 잘못 수정했을 때 Esc를 <strong style="color:var(--accent)">두 번 연속</strong> 누르면 마지막 파일 변경이 취소됩니다. 실수로 중요한 코드가 바뀌었을 때 빠른 복구 수단입니다. Worktree와 함께 쓰면 더욱 안전합니다.</p>
+        <h3><span class="lang-ko">Esc 두 번으로 되돌리기</span><span class="lang-en">Undo with Double Esc</span></h3>
+        <p><span class="lang-ko">Claude가 파일을 잘못 수정했을 때 Esc를 <strong style="color:var(--accent)">두 번 연속</strong> 누르면 마지막 파일 변경이 취소됩니다. 실수로 중요한 코드가 바뀌었을 때 빠른 복구 수단입니다. Worktree와 함께 쓰면 더욱 안전합니다.</span><span class="lang-en">When Claude incorrectly modifies a file, press Esc <strong style="color:var(--accent)">twice in a row</strong> to undo the last file change. A quick recovery tool when important code is accidentally changed. Even safer when used with Worktree.</span></p>
       </div>
     </div>
 
     <div class="tip" style="margin-top: 24px;">
       <span class="tip-icon">&#x2328;</span>
       <div>
-        <strong>출력 스타일 변경:</strong> <code style="color:var(--accent)">/output-style</code> 명령으로 Claude의 응답 형식을 변경할 수 있습니다. 마크다운, 일반 텍스트, 간결 모드 등 상황에 맞게 조절하세요.
+        <span class="lang-ko"><strong>출력 스타일 변경:</strong> <code style="color:var(--accent)">/output-style</code> 명령으로 Claude의 응답 형식을 변경할 수 있습니다. 마크다운, 일반 텍스트, 간결 모드 등 상황에 맞게 조절하세요.</span><span class="lang-en"><strong>Output style change:</strong> Use the <code style="color:var(--accent)">/output-style</code> command to change Claude's response format. Adjust to markdown, plain text, concise mode, etc. as needed.</span>
       </div>
     </div>
   </div>
@@ -1609,52 +1642,52 @@
 <section id="settings">
   <div class="container">
     <div class="section-number">09</div>
-    <h2 class="section-title">설정 & 구성</h2>
+    <h2 class="section-title"><span class="lang-ko">설정 & 구성</span><span class="lang-en">Settings & Configuration</span></h2>
     <p class="section-desc">
-      <strong style="color:var(--accent)">settings.json</strong>과 환경 변수로 Claude Code 동작을 세밀하게 제어하세요. 개인·프로젝트·팀 단위로 계층적으로 적용됩니다.
+      <span class="lang-ko"><strong style="color:var(--accent)">settings.json</strong>과 환경 변수로 Claude Code 동작을 세밀하게 제어하세요. 개인·프로젝트·팀 단위로 계층적으로 적용됩니다.</span><span class="lang-en">Control Claude Code behavior in detail with <strong style="color:var(--accent)">settings.json</strong> and environment variables. Applied hierarchically at personal, project, and team levels.</span>
     </p>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">설정 파일 위치 및 범위</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">설정 파일 위치 및 범위</span><span class="lang-en">Settings File Locations and Scope</span></h3>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th>범위</th>
-          <th>파일 위치</th>
-          <th style="width: 160px;">적용 대상</th>
-          <th style="width: 120px;">Git 공유</th>
+          <th><span class="lang-ko">범위</span><span class="lang-en">Scope</span></th>
+          <th><span class="lang-ko">파일 위치</span><span class="lang-en">File Location</span></th>
+          <th style="width: 160px;"><span class="lang-ko">적용 대상</span><span class="lang-en">Applies To</span></th>
+          <th style="width: 120px;"><span class="lang-ko">Git 공유</span><span class="lang-en">Git Sharing</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">User</td>
           <td style="color: var(--text-dim);"><code>~/.claude/settings.json</code></td>
-          <td>모든 프로젝트</td>
-          <td><span class="tag tag-orange">비공유</span></td>
+          <td><span class="lang-ko">모든 프로젝트</span><span class="lang-en">All projects</span></td>
+          <td><span class="tag tag-orange"><span class="lang-ko">비공유</span><span class="lang-en">Not shared</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Project</td>
           <td style="color: var(--text-dim);"><code>.claude/settings.json</code></td>
-          <td>이 저장소 전체</td>
-          <td><span class="tag tag-green">공유 가능</span></td>
+          <td><span class="lang-ko">이 저장소 전체</span><span class="lang-en">Entire this repo</span></td>
+          <td><span class="tag tag-green"><span class="lang-ko">공유 가능</span><span class="lang-en">Shareable</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Local</td>
           <td style="color: var(--text-dim);"><code>.claude/*.local.*</code></td>
-          <td>이 저장소의 나만</td>
+          <td><span class="lang-ko">이 저장소의 나만</span><span class="lang-en">Only me in this repo</span></td>
           <td><span class="tag tag-orange">gitignored</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Managed</td>
-          <td style="color: var(--text-dim);">시스템 관리 (IT 배포)</td>
-          <td>머신의 모든 사용자</td>
-          <td><span class="tag tag-blue">IT 배포</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">시스템 관리 (IT 배포)</span><span class="lang-en">System managed (IT deployment)</span></td>
+          <td><span class="lang-ko">머신의 모든 사용자</span><span class="lang-en">All users on machine</span></td>
+          <td><span class="tag tag-blue"><span class="lang-ko">IT 배포</span><span class="lang-en">IT Deployed</span></span></td>
         </tr>
       </tbody>
     </table>
 
     <div style="margin-top: 40px;">
-      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">주요 settings.json 키</h3>
+      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">주요 settings.json 키</span><span class="lang-en">Key settings.json Keys</span></h3>
 
       <div class="code-block">
         <div class="code-header">
@@ -1680,39 +1713,39 @@
     </div>
 
     <div style="margin-top: 40px;">
-      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">환경 변수 (Environment Variables)</h3>
+      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">환경 변수 (Environment Variables)</span><span class="lang-en">Environment Variables</span></h3>
 
       <table class="skill-table">
         <thead>
           <tr>
-            <th>환경 변수</th>
-            <th>설명</th>
+            <th><span class="lang-ko">환경 변수</span><span class="lang-en">Environment Variable</span></th>
+            <th><span class="lang-ko">설명</span><span class="lang-en">Description</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="skill-name-cell">ANTHROPIC_MODEL</td>
-            <td style="color: var(--text-dim);">기본 모델 지정 (예: <code>claude-opus-4-5</code>)</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">기본 모델 지정 (예: <code>claude-opus-4-5</code>)</span><span class="lang-en">Specify default model (e.g., <code>claude-opus-4-5</code>)</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">CLAUDE_CODE_DISABLE_AUTO_MEMORY</td>
-            <td style="color: var(--text-dim);"><code>1</code>로 설정 시 자동 메모리 수집 비활성화</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko"><code>1</code>로 설정 시 자동 메모리 수집 비활성화</span><span class="lang-en">Set to <code>1</code> to disable auto memory collection</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">CLAUDE_CODE_DISABLE_FAST_MODE</td>
-            <td style="color: var(--text-dim);"><code>1</code>로 설정 시 Fast Mode 완전 비활성화</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko"><code>1</code>로 설정 시 Fast Mode 완전 비활성화</span><span class="lang-en">Set to <code>1</code> to fully disable Fast Mode</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">ANTHROPIC_API_KEY</td>
-            <td style="color: var(--text-dim);">Anthropic API 키 (Console API 사용 시)</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">Anthropic API 키 (Console API 사용 시)</span><span class="lang-en">Anthropic API key (when using Console API)</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div style="margin-top: 40px;">
-      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">모델 전환</h3>
-      <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 20px;">세션 중 언제든 <code style="color:var(--accent)">/model</code> 명령으로 모델을 바꿀 수 있습니다. CLI 플래그로도 지정 가능합니다.</p>
+      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">모델 전환</span><span class="lang-en">Model Switching</span></h3>
+      <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 20px;"><span class="lang-ko">세션 중 언제든 <code style="color:var(--accent)">/model</code> 명령으로 모델을 바꿀 수 있습니다. CLI 플래그로도 지정 가능합니다.</span><span class="lang-en">Change the model anytime during a session with the <code style="color:var(--accent)">/model</code> command. Can also be specified via CLI flags.</span></p>
       <div class="code-block">
         <div class="code-header">
           <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1732,7 +1765,7 @@
     <div class="tip" style="margin-top: 32px;">
       <span class="tip-icon">&#x2699;</span>
       <div>
-        <strong>우선순위:</strong> 설정은 Managed(최고) > CLI 인수 > Local > Project > User(최저) 순으로 적용됩니다. 더 구체적인 범위가 상위 범위를 덮어씁니다. <code style="color:var(--accent)">/config</code> 명령으로 현재 설정 상태를 탭 인터페이스로 확인하고 수정할 수 있습니다.
+        <span class="lang-ko"><strong>우선순위:</strong> 설정은 Managed(최고) > CLI 인수 > Local > Project > User(최저) 순으로 적용됩니다. 더 구체적인 범위가 상위 범위를 덮어씁니다. <code style="color:var(--accent)">/config</code> 명령으로 현재 설정 상태를 탭 인터페이스로 확인하고 수정할 수 있습니다.</span><span class="lang-en"><strong>Priority:</strong> Settings are applied in order: Managed (highest) > CLI args > Local > Project > User (lowest). More specific scopes override higher ones. Use the <code style="color:var(--accent)">/config</code> command to view and edit the current config state via a tab interface.</span>
       </div>
     </div>
   </div>
@@ -1744,20 +1777,28 @@
 <section id="headless">
   <div class="container">
     <div class="section-number">10</div>
-    <h2 class="section-title">Headless / 프로그래매틱 모드</h2>
+    <h2 class="section-title"><span class="lang-ko">Headless / 프로그래매틱 모드</span><span class="lang-en">Headless / Programmatic Mode</span></h2>
     <p class="section-desc">
-      <strong style="color:var(--accent)">-p 플래그</strong>로 Claude Code를 스크립트, 자동화, CI/CD 파이프라인에 직접 통합하세요.
+      <span class="lang-ko"><strong style="color:var(--accent)">-p 플래그</strong>로 Claude Code를 스크립트, 자동화, CI/CD 파이프라인에 직접 통합하세요.</span><span class="lang-en">Directly integrate Claude Code into scripts, automation, and CI/CD pipelines with the <strong style="color:var(--accent)">-p flag</strong>.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>Headless 모드란?</h4>
+      <h4><span class="lang-ko">Headless 모드란?</span><span class="lang-en">What is Headless Mode?</span></h4>
+      <div class="lang-ko">
       <p>
         대화형 REPL 없이 <strong style="color:var(--accent)">단일 명령으로 Claude를 호출</strong>하는 모드입니다. 파이프(<code>|</code>)로 데이터를 넘기거나, 셸 스크립트에서 호출하거나, GitHub Actions에서 자동 실행할 수 있습니다.<br><br>
         Claude가 <strong style="color:var(--text)">자동화 도구</strong>가 되는 겁니다.
       </p>
+      </div>
+      <div class="lang-en">
+      <p>
+        A mode that <strong style="color:var(--accent)">calls Claude with a single command</strong> without an interactive REPL. You can pipe data via (<code>|</code>), call it from shell scripts, or auto-run it in GitHub Actions.<br><br>
+        Claude becomes an <strong style="color:var(--text)">automation tool</strong>.
+      </p>
+      </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 32px 0 20px;">활용 예시</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin: 32px 0 20px;"><span class="lang-ko">활용 예시</span><span class="lang-en">Usage Examples</span></h3>
 
     <div class="steps">
       <div class="step">
@@ -1766,8 +1807,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>로그 실시간 모니터링</h3>
-          <p>앱 로그를 실시간으로 Claude에게 넘겨 에러 발생 시 즉시 알림을 받습니다.</p>
+          <h3><span class="lang-ko">로그 실시간 모니터링</span><span class="lang-en">Real-time Log Monitoring</span></h3>
+          <p><span class="lang-ko">앱 로그를 실시간으로 Claude에게 넘겨 에러 발생 시 즉시 알림을 받습니다.</span><span class="lang-en">Stream app logs to Claude in real time and get instant notifications when errors occur.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1784,8 +1825,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>코드 변경 자동 리뷰</h3>
-          <p>커밋 전 git diff를 Claude에게 넘겨 보안 이슈나 버그를 자동으로 검토합니다.</p>
+          <h3><span class="lang-ko">코드 변경 자동 리뷰</span><span class="lang-en">Automated Code Change Review</span></h3>
+          <p><span class="lang-ko">커밋 전 git diff를 Claude에게 넘겨 보안 이슈나 버그를 자동으로 검토합니다.</span><span class="lang-en">Pass git diff to Claude before committing to automatically review for security issues or bugs.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1802,8 +1843,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>셸 스크립트 통합</h3>
-          <p>자동화 스크립트 안에서 Claude를 서브루틴처럼 호출해 분석, 변환, 요약 작업을 수행합니다.</p>
+          <h3><span class="lang-ko">셸 스크립트 통합</span><span class="lang-en">Shell Script Integration</span></h3>
+          <p><span class="lang-ko">자동화 스크립트 안에서 Claude를 서브루틴처럼 호출해 분석, 변환, 요약 작업을 수행합니다.</span><span class="lang-en">Call Claude like a subroutine within automation scripts to perform analysis, transformation, and summarization tasks.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1827,7 +1868,7 @@ REVIEW=$(git diff HEAD~1 | <span class="keyword">claude</span> -p <span class="s
     <div class="tip">
       <span class="tip-icon">&#x1F916;</span>
       <div>
-        <strong>CI/CD 통합:</strong> <code style="color:var(--accent)">claude -p "..."</code>는 표준 exit code를 반환합니다. 성공 시 0, 실패 시 1. 이를 활용해 PR 자동 리뷰, 테스트 분석, 릴리즈 노트 생성 등을 파이프라인에 통합할 수 있습니다.
+        <span class="lang-ko"><strong>CI/CD 통합:</strong> <code style="color:var(--accent)">claude -p "..."</code>는 표준 exit code를 반환합니다. 성공 시 0, 실패 시 1. 이를 활용해 PR 자동 리뷰, 테스트 분석, 릴리즈 노트 생성 등을 파이프라인에 통합할 수 있습니다.</span><span class="lang-en"><strong>CI/CD integration:</strong> <code style="color:var(--accent)">claude -p "..."</code> returns standard exit codes. 0 for success, 1 for failure. Use this to integrate PR auto-review, test analysis, release note generation, and more into your pipeline.</span>
       </div>
     </div>
   </div>
@@ -1839,16 +1880,16 @@ REVIEW=$(git diff HEAD~1 | <span class="keyword">claude</span> -p <span class="s
 <section id="integrations">
   <div class="container">
     <div class="section-number">11</div>
-    <h2 class="section-title">통합: GitHub Actions &amp; Chrome 확장</h2>
+    <h2 class="section-title"><span class="lang-ko">통합: GitHub Actions &amp; Chrome 확장</span><span class="lang-en">Integrations: GitHub Actions &amp; Chrome Extension</span></h2>
     <p class="section-desc">
-      Claude Code를 <strong style="color:var(--accent)">GitHub 워크플로우</strong>와 <strong style="color:var(--accent)">브라우저</strong>에 직접 통합하여 개발 사이클 전체에 AI를 연결하세요.
+      <span class="lang-ko">Claude Code를 <strong style="color:var(--accent)">GitHub 워크플로우</strong>와 <strong style="color:var(--accent)">브라우저</strong>에 직접 통합하여 개발 사이클 전체에 AI를 연결하세요.</span><span class="lang-en">Directly integrate Claude Code into <strong style="color:var(--accent)">GitHub workflows</strong> and the <strong style="color:var(--accent)">browser</strong> to connect AI across your entire development cycle.</span>
     </p>
 
     <div class="card-grid card-grid-2" style="margin-top: 32px;">
       <div class="card">
         <div class="card-icon" style="background: var(--surface-raised);">&#x1F4E6;</div>
-        <h3>GitHub Actions 자동화</h3>
-        <p style="margin-bottom: 20px;">PR이 열릴 때마다 Claude가 자동으로 코드를 리뷰하고 댓글을 달게 설정할 수 있습니다. 팀 리뷰 부담을 크게 줄여줍니다.</p>
+        <h3><span class="lang-ko">GitHub Actions 자동화</span><span class="lang-en">GitHub Actions Automation</span></h3>
+        <p style="margin-bottom: 20px;"><span class="lang-ko">PR이 열릴 때마다 Claude가 자동으로 코드를 리뷰하고 댓글을 달게 설정할 수 있습니다. 팀 리뷰 부담을 크게 줄여줍니다.</span><span class="lang-en">Configure Claude to automatically review code and post comments whenever a PR is opened. Greatly reduces the team's review burden.</span></p>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1872,21 +1913,21 @@ REVIEW=$(git diff HEAD~1 | <span class="keyword">claude</span> -p <span class="s
 
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F9E9;</div>
-        <h3>Chrome 확장 (Beta)</h3>
-        <p style="margin-bottom: 20px;">라이브 웹 앱을 디버깅할 때 Claude가 브라우저 DOM, 콘솔 에러, 네트워크 요청에 직접 접근할 수 있습니다.</p>
+        <h3><span class="lang-ko">Chrome 확장 (Beta)</span><span class="lang-en">Chrome Extension (Beta)</span></h3>
+        <p style="margin-bottom: 20px;"><span class="lang-ko">라이브 웹 앱을 디버깅할 때 Claude가 브라우저 DOM, 콘솔 에러, 네트워크 요청에 직접 접근할 수 있습니다.</span><span class="lang-en">When debugging a live web app, Claude can directly access the browser DOM, console errors, and network requests.</span></p>
         <div style="margin-top: 8px;">
           <div class="tag-row">
             <span class="tag tag-blue">Beta</span>
-            <span class="tag tag-green">DOM 접근</span>
-            <span class="tag tag-purple">콘솔 에러 분석</span>
+            <span class="tag tag-green"><span class="lang-ko">DOM 접근</span><span class="lang-en">DOM Access</span></span>
+            <span class="tag tag-purple"><span class="lang-ko">콘솔 에러 분석</span><span class="lang-en">Console Error Analysis</span></span>
           </div>
           <p style="color: var(--text-dim); font-size: 14px; margin-top: 16px; line-height: 1.8;">
-            프로덕션 버그를 재현하면서 Claude에게 "이 에러가 왜 나는지 분석해줘"라고 하면, 실제 브라우저 상태를 기반으로 정확한 원인을 찾아줍니다.
+            <span class="lang-ko">프로덕션 버그를 재현하면서 Claude에게 "이 에러가 왜 나는지 분석해줘"라고 하면, 실제 브라우저 상태를 기반으로 정확한 원인을 찾아줍니다.</span><span class="lang-en">While reproducing a production bug, ask Claude "analyze why this error is occurring" and it will find the exact cause based on the actual browser state.</span>
           </p>
           <div class="tip" style="margin-top: 16px;">
             <span class="tip-icon">&#x26A0;</span>
             <div>
-              <strong>베타 기능:</strong> Chrome 확장은 현재 베타 상태입니다. 기능과 가용성이 변경될 수 있습니다.
+              <span class="lang-ko"><strong>베타 기능:</strong> Chrome 확장은 현재 베타 상태입니다. 기능과 가용성이 변경될 수 있습니다.</span><span class="lang-en"><strong>Beta feature:</strong> The Chrome extension is currently in beta. Features and availability may change.</span>
             </div>
           </div>
         </div>
@@ -1901,56 +1942,56 @@ REVIEW=$(git diff HEAD~1 | <span class="keyword">claude</span> -p <span class="s
 <section id="faq">
   <div class="container">
     <div class="section-number">12</div>
-    <h2 class="section-title">자주 묻는 질문</h2>
+    <h2 class="section-title"><span class="lang-ko">자주 묻는 질문</span><span class="lang-en">Frequently Asked Questions</span></h2>
     <p class="section-desc">
-      고급 기능에 대해 가장 많이 궁금해하는 것들
+      <span class="lang-ko">고급 기능에 대해 가장 많이 궁금해하는 것들</span><span class="lang-en">The most common questions about advanced features</span>
     </p>
 
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          Worktree와 Git branch의 차이는?
+          <span class="lang-ko">Worktree와 Git branch의 차이는?</span><span class="lang-en">What's the difference between Worktree and Git branch?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            Git branch는 같은 작업 디렉토리에서 브랜치만 전환하는 것이고, Worktree는 <strong>물리적으로 별도의 디렉토리</strong>를 만들어서 작업합니다. Branch를 전환하면 현재 작업 중인 파일이 바뀌지만, Worktree는 원본 디렉토리는 그대로 두고 별도 공간에서 작업하므로 두 작업을 동시에 진행할 수 있습니다. Claude Code의 Worktree 모드는 이 Git Worktree 기능을 활용하여, 안전한 격리 환경에서 에이전트가 자유롭게 코드를 수정할 수 있도록 합니다.
+            <span class="lang-ko">Git branch는 같은 작업 디렉토리에서 브랜치만 전환하는 것이고, Worktree는 <strong>물리적으로 별도의 디렉토리</strong>를 만들어서 작업합니다. Branch를 전환하면 현재 작업 중인 파일이 바뀌지만, Worktree는 원본 디렉토리는 그대로 두고 별도 공간에서 작업하므로 두 작업을 동시에 진행할 수 있습니다. Claude Code의 Worktree 모드는 이 Git Worktree 기능을 활용하여, 안전한 격리 환경에서 에이전트가 자유롭게 코드를 수정할 수 있도록 합니다.</span><span class="lang-en">Git branch only switches branches within the same working directory, while Worktree creates a <strong>physically separate directory</strong> to work in. Switching branches changes the files you're currently working on, but Worktree leaves the original directory intact and works in a separate space, so you can work on both simultaneously. Claude Code's Worktree mode leverages this Git Worktree feature to let agents freely modify code in a safe, isolated environment.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          Agent Teams로 동시에 몇 개까지 실행 가능?
+          <span class="lang-ko">Agent Teams로 동시에 몇 개까지 실행 가능?</span><span class="lang-en">How many can run simultaneously with Agent Teams?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            기술적으로는 여러 개의 서브에이전트를 동시에 실행할 수 있지만, 일반적으로 <strong>3~5개</strong> 정도가 효율적입니다. 너무 많은 에이전트를 동시에 실행하면 API 비용이 급증하고, 머지 충돌 가능성도 높아집니다. 메인 에이전트가 작업을 잘 분배하도록 명확한 지시를 주는 것이 중요합니다. 시스템 리소스(CPU, 메모리)도 고려해야 합니다.
+            <span class="lang-ko">기술적으로는 여러 개의 서브에이전트를 동시에 실행할 수 있지만, 일반적으로 <strong>3~5개</strong> 정도가 효율적입니다. 너무 많은 에이전트를 동시에 실행하면 API 비용이 급증하고, 머지 충돌 가능성도 높아집니다. 메인 에이전트가 작업을 잘 분배하도록 명확한 지시를 주는 것이 중요합니다. 시스템 리소스(CPU, 메모리)도 고려해야 합니다.</span><span class="lang-en">Technically multiple sub-agents can run simultaneously, but <strong>3–5</strong> is generally the efficient range. Running too many agents at once causes API costs to spike and increases the risk of merge conflicts. It's important to give clear instructions so the main agent distributes work well. System resources (CPU, memory) should also be considered.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          커스텀 커맨드에 변수를 전달할 수 있나요?
+          <span class="lang-ko">커스텀 커맨드에 변수를 전달할 수 있나요?</span><span class="lang-en">Can I pass variables to custom commands?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네! .md 파일 안에서 <code style="color:var(--accent)">$ARGUMENTS</code> 플레이스홀더를 사용하면, 슬래시 커맨드 뒤에 입력한 텍스트가 해당 위치에 삽입됩니다. 예를 들어 <code style="color:var(--accent)">/test src/utils.ts</code>라고 입력하면, test.md 안의 <code style="color:var(--accent)">$ARGUMENTS</code>가 "src/utils.ts"로 치환됩니다. 이를 통해 하나의 커맨드를 다양한 대상에 재사용할 수 있습니다.
+            <span class="lang-ko">네! .md 파일 안에서 <code style="color:var(--accent)">$ARGUMENTS</code> 플레이스홀더를 사용하면, 슬래시 커맨드 뒤에 입력한 텍스트가 해당 위치에 삽입됩니다. 예를 들어 <code style="color:var(--accent)">/test src/utils.ts</code>라고 입력하면, test.md 안의 <code style="color:var(--accent)">$ARGUMENTS</code>가 "src/utils.ts"로 치환됩니다. 이를 통해 하나의 커맨드를 다양한 대상에 재사용할 수 있습니다.</span><span class="lang-en">Yes! Using the <code style="color:var(--accent)">$ARGUMENTS</code> placeholder inside the .md file inserts the text typed after the slash command at that position. For example, typing <code style="color:var(--accent)">/test src/utils.ts</code> replaces <code style="color:var(--accent)">$ARGUMENTS</code> in test.md with "src/utils.ts". This lets you reuse a single command for various targets.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          Teleport는 보안상 안전한가요?
+          <span class="lang-ko">Teleport는 보안상 안전한가요?</span><span class="lang-en">Is Teleport secure?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            Teleport URL은 <strong>일회용이며 시간 제한</strong>이 있습니다. URL을 아는 사람만 접근할 수 있고, 한 번 사용되면 만료됩니다. 다만, URL 자체를 공유할 때는 주의가 필요합니다. 민감한 코드가 포함된 세션의 URL을 불특정 다수에게 공개하는 것은 피해야 합니다. 팀 내부에서 신뢰할 수 있는 사람에게만 공유하세요. Anthropic의 보안 정책에 따라 데이터는 암호화되어 전송됩니다.
+            <span class="lang-ko">Teleport URL은 <strong>일회용이며 시간 제한</strong>이 있습니다. URL을 아는 사람만 접근할 수 있고, 한 번 사용되면 만료됩니다. 다만, URL 자체를 공유할 때는 주의가 필요합니다. 민감한 코드가 포함된 세션의 URL을 불특정 다수에게 공개하는 것은 피해야 합니다. 팀 내부에서 신뢰할 수 있는 사람에게만 공유하세요. Anthropic의 보안 정책에 따라 데이터는 암호화되어 전송됩니다.</span><span class="lang-en">Teleport URLs are <strong>single-use and time-limited</strong>. Only someone with the URL can access it, and it expires after one use. However, care is needed when sharing the URL itself. Avoid publicly sharing URLs for sessions containing sensitive code. Only share with trusted people within your team. Data is transmitted encrypted according to Anthropic's security policy.</span>
           </div>
         </div>
       </div>
@@ -1963,20 +2004,27 @@ REVIEW=$(git diff HEAD~1 | <span class="keyword">claude</span> -p <span class="s
   <div class="container">
     <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.15); text-align: center; padding: 60px 40px;">
       <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
-        요약하면 이겁니다
+        <span class="lang-ko">요약하면 이겁니다</span><span class="lang-en">Here's the Summary</span>
       </h2>
       <p style="color: var(--text-dim); font-size: 17px; max-width: 620px; margin: 0 auto 32px; line-height: 2;">
-        Worktree = <strong style="color: var(--accent)">안전한 실험 공간</strong><br>
+        <span class="lang-ko">Worktree = <strong style="color: var(--accent)">안전한 실험 공간</strong><br>
         Teleport = <strong style="color: var(--green)">환경 간 순간이동</strong><br>
         Agent Teams = <strong style="color: var(--orange)">멀티에이전트 병렬 처리</strong><br>
         커스텀 슬래시 = <strong style="color: var(--blue)">나만의 워크플로우 자동화</strong><br>
         Fast Mode = <strong style="color: var(--pink)">2.5배 빠른 응답속도</strong><br>
         Remote Control = <strong style="color: var(--yellow)">폰/브라우저에서 이어받기</strong><br>
-        Headless 모드 = <strong style="color: var(--accent)">CI/CD 완전 자동화</strong>
+        Headless 모드 = <strong style="color: var(--accent)">CI/CD 완전 자동화</strong></span><span class="lang-en">Worktree = <strong style="color: var(--accent)">Safe Experimentation Space</strong><br>
+        Teleport = <strong style="color: var(--green)">Instant Travel Between Environments</strong><br>
+        Agent Teams = <strong style="color: var(--orange)">Multi-Agent Parallel Processing</strong><br>
+        Custom Slash = <strong style="color: var(--blue)">Your Own Workflow Automation</strong><br>
+        Fast Mode = <strong style="color: var(--pink)">2.5x Faster Response Speed</strong><br>
+        Remote Control = <strong style="color: var(--yellow)">Pick Up From Phone/Browser</strong><br>
+        Headless Mode = <strong style="color: var(--accent)">Full CI/CD Automation</strong></span>
       </p>
       <p style="color: var(--text-muted); font-size: 14px;">
-        이 기능들을 조합하면, Claude Code는 단순한 코딩 도우미가 아니라<br>
-        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">팀 전체의 개발 생산성 플랫폼</span>이 됩니다.
+        <span class="lang-ko">이 기능들을 조합하면, Claude Code는 단순한 코딩 도우미가 아니라<br>
+        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">팀 전체의 개발 생산성 플랫폼</span>이 됩니다.</span><span class="lang-en">Combining these features, Claude Code becomes not just a coding assistant,<br>
+        but a <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">development productivity platform for the entire team</span>.</span>
       </p>
     </div>
   </div>
@@ -1984,13 +2032,15 @@ REVIEW=$(git diff HEAD~1 | <span class="keyword">claude</span> -p <span class="s
 
 <!-- =================== CHAPTER NAV =================== -->
 <div class="chapter-nav">
-  <a href="workflow.html">&larr; 이전: 실전 워크플로우</a>
-  <a href="project.html">다음: 실전 프로젝트 &rarr;</a>
+  <a href="workflow.html">&larr; <span class="lang-ko">이전: 실전 워크플로우</span><span class="lang-en">Prev: Real-World Workflow</span></a>
+  <a href="project.html"><span class="lang-ko">다음: 실전 프로젝트</span><span class="lang-en">Next: Real-World Project</span> &rarr;</a>
 </div>
 
 <footer>
   <p>Made with Claude &middot; <a href="../index.html">Claude Code 101</a> &middot; <a href="https://docs.anthropic.com" target="_blank">Anthropic Docs</a></p>
 </footer>
+
+<script src="lang.js"></script>
 
 <script>
 function toggleAccordion(btn) {

@@ -6,9 +6,10 @@
 /* 챕터 테마 초기화 — FOUC 방지 */
 (function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude Code Skills 완전 가이드</title>
+<title>Claude Code Skills 완전 가이드 / Complete Guide</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../theme.css">
 <style id="chapter-accent">
@@ -886,41 +887,42 @@
 <body>
 
 <!-- =================== BACK LINK =================== -->
-<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+<a href="../index.html" class="back-link">&larr; <span class="lang-ko">Claude Code 101로 돌아가기</span><span class="lang-en">Back to Claude Code 101</span></a>
 
 <!-- =================== HERO =================== -->
 <div class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    Claude Code 완전 가이드
+    <span class="lang-ko">Claude Code 완전 가이드</span><span class="lang-en">Complete Claude Code Guide</span>
   </div>
   <h1>
-    <span class="highlight">Skill</span>이 뭔데<br>다들 난리야?
+    <div class="lang-ko"><span class="highlight">Skill</span>이 뭔데<br>다들 난리야?</div>
+    <div class="lang-en">What's All the Fuss<br>About <span class="highlight">Skills</span>?</div>
   </h1>
   <p class="hero-sub">
-    아무것도 모르는 사람도 5분이면 이해하는<br>
-    Claude Code Skill의 모든 것
+    <span class="lang-ko">아무것도 모르는 사람도 5분이면 이해하는<br>Claude Code Skill의 모든 것</span>
+    <span class="lang-en">Everything about Claude Code Skills<br>explained so anyone can understand in 5 minutes</span>
   </p>
   <div class="hero-cta">
-    <a href="#what" class="btn btn-primary">Skill이 뭔지 알려줘</a>
-    <a href="#how-to-make" class="btn btn-outline">만드는 법 보기 &rarr;</a>
+    <a href="#what" class="btn btn-primary"><span class="lang-ko">Skill이 뭔지 알려줘</span><span class="lang-en">What is a Skill?</span></a>
+    <a href="#how-to-make" class="btn btn-outline"><span class="lang-ko">만드는 법 보기</span><span class="lang-en">How to Make One</span> &rarr;</a>
   </div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    스크롤
+    <span class="lang-ko">스크롤</span><span class="lang-en">Scroll</span>
   </div>
 </div>
 
 <!-- =================== NAV =================== -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
-    <a href="#what" class="nav-link">Skill이란?</a>
-    <a href="#why" class="nav-link">왜 만들어 쓸까?</a>
-    <a href="#built-in" class="nav-link">번들 Skill</a>
+    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; <span class="lang-ko">홈</span><span class="lang-en">Home</span></a>
+    <a href="#what" class="nav-link"><span class="lang-ko">Skill이란?</span><span class="lang-en">What is a Skill?</span></a>
+    <a href="#why" class="nav-link"><span class="lang-ko">왜 만들어 쓸까?</span><span class="lang-en">Why Use Skills?</span></a>
+    <a href="#built-in" class="nav-link"><span class="lang-ko">번들 Skill</span><span class="lang-en">Built-in Skills</span></a>
     <a href="#frontmatter" class="nav-link">Frontmatter</a>
-    <a href="#how-to-make" class="nav-link">만드는 법</a>
-    <a href="#advanced" class="nav-link">고급 패턴</a>
+    <a href="#how-to-make" class="nav-link"><span class="lang-ko">만드는 법</span><span class="lang-en">How to Make</span></a>
+    <a href="#advanced" class="nav-link"><span class="lang-ko">고급 패턴</span><span class="lang-en">Advanced Patterns</span></a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
 </nav>
@@ -929,13 +931,15 @@
 <section id="what">
   <div class="container">
     <div class="section-number">01</div>
-    <h2 class="section-title">Skill이 대체 뭐야?</h2>
+    <h2 class="section-title"><span class="lang-ko">Skill이 대체 뭐야?</span><span class="lang-en">What Exactly Is a Skill?</span></h2>
     <p class="section-desc">
-      한 줄 요약: Claude에게 주는 <strong style="color:var(--accent)">전문 매뉴얼</strong>이다.
+      <span class="lang-ko">한 줄 요약: Claude에게 주는 <strong style="color:var(--accent)">전문 매뉴얼</strong>이다.</span>
+      <span class="lang-en">One-line summary: A <strong style="color:var(--accent)">professional manual</strong> you give to Claude.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>카페 알바생 비유로 이해하기</h4>
+      <h4><span class="lang-ko">카페 알바생 비유로 이해하기</span><span class="lang-en">The Cafe Part-Timer Analogy</span></h4>
+      <div class="lang-ko">
       <p>
         새로 온 카페 알바생(Claude)은 머리가 아주 좋지만, 우리 가게만의 레시피는 모릅니다.<br><br>
         &nbsp;&nbsp;&#9749; <strong style="color:var(--text)">"아메리카노 만들어줘"</strong> &rarr; 기본적으로 잘 만듦<br>
@@ -943,30 +947,44 @@
         이때 <strong style="color:var(--accent)">Skill = 우리 가게 레시피 매뉴얼</strong>입니다.<br>
         "원두는 이거, 우유 온도는 65도, 라떼아트는 하트 모양" &mdash; 이렇게 적어놓으면, 알바생은 매번 완벽하게 시그니처 라떼를 만들 수 있죠.
       </p>
+      </div>
+      <div class="lang-en">
+      <p>
+        The new cafe part-timer (Claude) is very smart, but doesn't know your shop's unique recipes.<br><br>
+        &nbsp;&nbsp;&#9749; <strong style="color:var(--text)">"Make me an Americano"</strong> &rarr; Does it perfectly by default<br>
+        &nbsp;&nbsp;&#x1F4CB; <strong style="color:var(--text)">"Make our signature latte"</strong> &rarr; Without a recipe, improvises however they like<br><br>
+        In this case, <strong style="color:var(--accent)">Skill = your shop's recipe manual</strong>.<br>
+        "Use this bean, milk temp at 65°C, heart-shaped latte art" — written down once, the part-timer can make the perfect signature latte every time.
+      </p>
+      </div>
     </div>
 
     <div class="card-grid card-grid-3">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F4C4;</div>
-        <h3>본질은 텍스트 파일</h3>
-        <p>Skill의 핵심은 <code style="color:var(--accent)">SKILL.md</code>라는 마크다운 파일 하나입니다. 거기에 "이럴 때 이렇게 해라"라고 적어둔 것이죠.</p>
+        <h3><span class="lang-ko">본질은 텍스트 파일</span><span class="lang-en">At Its Core, a Text File</span></h3>
+        <div class="lang-ko"><p>Skill의 핵심은 <code style="color:var(--accent)">SKILL.md</code>라는 마크다운 파일 하나입니다. 거기에 "이럴 때 이렇게 해라"라고 적어둔 것이죠.</p></div>
+        <div class="lang-en"><p>The heart of a Skill is a single markdown file called <code style="color:var(--accent)">SKILL.md</code>. It's simply instructions written as "do this when that happens."</p></div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F50C;</div>
-        <h3>자동으로 작동</h3>
-        <p>한 번 설치하면 관련 요청이 올 때 Claude가 알아서 해당 Skill을 읽고 따릅니다. 또는 <code style="color:var(--accent)">/skill-name</code>으로 직접 호출할 수도 있어요.</p>
+        <h3><span class="lang-ko">자동으로 작동</span><span class="lang-en">Works Automatically</span></h3>
+        <div class="lang-ko"><p>한 번 설치하면 관련 요청이 올 때 Claude가 알아서 해당 Skill을 읽고 따릅니다. 또는 <code style="color:var(--accent)">/skill-name</code>으로 직접 호출할 수도 있어요.</p></div>
+        <div class="lang-en"><p>Once installed, Claude automatically reads and follows the Skill when relevant requests come in. You can also invoke it directly with <code style="color:var(--accent)">/skill-name</code>.</p></div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F9E9;</div>
-        <h3>무한 확장 가능</h3>
-        <p>코드 리뷰, 배포 워크플로우, 이메일 작성, 브랜드 가이드 적용 등 원하는 건 뭐든 Skill로 만들 수 있습니다.</p>
+        <h3><span class="lang-ko">무한 확장 가능</span><span class="lang-en">Infinitely Extensible</span></h3>
+        <div class="lang-ko"><p>코드 리뷰, 배포 워크플로우, 이메일 작성, 브랜드 가이드 적용 등 원하는 건 뭐든 Skill로 만들 수 있습니다.</p></div>
+        <div class="lang-en"><p>Code review, deployment workflows, email writing, brand guide application — anything you want can be turned into a Skill.</p></div>
       </div>
     </div>
 
     <div style="margin-top: 48px;">
-      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">Skill의 구조: 디렉토리 기반</h3>
+      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">Skill의 구조: 디렉토리 기반</span><span class="lang-en">Skill Structure: Directory-Based</span></h3>
       <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 20px;">
-        Skills는 이제 단순 파일이 아닌 <strong style="color:var(--text)">디렉토리</strong>입니다. <code style="color:var(--accent)">SKILL.md</code>가 진입점이 되고, 보조 파일들을 함께 넣을 수 있습니다.
+        <span class="lang-ko">Skills는 이제 단순 파일이 아닌 <strong style="color:var(--text)">디렉토리</strong>입니다. <code style="color:var(--accent)">SKILL.md</code>가 진입점이 되고, 보조 파일들을 함께 넣을 수 있습니다.</span>
+        <span class="lang-en">Skills are no longer just files but <strong style="color:var(--text)">directories</strong>. <code style="color:var(--accent)">SKILL.md</code> serves as the entry point, and you can include supporting files alongside it.</span>
       </p>
       <div class="code-block">
         <div class="code-header">
@@ -989,45 +1007,46 @@
       <div class="tip">
         <span class="tip-icon">&#x1F4DD;</span>
         <div>
-          <strong>기존 .claude/commands/ 파일은 계속 동작합니다.</strong> <code style="color:var(--blue)">commands/review.md</code>와 <code style="color:var(--blue)">skills/review/SKILL.md</code> 둘 다 <code>/review</code>를 만들고 동일하게 작동합니다. Skills는 디렉토리 구조, frontmatter 옵션, 자동 로딩 등 추가 기능을 제공합니다.
+          <div class="lang-ko"><strong>기존 .claude/commands/ 파일은 계속 동작합니다.</strong> <code style="color:var(--blue)">commands/review.md</code>와 <code style="color:var(--blue)">skills/review/SKILL.md</code> 둘 다 <code>/review</code>를 만들고 동일하게 작동합니다. Skills는 디렉토리 구조, frontmatter 옵션, 자동 로딩 등 추가 기능을 제공합니다.</div>
+          <div class="lang-en"><strong>Existing .claude/commands/ files continue to work.</strong> Both <code style="color:var(--blue)">commands/review.md</code> and <code style="color:var(--blue)">skills/review/SKILL.md</code> create <code>/review</code> and work the same way. Skills offer additional features: directory structure, frontmatter options, and auto-loading.</div>
         </div>
       </div>
     </div>
 
     <div style="margin-top: 48px;">
-      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">&#x1F4CD; Skill 저장 위치</h3>
+      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">&#x1F4CD; <span class="lang-ko">Skill 저장 위치</span><span class="lang-en">Where to Store Skills</span></h3>
       <table class="skill-table">
         <thead>
           <tr>
-            <th>위치</th>
-            <th>경로</th>
-            <th>적용 범위</th>
+            <th><span class="lang-ko">위치</span><span class="lang-en">Location</span></th>
+            <th><span class="lang-ko">경로</span><span class="lang-en">Path</span></th>
+            <th><span class="lang-ko">적용 범위</span><span class="lang-en">Scope</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td style="color: var(--text-dim); font-weight: 600;">Enterprise</td>
             <td style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 12px;">관리 설정 참조</td>
-            <td><span class="tag tag-purple">조직 전체</span></td>
+            <td><span class="tag tag-purple"><span class="lang-ko">조직 전체</span><span class="lang-en">Entire org</span></span></td>
           </tr>
           <tr>
             <td style="color: var(--text-dim); font-weight: 600;">Personal</td>
             <td style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 12px;">~/.claude/skills/&lt;name&gt;/SKILL.md</td>
-            <td><span class="tag tag-green">모든 프로젝트</span></td>
+            <td><span class="tag tag-green"><span class="lang-ko">모든 프로젝트</span><span class="lang-en">All projects</span></span></td>
           </tr>
           <tr>
             <td style="color: var(--text-dim); font-weight: 600;">Project</td>
             <td style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 12px;">.claude/skills/&lt;name&gt;/SKILL.md</td>
-            <td><span class="tag tag-blue">이 프로젝트만</span></td>
+            <td><span class="tag tag-blue"><span class="lang-ko">이 프로젝트만</span><span class="lang-en">This project only</span></span></td>
           </tr>
           <tr>
             <td style="color: var(--text-dim); font-weight: 600;">Plugin</td>
             <td style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 12px;">&lt;plugin&gt;/skills/&lt;name&gt;/SKILL.md</td>
-            <td><span class="tag tag-orange">플러그인 활성화 위치</span></td>
+            <td><span class="tag tag-orange"><span class="lang-ko">플러그인 활성화 위치</span><span class="lang-en">Plugin activation scope</span></span></td>
           </tr>
         </tbody>
       </table>
-      <p style="color: var(--text-muted); font-size: 13px;">우선순위: Enterprise &gt; Personal &gt; Project. 같은 이름의 Skill이 여러 위치에 있으면 우선순위가 높은 것이 사용됩니다.</p>
+      <p style="color: var(--text-muted); font-size: 13px;"><span class="lang-ko">우선순위: Enterprise &gt; Personal &gt; Project. 같은 이름의 Skill이 여러 위치에 있으면 우선순위가 높은 것이 사용됩니다.</span><span class="lang-en">Priority: Enterprise &gt; Personal &gt; Project. If a Skill with the same name exists in multiple locations, the higher-priority one is used.</span></p>
     </div>
   </div>
 </section>
@@ -1038,15 +1057,16 @@
 <section id="why">
   <div class="container">
     <div class="section-number">02</div>
-    <h2 class="section-title">왜 다들 Skill을 만들어 쓸까?</h2>
+    <h2 class="section-title"><span class="lang-ko">왜 다들 Skill을 만들어 쓸까?</span><span class="lang-en">Why Does Everyone Make Skills?</span></h2>
     <p class="section-desc">
-      핵심 이유는 하나입니다 &mdash; <strong style="color:var(--accent)">매번 같은 말 반복하기 싫으니까.</strong>
+      <span class="lang-ko">핵심 이유는 하나입니다 &mdash; <strong style="color:var(--accent)">매번 같은 말 반복하기 싫으니까.</strong></span>
+      <span class="lang-en">One core reason &mdash; <strong style="color:var(--accent)">no one wants to repeat the same instructions every time.</strong></span>
     </p>
 
     <div class="comparison">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; Skill 없이 매번 하는 짓</div>
-        <div class="comp-code">"코드 리뷰해줘.
+        <div class="comp-label">&#10060; <span class="lang-ko">Skill 없이 매번 하는 짓</span><span class="lang-en">Without a Skill — every time</span></div>
+        <div class="lang-ko"><div class="comp-code">"코드 리뷰해줘.
 아, 그리고 MVVM 패턴 기준으로,
 성능 문제도 봐줘,
 리뷰는 잘한점/개선제안/필수수정
@@ -1054,11 +1074,20 @@
 commit 메시지도 Conventional
 Commits 형식으로..."
 
-&rarr; 매 대화마다 20줄씩 복붙 &#x1F926;</div>
+&rarr; 매 대화마다 20줄씩 복붙 &#x1F926;</div></div>
+        <div class="lang-en"><div class="comp-code">"Review my code.
+And use MVVM patterns,
+also check for performance issues,
+format as strengths/suggestions/
+required-changes,
+commit messages in Conventional
+Commits format..."
+
+&rarr; Copy-pasting 20 lines every chat &#x1F926;</div></div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; Skill 만든 후</div>
-        <div class="comp-code">/code-review
+        <div class="comp-label">&#9989; <span class="lang-ko">Skill 만든 후</span><span class="lang-en">With a Skill</span></div>
+        <div class="lang-ko"><div class="comp-code">/code-review
 
 &rarr; Claude가 Skill을 자동으로 읽음
 &rarr; 패턴, 성능, 포맷 다 알아서 적용
@@ -1066,37 +1095,51 @@ Commits 형식으로..."
 
 
 
-한 줄이면 끝! &#x1F389;</div>
+한 줄이면 끝! &#x1F389;</div></div>
+        <div class="lang-en"><div class="comp-code">/code-review
+
+&rarr; Claude reads the Skill automatically
+&rarr; Applies pattern, performance, format
+&rarr; Perfectly consistent quality every time &#10024;
+
+
+
+One line and done! &#x1F389;</div></div>
       </div>
     </div>
 
     <div class="card-grid card-grid-2" style="margin-top: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F504;</div>
-        <h3>일관성</h3>
-        <p>Skill을 쓰면 Claude가 매번 같은 수준의 결과물을 만듭니다. 어제 잘했다가 오늘 이상하게 만드는 일이 없어지죠. 회사 브랜드 가이드, 코드 스타일 같은 걸 정해두면 흔들림이 없습니다.</p>
+        <h3><span class="lang-ko">일관성</span><span class="lang-en">Consistency</span></h3>
+        <div class="lang-ko"><p>Skill을 쓰면 Claude가 매번 같은 수준의 결과물을 만듭니다. 어제 잘했다가 오늘 이상하게 만드는 일이 없어지죠. 회사 브랜드 가이드, 코드 스타일 같은 걸 정해두면 흔들림이 없습니다.</p></div>
+        <div class="lang-en"><p>With a Skill, Claude produces the same quality every time. No more "did it great yesterday, weird today." Lock in brand guides, code styles — rock-solid consistency.</p></div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--orange-dim);">&#9889;</div>
-        <h3>속도</h3>
-        <p>복잡한 지시사항을 매번 입력하면 하루에 30분은 날립니다. Skill에 한 번 적어두면 그 시간이 0이 됩니다. 하루에 10번 같은 작업을 하는 사람이라면? 인생이 바뀝니다.</p>
+        <h3><span class="lang-ko">속도</span><span class="lang-en">Speed</span></h3>
+        <div class="lang-ko"><p>복잡한 지시사항을 매번 입력하면 하루에 30분은 날립니다. Skill에 한 번 적어두면 그 시간이 0이 됩니다. 하루에 10번 같은 작업을 하는 사람이라면? 인생이 바뀝니다.</p></div>
+        <div class="lang-en"><p>Typing complex instructions every time wastes 30 minutes a day. Write it in a Skill once and that time becomes zero. If you do the same task 10 times a day? Life-changing.</p></div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F3AF;</div>
-        <h3>품질 상한선 돌파</h3>
-        <p>프롬프트만으로는 한계가 있습니다. Skill에 구체적인 스크립트와 템플릿, 참고 자료까지 넣으면 Claude의 결과물이 "프로 수준"으로 점프합니다.</p>
+        <h3><span class="lang-ko">품질 상한선 돌파</span><span class="lang-en">Break Through Quality Limits</span></h3>
+        <div class="lang-ko"><p>프롬프트만으로는 한계가 있습니다. Skill에 구체적인 스크립트와 템플릿, 참고 자료까지 넣으면 Claude의 결과물이 "프로 수준"으로 점프합니다.</p></div>
+        <div class="lang-en"><p>Prompts alone have limits. Add specific scripts, templates, and reference materials to a Skill and Claude's output jumps to "professional level."</p></div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--pink-dim);">&#x1F465;</div>
-        <h3>팀 공유</h3>
-        <p>프로젝트의 <code style="color:var(--accent)">.claude/skills/</code> 폴더를 버전 관리(git)에 커밋하면 팀 전체가 동일한 Skill을 사용할 수 있습니다. "우리 팀은 이렇게 일한다"를 코드처럼 관리하세요.</p>
+        <h3><span class="lang-ko">팀 공유</span><span class="lang-en">Team Sharing</span></h3>
+        <div class="lang-ko"><p>프로젝트의 <code style="color:var(--accent)">.claude/skills/</code> 폴더를 버전 관리(git)에 커밋하면 팀 전체가 동일한 Skill을 사용할 수 있습니다. "우리 팀은 이렇게 일한다"를 코드처럼 관리하세요.</p></div>
+        <div class="lang-en"><p>Commit the project's <code style="color:var(--accent)">.claude/skills/</code> folder to version control (git) and the entire team can use the same Skills. Manage "how our team works" like code.</p></div>
       </div>
     </div>
 
     <div class="tip">
       <span class="tip-icon">&#x1F3AF;</span>
       <div>
-        <strong>핵심 포인트:</strong> Skill은 "Claude를 내 전용 비서로 커스터마이징하는 도구"입니다. 프롬프트가 1회용 지시라면, Skill은 영구적인 업무 매뉴얼입니다.
+        <div class="lang-ko"><strong>핵심 포인트:</strong> Skill은 "Claude를 내 전용 비서로 커스터마이징하는 도구"입니다. 프롬프트가 1회용 지시라면, Skill은 영구적인 업무 매뉴얼입니다.</div>
+        <div class="lang-en"><strong>Key Point:</strong> Skills are "tools to customize Claude into your personal assistant." If a prompt is a one-time instruction, a Skill is a permanent work manual.</div>
       </div>
     </div>
   </div>
@@ -1108,37 +1151,48 @@ Commits 형식으로..."
 <section id="built-in">
   <div class="container">
     <div class="section-number">03</div>
-    <h2 class="section-title">번들 Skills &mdash; 바로 쓸 수 있는 것들</h2>
+    <h2 class="section-title"><span class="lang-ko">번들 Skills &mdash; 바로 쓸 수 있는 것들</span><span class="lang-en">Built-in Skills &mdash; Ready to Use</span></h2>
     <p class="section-desc">
-      Claude Code에는 이미 강력한 Skills가 내장되어 있습니다. 설치 없이 <code style="color:var(--accent)">/skill-name</code>으로 바로 호출 가능합니다.
+      <span class="lang-ko">Claude Code에는 이미 강력한 Skills가 내장되어 있습니다. 설치 없이 <code style="color:var(--accent)">/skill-name</code>으로 바로 호출 가능합니다.</span>
+      <span class="lang-en">Claude Code already comes with powerful built-in Skills. Call them with <code style="color:var(--accent)">/skill-name</code> without any setup.</span>
     </p>
 
     <div class="tip" style="margin-bottom: 32px;">
       <span class="tip-icon">&#x2139;&#xFE0F;</span>
       <div>
-        <strong>번들 Skills vs 기본 제공 명령어:</strong> <code>/help</code>, <code>/compact</code> 같은 기본 명령어는 고정된 로직을 실행합니다. 반면 번들 Skills(<code>/simplify</code>, <code>/batch</code> 등)는 <strong>프롬프트 기반</strong>입니다. Claude에게 상세한 플레이북을 제공하고 도구를 활용해 작업을 조율하므로, 병렬 에이전트 생성, 파일 읽기, 코드베이스 적응이 가능합니다.
+        <div class="lang-ko"><strong>번들 Skills vs 기본 제공 명령어:</strong> <code>/help</code>, <code>/compact</code> 같은 기본 명령어는 고정된 로직을 실행합니다. 반면 번들 Skills(<code>/simplify</code>, <code>/batch</code> 등)는 <strong>프롬프트 기반</strong>입니다. Claude에게 상세한 플레이북을 제공하고 도구를 활용해 작업을 조율하므로, 병렬 에이전트 생성, 파일 읽기, 코드베이스 적응이 가능합니다.</div>
+        <div class="lang-en"><strong>Built-in Skills vs Built-in Commands:</strong> Built-in commands like <code>/help</code> and <code>/compact</code> run fixed logic. Built-in Skills (<code>/simplify</code>, <code>/batch</code>, etc.) are <strong>prompt-based</strong>. They give Claude a detailed playbook and coordinate tasks using tools, enabling parallel agent creation, file reading, and codebase adaptation.</div>
       </div>
     </div>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th style="width: 180px;">Skill 이름</th>
-          <th>하는 일</th>
+          <th style="width: 180px;"><span class="lang-ko">Skill 이름</span><span class="lang-en">Skill Name</span></th>
+          <th><span class="lang-ko">하는 일</span><span class="lang-en">What It Does</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">/simplify</td>
-          <td style="color: var(--text-dim);">최근 변경된 파일을 코드 재사용, 품질, 효율성 관점으로 검토하고 수정합니다. 기능 구현 후 실행해 코드를 정리하세요. <strong style="color:var(--text)">3개의 검토 에이전트를 병렬로 생성</strong>(코드 재사용, 코드 품질, 효율성)하고 결과를 집계해 수정합니다. 선택적으로 포커스를 지정할 수 있습니다: <code style="color:var(--accent)">/simplify focus on memory efficiency</code></td>
+          <td style="color: var(--text-dim);">
+            <div class="lang-ko">최근 변경된 파일을 코드 재사용, 품질, 효율성 관점으로 검토하고 수정합니다. 기능 구현 후 실행해 코드를 정리하세요. <strong style="color:var(--text)">3개의 검토 에이전트를 병렬로 생성</strong>(코드 재사용, 코드 품질, 효율성)하고 결과를 집계해 수정합니다. 선택적으로 포커스를 지정할 수 있습니다: <code style="color:var(--accent)">/simplify focus on memory efficiency</code></div>
+            <div class="lang-en">Reviews and refactors recently changed files for code reuse, quality, and efficiency. Run it after implementing features to clean up code. <strong style="color:var(--text)">Spawns 3 review agents in parallel</strong> (code reuse, code quality, efficiency), aggregates results, and applies fixes. Optionally specify focus: <code style="color:var(--accent)">/simplify focus on memory efficiency</code></div>
+          </td>
         </tr>
         <tr>
           <td class="skill-name-cell">/batch &lt;instruction&gt;</td>
-          <td style="color: var(--text-dim);">코드베이스 전체에 대규모 변경을 <strong style="color:var(--text)">병렬로 조율</strong>합니다. 변경 설명을 제공하면 코드베이스를 조사하고, 작업을 5~30개의 독립적인 단위로 분해해 승인을 요청합니다. 승인 후 각 단위별로 백그라운드 에이전트를 생성하고, 각 에이전트는 격리된 git worktree에서 작업합니다. git 저장소가 필요합니다. 예: <code style="color:var(--accent)">/batch migrate src/ from Solid to React</code></td>
+          <td style="color: var(--text-dim);">
+            <div class="lang-ko">코드베이스 전체에 대규모 변경을 <strong style="color:var(--text)">병렬로 조율</strong>합니다. 변경 설명을 제공하면 코드베이스를 조사하고, 작업을 5~30개의 독립적인 단위로 분해해 승인을 요청합니다. 승인 후 각 단위별로 백그라운드 에이전트를 생성하고, 각 에이전트는 격리된 git worktree에서 작업합니다. git 저장소가 필요합니다. 예: <code style="color:var(--accent)">/batch migrate src/ from Solid to React</code></div>
+            <div class="lang-en"><strong style="color:var(--text)">Orchestrates large-scale changes</strong> across the codebase in parallel. Provide a change description, it investigates the codebase and breaks the work into 5–30 independent units for approval. Then spawns background agents per unit, each working in an isolated git worktree. Requires a git repo. Example: <code style="color:var(--accent)">/batch migrate src/ from Solid to React</code></div>
+          </td>
         </tr>
         <tr>
           <td class="skill-name-cell">/debug [description]</td>
-          <td style="color: var(--text-dim);">세션 디버그 로그를 읽어 현재 Claude Code 세션을 문제 해결합니다. 선택적으로 문제 설명을 추가해 분석 초점을 맞출 수 있습니다.</td>
+          <td style="color: var(--text-dim);">
+            <div class="lang-ko">세션 디버그 로그를 읽어 현재 Claude Code 세션을 문제 해결합니다. 선택적으로 문제 설명을 추가해 분석 초점을 맞출 수 있습니다.</div>
+            <div class="lang-en">Reads session debug logs to troubleshoot the current Claude Code session. Optionally add a problem description to focus the analysis.</div>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -1146,7 +1200,8 @@ Commits 형식으로..."
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>개발자 플랫폼 Skill:</strong> Claude Code는 코드가 Anthropic SDK를 가져올 때 자동으로 활성화되는 번들 개발자 플랫폼 Skill도 포함합니다. 수동으로 호출할 필요가 없습니다.
+        <div class="lang-ko"><strong>개발자 플랫폼 Skill:</strong> Claude Code는 코드가 Anthropic SDK를 가져올 때 자동으로 활성화되는 번들 개발자 플랫폼 Skill도 포함합니다. 수동으로 호출할 필요가 없습니다.</div>
+        <div class="lang-en"><strong>Developer Platform Skill:</strong> Claude Code also includes a bundled developer platform Skill that activates automatically when code imports the Anthropic SDK. No manual invocation needed.</div>
       </div>
     </div>
   </div>
@@ -1158,9 +1213,10 @@ Commits 형식으로..."
 <section id="frontmatter">
   <div class="container">
     <div class="section-number">04</div>
-    <h2 class="section-title">SKILL.md Frontmatter 완전 정복</h2>
+    <h2 class="section-title"><span class="lang-ko">SKILL.md Frontmatter 완전 정복</span><span class="lang-en">Mastering SKILL.md Frontmatter</span></h2>
     <p class="section-desc">
-      <code style="color:var(--accent)">SKILL.md</code> 상단의 YAML frontmatter로 Skill의 동작을 세밀하게 제어할 수 있습니다.
+      <span class="lang-ko"><code style="color:var(--accent)">SKILL.md</code> 상단의 YAML frontmatter로 Skill의 동작을 세밀하게 제어할 수 있습니다.</span>
+      <span class="lang-en">The YAML frontmatter at the top of <code style="color:var(--accent)">SKILL.md</code> lets you fine-tune exactly how a Skill behaves.</span>
     </p>
 
     <div class="code-block">
@@ -1185,7 +1241,7 @@ Commits 형식으로..."
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 40px 0 20px;">&#x1F3F3;&#xFE0F; Frontmatter 필드 레퍼런스</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin: 40px 0 20px;">&#x1F3F3;&#xFE0F; <span class="lang-ko">Frontmatter 필드 레퍼런스</span><span class="lang-en">Frontmatter Field Reference</span></h3>
 
     <table class="skill-table">
       <thead>
@@ -1198,81 +1254,82 @@ Commits 형식으로..."
       <tbody>
         <tr>
           <td class="skill-name-cell">name</td>
-          <td style="color: var(--text-dim);">Skill의 표시 이름. 생략하면 디렉토리 이름 사용. 소문자, 숫자, 하이픈만 가능 (최대 64자)</td>
-          <td><span class="tag tag-orange">권장 아님</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">Skill의 표시 이름. 생략하면 디렉토리 이름 사용. 소문자, 숫자, 하이픈만 가능 (최대 64자)</span><span class="lang-en">Display name of the Skill. If omitted, uses the directory name. Only lowercase, numbers, and hyphens (max 64 chars).</span></td>
+          <td><span class="tag tag-orange"><span class="lang-ko">권장 아님</span><span class="lang-en">Not recommended</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">description</td>
-          <td style="color: var(--text-dim);">Skill이 하는 일과 사용 시기. Claude가 이것을 보고 자동 발동 여부를 결정합니다. <strong style="color:var(--text)">가장 중요한 필드!</strong></td>
-          <td><span class="tag tag-green">강력 권장</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">Skill이 하는 일과 사용 시기. Claude가 이것을 보고 자동 발동 여부를 결정합니다. <strong style="color:var(--text)">가장 중요한 필드!</strong></span><span class="lang-en">What the Skill does and when to use it. Claude reads this to decide whether to auto-trigger it. <strong style="color:var(--text)">Most important field!</strong></span></td>
+          <td><span class="tag tag-green"><span class="lang-ko">강력 권장</span><span class="lang-en">Strongly recommended</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">argument-hint</td>
-          <td style="color: var(--text-dim);">자동완성 중 표시되는 힌트. 예: <code>[issue-number]</code>, <code>[filename] [format]</code></td>
-          <td><span class="tag tag-blue">선택</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">자동완성 중 표시되는 힌트. 예: <code>[issue-number]</code>, <code>[filename] [format]</code></span><span class="lang-en">Hint shown during autocomplete. Example: <code>[issue-number]</code>, <code>[filename] [format]</code></span></td>
+          <td><span class="tag tag-blue"><span class="lang-ko">선택</span><span class="lang-en">Optional</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">disable-model-invocation</td>
-          <td style="color: var(--text-dim);"><code>true</code>로 설정하면 Claude가 자동으로 Skill을 로드하지 않습니다. <code>/deploy</code>, <code>/commit</code>처럼 타이밍이 중요한 워크플로우에 사용</td>
-          <td><span class="tag tag-blue">선택</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko"><code>true</code>로 설정하면 Claude가 자동으로 Skill을 로드하지 않습니다. <code>/deploy</code>, <code>/commit</code>처럼 타이밍이 중요한 워크플로우에 사용</span><span class="lang-en">Set to <code>true</code> to prevent Claude from auto-loading this Skill. Use for timing-critical workflows like <code>/deploy</code> or <code>/commit</code>.</span></td>
+          <td><span class="tag tag-blue"><span class="lang-ko">선택</span><span class="lang-en">Optional</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">user-invocable</td>
-          <td style="color: var(--text-dim);"><code>false</code>로 설정하면 <code>/</code> 메뉴에서 숨겨집니다. 사용자가 직접 호출하면 안 되는 배경 지식용</td>
-          <td><span class="tag tag-blue">선택</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko"><code>false</code>로 설정하면 <code>/</code> 메뉴에서 숨겨집니다. 사용자가 직접 호출하면 안 되는 배경 지식용</span><span class="lang-en">Set to <code>false</code> to hide from the <code>/</code> menu. Use for background knowledge that shouldn't be called directly by users.</span></td>
+          <td><span class="tag tag-blue"><span class="lang-ko">선택</span><span class="lang-en">Optional</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">allowed-tools</td>
-          <td style="color: var(--text-dim);">이 Skill이 활성화됐을 때 별도 승인 없이 사용 가능한 도구 목록. 예: <code>Read, Grep, Glob</code>, <code>Bash(gh *)</code></td>
-          <td><span class="tag tag-blue">선택</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">이 Skill이 활성화됐을 때 별도 승인 없이 사용 가능한 도구 목록. 예: <code>Read, Grep, Glob</code>, <code>Bash(gh *)</code></span><span class="lang-en">List of tools usable without extra approval when this Skill is active. Example: <code>Read, Grep, Glob</code>, <code>Bash(gh *)</code></span></td>
+          <td><span class="tag tag-blue"><span class="lang-ko">선택</span><span class="lang-en">Optional</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">model</td>
-          <td style="color: var(--text-dim);">이 Skill이 활성화됐을 때 사용할 모델</td>
-          <td><span class="tag tag-blue">선택</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">이 Skill이 활성화됐을 때 사용할 모델</span><span class="lang-en">Model to use when this Skill is active.</span></td>
+          <td><span class="tag tag-blue"><span class="lang-ko">선택</span><span class="lang-en">Optional</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">context</td>
-          <td style="color: var(--text-dim);"><code>fork</code>로 설정하면 격리된 subagent 컨텍스트에서 실행됩니다. 대화 기록에 접근할 수 없습니다</td>
-          <td><span class="tag tag-blue">선택</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko"><code>fork</code>로 설정하면 격리된 subagent 컨텍스트에서 실행됩니다. 대화 기록에 접근할 수 없습니다</span><span class="lang-en">Set to <code>fork</code> to run in an isolated subagent context. Cannot access conversation history.</span></td>
+          <td><span class="tag tag-blue"><span class="lang-ko">선택</span><span class="lang-en">Optional</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">agent</td>
-          <td style="color: var(--text-dim);"><code>context: fork</code>가 설정됐을 때 사용할 subagent 유형. 기본값: <code>general-purpose</code>. <code>Explore</code>, <code>Plan</code> 등 내장 에이전트 또는 커스텀 에이전트</td>
-          <td><span class="tag tag-blue">선택</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko"><code>context: fork</code>가 설정됐을 때 사용할 subagent 유형. 기본값: <code>general-purpose</code>. <code>Explore</code>, <code>Plan</code> 등 내장 에이전트 또는 커스텀 에이전트</span><span class="lang-en">Subagent type when <code>context: fork</code> is set. Default: <code>general-purpose</code>. Built-in: <code>Explore</code>, <code>Plan</code>, or custom agents.</span></td>
+          <td><span class="tag tag-blue"><span class="lang-ko">선택</span><span class="lang-en">Optional</span></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">hooks</td>
-          <td style="color: var(--text-dim);">이 Skill의 라이프사이클에 범위가 지정된 hooks</td>
-          <td><span class="tag tag-blue">선택</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">이 Skill의 라이프사이클에 범위가 지정된 hooks</span><span class="lang-en">Hooks scoped to the lifecycle of this Skill.</span></td>
+          <td><span class="tag tag-blue"><span class="lang-ko">선택</span><span class="lang-en">Optional</span></span></td>
         </tr>
       </tbody>
     </table>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;">&#x1F4E8; 인수(Arguments) 전달하기</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;">&#x1F4E8; <span class="lang-ko">인수(Arguments) 전달하기</span><span class="lang-en">Passing Arguments</span></h3>
     <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 24px;">
-      Skill 호출 시 인수를 전달할 수 있습니다. 여러 방식으로 인수에 접근 가능합니다.
+      <span class="lang-ko">Skill 호출 시 인수를 전달할 수 있습니다. 여러 방식으로 인수에 접근 가능합니다.</span>
+      <span class="lang-en">You can pass arguments when invoking a Skill. Multiple ways to access them are available.</span>
     </p>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th style="width: 180px;">변수</th>
-          <th>설명</th>
+          <th style="width: 180px;"><span class="lang-ko">변수</span><span class="lang-en">Variable</span></th>
+          <th><span class="lang-ko">설명</span><span class="lang-en">Description</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">$ARGUMENTS</td>
-          <td style="color: var(--text-dim);">Skill 호출 시 전달된 모든 인수. Skill 내용에 없으면 <code>ARGUMENTS: &lt;value&gt;</code>로 끝에 추가됨</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">Skill 호출 시 전달된 모든 인수. Skill 내용에 없으면 <code>ARGUMENTS: &lt;value&gt;</code>로 끝에 추가됨</span><span class="lang-en">All arguments passed when invoking the Skill. If not referenced in content, appended as <code>ARGUMENTS: &lt;value&gt;</code> at the end.</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">$ARGUMENTS[N]</td>
-          <td style="color: var(--text-dim);">0 기반 인덱스로 특정 인수 접근. 예: <code>$ARGUMENTS[0]</code>은 첫 번째 인수</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">0 기반 인덱스로 특정 인수 접근. 예: <code>$ARGUMENTS[0]</code>은 첫 번째 인수</span><span class="lang-en">Access a specific argument by 0-based index. Example: <code>$ARGUMENTS[0]</code> is the first argument.</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">$N</td>
-          <td style="color: var(--text-dim);"><code>$ARGUMENTS[N]</code>의 약자. 예: <code>$0</code>은 첫 번째, <code>$1</code>은 두 번째 인수</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko"><code>$ARGUMENTS[N]</code>의 약자. 예: <code>$0</code>은 첫 번째, <code>$1</code>은 두 번째 인수</span><span class="lang-en">Shorthand for <code>$ARGUMENTS[N]</code>. Example: <code>$0</code> is the first, <code>$1</code> is the second argument.</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">${CLAUDE_SESSION_ID}</td>
@@ -1301,13 +1358,14 @@ Commits 형식으로..."
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;">&#x1F6A6; 호출 제어: 누가 이 Skill을 실행할까?</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;">&#x1F6A6; <span class="lang-ko">호출 제어: 누가 이 Skill을 실행할까?</span><span class="lang-en">Invocation Control: Who Can Run This Skill?</span></h3>
 
     <div class="card-grid card-grid-2">
       <div class="card">
         <div class="card-icon" style="background: var(--orange-dim);">&#x1F512;</div>
         <h3>disable-model-invocation: true</h3>
-        <p style="margin-bottom: 16px;">사용자만 호출 가능합니다. Claude가 "준비된 것 같으니 배포하자"라고 자동 실행하는 것을 방지합니다. <code>/deploy</code>, <code>/commit</code>, <code>/send-slack-message</code>처럼 부작용이 있거나 타이밍이 중요한 워크플로우에 사용하세요.</p>
+        <div class="lang-ko"><p style="margin-bottom: 16px;">사용자만 호출 가능합니다. Claude가 "준비된 것 같으니 배포하자"라고 자동 실행하는 것을 방지합니다. <code>/deploy</code>, <code>/commit</code>, <code>/send-slack-message</code>처럼 부작용이 있거나 타이밍이 중요한 워크플로우에 사용하세요.</p></div>
+        <div class="lang-en"><p style="margin-bottom: 16px;">Only the user can invoke it. Prevents Claude from auto-running like "looks ready, let's deploy." Use for workflows with side effects or timing requirements like <code>/deploy</code>, <code>/commit</code>, <code>/send-slack-message</code>.</p></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-body" style="padding: 16px 20px; font-size: 12px;">
 <span class="comment">---</span>
@@ -1322,7 +1380,8 @@ Commits 형식으로..."
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F441;&#xFE0F;</div>
         <h3>user-invocable: false</h3>
-        <p style="margin-bottom: 16px;">Claude만 호출 가능합니다. <code>/</code> 메뉴에서 숨겨집니다. 실행 가능한 명령이 아닌 배경 지식용으로 사용하세요. 예: 레거시 시스템 컨텍스트를 담은 Skill &mdash; Claude는 관련이 있을 때 자동으로 읽지만, 사용자가 직접 호출할 필요는 없습니다.</p>
+        <div class="lang-ko"><p style="margin-bottom: 16px;">Claude만 호출 가능합니다. <code>/</code> 메뉴에서 숨겨집니다. 실행 가능한 명령이 아닌 배경 지식용으로 사용하세요. 예: 레거시 시스템 컨텍스트를 담은 Skill &mdash; Claude는 관련이 있을 때 자동으로 읽지만, 사용자가 직접 호출할 필요는 없습니다.</p></div>
+        <div class="lang-en"><p style="margin-bottom: 16px;">Only Claude can invoke it. Hidden from the <code>/</code> menu. Use for background knowledge, not executable commands. Example: a Skill with legacy system context — Claude reads it automatically when relevant, but users don't need to call it directly.</p></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-body" style="padding: 16px 20px; font-size: 12px;">
 <span class="comment">---</span>
@@ -1339,30 +1398,30 @@ Commits 형식으로..."
       <table class="skill-table">
         <thead>
           <tr>
-            <th>Frontmatter 설정</th>
-            <th>사용자 호출</th>
-            <th>Claude 자동 호출</th>
-            <th>컨텍스트 로딩</th>
+            <th><span class="lang-ko">Frontmatter 설정</span><span class="lang-en">Frontmatter Setting</span></th>
+            <th><span class="lang-ko">사용자 호출</span><span class="lang-en">User Invoke</span></th>
+            <th><span class="lang-ko">Claude 자동 호출</span><span class="lang-en">Claude Auto-invoke</span></th>
+            <th><span class="lang-ko">컨텍스트 로딩</span><span class="lang-en">Context Loading</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="color: var(--text-dim);">(기본값)</td>
-            <td><span class="tag tag-green">가능</span></td>
-            <td><span class="tag tag-green">가능</span></td>
-            <td style="color: var(--text-dim); font-size: 13px;">설명은 항상, 본문은 호출 시</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">(기본값)</span><span class="lang-en">(default)</span></td>
+            <td><span class="tag tag-green"><span class="lang-ko">가능</span><span class="lang-en">Yes</span></span></td>
+            <td><span class="tag tag-green"><span class="lang-ko">가능</span><span class="lang-en">Yes</span></span></td>
+            <td style="color: var(--text-dim); font-size: 13px;"><span class="lang-ko">설명은 항상, 본문은 호출 시</span><span class="lang-en">Description always; body on invoke</span></td>
           </tr>
           <tr>
             <td style="color: var(--text-dim);"><code>disable-model-invocation: true</code></td>
-            <td><span class="tag tag-green">가능</span></td>
-            <td><span class="tag tag-orange">불가</span></td>
-            <td style="color: var(--text-dim); font-size: 13px;">설명 없음, 사용자 호출 시 로드</td>
+            <td><span class="tag tag-green"><span class="lang-ko">가능</span><span class="lang-en">Yes</span></span></td>
+            <td><span class="tag tag-orange"><span class="lang-ko">불가</span><span class="lang-en">No</span></span></td>
+            <td style="color: var(--text-dim); font-size: 13px;"><span class="lang-ko">설명 없음, 사용자 호출 시 로드</span><span class="lang-en">No description; loaded on user invoke</span></td>
           </tr>
           <tr>
             <td style="color: var(--text-dim);"><code>user-invocable: false</code></td>
-            <td><span class="tag tag-orange">불가</span></td>
-            <td><span class="tag tag-green">가능</span></td>
-            <td style="color: var(--text-dim); font-size: 13px;">설명은 항상, 본문은 호출 시</td>
+            <td><span class="tag tag-orange"><span class="lang-ko">불가</span><span class="lang-en">No</span></span></td>
+            <td><span class="tag tag-green"><span class="lang-ko">가능</span><span class="lang-en">Yes</span></span></td>
+            <td style="color: var(--text-dim); font-size: 13px;"><span class="lang-ko">설명은 항상, 본문은 호출 시</span><span class="lang-en">Description always; body on invoke</span></td>
           </tr>
         </tbody>
       </table>
@@ -1376,9 +1435,10 @@ Commits 형식으로..."
 <section id="how-to-make">
   <div class="container">
     <div class="section-number">05</div>
-    <h2 class="section-title">첫 번째 Skill 만들기</h2>
+    <h2 class="section-title"><span class="lang-ko">첫 번째 Skill 만들기</span><span class="lang-en">Making Your First Skill</span></h2>
     <p class="section-desc">
-      생각보다 쉽습니다. 결국 텍스트 파일 하나 쓰는 겁니다.
+      <span class="lang-ko">생각보다 쉽습니다. 결국 텍스트 파일 하나 쓰는 겁니다.</span>
+      <span class="lang-en">Easier than you think. In the end, it's just writing a text file.</span>
     </p>
 
     <div class="steps">
@@ -1390,8 +1450,9 @@ Commits 형식으로..."
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>디렉토리 생성하기</h3>
-          <p>개인 Skill은 <code>~/.claude/skills/</code>에, 프로젝트 Skill은 <code>.claude/skills/</code>에 디렉토리를 만듭니다.</p>
+          <h3><span class="lang-ko">디렉토리 생성하기</span><span class="lang-en">Create a Directory</span></h3>
+          <div class="lang-ko"><p>개인 Skill은 <code>~/.claude/skills/</code>에, 프로젝트 Skill은 <code>.claude/skills/</code>에 디렉토리를 만듭니다.</p></div>
+          <div class="lang-en"><p>Create a directory under <code>~/.claude/skills/</code> for personal Skills, or under <code>.claude/skills/</code> for project Skills.</p></div>
 
           <div class="code-block">
             <div class="code-header">
@@ -1416,8 +1477,9 @@ Commits 형식으로..."
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>SKILL.md 파일 작성하기</h3>
-          <p>두 부분으로 구성됩니다: YAML frontmatter(언제 발동할지)와 마크다운 지시문(실제 작업 내용). <code>description</code>이 핵심입니다!</p>
+          <h3><span class="lang-ko">SKILL.md 파일 작성하기</span><span class="lang-en">Write the SKILL.md File</span></h3>
+          <div class="lang-ko"><p>두 부분으로 구성됩니다: YAML frontmatter(언제 발동할지)와 마크다운 지시문(실제 작업 내용). <code>description</code>이 핵심입니다!</p></div>
+          <div class="lang-en"><p>It has two parts: YAML frontmatter (when to trigger) and markdown instructions (what to do). The <code>description</code> is the key!</p></div>
 
           <div class="code-block">
             <div class="code-header">
@@ -1448,7 +1510,8 @@ Commits 형식으로..."
           <div class="tip">
             <span class="tip-icon">&#x1F4D0;</span>
             <div>
-              <strong>작성 팁:</strong> <code>description</code>에 사용자가 자연스럽게 말할 키워드를 포함시키세요. Claude는 description을 보고 "이 Skill을 쓸지 말지"를 결정합니다. "코드 설명", "이게 어떻게 동작해", "how does this work" 등 구체적으로 적을수록 좋습니다.
+              <div class="lang-ko"><strong>작성 팁:</strong> <code>description</code>에 사용자가 자연스럽게 말할 키워드를 포함시키세요. Claude는 description을 보고 "이 Skill을 쓸지 말지"를 결정합니다. "코드 설명", "이게 어떻게 동작해", "how does this work" 등 구체적으로 적을수록 좋습니다.</div>
+              <div class="lang-en"><strong>Writing Tip:</strong> Include keywords that users would naturally say in the <code>description</code>. Claude reads the description to decide "should I use this Skill?" Be specific: "explain code", "how does this work", etc.</div>
             </div>
           </div>
         </div>
@@ -1461,28 +1524,42 @@ Commits 형식으로..."
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>테스트하기</h3>
-          <p>두 가지 방법으로 테스트할 수 있습니다.</p>
+          <h3><span class="lang-ko">테스트하기</span><span class="lang-en">Testing It</span></h3>
+          <div class="lang-ko"><p>두 가지 방법으로 테스트할 수 있습니다.</p></div>
+          <div class="lang-en"><p>Two ways to test your Skill.</p></div>
 
           <div class="comparison">
             <div class="comp-good" style="background: var(--blue-dim); border-color: var(--blue-border);">
-              <div class="comp-label" style="color: var(--blue);">&#x1F916; Claude가 자동 호출하도록</div>
-              <div class="comp-code">description과 일치하는 질문 던지기:
+              <div class="comp-label" style="color: var(--blue);">&#x1F916; <span class="lang-ko">Claude가 자동 호출하도록</span><span class="lang-en">Let Claude auto-invoke</span></div>
+              <div class="lang-ko"><div class="comp-code">description과 일치하는 질문 던지기:
 
 "이 코드가 어떻게 동작해?"
 "auth.ts 설명해줘"
 
 Claude가 Skill을 자동으로 감지하고
-유추와 ASCII 다이어그램 포함!</div>
+유추와 ASCII 다이어그램 포함!</div></div>
+              <div class="lang-en"><div class="comp-code">Ask a question matching the description:
+
+"How does this code work?"
+"Explain auth.ts"
+
+Claude auto-detects the Skill and
+includes analogies and ASCII diagrams!</div></div>
             </div>
             <div class="comp-good">
-              <div class="comp-label">&#x2328;&#xFE0F; 직접 호출하기</div>
-              <div class="comp-code">슬래시 명령으로 직접 호출:
+              <div class="comp-label">&#x2328;&#xFE0F; <span class="lang-ko">직접 호출하기</span><span class="lang-en">Invoke directly</span></div>
+              <div class="lang-ko"><div class="comp-code">슬래시 명령으로 직접 호출:
 
 /explain-code src/auth/login.ts
 
 인수를 함께 전달할 수 있어서
-더 정확하게 원하는 파일 지정 가능!</div>
+더 정확하게 원하는 파일 지정 가능!</div></div>
+              <div class="lang-en"><div class="comp-code">Invoke directly with a slash command:
+
+/explain-code src/auth/login.ts
+
+Pass arguments to precisely specify
+the file you want explained!</div></div>
             </div>
           </div>
         </div>
@@ -1495,8 +1572,9 @@ Claude가 Skill을 자동으로 감지하고
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>보조 파일 추가하기 (선택)</h3>
-          <p>복잡한 Skill은 <code>SKILL.md</code>에서 참조하는 보조 파일을 추가할 수 있습니다. <code>SKILL.md</code>는 500줄 이하로 유지하고, 상세한 참조 자료는 별도 파일로 분리하세요.</p>
+          <h3><span class="lang-ko">보조 파일 추가하기 (선택)</span><span class="lang-en">Add Supporting Files (Optional)</span></h3>
+          <div class="lang-ko"><p>복잡한 Skill은 <code>SKILL.md</code>에서 참조하는 보조 파일을 추가할 수 있습니다. <code>SKILL.md</code>는 500줄 이하로 유지하고, 상세한 참조 자료는 별도 파일로 분리하세요.</p></div>
+          <div class="lang-en"><p>Complex Skills can include supporting files referenced from <code>SKILL.md</code>. Keep <code>SKILL.md</code> under 500 lines and separate detailed reference material into separate files.</p></div>
 
           <div class="code-block">
             <div class="code-header">
@@ -1517,7 +1595,8 @@ Claude가 Skill을 자동으로 감지하고
           <div class="tip">
             <span class="tip-icon">&#x1F4CE;</span>
             <div>
-              <strong>SKILL.md에서 보조 파일 참조하는 법:</strong> <code>SKILL.md</code> 안에 "상세 API 문서는 [reference.md](reference.md) 참조"처럼 명시하면 Claude가 언제 무엇을 읽어야 하는지 알 수 있습니다.
+              <div class="lang-ko"><strong>SKILL.md에서 보조 파일 참조하는 법:</strong> <code>SKILL.md</code> 안에 "상세 API 문서는 [reference.md](reference.md) 참조"처럼 명시하면 Claude가 언제 무엇을 읽어야 하는지 알 수 있습니다.</div>
+              <div class="lang-en"><strong>How to reference supporting files from SKILL.md:</strong> Write something like "See [reference.md](reference.md) for detailed API docs" inside <code>SKILL.md</code> so Claude knows when and what to read.</div>
             </div>
           </div>
         </div>
@@ -1530,8 +1609,9 @@ Claude가 Skill을 자동으로 감지하고
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>팀과 공유하기</h3>
-          <p>프로젝트 Skill은 git으로 버전 관리하면 팀 전체가 자동으로 사용할 수 있습니다.</p>
+          <h3><span class="lang-ko">팀과 공유하기</span><span class="lang-en">Share with Your Team</span></h3>
+          <div class="lang-ko"><p>프로젝트 Skill은 git으로 버전 관리하면 팀 전체가 자동으로 사용할 수 있습니다.</p></div>
+          <div class="lang-en"><p>Version-control project Skills in git so the entire team can use them automatically.</p></div>
 
           <div class="code-block">
             <div class="code-header">
@@ -1552,7 +1632,8 @@ Claude가 Skill을 자동으로 감지하고
           <div class="tip">
             <span class="tip-icon">&#x1F4AC;</span>
             <div>
-              <strong>Claude에게 만들어달라고 해보세요:</strong> "내 코드 리뷰 워크플로우를 Skill로 만들어줘"라고 말하면 Claude가 <code>SKILL.md</code>를 생성해줍니다. 그 파일을 검토하고 다듬으면 됩니다.
+              <div class="lang-ko"><strong>Claude에게 만들어달라고 해보세요:</strong> "내 코드 리뷰 워크플로우를 Skill로 만들어줘"라고 말하면 Claude가 <code>SKILL.md</code>를 생성해줍니다. 그 파일을 검토하고 다듬으면 됩니다.</div>
+              <div class="lang-en"><strong>Ask Claude to make it for you:</strong> Say "Create a Skill for my code review workflow" and Claude will generate the <code>SKILL.md</code>. Just review and refine it.</div>
             </div>
           </div>
         </div>
@@ -1560,9 +1641,10 @@ Claude가 Skill을 자동으로 감지하고
     </div>
 
     <!-- REAL EXAMPLE -->
-    <h3 style="font-size: 22px; font-weight: 700; margin: 64px 0 24px;">&#x1F393; 실전 예시: SwiftUI 코드 리뷰 Skill</h3>
+    <h3 style="font-size: 22px; font-weight: 700; margin: 64px 0 24px;">&#x1F393; <span class="lang-ko">실전 예시: SwiftUI 코드 리뷰 Skill</span><span class="lang-en">Real Example: SwiftUI Code Review Skill</span></h3>
     <p style="color: var(--text-dim); margin-bottom: 24px;">
-      SwiftUI 앱 개발에 특화된 코드 리뷰 Skill 예시입니다. <code>disable-model-invocation: true</code>로 사용자가 직접 호출할 때만 실행됩니다.
+      <span class="lang-ko">SwiftUI 앱 개발에 특화된 코드 리뷰 Skill 예시입니다. <code>disable-model-invocation: true</code>로 사용자가 직접 호출할 때만 실행됩니다.</span>
+      <span class="lang-en">A code review Skill specialized for SwiftUI app development. Uses <code>disable-model-invocation: true</code> so it only runs when the user explicitly calls it.</span>
     </p>
 
     <div class="code-block">
@@ -1604,18 +1686,18 @@ Claude가 Skill을 자동으로 감지하고
     </div>
 
     <div style="margin-top: 48px;">
-      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">&#x1F3F7;&#65039; 어떤 Skill을 만들면 좋을까?</h3>
+      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">&#x1F3F7;&#65039; <span class="lang-ko">어떤 Skill을 만들면 좋을까?</span><span class="lang-en">What Skills Should You Make?</span></h3>
       <div class="tag-row" style="gap: 10px;">
-        <span class="tag tag-purple">&#x1F4BB; 코드 리뷰 규칙</span>
-        <span class="tag tag-green">&#9997;&#65039; 글쓰기 톤 &amp; 스타일</span>
-        <span class="tag tag-blue">&#x1F680; 배포 워크플로우</span>
-        <span class="tag tag-orange">&#x1F4E7; 이메일 포맷</span>
-        <span class="tag tag-pink">&#x1F3A8; 브랜드 가이드라인</span>
-        <span class="tag tag-yellow">&#x1F4F1; 앱 개발 워크플로우</span>
-        <span class="tag tag-purple">&#x1F4DD; 문서 템플릿</span>
-        <span class="tag tag-green">&#x1F9EA; 테스트 작성 규칙</span>
-        <span class="tag tag-blue">&#x1F50D; 코드 분석 패턴</span>
-        <span class="tag tag-orange">&#x1F4C8; 리포트 생성</span>
+        <span class="tag tag-purple">&#x1F4BB; <span class="lang-ko">코드 리뷰 규칙</span><span class="lang-en">Code Review Rules</span></span>
+        <span class="tag tag-green">&#9997;&#65039; <span class="lang-ko">글쓰기 톤 &amp; 스타일</span><span class="lang-en">Writing Tone &amp; Style</span></span>
+        <span class="tag tag-blue">&#x1F680; <span class="lang-ko">배포 워크플로우</span><span class="lang-en">Deployment Workflow</span></span>
+        <span class="tag tag-orange">&#x1F4E7; <span class="lang-ko">이메일 포맷</span><span class="lang-en">Email Format</span></span>
+        <span class="tag tag-pink">&#x1F3A8; <span class="lang-ko">브랜드 가이드라인</span><span class="lang-en">Brand Guidelines</span></span>
+        <span class="tag tag-yellow">&#x1F4F1; <span class="lang-ko">앱 개발 워크플로우</span><span class="lang-en">App Dev Workflow</span></span>
+        <span class="tag tag-purple">&#x1F4DD; <span class="lang-ko">문서 템플릿</span><span class="lang-en">Doc Templates</span></span>
+        <span class="tag tag-green">&#x1F9EA; <span class="lang-ko">테스트 작성 규칙</span><span class="lang-en">Test Writing Rules</span></span>
+        <span class="tag tag-blue">&#x1F50D; <span class="lang-ko">코드 분석 패턴</span><span class="lang-en">Code Analysis Patterns</span></span>
+        <span class="tag tag-orange">&#x1F4C8; <span class="lang-ko">리포트 생성</span><span class="lang-en">Report Generation</span></span>
       </div>
     </div>
   </div>
@@ -1627,14 +1709,16 @@ Claude가 Skill을 자동으로 감지하고
 <section id="advanced">
   <div class="container">
     <div class="section-number">06</div>
-    <h2 class="section-title">고급 패턴</h2>
+    <h2 class="section-title"><span class="lang-ko">고급 패턴</span><span class="lang-en">Advanced Patterns</span></h2>
     <p class="section-desc">
-      Skills를 훨씬 강력하게 만들어주는 고급 기능들입니다.
+      <span class="lang-ko">Skills를 훨씬 강력하게 만들어주는 고급 기능들입니다.</span>
+      <span class="lang-en">Advanced features that make Skills much more powerful.</span>
     </p>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">&#x26A1; 동적 컨텍스트 주입</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">&#x26A1; <span class="lang-ko">동적 컨텍스트 주입</span><span class="lang-en">Dynamic Context Injection</span></h3>
     <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 20px;">
-      <code style="color:var(--accent)">!`command`</code> 구문을 사용하면 Skill 콘텐츠가 Claude로 전송되기 <strong>전에</strong> shell 명령어를 실행합니다. 명령어 출력이 자리 표시자를 대체하므로 Claude는 실제 데이터를 받습니다.
+      <span class="lang-ko"><code style="color:var(--accent)">!`command`</code> 구문을 사용하면 Skill 콘텐츠가 Claude로 전송되기 <strong>전에</strong> shell 명령어를 실행합니다. 명령어 출력이 자리 표시자를 대체하므로 Claude는 실제 데이터를 받습니다.</span>
+      <span class="lang-en">The <code style="color:var(--accent)">!`command`</code> syntax runs a shell command <strong>before</strong> Skill content is sent to Claude. The command output replaces the placeholder, so Claude receives actual data.</span>
     </p>
 
     <div class="code-block">
@@ -1671,26 +1755,29 @@ Claude가 Skill을 자동으로 감지하고
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 16px;">&#x1F9B8; Subagent에서 Skills 실행</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 16px;">&#x1F9B8; <span class="lang-ko">Subagent에서 Skills 실행</span><span class="lang-en">Running Skills in a Subagent</span></h3>
     <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 20px;">
-      <code style="color:var(--accent)">context: fork</code>를 추가하면 Skill이 격리된 subagent에서 실행됩니다. 대화 기록에 접근할 수 없으며, Skill 콘텐츠 자체가 subagent의 프롬프트가 됩니다.
+      <span class="lang-ko"><code style="color:var(--accent)">context: fork</code>를 추가하면 Skill이 격리된 subagent에서 실행됩니다. 대화 기록에 접근할 수 없으며, Skill 콘텐츠 자체가 subagent의 프롬프트가 됩니다.</span>
+      <span class="lang-en">Add <code style="color:var(--accent)">context: fork</code> to run the Skill in an isolated subagent. It cannot access conversation history; the Skill content itself becomes the subagent's prompt.</span>
     </p>
 
     <div class="card-grid card-grid-2">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F52D;</div>
-        <h3>context: fork 방식</h3>
-        <p style="margin-bottom: 16px;">Skill에 작업을 작성하고 실행할 에이전트 유형을 지정합니다. Skill 콘텐츠가 subagent의 프롬프트가 됩니다.</p>
+        <h3>context: fork</h3>
+        <div class="lang-ko"><p style="margin-bottom: 16px;">Skill에 작업을 작성하고 실행할 에이전트 유형을 지정합니다. Skill 콘텐츠가 subagent의 프롬프트가 됩니다.</p></div>
+        <div class="lang-en"><p style="margin-bottom: 16px;">Write the task in the Skill and specify the agent type to run it. The Skill content becomes the subagent's prompt.</p></div>
         <div class="tag-row">
-          <span class="tag tag-purple">Explore 에이전트</span>
-          <span class="tag tag-green">Plan 에이전트</span>
+          <span class="tag tag-purple"><span class="lang-ko">Explore 에이전트</span><span class="lang-en">Explore Agent</span></span>
+          <span class="tag tag-green"><span class="lang-ko">Plan 에이전트</span><span class="lang-en">Plan Agent</span></span>
           <span class="tag tag-blue">general-purpose</span>
         </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F4DA;</div>
-        <h3>Skills를 참조 자료로</h3>
-        <p>반대 방향으로도 가능합니다. 사용자 정의 subagent가 <code>skills</code> 필드로 Skills를 참조 자료로 사전 로드할 수 있습니다. Subagents 문서를 참조하세요.</p>
+        <h3><span class="lang-ko">Skills를 참조 자료로</span><span class="lang-en">Skills as Reference Material</span></h3>
+        <div class="lang-ko"><p>반대 방향으로도 가능합니다. 사용자 정의 subagent가 <code>skills</code> 필드로 Skills를 참조 자료로 사전 로드할 수 있습니다. Subagents 문서를 참조하세요.</p></div>
+        <div class="lang-en"><p>The reverse is also possible. Custom subagents can pre-load Skills as reference material using the <code>skills</code> field. See the Subagents docs for details.</p></div>
       </div>
     </div>
 
@@ -1718,9 +1805,10 @@ Claude가 Skill을 자동으로 감지하고
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 16px;">&#x1F4C2; 중첩 디렉토리 자동 검색</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 16px;">&#x1F4C2; <span class="lang-ko">중첩 디렉토리 자동 검색</span><span class="lang-en">Nested Directory Auto-Discovery</span></h3>
     <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 20px;">
-      monorepo 환경에서 <code>packages/frontend/</code>의 파일을 편집할 때 Claude Code는 <code>packages/frontend/.claude/skills/</code>에서도 Skills를 자동으로 찾습니다. 각 패키지가 자신만의 Skills를 가질 수 있습니다.
+      <span class="lang-ko">monorepo 환경에서 <code>packages/frontend/</code>의 파일을 편집할 때 Claude Code는 <code>packages/frontend/.claude/skills/</code>에서도 Skills를 자동으로 찾습니다. 각 패키지가 자신만의 Skills를 가질 수 있습니다.</span>
+      <span class="lang-en">In a monorepo, when editing files in <code>packages/frontend/</code>, Claude Code also automatically looks for Skills in <code>packages/frontend/.claude/skills/</code>. Each package can have its own Skills.</span>
     </p>
 
     <div class="code-block">
@@ -1757,92 +1845,111 @@ Claude가 Skill을 자동으로 감지하고
 <section id="faq">
   <div class="container">
     <div class="section-number">07</div>
-    <h2 class="section-title">자주 묻는 질문</h2>
+    <h2 class="section-title"><span class="lang-ko">자주 묻는 질문</span><span class="lang-en">Frequently Asked Questions</span></h2>
     <p class="section-desc">
-      처음 접하는 분들이 가장 많이 궁금해하는 것들
+      <span class="lang-ko">처음 접하는 분들이 가장 많이 궁금해하는 것들</span>
+      <span class="lang-en">The most common questions from first-timers</span>
     </p>
 
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          코딩을 몰라도 Skill을 만들 수 있나요?
+          <span class="lang-ko">코딩을 몰라도 Skill을 만들 수 있나요?</span><span class="lang-en">Can I make a Skill without knowing how to code?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네, 가능합니다! Skill의 핵심은 마크다운(.md) 파일인데, 이건 그냥 텍스트 파일입니다. "제목은 ##으로 쓴다" 정도만 알면 됩니다. 코드를 하나도 몰라도, "이 상황에서 이렇게 해라"를 글로 적을 수 있으면 Skill을 만들 수 있습니다. 사실 Claude에게 "내가 원하는 워크플로우를 Skill로 만들어줘"라고 말하면 Claude가 대신 만들어주기도 합니다.
+            <div class="lang-ko">네, 가능합니다! Skill의 핵심은 마크다운(.md) 파일인데, 이건 그냥 텍스트 파일입니다. "제목은 ##으로 쓴다" 정도만 알면 됩니다. 코드를 하나도 몰라도, "이 상황에서 이렇게 해라"를 글로 적을 수 있으면 Skill을 만들 수 있습니다. 사실 Claude에게 "내가 원하는 워크플로우를 Skill로 만들어줘"라고 말하면 Claude가 대신 만들어주기도 합니다.</div>
+            <div class="lang-en">Yes! The heart of a Skill is a markdown (.md) file — just a text file. You just need to know that "## means a heading." Even without any coding knowledge, if you can write "do this in this situation," you can make a Skill. In fact, you can tell Claude "create a Skill for my workflow" and Claude will make it for you.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          .claude/commands/와 .claude/skills/의 차이는?
+          <span class="lang-ko">.claude/commands/와 .claude/skills/의 차이는?</span><span class="lang-en">What's the difference between .claude/commands/ and .claude/skills/?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            기능적으로는 동일합니다. <code>.claude/commands/review.md</code>와 <code>.claude/skills/review/SKILL.md</code> 둘 다 <code>/review</code>를 생성하고 동일하게 작동합니다. 기존 <code>.claude/commands/</code> 파일은 계속 작동하니 당장 마이그레이션할 필요는 없습니다.<br><br>
-            Skills(<code>.claude/skills/</code>) 방식의 장점: ① 디렉토리 구조로 보조 파일(템플릿, 스크립트, 예시) 추가 가능 ② frontmatter로 호출 제어(<code>disable-model-invocation</code>, <code>user-invocable</code>) ③ <code>context: fork</code>로 subagent 실행 ④ 같은 이름이 있을 때 Skills가 commands보다 우선순위가 높음.
+            <div class="lang-ko">기능적으로는 동일합니다. <code>.claude/commands/review.md</code>와 <code>.claude/skills/review/SKILL.md</code> 둘 다 <code>/review</code>를 생성하고 동일하게 작동합니다. 기존 <code>.claude/commands/</code> 파일은 계속 작동하니 당장 마이그레이션할 필요는 없습니다.<br><br>
+            Skills(<code>.claude/skills/</code>) 방식의 장점: ① 디렉토리 구조로 보조 파일(템플릿, 스크립트, 예시) 추가 가능 ② frontmatter로 호출 제어(<code>disable-model-invocation</code>, <code>user-invocable</code>) ③ <code>context: fork</code>로 subagent 실행 ④ 같은 이름이 있을 때 Skills가 commands보다 우선순위가 높음.</div>
+            <div class="lang-en">Functionally they're the same. Both <code>.claude/commands/review.md</code> and <code>.claude/skills/review/SKILL.md</code> create <code>/review</code> and work identically. Existing <code>.claude/commands/</code> files continue to work — no immediate migration needed.<br><br>
+            Advantages of the Skills (<code>.claude/skills/</code>) approach: ① Add supporting files (templates, scripts, examples) via directory structure ② Control invocation via frontmatter (<code>disable-model-invocation</code>, <code>user-invocable</code>) ③ Run in subagent with <code>context: fork</code> ④ When names conflict, Skills take priority over commands.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          Skill을 너무 많이 만들면 Claude가 느려지나요?
+          <span class="lang-ko">Skill을 너무 많이 만들면 Claude가 느려지나요?</span><span class="lang-en">Will Claude slow down if I create too many Skills?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            Skill <strong>설명(description)만</strong> 항상 컨텍스트에 로드되고, SKILL.md 본문은 실제로 호출될 때만 읽습니다. 따라서 Skills가 많아도 description이 짧고 명확하면 성능 영향은 거의 없습니다.<br><br>
-            단, Skills가 정말 많아지면 description들의 총 문자 수가 예산을 초과할 수 있습니다. 예산은 컨텍스트 윈도우의 2%이며 최대 16,000자입니다. <code>/context</code>를 실행하면 제외된 Skills에 대한 경고를 볼 수 있습니다. <code>SLASH_COMMAND_TOOL_CHAR_BUDGET</code> 환경 변수로 제한을 조정할 수 있습니다.
+            <div class="lang-ko">Skill <strong>설명(description)만</strong> 항상 컨텍스트에 로드되고, SKILL.md 본문은 실제로 호출될 때만 읽습니다. 따라서 Skills가 많아도 description이 짧고 명확하면 성능 영향은 거의 없습니다.<br><br>
+            단, Skills가 정말 많아지면 description들의 총 문자 수가 예산을 초과할 수 있습니다. 예산은 컨텍스트 윈도우의 2%이며 최대 16,000자입니다. <code>/context</code>를 실행하면 제외된 Skills에 대한 경고를 볼 수 있습니다. <code>SLASH_COMMAND_TOOL_CHAR_BUDGET</code> 환경 변수로 제한을 조정할 수 있습니다.</div>
+            <div class="lang-en">Only the Skill's <strong>description</strong> is always loaded into context; the SKILL.md body is only read when actually invoked. So having many Skills with short, clear descriptions has virtually no performance impact.<br><br>
+            However, if you have a very large number of Skills, the combined character count of descriptions can exceed the budget. The budget is 2% of the context window, up to 16,000 characters. Run <code>/context</code> to see warnings about excluded Skills. Adjust the limit with the <code>SLASH_COMMAND_TOOL_CHAR_BUDGET</code> env variable.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          Skill이 트리거되지 않아요. 어떻게 해야 하나요?
+          <span class="lang-ko">Skill이 트리거되지 않아요. 어떻게 해야 하나요?</span><span class="lang-en">My Skill isn't triggering. What should I do?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            1. <strong>description을 확인하세요</strong> &mdash; 사용자가 자연스럽게 말할 키워드가 포함되어 있는지 확인합니다.<br><br>
+            <div class="lang-ko">1. <strong>description을 확인하세요</strong> &mdash; 사용자가 자연스럽게 말할 키워드가 포함되어 있는지 확인합니다.<br><br>
             2. <strong>Skills 목록을 확인하세요</strong> &mdash; Claude에게 "사용 가능한 Skills가 뭐야?"라고 물어보세요. Skill이 목록에 나타나는지 확인합니다.<br><br>
             3. <strong>요청을 다시 표현해보세요</strong> &mdash; description에 있는 키워드와 더 가깝게 요청해봅니다.<br><br>
             4. <strong>직접 호출해보세요</strong> &mdash; <code>/skill-name</code>으로 직접 호출해서 Skill 자체가 제대로 작동하는지 확인합니다.<br><br>
-            반대로 너무 자주 트리거된다면 description을 더 구체적으로 만들거나 <code>disable-model-invocation: true</code>를 추가하세요.
+            반대로 너무 자주 트리거된다면 description을 더 구체적으로 만들거나 <code>disable-model-invocation: true</code>를 추가하세요.</div>
+            <div class="lang-en">1. <strong>Check the description</strong> &mdash; Make sure it includes keywords users would naturally say.<br><br>
+            2. <strong>Check the Skills list</strong> &mdash; Ask Claude "what Skills are available?" and see if yours appears.<br><br>
+            3. <strong>Rephrase your request</strong> &mdash; Try wording your request closer to the keywords in the description.<br><br>
+            4. <strong>Try invoking directly</strong> &mdash; Use <code>/skill-name</code> to invoke directly and verify the Skill itself works correctly.<br><br>
+            Conversely, if it triggers too often, make the description more specific or add <code>disable-model-invocation: true</code>.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          Skill을 만들 때 가장 흔한 실수는?
+          <span class="lang-ko">Skill을 만들 때 가장 흔한 실수는?</span><span class="lang-en">What are the most common mistakes when making a Skill?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            <strong>1. description이 너무 짧거나 모호함</strong> &mdash; Claude가 Skill을 쓸지 결정하는 핵심이 description입니다. "블로그 작성 도구"처럼 대충 쓰면 잘 발동되지 않습니다. "사용자가 '블로그', '기술 포스트', '글 써줘'라고 말하면 이 Skill을 사용한다" 수준으로 구체적으로 적어야 합니다.<br><br>
+            <div class="lang-ko"><strong>1. description이 너무 짧거나 모호함</strong> &mdash; Claude가 Skill을 쓸지 결정하는 핵심이 description입니다. "블로그 작성 도구"처럼 대충 쓰면 잘 발동되지 않습니다. "사용자가 '블로그', '기술 포스트', '글 써줘'라고 말하면 이 Skill을 사용한다" 수준으로 구체적으로 적어야 합니다.<br><br>
             <strong>2. 지시가 너무 추상적</strong> &mdash; "좋은 글을 써라" 대신 "첫 문장은 독자의 고민을 질문으로 시작한다", "소제목은 3~5개" 같이 구체적으로 써야 합니다.<br><br>
             <strong>3. context: fork를 모든 Skill에 적용</strong> &mdash; <code>context: fork</code>는 명시적 실행 지침이 있는 Skill에만 의미가 있습니다. "이 API 규칙을 사용하세요" 같은 참조용 Skill에 사용하면 subagent가 지침을 받지만 실행할 내용이 없어 의미 없는 결과를 반환합니다.<br><br>
-            <strong>4. 테스트를 안 함</strong> &mdash; 만들고 바로 실전 투입하면 예상 못한 결과가 나옵니다. 최소 2~3개의 테스트 프롬프트로 확인 후 개선하세요.
+            <strong>4. 테스트를 안 함</strong> &mdash; 만들고 바로 실전 투입하면 예상 못한 결과가 나옵니다. 최소 2~3개의 테스트 프롬프트로 확인 후 개선하세요.</div>
+            <div class="lang-en"><strong>1. Description too short or vague</strong> &mdash; The description is the key to whether Claude uses a Skill. "Blog writing tool" is too vague. Be specific: "Use this Skill when the user says 'blog', 'tech post', or 'write an article'."<br><br>
+            <strong>2. Instructions too abstract</strong> &mdash; Instead of "write good content," say "start the first sentence with a question about the reader's problem" and "use 3–5 subheadings."<br><br>
+            <strong>3. Applying context: fork to every Skill</strong> &mdash; <code>context: fork</code> only makes sense for Skills with explicit execution instructions. Using it on a reference Skill like "use these API rules" causes the subagent to receive instructions but have nothing to execute, returning meaningless results.<br><br>
+            <strong>4. Not testing</strong> &mdash; Deploying immediately without testing leads to unexpected results. Test with at least 2–3 prompts and iterate before using in production.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          Claude가 원치 않을 때 특정 Skill을 실행하지 못하게 하려면?
+          <span class="lang-ko">Claude가 원치 않을 때 특정 Skill을 실행하지 못하게 하려면?</span><span class="lang-en">How do I prevent Claude from running a specific Skill when I don't want it to?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            세 가지 방법이 있습니다:<br><br>
+            <div class="lang-ko">세 가지 방법이 있습니다:<br><br>
             1. <strong>개별 Skill 비활성화</strong>: SKILL.md frontmatter에 <code>disable-model-invocation: true</code> 추가. 사용자만 호출 가능합니다.<br><br>
             2. <strong>특정 Skill 거부 규칙</strong>: <code>/permissions</code>에서 <code>Skill(deploy *)</code> 같은 거부 규칙을 추가하면 Claude가 해당 Skill을 호출할 수 없습니다.<br><br>
-            3. <strong>모든 Skill 비활성화</strong>: <code>/permissions</code>에서 <code>Skill</code>을 거부 규칙으로 추가하면 Claude가 어떤 Skill도 자동 호출할 수 없습니다.
+            3. <strong>모든 Skill 비활성화</strong>: <code>/permissions</code>에서 <code>Skill</code>을 거부 규칙으로 추가하면 Claude가 어떤 Skill도 자동 호출할 수 없습니다.</div>
+            <div class="lang-en">Three options:<br><br>
+            1. <strong>Disable individual Skill</strong>: Add <code>disable-model-invocation: true</code> to SKILL.md frontmatter. Only users can invoke it.<br><br>
+            2. <strong>Deny rule for specific Skill</strong>: Add a deny rule like <code>Skill(deploy *)</code> in <code>/permissions</code> to prevent Claude from calling that Skill.<br><br>
+            3. <strong>Disable all Skills</strong>: Add <code>Skill</code> as a deny rule in <code>/permissions</code> to prevent Claude from auto-invoking any Skill.</div>
           </div>
         </div>
       </div>
@@ -1855,8 +1962,9 @@ Claude가 Skill을 자동으로 감지하고
   <div class="container">
     <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.15); text-align: center; padding: 60px 40px;">
       <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
-        요약하면 이겁니다
+        <span class="lang-ko">요약하면 이겁니다</span><span class="lang-en">Here's the Summary</span>
       </h2>
+      <div class="lang-ko">
       <p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
         Skill = Claude에게 주는 <strong style="color: var(--accent)">영구적 업무 매뉴얼</strong><br>
         저장 위치 = <strong style="color: var(--green)">~/.claude/skills/ 또는 .claude/skills/</strong><br>
@@ -1866,18 +1974,30 @@ Claude가 Skill을 자동으로 감지하고
         시작이 어려우면, Claude에게 이렇게 말해보세요:<br>
         <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"내 워크플로우를 .claude/skills/ 에 Skill로 만들어줘"</span>
       </p>
+      </div>
+      <div class="lang-en">
+      <p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
+        Skill = A <strong style="color: var(--accent)">permanent work manual</strong> you give to Claude<br>
+        Location = <strong style="color: var(--green)">~/.claude/skills/ or .claude/skills/</strong><br>
+        Core file = <strong style="color: var(--orange)">SKILL.md (YAML frontmatter + markdown instructions)</strong>
+      </p>
+      <p style="color: var(--text-muted); font-size: 14px;">
+        If you're not sure where to start, tell Claude:<br>
+        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"Create my workflow as a Skill in .claude/skills/"</span>
+      </p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- =================== CHAPTER NAV =================== -->
 <div class="chapter-nav">
-  <a href="agents.html">&larr; 이전: 서브에이전트</a>
-  <a href="workflow.html">다음: 실전 워크플로우 &rarr;</a>
+  <a href="agents.html">&larr; <span class="lang-ko">이전: 서브에이전트</span><span class="lang-en">Prev: Subagents</span></a>
+  <a href="workflow.html"><span class="lang-ko">다음: 실전 워크플로우</span><span class="lang-en">Next: Real-world Workflow</span> &rarr;</a>
 </div>
 
 <footer>
-  <p>Made with Claude &middot; <a href="../index.html">Claude Code 101</a> &middot; <a href="https://code.claude.com/docs/ko/skills" target="_blank">공식 Skills 문서</a></p>
+  <p>Made with Claude &middot; <a href="../index.html">Claude Code 101</a> &middot; <a href="https://code.claude.com/docs/ko/skills" target="_blank"><span class="lang-ko">공식 Skills 문서</span><span class="lang-en">Official Skills Docs</span></a></p>
 </footer>
 
 <script>
@@ -1925,5 +2045,6 @@ window.addEventListener('scroll', () => {
 
 <div id="community-widget"></div>
 <script src="community.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

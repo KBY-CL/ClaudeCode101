@@ -6,6 +6,7 @@
 /* 챕터 테마 초기화 — FOUC 방지 */
 (function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>실전 워크플로우 - Claude Code 101</title>
@@ -886,46 +887,46 @@
 <body>
 
 <!-- =================== BACK LINK =================== -->
-<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+<a href="../index.html" class="back-link">&larr; <span class="lang-ko">Claude Code 101로 돌아가기</span><span class="lang-en">Back to Claude Code 101</span></a>
 
 <!-- =================== HERO =================== -->
 <div class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    Module 08 &mdash; 실전 워크플로우
+    <span class="lang-ko">Module 08 &mdash; 실전 워크플로우</span><span class="lang-en">Module 08 &mdash; Real-world Workflow</span>
   </div>
   <h1>
-    실전<br><span class="highlight">워크플로우</span>
+    <span class="lang-ko">실전<br><span class="highlight">워크플로우</span></span><span class="lang-en">Real-world<br><span class="highlight">Workflow</span></span>
   </h1>
   <p class="hero-sub">
-    Claude Code로 실제 개발하는 전체 흐름을 마스터합시다
+    <span class="lang-ko">Claude Code로 실제 개발하는 전체 흐름을 마스터합시다</span><span class="lang-en">Master the complete development process with Claude Code</span>
   </p>
   <div class="hero-cta">
     <a href="#planmode" class="btn btn-primary">Plan Mode</a>
-    <a href="#git" class="btn btn-outline">Git 워크플로우 &rarr;</a>
+    <a href="#git" class="btn btn-outline"><span class="lang-ko">Git 워크플로우</span><span class="lang-en">Git Workflow</span> &rarr;</a>
   </div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    스크롤
+    <span class="lang-ko">스크롤</span><span class="lang-en">Scroll</span>
   </div>
 </div>
 
 <!-- =================== NAV =================== -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
+    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; <span class="lang-ko">홈</span><span class="lang-en">Home</span></a>
     <a href="#planmode" class="nav-link">Plan Mode</a>
-    <a href="#checkpoint" class="nav-link">체크포인팅</a>
-    <a href="#sessions" class="nav-link">세션 관리</a>
+    <a href="#checkpoint" class="nav-link"><span class="lang-ko">체크포인팅</span><span class="lang-en">Checkpointing</span></a>
+    <a href="#sessions" class="nav-link"><span class="lang-ko">세션 관리</span><span class="lang-en">Session Mgmt</span></a>
     <a href="#worktrees" class="nav-link">Git Worktrees</a>
     <a href="#thinking" class="nav-link">Extended Thinking</a>
-    <a href="#skills" class="nav-link">내장 Skills</a>
-    <a href="#git" class="nav-link">Git 연동</a>
-    <a href="#flow" class="nav-link">브랜치&rarr;PR 흐름</a>
-    <a href="#review" class="nav-link">PR 리뷰</a>
-    <a href="#debug" class="nav-link">디버깅 패턴</a>
-    <a href="#refactor" class="nav-link">리팩토링 패턴</a>
-    <a href="#scenarios" class="nav-link">실전 시나리오</a>
+    <a href="#skills" class="nav-link"><span class="lang-ko">내장 Skills</span><span class="lang-en">Built-in Skills</span></a>
+    <a href="#git" class="nav-link"><span class="lang-ko">Git 연동</span><span class="lang-en">Git Integration</span></a>
+    <a href="#flow" class="nav-link"><span class="lang-ko">브랜치&rarr;PR 흐름</span><span class="lang-en">Branch&rarr;PR Flow</span></a>
+    <a href="#review" class="nav-link"><span class="lang-ko">PR 리뷰</span><span class="lang-en">PR Review</span></a>
+    <a href="#debug" class="nav-link"><span class="lang-ko">디버깅 패턴</span><span class="lang-en">Debug Patterns</span></a>
+    <a href="#refactor" class="nav-link"><span class="lang-ko">리팩토링 패턴</span><span class="lang-en">Refactor Patterns</span></a>
+    <a href="#scenarios" class="nav-link"><span class="lang-ko">실전 시나리오</span><span class="lang-en">Real Scenarios</span></a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
 </nav>
@@ -934,39 +935,48 @@
 <section id="planmode">
   <div class="container">
     <div class="section-number">01</div>
-    <h2 class="section-title">Plan Mode &mdash; 먼저 계획, 그 다음 실행</h2>
+    <h2 class="section-title"><span class="lang-ko">Plan Mode &mdash; 먼저 계획, 그 다음 실행</span><span class="lang-en">Plan Mode &mdash; Plan First, Then Execute</span></h2>
     <p class="section-desc">
-      위험한 변경 전에 Claude가 <strong style="color:var(--accent)">읽기 전용 모드로 코드베이스를 탐색</strong>하고 계획을 세운 뒤, 사용자 승인을 받고 나서 실행합니다.
+      <span class="lang-ko">위험한 변경 전에 Claude가 <strong style="color:var(--accent)">읽기 전용 모드로 코드베이스를 탐색</strong>하고 계획을 세운 뒤, 사용자 승인을 받고 나서 실행합니다.</span><span class="lang-en">Before risky changes, Claude <strong style="color:var(--accent)">explores the codebase in read-only mode</strong>, drafts a plan, and only executes after your approval.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>외과의사가 수술 전에 MRI를 먼저 보듯</h4>
-      <p>
-        복잡한 기능을 구현하거나 대규모 리팩토링을 앞뒀을 때, Claude가 먼저 파일을 읽고 의존성을 파악한 뒤 계획을 제시합니다.<br><br>
-        여러분은 그 계획을 검토하고 <strong style="color:var(--accent)">승인한 뒤에야 실제 코드 수정이 시작</strong>됩니다. 실수를 예방하는 가장 효과적인 방법입니다.
-      </p>
+      <div class="lang-ko">
+        <h4>외과의사가 수술 전에 MRI를 먼저 보듯</h4>
+        <p>
+          복잡한 기능을 구현하거나 대규모 리팩토링을 앞뒀을 때, Claude가 먼저 파일을 읽고 의존성을 파악한 뒤 계획을 제시합니다.<br><br>
+          여러분은 그 계획을 검토하고 <strong style="color:var(--accent)">승인한 뒤에야 실제 코드 수정이 시작</strong>됩니다. 실수를 예방하는 가장 효과적인 방법입니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>Like a surgeon reviewing the MRI before operating</h4>
+        <p>
+          When implementing complex features or large-scale refactoring, Claude first reads the files, understands dependencies, and presents a plan.<br><br>
+          You review that plan, and <strong style="color:var(--accent)">actual code modifications only begin after your approval</strong>. It's the most effective way to prevent mistakes.
+        </p>
+      </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">Plan Mode 켜는 방법</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">Plan Mode 켜는 방법</span><span class="lang-en">How to Enable Plan Mode</span></h3>
 
     <div class="card-grid card-grid-3" style="margin-bottom: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x23E9;</div>
-        <h3>세션 중 전환</h3>
-        <p><strong style="color:var(--accent)">Shift+Tab 두 번</strong> 누르기<br><br>첫 번째: Auto-Accept Mode<br>두 번째: Plan Mode<br><br>터미널 하단에 <code style="color:var(--accent)">⏸ plan mode on</code> 표시됨</p>
+        <h3><span class="lang-ko">세션 중 전환</span><span class="lang-en">Toggle During Session</span></h3>
+        <p><span class="lang-ko"><strong style="color:var(--accent)">Shift+Tab 두 번</strong> 누르기<br><br>첫 번째: Auto-Accept Mode<br>두 번째: Plan Mode<br><br>터미널 하단에 <code style="color:var(--accent)">⏸ plan mode on</code> 표시됨</span><span class="lang-en">Press <strong style="color:var(--accent)">Shift+Tab twice</strong><br><br>First: Auto-Accept Mode<br>Second: Plan Mode<br><br>Terminal shows <code style="color:var(--accent)">⏸ plan mode on</code></span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F680;</div>
-        <h3>처음부터 Plan Mode</h3>
-        <p>Claude를 Plan Mode로 시작하려면:</p>
+        <h3><span class="lang-ko">처음부터 Plan Mode</span><span class="lang-en">Start in Plan Mode</span></h3>
+        <p><span class="lang-ko">Claude를 Plan Mode로 시작하려면:</span><span class="lang-en">To start Claude in Plan Mode:</span></p>
         <div class="code-block" style="margin-top: 12px;">
           <div class="code-body" style="font-size: 12px;">claude --permission-mode plan</div>
         </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x2699;&#xFE0F;</div>
-        <h3>기본값으로 설정</h3>
-        <p><code style="color:var(--accent)">.claude/settings.json</code>에 추가:</p>
+        <h3><span class="lang-ko">기본값으로 설정</span><span class="lang-en">Set as Default</span></h3>
+        <p><span class="lang-ko"><code style="color:var(--accent)">.claude/settings.json</code>에 추가:</span><span class="lang-en">Add to <code style="color:var(--accent)">.claude/settings.json</code>:</span></p>
         <div class="code-block" style="margin-top: 12px;">
           <div class="code-body" style="font-size: 12px;"><span class="comment">// .claude/settings.json</span>
 {
@@ -978,7 +988,7 @@
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">Plan Mode 실제 흐름</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">Plan Mode 실제 흐름</span><span class="lang-en">Plan Mode Flow</span></h3>
 
     <div class="steps">
       <div class="step">
@@ -987,10 +997,10 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>Plan Mode 활성화 후 작업 요청</h3>
-          <p>Shift+Tab 두 번으로 Plan Mode를 켜고, 구현하고 싶은 기능을 설명합니다.</p>
+          <h3><span class="lang-ko">Plan Mode 활성화 후 작업 요청</span><span class="lang-en">Activate Plan Mode and Request Task</span></h3>
+          <p><span class="lang-ko">Shift+Tab 두 번으로 Plan Mode를 켜고, 구현하고 싶은 기능을 설명합니다.</span><span class="lang-en">Enable Plan Mode with Shift+Tab twice, then describe the feature you want to implement.</span></p>
           <div class="code-block">
-            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>Plan Mode 활성화</span></div>
+            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span><span class="lang-ko">Plan Mode 활성화</span><span class="lang-en">Activate Plan Mode</span></span></div>
             <div class="code-body">
 <span class="comment"># Shift+Tab 두 번 → plan mode on</span>
 <span class="keyword">You:</span> <span class="string">"인증 시스템을 OAuth2로 전환하는 마이그레이션 계획을 세워줘."</span>
@@ -1004,8 +1014,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>Claude가 읽기 전용으로 탐색</h3>
-          <p>이 단계에서 Claude는 <strong>파일을 수정하지 않습니다.</strong> 코드베이스를 탐색하고, 의존성을 파악하며, 영향 범위를 분석합니다.</p>
+          <h3><span class="lang-ko">Claude가 읽기 전용으로 탐색</span><span class="lang-en">Claude Explores in Read-only Mode</span></h3>
+          <p><span class="lang-ko">이 단계에서 Claude는 <strong>파일을 수정하지 않습니다.</strong> 코드베이스를 탐색하고, 의존성을 파악하며, 영향 범위를 분석합니다.</span><span class="lang-en">At this stage, Claude <strong>does not modify files.</strong> It explores the codebase, understands dependencies, and analyzes the scope of impact.</span></p>
         </div>
       </div>
       <div class="step">
@@ -1014,10 +1024,10 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>계획 제시 &amp; 질문</h3>
-          <p>Claude가 단계별 실행 계획을 제시하고, 필요한 경우 추가 요구사항을 질문합니다. <strong style="color:var(--accent)">Ctrl+G</strong>를 누르면 계획을 텍스트 편집기에서 직접 수정할 수 있습니다.</p>
+          <h3><span class="lang-ko">계획 제시 &amp; 질문</span><span class="lang-en">Present Plan &amp; Ask Questions</span></h3>
+          <p><span class="lang-ko">Claude가 단계별 실행 계획을 제시하고, 필요한 경우 추가 요구사항을 질문합니다. <strong style="color:var(--accent)">Ctrl+G</strong>를 누르면 계획을 텍스트 편집기에서 직접 수정할 수 있습니다.</span><span class="lang-en">Claude presents a step-by-step execution plan and asks clarifying questions if needed. Press <strong style="color:var(--accent)">Ctrl+G</strong> to edit the plan directly in a text editor.</span></p>
           <div class="code-block">
-            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>Claude의 계획 예시</span></div>
+            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span><span class="lang-ko">Claude의 계획 예시</span><span class="lang-en">Example Plan from Claude</span></span></div>
             <div class="code-body">
 <span class="desc">Claude:</span>
 <span class="comment"># OAuth2 마이그레이션 계획</span>
@@ -1038,10 +1048,10 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>승인 후 실행</h3>
-          <p>계획을 확인하고 승인하면, Claude가 Plan Mode를 해제하고 실제 코드 수정을 시작합니다.</p>
+          <h3><span class="lang-ko">승인 후 실행</span><span class="lang-en">Execute After Approval</span></h3>
+          <p><span class="lang-ko">계획을 확인하고 승인하면, Claude가 Plan Mode를 해제하고 실제 코드 수정을 시작합니다.</span><span class="lang-en">Once you review and approve the plan, Claude exits Plan Mode and begins actual code modifications.</span></p>
           <div class="code-block">
-            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>승인</span></div>
+            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span><span class="lang-ko">승인</span><span class="lang-en">Approval</span></span></div>
             <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"좋아. 하위 호환성은 6개월 유지해줘. 실행해."</span>
 <span class="desc">&rarr; Claude가 계획대로 코드 수정 시작</span>
@@ -1054,7 +1064,7 @@
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>언제 Plan Mode를 쓸까:</strong> 여러 파일에 걸친 대규모 변경, 낯선 코드베이스 탐색, 되돌리기 어려운 작업(DB 스키마 변경, 인프라 수정 등)에 특히 효과적입니다.
+        <span class="lang-ko"><strong>언제 Plan Mode를 쓸까:</strong> 여러 파일에 걸친 대규모 변경, 낯선 코드베이스 탐색, 되돌리기 어려운 작업(DB 스키마 변경, 인프라 수정 등)에 특히 효과적입니다.</span><span class="lang-en"><strong>When to use Plan Mode:</strong> Especially effective for large changes spanning multiple files, exploring unfamiliar codebases, and hard-to-reverse operations (DB schema changes, infrastructure modifications, etc.).</span>
       </div>
     </div>
   </div>
@@ -1066,24 +1076,33 @@
 <section id="checkpoint">
   <div class="container">
     <div class="section-number">02</div>
-    <h2 class="section-title">체크포인팅 &amp; 되돌리기 (Undo)</h2>
+    <h2 class="section-title"><span class="lang-ko">체크포인팅 &amp; 되돌리기 (Undo)</span><span class="lang-en">Checkpointing &amp; Undo</span></h2>
     <p class="section-desc">
-      Claude Code는 파일을 수정하기 전에 <strong style="color:var(--accent)">자동으로 스냅샷을 찍습니다.</strong> 잘못된 변경은 언제든 Esc+Esc로 되돌릴 수 있습니다.
+      <span class="lang-ko">Claude Code는 파일을 수정하기 전에 <strong style="color:var(--accent)">자동으로 스냅샷을 찍습니다.</strong> 잘못된 변경은 언제든 Esc+Esc로 되돌릴 수 있습니다.</span><span class="lang-en">Claude Code <strong style="color:var(--accent)">automatically takes snapshots</strong> before modifying files. Any incorrect change can be undone at any time with Esc+Esc.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>게임의 자동 저장 기능처럼</h4>
-      <p>
-        게임에서 보스 전 자동 저장이 되듯, Claude Code도 편집 전에 파일 상태를 저장합니다.<br><br>
-        이 체크포인트는 <strong style="color:var(--accent)">Git과 별도로 작동</strong>합니다. Git 커밋을 하지 않았어도 Claude의 각 작업 단위별로 스냅샷이 생성됩니다.
-      </p>
+      <div class="lang-ko">
+        <h4>게임의 자동 저장 기능처럼</h4>
+        <p>
+          게임에서 보스 전 자동 저장이 되듯, Claude Code도 편집 전에 파일 상태를 저장합니다.<br><br>
+          이 체크포인트는 <strong style="color:var(--accent)">Git과 별도로 작동</strong>합니다. Git 커밋을 하지 않았어도 Claude의 각 작업 단위별로 스냅샷이 생성됩니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>Like an auto-save in a game</h4>
+        <p>
+          Just as games auto-save before a boss fight, Claude Code saves file states before editing.<br><br>
+          These checkpoints <strong style="color:var(--accent)">operate independently of Git</strong>. Snapshots are created per Claude action unit, even without Git commits.
+        </p>
+      </div>
     </div>
 
     <div class="card-grid card-grid-2" style="margin-bottom: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x23EA;</div>
-        <h3>Esc+Esc로 즉시 되돌리기</h3>
-        <p>Claude가 파일을 수정하는 도중 또는 직후에 <strong style="color:var(--accent)">Esc를 두 번</strong> 누르면, 해당 작업 이전 상태로 파일이 복원됩니다.</p>
+        <h3><span class="lang-ko">Esc+Esc로 즉시 되돌리기</span><span class="lang-en">Instant Undo with Esc+Esc</span></h3>
+        <p><span class="lang-ko">Claude가 파일을 수정하는 도중 또는 직후에 <strong style="color:var(--accent)">Esc를 두 번</strong> 누르면, 해당 작업 이전 상태로 파일이 복원됩니다.</span><span class="lang-en">During or right after Claude modifies files, press <strong style="color:var(--accent)">Esc twice</strong> to restore files to the state before that action.</span></p>
         <div class="code-block" style="margin-top: 16px;">
           <div class="code-body" style="font-size: 12px;">
 <span class="comment"># Claude가 파일을 수정 중...</span>
@@ -1095,18 +1114,20 @@
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--orange-dim);">&#x26A0;&#xFE0F;</div>
-        <h3>Git과의 차이점</h3>
-        <p>체크포인팅은 Claude Code 내부 기능입니다. Git revert/reset과 병행 사용하면 더욱 안전합니다.</p>
+        <h3><span class="lang-ko">Git과의 차이점</span><span class="lang-en">Difference from Git</span></h3>
+        <p><span class="lang-ko">체크포인팅은 Claude Code 내부 기능입니다. Git revert/reset과 병행 사용하면 더욱 안전합니다.</span><span class="lang-en">Checkpointing is a Claude Code internal feature. Using it alongside Git revert/reset provides even more safety.</span></p>
         <div class="comparison" style="margin-top: 16px; gap: 12px;">
           <div class="comp-bad" style="padding: 16px 20px;">
             <div class="comp-label">Git Undo</div>
-            <div class="comp-code" style="font-size: 12px;">커밋 단위 되돌리기
-git revert / git reset</div>
+            <div class="comp-code" style="font-size: 12px;"><span class="lang-ko">커밋 단위 되돌리기
+git revert / git reset</span><span class="lang-en">Revert by commit unit
+git revert / git reset</span></div>
           </div>
           <div class="comp-good" style="padding: 16px 20px;">
             <div class="comp-label">Claude Undo</div>
-            <div class="comp-code" style="font-size: 12px;">작업 단위 되돌리기
-Esc+Esc (즉시)</div>
+            <div class="comp-code" style="font-size: 12px;"><span class="lang-ko">작업 단위 되돌리기
+Esc+Esc (즉시)</span><span class="lang-en">Revert by action unit
+Esc+Esc (instant)</span></div>
           </div>
         </div>
       </div>
@@ -1115,7 +1136,7 @@ Esc+Esc (즉시)</div>
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>실전 활용:</strong> Claude가 예상과 다른 방향으로 코드를 수정하기 시작하면, 완전히 끝날 때까지 기다리지 말고 Esc+Esc로 즉시 중단하세요. 그리고 더 명확한 지시사항으로 다시 요청하면 됩니다.
+        <span class="lang-ko"><strong>실전 활용:</strong> Claude가 예상과 다른 방향으로 코드를 수정하기 시작하면, 완전히 끝날 때까지 기다리지 말고 Esc+Esc로 즉시 중단하세요. 그리고 더 명확한 지시사항으로 다시 요청하면 됩니다.</span><span class="lang-en"><strong>Practical use:</strong> If Claude starts modifying code in an unexpected direction, don't wait until it finishes — use Esc+Esc to stop immediately. Then re-request with clearer instructions.</span>
       </div>
     </div>
   </div>
@@ -1127,69 +1148,69 @@ Esc+Esc (즉시)</div>
 <section id="sessions">
   <div class="container">
     <div class="section-number">03</div>
-    <h2 class="section-title">세션 재개 &amp; 포크</h2>
+    <h2 class="section-title"><span class="lang-ko">세션 재개 &amp; 포크</span><span class="lang-en">Session Resume &amp; Fork</span></h2>
     <p class="section-desc">
-      이전 대화를 <strong style="color:var(--accent)">이어서 계속하거나</strong>, 세션을 포크해서 다른 방향으로 실험할 수 있습니다.
+      <span class="lang-ko">이전 대화를 <strong style="color:var(--accent)">이어서 계속하거나</strong>, 세션을 포크해서 다른 방향으로 실험할 수 있습니다.</span><span class="lang-en">You can <strong style="color:var(--accent)">continue previous conversations</strong>, or fork a session to experiment in a different direction.</span>
     </p>
 
     <div class="card-grid card-grid-3" style="margin-bottom: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x25B6;&#xFE0F;</div>
-        <h3>최근 세션 이어하기</h3>
-        <p>현재 디렉토리에서 가장 최근 대화를 자동으로 이어서 시작합니다.</p>
+        <h3><span class="lang-ko">최근 세션 이어하기</span><span class="lang-en">Continue Recent Session</span></h3>
+        <p><span class="lang-ko">현재 디렉토리에서 가장 최근 대화를 자동으로 이어서 시작합니다.</span><span class="lang-en">Automatically continues the most recent conversation in the current directory.</span></p>
         <div class="code-block" style="margin-top: 16px;">
           <div class="code-body" style="font-size: 12px;">claude --continue</div>
         </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F4CB;</div>
-        <h3>세션 선택해서 재개</h3>
-        <p>대화형 선택기를 열거나, 세션 이름으로 바로 재개합니다.</p>
+        <h3><span class="lang-ko">세션 선택해서 재개</span><span class="lang-en">Select &amp; Resume Session</span></h3>
+        <p><span class="lang-ko">대화형 선택기를 열거나, 세션 이름으로 바로 재개합니다.</span><span class="lang-en">Open an interactive picker or resume directly by session name.</span></p>
         <div class="code-block" style="margin-top: 16px;">
-          <div class="code-body" style="font-size: 12px;"><span class="comment"># 선택기 열기</span>
+          <div class="code-body" style="font-size: 12px;"><span class="comment"># 선택기 열기 / Open picker</span>
 claude --resume
 
-<span class="comment"># 이름으로 바로 재개</span>
+<span class="comment"># 이름으로 바로 재개 / Resume by name</span>
 claude --resume auth-refactor
 
-<span class="comment"># 세션 이름 붙이기 (세션 중)</span>
+<span class="comment"># 세션 이름 붙이기 (세션 중) / Rename session</span>
 /rename auth-refactor</div>
         </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F500;</div>
-        <h3>세션 포크 (Fork)</h3>
-        <p>원본 세션을 유지하면서, 다른 방향으로 실험할 수 있는 새 분기를 만듭니다.</p>
+        <h3><span class="lang-ko">세션 포크 (Fork)</span><span class="lang-en">Fork Session</span></h3>
+        <p><span class="lang-ko">원본 세션을 유지하면서, 다른 방향으로 실험할 수 있는 새 분기를 만듭니다.</span><span class="lang-en">Creates a new branch to experiment in a different direction while keeping the original session intact.</span></p>
         <div class="code-block" style="margin-top: 16px;">
-          <div class="code-body" style="font-size: 12px;"><span class="comment"># 원본 영향 없이 분기</span>
+          <div class="code-body" style="font-size: 12px;"><span class="comment"># 원본 영향 없이 분기 / Fork without affecting original</span>
 claude --continue --fork-session</div>
         </div>
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">세션 선택기 키보드 단축키</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">세션 선택기 키보드 단축키</span><span class="lang-en">Session Picker Keyboard Shortcuts</span></h3>
     <table class="skill-table">
       <thead>
         <tr>
-          <th>단축키</th>
-          <th>동작</th>
+          <th><span class="lang-ko">단축키</span><span class="lang-en">Shortcut</span></th>
+          <th><span class="lang-ko">동작</span><span class="lang-en">Action</span></th>
         </tr>
       </thead>
       <tbody>
-        <tr><td><code style="color:var(--accent)">↑ / ↓</code></td><td>세션 간 이동</td></tr>
-        <tr><td><code style="color:var(--accent)">Enter</code></td><td>선택한 세션 재개</td></tr>
-        <tr><td><code style="color:var(--accent)">P</code></td><td>세션 내용 미리보기</td></tr>
-        <tr><td><code style="color:var(--accent)">R</code></td><td>세션 이름 변경</td></tr>
-        <tr><td><code style="color:var(--accent)">/</code></td><td>세션 검색 필터</td></tr>
-        <tr><td><code style="color:var(--accent)">B</code></td><td>현재 git 브랜치 세션만 표시</td></tr>
-        <tr><td><code style="color:var(--accent)">Esc</code></td><td>선택기 종료</td></tr>
+        <tr><td><code style="color:var(--accent)">↑ / ↓</code></td><td><span class="lang-ko">세션 간 이동</span><span class="lang-en">Navigate sessions</span></td></tr>
+        <tr><td><code style="color:var(--accent)">Enter</code></td><td><span class="lang-ko">선택한 세션 재개</span><span class="lang-en">Resume selected session</span></td></tr>
+        <tr><td><code style="color:var(--accent)">P</code></td><td><span class="lang-ko">세션 내용 미리보기</span><span class="lang-en">Preview session content</span></td></tr>
+        <tr><td><code style="color:var(--accent)">R</code></td><td><span class="lang-ko">세션 이름 변경</span><span class="lang-en">Rename session</span></td></tr>
+        <tr><td><code style="color:var(--accent)">/</code></td><td><span class="lang-ko">세션 검색 필터</span><span class="lang-en">Search/filter sessions</span></td></tr>
+        <tr><td><code style="color:var(--accent)">B</code></td><td><span class="lang-ko">현재 git 브랜치 세션만 표시</span><span class="lang-en">Show only current git branch sessions</span></td></tr>
+        <tr><td><code style="color:var(--accent)">Esc</code></td><td><span class="lang-ko">선택기 종료</span><span class="lang-en">Close picker</span></td></tr>
       </tbody>
     </table>
 
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>포크 활용 사례:</strong> "TypeScript로 마이그레이션" 세션에서 두 가지 전략(점진적 vs 한 번에 전환)을 각각 실험하고 싶을 때, 원본 세션을 포크해서 둘 다 시도해볼 수 있습니다. 원본 대화는 그대로 보존됩니다.
+        <span class="lang-ko"><strong>포크 활용 사례:</strong> "TypeScript로 마이그레이션" 세션에서 두 가지 전략(점진적 vs 한 번에 전환)을 각각 실험하고 싶을 때, 원본 세션을 포크해서 둘 다 시도해볼 수 있습니다. 원본 대화는 그대로 보존됩니다.</span><span class="lang-en"><strong>Fork use case:</strong> In a "Migrate to TypeScript" session, if you want to experiment with two strategies (incremental vs. all-at-once), fork the original session to try both. The original conversation is preserved.</span>
       </div>
     </div>
   </div>
@@ -1201,20 +1222,29 @@ claude --continue --fork-session</div>
 <section id="worktrees">
   <div class="container">
     <div class="section-number">04</div>
-    <h2 class="section-title">Git Worktrees로 병렬 Claude 세션</h2>
+    <h2 class="section-title"><span class="lang-ko">Git Worktrees로 병렬 Claude 세션</span><span class="lang-en">Parallel Claude Sessions with Git Worktrees</span></h2>
     <p class="section-desc">
-      여러 기능을 동시에 개발할 때, Git Worktree를 사용하면 <strong style="color:var(--accent)">각 Claude 세션이 독립된 작업 디렉토리</strong>에서 충돌 없이 실행됩니다.
+      <span class="lang-ko">여러 기능을 동시에 개발할 때, Git Worktree를 사용하면 <strong style="color:var(--accent)">각 Claude 세션이 독립된 작업 디렉토리</strong>에서 충돌 없이 실행됩니다.</span><span class="lang-en">When developing multiple features simultaneously, Git Worktrees allow <strong style="color:var(--accent)">each Claude session to run in an independent working directory</strong> without conflicts.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>병렬 우주처럼 &mdash; 같은 저장소, 다른 작업 공간</h4>
-      <p>
-        Git Worktree는 동일한 저장소 히스토리와 원격 연결을 공유하면서, 각각 자신의 파일과 브랜치를 가진 <strong style="color:var(--accent)">별도의 작업 디렉토리</strong>를 만듭니다.<br><br>
-        한 Worktree에서 기능을 개발하는 동안, 다른 Worktree에서 버그를 수정할 수 있고, 두 Claude 세션은 서로 방해하지 않습니다.
-      </p>
+      <div class="lang-ko">
+        <h4>병렬 우주처럼 &mdash; 같은 저장소, 다른 작업 공간</h4>
+        <p>
+          Git Worktree는 동일한 저장소 히스토리와 원격 연결을 공유하면서, 각각 자신의 파일과 브랜치를 가진 <strong style="color:var(--accent)">별도의 작업 디렉토리</strong>를 만듭니다.<br><br>
+          한 Worktree에서 기능을 개발하는 동안, 다른 Worktree에서 버그를 수정할 수 있고, 두 Claude 세션은 서로 방해하지 않습니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>Like parallel universes &mdash; same repo, different workspaces</h4>
+        <p>
+          Git Worktrees share the same repository history and remote connections, but create <strong style="color:var(--accent)">separate working directories</strong>, each with its own files and branch.<br><br>
+          While developing a feature in one Worktree, you can fix bugs in another, and the two Claude sessions don't interfere with each other.
+        </p>
+      </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">방법 1: Claude 내장 --worktree 플래그 (권장)</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">방법 1: Claude 내장 --worktree 플래그 (권장)</span><span class="lang-en">Method 1: Claude's Built-in --worktree Flag (Recommended)</span></h3>
 
     <div class="code-block">
       <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>--worktree 플래그 사용</span></div>
@@ -1231,7 +1261,7 @@ claude --continue --fork-session</div>
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 40px 0 20px;">방법 2: Git 명령어로 수동 생성</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin: 40px 0 20px;"><span class="lang-ko">방법 2: Git 명령어로 수동 생성</span><span class="lang-en">Method 2: Manual Creation with Git Commands</span></h3>
 
     <div class="code-block">
       <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>Git worktree 수동 관리</span></div>
@@ -1255,17 +1285,17 @@ claude --continue --fork-session</div>
     <div class="card-grid card-grid-2" style="margin-top: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x2705;</div>
-        <h3>자동 정리 (--worktree 사용 시)</h3>
-        <p>세션 종료 시 Claude가 자동으로 처리합니다:</p>
+        <h3><span class="lang-ko">자동 정리 (--worktree 사용 시)</span><span class="lang-en">Auto Cleanup (when using --worktree)</span></h3>
+        <p><span class="lang-ko">세션 종료 시 Claude가 자동으로 처리합니다:</span><span class="lang-en">Claude handles this automatically when the session ends:</span></p>
         <ul style="color:var(--text-dim); font-size:14px; margin-top:12px; padding-left:20px; line-height:2;">
-          <li>변경사항 없음 &rarr; worktree &amp; 브랜치 자동 삭제</li>
-          <li>변경사항 있음 &rarr; 유지 또는 삭제 선택 가능</li>
+          <li><span class="lang-ko">변경사항 없음 &rarr; worktree &amp; 브랜치 자동 삭제</span><span class="lang-en">No changes &rarr; worktree &amp; branch auto-deleted</span></li>
+          <li><span class="lang-ko">변경사항 있음 &rarr; 유지 또는 삭제 선택 가능</span><span class="lang-en">Has changes &rarr; choose to keep or delete</span></li>
         </ul>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F4A1;</div>
-        <h3>권장 설정</h3>
-        <p><code style="color:var(--accent)">.gitignore</code>에 추가하여 worktree 내용이 주 저장소에 추적되지 않도록 합니다:</p>
+        <h3><span class="lang-ko">권장 설정</span><span class="lang-en">Recommended Setup</span></h3>
+        <p><span class="lang-ko"><code style="color:var(--accent)">.gitignore</code>에 추가하여 worktree 내용이 주 저장소에 추적되지 않도록 합니다:</span><span class="lang-en">Add to <code style="color:var(--accent)">.gitignore</code> so worktree contents are not tracked in the main repository:</span></p>
         <div class="code-block" style="margin-top: 12px;">
           <div class="code-body" style="font-size: 12px;">.claude/worktrees/</div>
         </div>
@@ -1275,7 +1305,7 @@ claude --continue --fork-session</div>
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>실전 활용:</strong> 각 새 worktree에서 개발 환경 초기화가 필요할 수 있습니다. <code>npm install</code>, 가상환경 설정 등 프로젝트의 표준 설정 과정을 따르세요.
+        <span class="lang-ko"><strong>실전 활용:</strong> 각 새 worktree에서 개발 환경 초기화가 필요할 수 있습니다. <code>npm install</code>, 가상환경 설정 등 프로젝트의 표준 설정 과정을 따르세요.</span><span class="lang-en"><strong>Practical use:</strong> Each new worktree may need development environment initialization. Follow the project's standard setup process: <code>npm install</code>, virtual environment setup, etc.</span>
       </div>
     </div>
   </div>
@@ -1289,21 +1319,30 @@ claude --continue --fork-session</div>
     <div class="section-number">05</div>
     <h2 class="section-title">Extended Thinking &amp; ultrathink</h2>
     <p class="section-desc">
-      Claude가 응답 전에 <strong style="color:var(--accent)">더 깊이 추론</strong>하도록 설정할 수 있습니다. 복잡한 아키텍처 결정, 어려운 버그, 트레이드오프 분석에 탁월합니다.
+      <span class="lang-ko">Claude가 응답 전에 <strong style="color:var(--accent)">더 깊이 추론</strong>하도록 설정할 수 있습니다. 복잡한 아키텍처 결정, 어려운 버그, 트레이드오프 분석에 탁월합니다.</span><span class="lang-en">You can configure Claude to <strong style="color:var(--accent)">reason more deeply</strong> before responding. Excellent for complex architecture decisions, difficult bugs, and trade-off analysis.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>"빠른 답" vs "충분히 생각한 답"</h4>
-      <p>
-        Extended Thinking은 Claude가 응답하기 전에 내부적으로 더 많이 추론하는 시간을 줍니다.<br><br>
-        기본적으로 활성화되어 있으며, <strong style="color:var(--accent)">ultrathink</strong> 키워드를 프롬프트에 포함하면 해당 턴의 추론 깊이를 최고 수준으로 높일 수 있습니다.
-      </p>
+      <div class="lang-ko">
+        <h4>"빠른 답" vs "충분히 생각한 답"</h4>
+        <p>
+          Extended Thinking은 Claude가 응답하기 전에 내부적으로 더 많이 추론하는 시간을 줍니다.<br><br>
+          기본적으로 활성화되어 있으며, <strong style="color:var(--accent)">ultrathink</strong> 키워드를 프롬프트에 포함하면 해당 턴의 추론 깊이를 최고 수준으로 높일 수 있습니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>"Quick answer" vs "Well-considered answer"</h4>
+        <p>
+          Extended Thinking gives Claude more time to reason internally before responding.<br><br>
+          It is enabled by default, and including the <strong style="color:var(--accent)">ultrathink</strong> keyword in your prompt maximizes reasoning depth for that turn.
+        </p>
+      </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">ultrathink 사용 방법</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">ultrathink 사용 방법</span><span class="lang-en">How to Use ultrathink</span></h3>
 
     <div class="code-block">
-      <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>ultrathink 프롬프트 예시</span></div>
+      <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span><span class="lang-ko">ultrathink 프롬프트 예시</span><span class="lang-en">ultrathink Prompt Examples</span></span></div>
       <div class="code-body">
 <span class="comment"># 복잡한 아키텍처 결정에</span>
 <span class="keyword">You:</span> <span class="string">"ultrathink &mdash; 마이크로서비스 vs 모노레포 중 우리 팀 상황에 최적인 구조를 분석해줘."</span>
@@ -1316,31 +1355,31 @@ claude --continue --fork-session</div>
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 40px 0 20px;">Extended Thinking 설정 옵션</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin: 40px 0 20px;"><span class="lang-ko">Extended Thinking 설정 옵션</span><span class="lang-en">Extended Thinking Configuration Options</span></h3>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th>방법</th>
-          <th>설명</th>
+          <th><span class="lang-ko">방법</span><span class="lang-en">Method</span></th>
+          <th><span class="lang-ko">설명</span><span class="lang-en">Description</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="skill-name-cell">ultrathink 키워드</td>
-          <td>프롬프트에 포함 시 해당 턴의 추론 깊이를 최고(high)로 설정. 설정은 영구적으로 변경되지 않음</td>
+          <td class="skill-name-cell">ultrathink <span class="lang-ko">키워드</span><span class="lang-en">keyword</span></td>
+          <td><span class="lang-ko">프롬프트에 포함 시 해당 턴의 추론 깊이를 최고(high)로 설정. 설정은 영구적으로 변경되지 않음</span><span class="lang-en">When included in a prompt, sets reasoning depth to maximum (high) for that turn. Setting is not permanently changed.</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Option+T / Alt+T</td>
-          <td>현재 세션에서 Extended Thinking 켜기/끄기 토글</td>
+          <td><span class="lang-ko">현재 세션에서 Extended Thinking 켜기/끄기 토글</span><span class="lang-en">Toggle Extended Thinking on/off for the current session</span></td>
         </tr>
         <tr>
-          <td class="skill-name-cell">/config에서 토글</td>
-          <td>모든 프로젝트에 기본값 설정 (<code>alwaysThinkingEnabled</code>로 저장됨)</td>
+          <td class="skill-name-cell">/config <span class="lang-ko">에서 토글</span><span class="lang-en">toggle</span></td>
+          <td><span class="lang-ko">모든 프로젝트에 기본값 설정 (<code>alwaysThinkingEnabled</code>로 저장됨)</span><span class="lang-en">Set default for all projects (saved as <code>alwaysThinkingEnabled</code>)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Ctrl+O</td>
-          <td>Claude의 내부 추론 과정 보기 (자세한 모드 토글)</td>
+          <td><span class="lang-ko">Claude의 내부 추론 과정 보기 (자세한 모드 토글)</span><span class="lang-en">View Claude's internal reasoning process (toggle verbose mode)</span></td>
         </tr>
       </tbody>
     </table>
@@ -1348,7 +1387,7 @@ claude --continue --fork-session</div>
     <div class="tip">
       <span class="tip-icon">&#x26A0;&#xFE0F;</span>
       <div>
-        <strong>주의:</strong> "think", "think hard", "think more" 같은 구문은 일반 프롬프트 지시로 해석됩니다. 추론 깊이를 높이려면 반드시 <strong style="color:var(--accent)">ultrathink</strong> 키워드를 사용하세요.
+        <span class="lang-ko"><strong>주의:</strong> "think", "think hard", "think more" 같은 구문은 일반 프롬프트 지시로 해석됩니다. 추론 깊이를 높이려면 반드시 <strong style="color:var(--accent)">ultrathink</strong> 키워드를 사용하세요.</span><span class="lang-en"><strong>Note:</strong> Phrases like "think", "think hard", "think more" are interpreted as regular prompt instructions. To increase reasoning depth, you must use the <strong style="color:var(--accent)">ultrathink</strong> keyword.</span>
       </div>
     </div>
   </div>
@@ -1360,19 +1399,19 @@ claude --continue --fork-session</div>
 <section id="skills">
   <div class="container">
     <div class="section-number">06</div>
-    <h2 class="section-title">내장 Skills: /simplify &amp; /batch</h2>
+    <h2 class="section-title"><span class="lang-ko">내장 Skills: /simplify &amp; /batch</span><span class="lang-en">Built-in Skills: /simplify &amp; /batch</span></h2>
     <p class="section-desc">
-      Claude Code에는 특정 작업을 위한 <strong style="color:var(--accent)">내장 Skill 명령어</strong>가 있습니다. 기능 구현 후 코드 정리, 대규모 병렬 변경 작업에 활용하세요.
+      <span class="lang-ko">Claude Code에는 특정 작업을 위한 <strong style="color:var(--accent)">내장 Skill 명령어</strong>가 있습니다. 기능 구현 후 코드 정리, 대규모 병렬 변경 작업에 활용하세요.</span><span class="lang-en">Claude Code has <strong style="color:var(--accent)">built-in Skill commands</strong> for specific tasks. Use them for code cleanup after implementation and large-scale parallel changes.</span>
     </p>
 
     <div class="card-grid card-grid-2" style="margin-bottom: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x2728;</div>
-        <h3>/simplify &mdash; 구현 후 코드 정리</h3>
-        <p>기능 구현이 끝난 뒤 자동으로 코드를 정리합니다. 불필요한 복잡성 제거, 가독성 향상, 중복 코드 통합을 수행합니다.</p>
+        <h3><span class="lang-ko">/simplify &mdash; 구현 후 코드 정리</span><span class="lang-en">/simplify &mdash; Post-implementation Cleanup</span></h3>
+        <p><span class="lang-ko">기능 구현이 끝난 뒤 자동으로 코드를 정리합니다. 불필요한 복잡성 제거, 가독성 향상, 중복 코드 통합을 수행합니다.</span><span class="lang-en">Automatically cleans up code after feature implementation. Removes unnecessary complexity, improves readability, and consolidates duplicate code.</span></p>
         <div class="code-block" style="margin-top: 16px;">
           <div class="code-body" style="font-size: 12px;">
-<span class="comment"># 기능 구현 완료 후 실행</span>
+<span class="comment"># 기능 구현 완료 후 실행 / Run after feature implementation</span>
 <span class="keyword">/simplify</span>
 
 <span class="desc">&rarr; Claude가 방금 작성한 코드를 검토하고
@@ -1382,11 +1421,11 @@ claude --continue --fork-session</div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--orange-dim);">&#x26A1;</div>
-        <h3>/batch &mdash; 대규모 병렬 변경</h3>
-        <p>여러 파일에 걸친 대규모 변경을 병렬로 처리합니다. 전체 코드베이스의 패턴 교체, 일괄 마이그레이션 등에 활용합니다.</p>
+        <h3><span class="lang-ko">/batch &mdash; 대규모 병렬 변경</span><span class="lang-en">/batch &mdash; Large-scale Parallel Changes</span></h3>
+        <p><span class="lang-ko">여러 파일에 걸친 대규모 변경을 병렬로 처리합니다. 전체 코드베이스의 패턴 교체, 일괄 마이그레이션 등에 활용합니다.</span><span class="lang-en">Handles large-scale changes across multiple files in parallel. Use for pattern replacement across the entire codebase, bulk migrations, etc.</span></p>
         <div class="code-block" style="margin-top: 16px;">
           <div class="code-body" style="font-size: 12px;">
-<span class="comment"># 대규모 일괄 변경 시</span>
+<span class="comment"># 대규모 일괄 변경 시 / For large-scale batch changes</span>
 <span class="keyword">/batch</span>
 
 <span class="desc">&rarr; 여러 파일의 변경을 병렬로
@@ -1396,7 +1435,7 @@ claude --continue --fork-session</div>
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">실전 사용 예시</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">실전 사용 예시</span><span class="lang-en">Real-world Usage Examples</span></h3>
 
     <div class="code-block">
       <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>/simplify 활용</span></div>
@@ -1427,7 +1466,7 @@ claude --continue --fork-session</div>
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>워크플로우 통합:</strong> 기능 구현 → <code>/simplify</code>로 정리 → 테스트 실행 → 커밋. 이 패턴을 습관화하면 항상 깔끔한 코드를 유지할 수 있습니다.
+        <span class="lang-ko"><strong>워크플로우 통합:</strong> 기능 구현 → <code>/simplify</code>로 정리 → 테스트 실행 → 커밋. 이 패턴을 습관화하면 항상 깔끔한 코드를 유지할 수 있습니다.</span><span class="lang-en"><strong>Workflow integration:</strong> Implement feature → clean up with <code>/simplify</code> → run tests → commit. Making this pattern a habit keeps your code consistently clean.</span>
       </div>
     </div>
   </div>
@@ -1439,41 +1478,52 @@ claude --continue --fork-session</div>
 <section id="git">
   <div class="container">
     <div class="section-number">07</div>
-    <h2 class="section-title">Claude Code + Git = 최강 조합</h2>
+    <h2 class="section-title"><span class="lang-ko">Claude Code + Git = 최강 조합</span><span class="lang-en">Claude Code + Git = Ultimate Combination</span></h2>
     <p class="section-desc">
-      Claude Code는 Git을 네이티브로 이해합니다. 커밋, 브랜치, PR까지 &mdash; <strong style="color:var(--accent)">대화만으로 Git 워크플로우 전체</strong>를 다룰 수 있습니다.
+      <span class="lang-ko">Claude Code는 Git을 네이티브로 이해합니다. 커밋, 브랜치, PR까지 &mdash; <strong style="color:var(--accent)">대화만으로 Git 워크플로우 전체</strong>를 다룰 수 있습니다.</span><span class="lang-en">Claude Code understands Git natively. Commits, branches, PRs &mdash; you can handle the <strong style="color:var(--accent)">entire Git workflow through conversation</strong>.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>자동 비서가 Git도 다룬다</h4>
-      <p>
-        회사에 새로 온 인턴에게 "이 기능 만들고, 브랜치 따서, 커밋하고, PR 올려줘"라고 하면 보통 몇 시간이 걸립니다.<br><br>
-        Claude Code는 그 인턴이 <strong style="color:var(--accent)">Git 10년차 시니어</strong>인 셈입니다.<br>
-        코드 변경사항을 분석해서 의미 있는 커밋 메시지를 작성하고, 브랜치 이름을 규칙에 맞게 만들고, PR 설명까지 자동으로 생성합니다.<br><br>
-        여러분은 "해줘"라고 말하기만 하면 됩니다.
-      </p>
+      <div class="lang-ko">
+        <h4>자동 비서가 Git도 다룬다</h4>
+        <p>
+          회사에 새로 온 인턴에게 "이 기능 만들고, 브랜치 따서, 커밋하고, PR 올려줘"라고 하면 보통 몇 시간이 걸립니다.<br><br>
+          Claude Code는 그 인턴이 <strong style="color:var(--accent)">Git 10년차 시니어</strong>인 셈입니다.<br>
+          코드 변경사항을 분석해서 의미 있는 커밋 메시지를 작성하고, 브랜치 이름을 규칙에 맞게 만들고, PR 설명까지 자동으로 생성합니다.<br><br>
+          여러분은 "해줘"라고 말하기만 하면 됩니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>Your automated assistant who handles Git too</h4>
+        <p>
+          Telling a new intern "implement this feature, create a branch, commit, and open a PR" usually takes hours.<br><br>
+          Claude Code is like that intern being a <strong style="color:var(--accent)">10-year Git veteran</strong>.<br>
+          It analyzes code changes to write meaningful commit messages, creates branch names following conventions, and auto-generates PR descriptions.<br><br>
+          You just say "do it."
+        </p>
+      </div>
     </div>
 
     <div class="card-grid card-grid-3">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F4DD;</div>
-        <h3>자동 커밋 메시지</h3>
-        <p>변경사항을 분석해서 Conventional Commits 형식의 커밋 메시지를 자동 생성합니다. "feat:", "fix:", "refactor:" 등 컨벤션을 완벽히 지킵니다.</p>
+        <h3><span class="lang-ko">자동 커밋 메시지</span><span class="lang-en">Auto Commit Messages</span></h3>
+        <p><span class="lang-ko">변경사항을 분석해서 Conventional Commits 형식의 커밋 메시지를 자동 생성합니다. "feat:", "fix:", "refactor:" 등 컨벤션을 완벽히 지킵니다.</span><span class="lang-en">Analyzes changes and auto-generates commit messages in Conventional Commits format. Perfectly follows conventions like "feat:", "fix:", "refactor:", etc.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F33F;</div>
-        <h3>브랜치 관리</h3>
-        <p>기능별 브랜치 생성, 체크아웃, 머지까지 대화로 처리합니다. "로그인 기능 브랜치 만들어줘"라고 하면 <code style="color:var(--accent)">feature/login</code>을 생성합니다.</p>
+        <h3><span class="lang-ko">브랜치 관리</span><span class="lang-en">Branch Management</span></h3>
+        <p><span class="lang-ko">기능별 브랜치 생성, 체크아웃, 머지까지 대화로 처리합니다. "로그인 기능 브랜치 만들어줘"라고 하면 <code style="color:var(--accent)">feature/login</code>을 생성합니다.</span><span class="lang-en">Handles branch creation, checkout, and merge through conversation. Saying "create a branch for the login feature" creates <code style="color:var(--accent)">feature/login</code>.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F680;</div>
-        <h3>PR 생성</h3>
-        <p>변경사항을 요약하고, 리뷰어가 이해하기 쉬운 PR 설명을 자동으로 작성합니다. 테스트 계획, 스크린샷 섹션까지 포함합니다.</p>
+        <h3><span class="lang-ko">PR 생성</span><span class="lang-en">PR Creation</span></h3>
+        <p><span class="lang-ko">변경사항을 요약하고, 리뷰어가 이해하기 쉬운 PR 설명을 자동으로 작성합니다. 테스트 계획, 스크린샷 섹션까지 포함합니다.</span><span class="lang-en">Summarizes changes and auto-writes PR descriptions easy for reviewers to understand. Includes test plans and screenshot sections.</span></p>
       </div>
     </div>
 
     <div style="margin-top: 48px;">
-      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">기본 Git 워크플로우</h3>
+      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">기본 Git 워크플로우</span><span class="lang-en">Basic Git Workflow</span></h3>
       <div class="code-block">
         <div class="code-header">
           <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1503,9 +1553,9 @@ claude --continue --fork-session</div>
 <section id="flow">
   <div class="container">
     <div class="section-number">08</div>
-    <h2 class="section-title">브랜치 &rarr; 작업 &rarr; 커밋 &rarr; PR 전체 흐름</h2>
+    <h2 class="section-title"><span class="lang-ko">브랜치 &rarr; 작업 &rarr; 커밋 &rarr; PR 전체 흐름</span><span class="lang-en">Branch &rarr; Work &rarr; Commit &rarr; PR Full Flow</span></h2>
     <p class="section-desc">
-      실제 개발에서 가장 많이 쓰는 6단계 흐름을 Claude Code로 진행하는 방법입니다.
+      <span class="lang-ko">실제 개발에서 가장 많이 쓰는 6단계 흐름을 Claude Code로 진행하는 방법입니다.</span><span class="lang-en">Here's how to run the 6-step flow most commonly used in real development with Claude Code.</span>
     </p>
 
     <div class="steps">
@@ -1517,12 +1567,12 @@ claude --continue --fork-session</div>
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>Feature 브랜치 생성 요청</h3>
-          <p>새 기능 작업의 시작점입니다. Claude에게 브랜치 생성을 요청합니다.</p>
+          <h3><span class="lang-ko">Feature 브랜치 생성 요청</span><span class="lang-en">Request Feature Branch Creation</span></h3>
+          <p><span class="lang-ko">새 기능 작업의 시작점입니다. Claude에게 브랜치 생성을 요청합니다.</span><span class="lang-en">The starting point for new feature work. Request Claude to create a branch.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>Step 1: 브랜치 생성</span>
+              <span><span class="lang-ko">Step 1: 브랜치 생성</span><span class="lang-en">Step 1: Create Branch</span></span>
             </div>
             <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"사용자 프로필 수정 기능을 만들 거야. 브랜치 만들어줘."</span>
@@ -1542,12 +1592,12 @@ claude --continue --fork-session</div>
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>기능 구현 요청</h3>
-          <p>실제 코드를 작성합니다. 구체적으로 요구사항을 전달하세요.</p>
+          <h3><span class="lang-ko">기능 구현 요청</span><span class="lang-en">Request Feature Implementation</span></h3>
+          <p><span class="lang-ko">실제 코드를 작성합니다. 구체적으로 요구사항을 전달하세요.</span><span class="lang-en">Write the actual code. Pass requirements concretely.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>Step 2: 기능 구현</span>
+              <span><span class="lang-ko">Step 2: 기능 구현</span><span class="lang-en">Step 2: Implement Feature</span></span>
             </div>
             <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"프로필 수정 페이지를 만들어줘.
@@ -1571,12 +1621,12 @@ claude --continue --fork-session</div>
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>테스트 작성 요청</h3>
-          <p>구현한 기능에 대한 테스트를 작성합니다.</p>
+          <h3><span class="lang-ko">테스트 작성 요청</span><span class="lang-en">Request Test Writing</span></h3>
+          <p><span class="lang-ko">구현한 기능에 대한 테스트를 작성합니다.</span><span class="lang-en">Write tests for the implemented feature.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>Step 3: 테스트 작성</span>
+              <span><span class="lang-ko">Step 3: 테스트 작성</span><span class="lang-en">Step 3: Write Tests</span></span>
             </div>
             <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"방금 만든 프로필 수정 기능에 대한 테스트를 작성해줘.
@@ -1599,12 +1649,12 @@ claude --continue --fork-session</div>
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>커밋 요청 (기능별 분리)</h3>
-          <p>변경사항을 의미 단위로 나눠서 커밋합니다. 리뷰어가 이해하기 쉬워집니다.</p>
+          <h3><span class="lang-ko">커밋 요청 (기능별 분리)</span><span class="lang-en">Request Commit (Separate by Feature)</span></h3>
+          <p><span class="lang-ko">변경사항을 의미 단위로 나눠서 커밋합니다. 리뷰어가 이해하기 쉬워집니다.</span><span class="lang-en">Commit changes in meaningful units. This makes it easier for reviewers to understand.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>Step 4: 기능별 커밋</span>
+              <span><span class="lang-ko">Step 4: 기능별 커밋</span><span class="lang-en">Step 4: Commit by Feature</span></span>
             </div>
             <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"변경사항을 기능별로 나눠서 커밋해줘.
@@ -1627,12 +1677,12 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>PR 설명 생성</h3>
-          <p>PR을 만들고 리뷰어를 위한 설명을 자동으로 작성합니다.</p>
+          <h3><span class="lang-ko">PR 설명 생성</span><span class="lang-en">Generate PR Description</span></h3>
+          <p><span class="lang-ko">PR을 만들고 리뷰어를 위한 설명을 자동으로 작성합니다.</span><span class="lang-en">Create the PR and automatically write a description for reviewers.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>Step 5: PR 생성</span>
+              <span><span class="lang-ko">Step 5: PR 생성</span><span class="lang-en">Step 5: Create PR</span></span>
             </div>
             <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"PR 만들어줘. 리뷰어가 이해하기 쉽게 설명도 써줘."</span>
@@ -1653,12 +1703,12 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>리뷰 및 머지</h3>
-          <p>리뷰 피드백을 받아 수정하고, 최종 머지합니다.</p>
+          <h3><span class="lang-ko">리뷰 및 머지</span><span class="lang-en">Review and Merge</span></h3>
+          <p><span class="lang-ko">리뷰 피드백을 받아 수정하고, 최종 머지합니다.</span><span class="lang-en">Address review feedback, make modifications, and finalize the merge.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>Step 6: 리뷰 반영</span>
+              <span><span class="lang-ko">Step 6: 리뷰 반영</span><span class="lang-en">Step 6: Address Review</span></span>
             </div>
             <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"PR에 리뷰 코멘트가 달렸어. 확인하고 수정해줘."</span>
@@ -1683,9 +1733,9 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
 <section id="review">
   <div class="container">
     <div class="section-number">09</div>
-    <h2 class="section-title">PR 리뷰 자동화</h2>
+    <h2 class="section-title"><span class="lang-ko">PR 리뷰 자동화</span><span class="lang-en">Automated PR Review</span></h2>
     <p class="section-desc">
-      Claude Code를 CLI 파이프라인에 연결하면 <strong style="color:var(--accent)">PR 리뷰를 자동화</strong>할 수 있습니다. 사람 리뷰 전에 기본 검토를 끝내세요.
+      <span class="lang-ko">Claude Code를 CLI 파이프라인에 연결하면 <strong style="color:var(--accent)">PR 리뷰를 자동화</strong>할 수 있습니다. 사람 리뷰 전에 기본 검토를 끝내세요.</span><span class="lang-en">Connecting Claude Code to a CLI pipeline allows you to <strong style="color:var(--accent)">automate PR reviews</strong>. Finish the basic review before human review.</span>
     </p>
 
     <div class="code-block">
@@ -1733,7 +1783,7 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>CI/CD 자동화 팁:</strong> GitHub Actions에 Claude 리뷰를 추가하면, PR이 올라올 때마다 자동으로 1차 리뷰가 달립니다. 사람 리뷰어는 Claude가 놓친 비즈니스 로직과 설계 의도만 집중하면 되니, 리뷰 시간이 크게 줄어듭니다. 단, Claude의 리뷰를 맹신하지 말고 참고용으로 활용하세요.
+        <span class="lang-ko"><strong>CI/CD 자동화 팁:</strong> GitHub Actions에 Claude 리뷰를 추가하면, PR이 올라올 때마다 자동으로 1차 리뷰가 달립니다. 사람 리뷰어는 Claude가 놓친 비즈니스 로직과 설계 의도만 집중하면 되니, 리뷰 시간이 크게 줄어듭니다. 단, Claude의 리뷰를 맹신하지 말고 참고용으로 활용하세요.</span><span class="lang-en"><strong>CI/CD automation tip:</strong> Adding Claude review to GitHub Actions automatically attaches a first-pass review whenever a PR is opened. Human reviewers can focus only on business logic and design intent that Claude missed, greatly reducing review time. However, don't blindly trust Claude's review — use it as a reference.</span>
       </div>
     </div>
   </div>
@@ -1745,9 +1795,9 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
 <section id="debug">
   <div class="container">
     <div class="section-number">10</div>
-    <h2 class="section-title">버그 디버깅 패턴</h2>
+    <h2 class="section-title"><span class="lang-ko">버그 디버깅 패턴</span><span class="lang-en">Bug Debugging Patterns</span></h2>
     <p class="section-desc">
-      에러가 발생했을 때 Claude Code와 함께 <strong style="color:var(--accent)">체계적으로 디버깅</strong>하는 패턴입니다.
+      <span class="lang-ko">에러가 발생했을 때 Claude Code와 함께 <strong style="color:var(--accent)">체계적으로 디버깅</strong>하는 패턴입니다.</span><span class="lang-en">Patterns for <strong style="color:var(--accent)">systematic debugging</strong> with Claude Code when errors occur.</span>
     </p>
 
     <div class="steps">
@@ -1757,8 +1807,8 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>에러 메시지 전달</h3>
-          <p>에러 로그, 스택 트레이스, 재현 조건을 Claude에게 전달합니다.</p>
+          <h3><span class="lang-ko">에러 메시지 전달</span><span class="lang-en">Pass Error Message</span></h3>
+          <p><span class="lang-ko">에러 로그, 스택 트레이스, 재현 조건을 Claude에게 전달합니다.</span><span class="lang-en">Pass error logs, stack traces, and reproduction conditions to Claude.</span></p>
         </div>
       </div>
       <div class="step">
@@ -1767,8 +1817,8 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>분석</h3>
-          <p>Claude가 관련 코드를 읽고, 에러 원인을 추론합니다.</p>
+          <h3><span class="lang-ko">분석</span><span class="lang-en">Analysis</span></h3>
+          <p><span class="lang-ko">Claude가 관련 코드를 읽고, 에러 원인을 추론합니다.</span><span class="lang-en">Claude reads related code and infers the cause of the error.</span></p>
         </div>
       </div>
       <div class="step">
@@ -1777,8 +1827,8 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>원인 파악</h3>
-          <p>가능한 원인을 우선순위별로 정리하고 가장 유력한 원인을 특정합니다.</p>
+          <h3><span class="lang-ko">원인 파악</span><span class="lang-en">Identify Root Cause</span></h3>
+          <p><span class="lang-ko">가능한 원인을 우선순위별로 정리하고 가장 유력한 원인을 특정합니다.</span><span class="lang-en">Organizes possible causes by priority and identifies the most likely cause.</span></p>
         </div>
       </div>
       <div class="step">
@@ -1787,8 +1837,8 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>수정</h3>
-          <p>코드를 수정하고, 사이드 이펙트가 없는지 확인합니다.</p>
+          <h3><span class="lang-ko">수정</span><span class="lang-en">Fix</span></h3>
+          <p><span class="lang-ko">코드를 수정하고, 사이드 이펙트가 없는지 확인합니다.</span><span class="lang-en">Modifies the code and checks for side effects.</span></p>
         </div>
       </div>
       <div class="step">
@@ -1797,41 +1847,53 @@ API 레이어, UI 컴포넌트, 테스트를 분리해서."</span>
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>검증</h3>
-          <p>테스트를 실행하고, 버그가 재현되지 않는지 확인합니다.</p>
+          <h3><span class="lang-ko">검증</span><span class="lang-en">Verify</span></h3>
+          <p><span class="lang-ko">테스트를 실행하고, 버그가 재현되지 않는지 확인합니다.</span><span class="lang-en">Runs tests and confirms the bug is no longer reproducible.</span></p>
         </div>
       </div>
     </div>
 
     <div class="comparison" style="margin-top: 48px;">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 사람이 혼자 디버깅</div>
-        <div class="comp-code">1. 에러 메시지 구글링
+        <div class="comp-label"><span class="lang-ko">&#10060; 사람이 혼자 디버깅</span><span class="lang-en">&#10060; Debugging alone</span></div>
+        <div class="comp-code"><span class="lang-ko">1. 에러 메시지 구글링
 2. Stack Overflow 답변 5개 읽기
 3. 비슷한 이슈 찾아서 시도
 4. 안 되면 다른 방법 시도
 5. 30분~2시간 소요
 
-"아 이거 왜 안 되지..."</div>
+"아 이거 왜 안 되지..."</span><span class="lang-en">1. Google the error message
+2. Read 5 Stack Overflow answers
+3. Find similar issue and try
+4. If that fails, try another approach
+5. 30 min~2 hours
+
+"Why isn't this working..."</span></div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; Claude와 디버깅</div>
-        <div class="comp-code">1. 에러 메시지 붙여넣기
+        <div class="comp-label"><span class="lang-ko">&#9989; Claude와 디버깅</span><span class="lang-en">&#9989; Debugging with Claude</span></div>
+        <div class="comp-code"><span class="lang-ko">1. 에러 메시지 붙여넣기
 2. Claude가 코드 분석
 3. 원인 3가지 제시
 4. 가장 유력한 것 바로 수정
 5. 5~15분 소요
 
-"원인 찾았습니다. 수정할까요?"</div>
+"원인 찾았습니다. 수정할까요?"</span><span class="lang-en">1. Paste the error message
+2. Claude analyzes the code
+3. Presents 3 possible causes
+4. Fixes the most likely one immediately
+5. 5~15 minutes
+
+"Found the cause. Shall I fix it?"</span></div>
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;">디버깅 프롬프트 예시</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;"><span class="lang-ko">디버깅 프롬프트 예시</span><span class="lang-en">Debugging Prompt Examples</span></h3>
 
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>디버깅 프롬프트 1: 에러 메시지 기반</span>
+        <span><span class="lang-ko">디버깅 프롬프트 1: 에러 메시지 기반</span><span class="lang-en">Debug Prompt 1: Based on Error Message</span></span>
       </div>
       <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"이 에러가 나와:
@@ -1845,7 +1907,7 @@ at UserList.tsx:24
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>디버깅 프롬프트 2: 동작 불일치</span>
+        <span><span class="lang-ko">디버깅 프롬프트 2: 동작 불일치</span><span class="lang-en">Debug Prompt 2: Behavior Mismatch</span></span>
       </div>
       <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"로그인 후 대시보드로 리다이렉트되어야 하는데
@@ -1856,7 +1918,7 @@ at UserList.tsx:24
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>디버깅 프롬프트 3: 성능 이슈</span>
+        <span><span class="lang-ko">디버깅 프롬프트 3: 성능 이슈</span><span class="lang-en">Debug Prompt 3: Performance Issue</span></span>
       </div>
       <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"리스트 페이지가 아이템 100개 넘으면 엄청 느려져.
@@ -1873,9 +1935,9 @@ at UserList.tsx:24
 <section id="refactor">
   <div class="container">
     <div class="section-number">11</div>
-    <h2 class="section-title">리팩토링 패턴</h2>
+    <h2 class="section-title"><span class="lang-ko">리팩토링 패턴</span><span class="lang-en">Refactoring Patterns</span></h2>
     <p class="section-desc">
-      리팩토링은 "동작은 바꾸지 않으면서 코드 구조를 개선하는 것"입니다. Claude Code와 함께하면 <strong style="color:var(--accent)">안전하게</strong> 할 수 있습니다.
+      <span class="lang-ko">리팩토링은 "동작은 바꾸지 않으면서 코드 구조를 개선하는 것"입니다. Claude Code와 함께하면 <strong style="color:var(--accent)">안전하게</strong> 할 수 있습니다.</span><span class="lang-en">Refactoring is "improving code structure without changing behavior." With Claude Code, you can do it <strong style="color:var(--accent)">safely</strong>.</span>
     </p>
 
     <div class="steps">
@@ -1885,12 +1947,12 @@ at UserList.tsx:24
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>테스트 먼저 확인</h3>
-          <p>리팩토링 전에 기존 테스트가 모두 통과하는지 확인합니다. 테스트가 없다면 먼저 작성합니다.</p>
+          <h3><span class="lang-ko">테스트 먼저 확인</span><span class="lang-en">Check Tests First</span></h3>
+          <p><span class="lang-ko">리팩토링 전에 기존 테스트가 모두 통과하는지 확인합니다. 테스트가 없다면 먼저 작성합니다.</span><span class="lang-en">Before refactoring, verify all existing tests pass. If there are no tests, write them first.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>테스트 확인</span>
+              <span><span class="lang-ko">테스트 확인</span><span class="lang-en">Check Tests</span></span>
             </div>
             <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"UserService.ts를 리팩토링하고 싶어.
@@ -1906,12 +1968,12 @@ at UserList.tsx:24
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>리팩토링 실행</h3>
-          <p>구체적인 리팩토링 방향을 지정하고 Claude에게 실행을 맡깁니다.</p>
+          <h3><span class="lang-ko">리팩토링 실행</span><span class="lang-en">Execute Refactoring</span></h3>
+          <p><span class="lang-ko">구체적인 리팩토링 방향을 지정하고 Claude에게 실행을 맡깁니다.</span><span class="lang-en">Specify the concrete refactoring direction and let Claude execute it.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>리팩토링 실행</span>
+              <span><span class="lang-ko">리팩토링 실행</span><span class="lang-en">Execute Refactoring</span></span>
             </div>
             <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"UserService.ts를 리팩토링해줘.
@@ -1929,12 +1991,12 @@ at UserList.tsx:24
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>테스트 재실행</h3>
-          <p>리팩토링 후 모든 테스트가 여전히 통과하는지 확인합니다.</p>
+          <h3><span class="lang-ko">테스트 재실행</span><span class="lang-en">Re-run Tests</span></h3>
+          <p><span class="lang-ko">리팩토링 후 모든 테스트가 여전히 통과하는지 확인합니다.</span><span class="lang-en">After refactoring, verify all tests still pass.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>테스트 재실행</span>
+              <span><span class="lang-ko">테스트 재실행</span><span class="lang-en">Re-run Tests</span></span>
             </div>
             <div class="code-body">
 <span class="keyword">You:</span> <span class="string">"리팩토링 끝났으면 테스트 전부 돌려봐.
@@ -1951,31 +2013,43 @@ at UserList.tsx:24
 
     <div class="comparison" style="margin-top: 48px;">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 위험한 리팩토링</div>
-        <div class="comp-code">1. 테스트 없이 바로 코드 수정
+        <div class="comp-label"><span class="lang-ko">&#10060; 위험한 리팩토링</span><span class="lang-en">&#10060; Dangerous Refactoring</span></div>
+        <div class="comp-code"><span class="lang-ko">1. 테스트 없이 바로 코드 수정
 2. 여러 파일을 한꺼번에 변경
 3. "아마 될 거야" 마인드
 4. 배포 후 버그 발견
 5. 롤백 지옥
 
-"리팩토링했더니 프로덕션 터졌다"</div>
+"리팩토링했더니 프로덕션 터졌다"</span><span class="lang-en">1. Modify code directly without tests
+2. Change multiple files at once
+3. "It'll probably work" mindset
+4. Discover bugs after deployment
+5. Rollback hell
+
+"Refactoring broke production"</span></div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; 안전한 리팩토링 (Claude와 함께)</div>
-        <div class="comp-code">1. 테스트 커버리지 먼저 확보
+        <div class="comp-label"><span class="lang-ko">&#9989; 안전한 리팩토링 (Claude와 함께)</span><span class="lang-en">&#9989; Safe Refactoring (with Claude)</span></div>
+        <div class="comp-code"><span class="lang-ko">1. 테스트 커버리지 먼저 확보
 2. 작은 단위로 점진적 변경
 3. 매 단계마다 테스트 실행
 4. Claude가 사이드 이펙트 체크
 5. 안전하게 완료
 
-"테스트 전부 통과. 안심하고 머지"</div>
+"테스트 전부 통과. 안심하고 머지"</span><span class="lang-en">1. Secure test coverage first
+2. Incremental changes in small units
+3. Run tests after each step
+4. Claude checks side effects
+5. Completed safely
+
+"All tests pass. Merge with confidence"</span></div>
       </div>
     </div>
 
     <div class="code-block" style="margin-top: 40px;">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>리팩토링 프롬프트 모음</span>
+        <span><span class="lang-ko">리팩토링 프롬프트 모음</span><span class="lang-en">Refactoring Prompt Collection</span></span>
       </div>
       <div class="code-body">
 <span class="comment"># 함수 분리</span>
@@ -2000,51 +2074,64 @@ at UserList.tsx:24
 <section id="scenarios">
   <div class="container">
     <div class="section-number">12</div>
-    <h2 class="section-title">실전 시나리오 Before/After</h2>
+    <h2 class="section-title"><span class="lang-ko">실전 시나리오 Before/After</span><span class="lang-en">Real Scenarios: Before/After</span></h2>
     <p class="section-desc">
-      실제 개발 현장에서 흔히 만나는 3가지 시나리오를 <strong style="color:var(--accent)">수동 vs Claude Code</strong>로 비교합니다.
+      <span class="lang-ko">실제 개발 현장에서 흔히 만나는 3가지 시나리오를 <strong style="color:var(--accent)">수동 vs Claude Code</strong>로 비교합니다.</span><span class="lang-en">Comparing 3 scenarios commonly encountered in real development: <strong style="color:var(--accent)">Manual vs Claude Code</strong>.</span>
     </p>
 
     <!-- Scenario 1 -->
     <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
       <span style="background: var(--accent-glow); padding: 4px 12px; border-radius: 6px; font-size: 14px; color: var(--accent);">Scenario 1</span>
-      레거시 코드 현대화
+      <span class="lang-ko">레거시 코드 현대화</span><span class="lang-en">Legacy Code Modernization</span>
     </h3>
 
     <div class="comparison">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 수동으로 진행</div>
-        <div class="comp-code">1. 레거시 코드 파악 (2~3일)
+        <div class="comp-label"><span class="lang-ko">&#10060; 수동으로 진행</span><span class="lang-en">&#10060; Manual approach</span></div>
+        <div class="comp-code"><span class="lang-ko">1. 레거시 코드 파악 (2~3일)
 2. 마이그레이션 계획 수립 (1일)
 3. 하나씩 수동 변환 (1~2주)
 4. 빠뜨린 부분 발견 &rarr; 다시 수정
 5. 테스트 깨짐 &rarr; 하나씩 수정
 
 총 소요: 2~3주
-스트레스: &#x1F4A2;&#x1F4A2;&#x1F4A2;&#x1F4A2;&#x1F4A2;</div>
+스트레스: &#x1F4A2;&#x1F4A2;&#x1F4A2;&#x1F4A2;&#x1F4A2;</span><span class="lang-en">1. Understand legacy code (2~3 days)
+2. Create migration plan (1 day)
+3. Manual conversion one by one (1~2 weeks)
+4. Discover missed parts &rarr; fix again
+5. Tests broken &rarr; fix one by one
+
+Total: 2~3 weeks
+Stress: &#x1F4A2;&#x1F4A2;&#x1F4A2;&#x1F4A2;&#x1F4A2;</span></div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; Claude Code로 진행</div>
-        <div class="comp-code">"이 프로젝트의 Class 컴포넌트를
+        <div class="comp-label"><span class="lang-ko">&#9989; Claude Code로 진행</span><span class="lang-en">&#9989; With Claude Code</span></div>
+        <div class="comp-code"><span class="lang-ko">"이 프로젝트의 Class 컴포넌트를
 전부 함수형 컴포넌트로 변환해줘.
 useState, useEffect 사용하고
 테스트도 같이 업데이트해."
 
 총 소요: 1~2일
-스트레스: &#x2615; (커피 한 잔)</div>
+스트레스: &#x2615; (커피 한 잔)</span><span class="lang-en">"Convert all Class components
+in this project to functional components.
+Use useState, useEffect and
+update the tests too."
+
+Total: 1~2 days
+Stress: &#x2615; (one cup of coffee)</span></div>
       </div>
     </div>
 
     <!-- Scenario 2 -->
     <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px; display: flex; align-items: center; gap: 10px;">
       <span style="background: var(--accent-glow); padding: 4px 12px; border-radius: 6px; font-size: 14px; color: var(--accent);">Scenario 2</span>
-      API 엔드포인트 추가
+      <span class="lang-ko">API 엔드포인트 추가</span><span class="lang-en">Adding API Endpoint</span>
     </h3>
 
     <div class="comparison">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 수동으로 진행</div>
-        <div class="comp-code">1. 라우터 파일 열기
+        <div class="comp-label"><span class="lang-ko">&#10060; 수동으로 진행</span><span class="lang-en">&#10060; Manual approach</span></div>
+        <div class="comp-code"><span class="lang-ko">1. 라우터 파일 열기
 2. 컨트롤러 작성
 3. 서비스 레이어 작성
 4. DTO / 유효성 검사 추가
@@ -2054,11 +2141,21 @@ useState, useEffect 사용하고
 8. 통합 테스트 확인
 
 총 소요: 3~4시간
-반복 작업이 80%</div>
+반복 작업이 80%</span><span class="lang-en">1. Open router file
+2. Write controller
+3. Write service layer
+4. Add DTO / validation
+5. Write error handling
+6. Update Swagger docs
+7. Write tests
+8. Verify integration tests
+
+Total: 3~4 hours
+80% repetitive work</span></div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; Claude Code로 진행</div>
-        <div class="comp-code">"GET /api/users/:id/orders
+        <div class="comp-label"><span class="lang-ko">&#9989; Claude Code로 진행</span><span class="lang-en">&#9989; With Claude Code</span></div>
+        <div class="comp-code"><span class="lang-ko">"GET /api/users/:id/orders
 엔드포인트를 추가해줘.
 - 기존 패턴을 따라서
 - 페이지네이션 포함
@@ -2067,20 +2164,29 @@ useState, useEffect 사용하고
 - 테스트까지 전부"
 
 총 소요: 15~30분
-Claude가 기존 패턴을 분석해서 일관성 유지</div>
+Claude가 기존 패턴을 분석해서 일관성 유지</span><span class="lang-en">"Add a GET /api/users/:id/orders
+endpoint.
+- Following existing patterns
+- Include pagination
+- DTO, validation, error handling
+- Swagger docs
+- Tests too, all of it"
+
+Total: 15~30 min
+Claude analyzes existing patterns for consistency</span></div>
       </div>
     </div>
 
     <!-- Scenario 3 -->
     <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px; display: flex; align-items: center; gap: 10px;">
       <span style="background: var(--accent-glow); padding: 4px 12px; border-radius: 6px; font-size: 14px; color: var(--accent);">Scenario 3</span>
-      버그 긴급 수정 (Hotfix)
+      <span class="lang-ko">버그 긴급 수정 (Hotfix)</span><span class="lang-en">Emergency Bug Fix (Hotfix)</span>
     </h3>
 
     <div class="comparison">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 수동으로 진행</div>
-        <div class="comp-code">1. 에러 로그 확인 (Sentry/DataDog)
+        <div class="comp-label"><span class="lang-ko">&#10060; 수동으로 진행</span><span class="lang-en">&#10060; Manual approach</span></div>
+        <div class="comp-code"><span class="lang-ko">1. 에러 로그 확인 (Sentry/DataDog)
 2. 관련 코드 찾기 (grep, 로그 추적)
 3. 원인 추론 &rarr; 재현 시도
 4. 수정 코드 작성
@@ -2088,18 +2194,33 @@ Claude가 기존 패턴을 분석해서 일관성 유지</div>
 6. 모니터링
 
 총 소요: 1~3시간
-(심야 장애면 멘탈도 같이 수정 필요)</div>
+(심야 장애면 멘탈도 같이 수정 필요)</span><span class="lang-en">1. Check error logs (Sentry/DataDog)
+2. Find related code (grep, log trace)
+3. Infer cause &rarr; try to reproduce
+4. Write fix code
+5. Test &rarr; commit &rarr; deploy
+6. Monitor
+
+Total: 1~3 hours
+(Late-night incidents require mental repairs too)</span></div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; Claude Code로 진행</div>
-        <div class="comp-code">"프로덕션에서 이 에러가 나와:
+        <div class="comp-label"><span class="lang-ko">&#9989; Claude Code로 진행</span><span class="lang-en">&#9989; With Claude Code</span></div>
+        <div class="comp-code"><span class="lang-ko">"프로덕션에서 이 에러가 나와:
 [에러 로그 붙여넣기]
 
 원인 찾고, 수정하고, 테스트까지.
 hotfix 브랜치로 커밋해줘."
 
 총 소요: 15~30분
-Claude가 코드베이스를 빠르게 탐색해서 원인 특정</div>
+Claude가 코드베이스를 빠르게 탐색해서 원인 특정</span><span class="lang-en">"This error is appearing in production:
+[paste error log]
+
+Find the cause, fix it, and test.
+Commit to a hotfix branch."
+
+Total: 15~30 min
+Claude quickly explores the codebase to identify the cause</span></div>
       </div>
     </div>
   </div>
@@ -2111,60 +2232,64 @@ Claude가 코드베이스를 빠르게 탐색해서 원인 특정</div>
 <section id="faq">
   <div class="container">
     <div class="section-number">13</div>
-    <h2 class="section-title">자주 묻는 질문</h2>
+    <h2 class="section-title"><span class="lang-ko">자주 묻는 질문</span><span class="lang-en">Frequently Asked Questions</span></h2>
     <p class="section-desc">
-      실전 워크플로우에서 자주 나오는 질문들
+      <span class="lang-ko">실전 워크플로우에서 자주 나오는 질문들</span><span class="lang-en">Common questions about real-world workflows</span>
     </p>
 
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          Claude가 잘못된 커밋을 하면?
+          <span class="lang-ko">Claude가 잘못된 커밋을 하면?</span><span class="lang-en">What if Claude makes an incorrect commit?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            Claude는 커밋 전에 반드시 사용자 확인을 요청합니다. 만약 이미 커밋이 된 경우라면, <code style="color:var(--accent)">git revert</code>로 안전하게 되돌릴 수 있습니다. "방금 커밋 되돌려줘"라고 말하면 Claude가 revert 커밋을 생성합니다. <code style="color:var(--accent)">git reset --hard</code>는 이력이 사라지므로, Claude도 기본적으로 revert를 권장합니다.
+            <span class="lang-ko">Claude는 커밋 전에 반드시 사용자 확인을 요청합니다. 만약 이미 커밋이 된 경우라면, <code style="color:var(--accent)">git revert</code>로 안전하게 되돌릴 수 있습니다. "방금 커밋 되돌려줘"라고 말하면 Claude가 revert 커밋을 생성합니다. <code style="color:var(--accent)">git reset --hard</code>는 이력이 사라지므로, Claude도 기본적으로 revert를 권장합니다.</span><span class="lang-en">Claude always requests user confirmation before committing. If a commit has already been made, you can safely revert it with <code style="color:var(--accent)">git revert</code>. Saying "revert that last commit" will have Claude create a revert commit. Since <code style="color:var(--accent)">git reset --hard</code> loses history, Claude recommends revert by default.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          force push를 요청해도 되나요?
+          <span class="lang-ko">force push를 요청해도 되나요?</span><span class="lang-en">Can I request a force push?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            Claude는 <code style="color:var(--accent)">git push --force</code>에 대해 매우 신중합니다. 특히 main/master 브랜치에 대한 force push는 경고를 표시하고, 정말 필요한지 재확인합니다. feature 브랜치에서 rebase 후 force push가 필요한 경우에는 <code style="color:var(--accent)">--force-with-lease</code>를 사용해서 다른 사람의 커밋을 덮어쓰지 않도록 보호합니다.
+            <span class="lang-ko">Claude는 <code style="color:var(--accent)">git push --force</code>에 대해 매우 신중합니다. 특히 main/master 브랜치에 대한 force push는 경고를 표시하고, 정말 필요한지 재확인합니다. feature 브랜치에서 rebase 후 force push가 필요한 경우에는 <code style="color:var(--accent)">--force-with-lease</code>를 사용해서 다른 사람의 커밋을 덮어쓰지 않도록 보호합니다.</span><span class="lang-en">Claude is very cautious about <code style="color:var(--accent)">git push --force</code>. Especially for force pushes to main/master branches, it shows warnings and reconfirms if it's really necessary. When force pushing after a rebase on a feature branch, it uses <code style="color:var(--accent)">--force-with-lease</code> to protect against overwriting others' commits.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          모노레포에서도 잘 작동하나요?
+          <span class="lang-ko">모노레포에서도 잘 작동하나요?</span><span class="lang-en">Does it work well with monorepos?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네, Claude Code는 모노레포를 잘 이해합니다. <code style="color:var(--accent)">CLAUDE.md</code> 파일을 각 패키지별로 배치하면 패키지별 규칙을 적용할 수 있습니다. 예를 들어, <code style="color:var(--accent)">packages/web/CLAUDE.md</code>에는 프론트엔드 규칙을, <code style="color:var(--accent)">packages/api/CLAUDE.md</code>에는 백엔드 규칙을 적을 수 있습니다. 커밋할 때도 패키지별로 분리해서 커밋하도록 요청할 수 있습니다.
+            <span class="lang-ko">네, Claude Code는 모노레포를 잘 이해합니다. <code style="color:var(--accent)">CLAUDE.md</code> 파일을 각 패키지별로 배치하면 패키지별 규칙을 적용할 수 있습니다. 예를 들어, <code style="color:var(--accent)">packages/web/CLAUDE.md</code>에는 프론트엔드 규칙을, <code style="color:var(--accent)">packages/api/CLAUDE.md</code>에는 백엔드 규칙을 적을 수 있습니다. 커밋할 때도 패키지별로 분리해서 커밋하도록 요청할 수 있습니다.</span><span class="lang-en">Yes, Claude Code understands monorepos well. Placing <code style="color:var(--accent)">CLAUDE.md</code> files per package allows package-specific rules. For example, <code style="color:var(--accent)">packages/web/CLAUDE.md</code> for frontend rules and <code style="color:var(--accent)">packages/api/CLAUDE.md</code> for backend rules. You can also request commits separated by package.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          PR 설명은 어떤 형식으로 만들어주나요?
+          <span class="lang-ko">PR 설명은 어떤 형식으로 만들어주나요?</span><span class="lang-en">What format does Claude use for PR descriptions?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            Claude가 생성하는 PR 설명의 기본 구조는 다음과 같습니다:<br><br>
+            <span class="lang-ko">Claude가 생성하는 PR 설명의 기본 구조는 다음과 같습니다:<br><br>
             <strong style="color:var(--text)">## Summary</strong> &mdash; 변경사항 요약 (1~3개 bullet point)<br>
             <strong style="color:var(--text)">## Changes</strong> &mdash; 주요 변경 파일과 내용<br>
             <strong style="color:var(--text)">## Test plan</strong> &mdash; 테스트 방법과 확인 사항<br><br>
-            물론 "우리 팀 PR 템플릿에 맞춰줘"라고 하면, 프로젝트의 PR 템플릿을 읽고 그 형식에 맞춰서 작성합니다. <code style="color:var(--accent)">CLAUDE.md</code>에 PR 형식을 정의해두면 매번 일관된 형식으로 생성됩니다.
+            물론 "우리 팀 PR 템플릿에 맞춰줘"라고 하면, 프로젝트의 PR 템플릿을 읽고 그 형식에 맞춰서 작성합니다. <code style="color:var(--accent)">CLAUDE.md</code>에 PR 형식을 정의해두면 매번 일관된 형식으로 생성됩니다.</span><span class="lang-en">The default structure of PR descriptions generated by Claude is as follows:<br><br>
+            <strong style="color:var(--text)">## Summary</strong> &mdash; Changes summary (1~3 bullet points)<br>
+            <strong style="color:var(--text)">## Changes</strong> &mdash; Key changed files and content<br>
+            <strong style="color:var(--text)">## Test plan</strong> &mdash; How to test and what to verify<br><br>
+            Of course, saying "match our team's PR template" will have Claude read the project's PR template and write accordingly. Defining the PR format in <code style="color:var(--accent)">CLAUDE.md</code> ensures consistent format every time.</span>
           </div>
         </div>
       </div>
@@ -2177,19 +2302,27 @@ Claude가 코드베이스를 빠르게 탐색해서 원인 특정</div>
   <div class="container">
     <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.15); text-align: center; padding: 60px 40px;">
       <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
-        워크플로우 정리
+        <span class="lang-ko">워크플로우 정리</span><span class="lang-en">Workflow Summary</span>
       </h2>
       <p style="color: var(--text-dim); font-size: 17px; max-width: 600px; margin: 0 auto 32px; line-height: 1.9;">
-        Plan Mode = <strong style="color: var(--accent)">Shift+Tab 두 번 &rarr; 계획 확인 &rarr; 승인 후 실행</strong><br>
+        <span class="lang-ko">Plan Mode = <strong style="color: var(--accent)">Shift+Tab 두 번 &rarr; 계획 확인 &rarr; 승인 후 실행</strong><br>
         체크포인팅 = <strong style="color: var(--blue)">Esc+Esc로 즉시 되돌리기 (Git 없이도)</strong><br>
         세션 관리 = <strong style="color: var(--green)">--continue / --resume / --fork-session</strong><br>
         병렬 작업 = <strong style="color: var(--orange)">Git Worktree로 독립 세션 실행</strong><br>
         깊은 추론 = <strong style="color: var(--pink)">ultrathink 키워드로 추론 깊이 최대화</strong><br>
-        코드 정리 = <strong style="color: var(--yellow)">/simplify (구현 후) / /batch (대규모 변경)</strong>
+        코드 정리 = <strong style="color: var(--yellow)">/simplify (구현 후) / /batch (대규모 변경)</strong></span>
+        <span class="lang-en">Plan Mode = <strong style="color: var(--accent)">Shift+Tab twice &rarr; Review plan &rarr; Execute after approval</strong><br>
+        Checkpointing = <strong style="color: var(--blue)">Instant undo with Esc+Esc (even without Git)</strong><br>
+        Session Mgmt = <strong style="color: var(--green)">--continue / --resume / --fork-session</strong><br>
+        Parallel Work = <strong style="color: var(--orange)">Run independent sessions with Git Worktrees</strong><br>
+        Deep Reasoning = <strong style="color: var(--pink)">Maximize reasoning depth with ultrathink keyword</strong><br>
+        Code Cleanup = <strong style="color: var(--yellow)">/simplify (after implementation) / /batch (large-scale changes)</strong></span>
       </p>
       <p style="color: var(--text-muted); font-size: 14px;">
-        핵심은 하나입니다 &mdash;<br>
-        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"Claude에게 맥락을 충분히 주고, 검증은 항상 하자"</span>
+        <span class="lang-ko">핵심은 하나입니다 &mdash;<br>
+        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"Claude에게 맥락을 충분히 주고, 검증은 항상 하자"</span></span>
+        <span class="lang-en">The key is one thing &mdash;<br>
+        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"Give Claude sufficient context, and always verify"</span></span>
       </p>
     </div>
   </div>
@@ -2197,8 +2330,8 @@ Claude가 코드베이스를 빠르게 탐색해서 원인 특정</div>
 
 <!-- =================== CHAPTER NAV =================== -->
 <div class="chapter-nav">
-  <a href="skill.html">&larr; 이전: Skills 완전 가이드</a>
-  <a href="advanced.html">다음: 고급 기능 &rarr;</a>
+  <a href="skill.html">&larr; <span class="lang-ko">이전: Skills 완전 가이드</span><span class="lang-en">Prev: Complete Skills Guide</span></a>
+  <a href="advanced.html"><span class="lang-ko">다음: 고급 기능</span><span class="lang-en">Next: Advanced Features</span> &rarr;</a>
 </div>
 
 <footer>
@@ -2250,5 +2383,6 @@ window.addEventListener('scroll', () => {
 
 <div id="community-widget"></div>
 <script src="community.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

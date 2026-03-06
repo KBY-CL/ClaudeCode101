@@ -6,6 +6,7 @@
 /* 챕터 테마 초기화 — FOUC 방지 */
 (function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CLAUDE.md — 프로젝트 메모리 & 자동 메모리</title>
@@ -886,40 +887,41 @@
 <body>
 
 <!-- =================== BACK LINK =================== -->
-<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+<a href="../index.html" class="back-link">&larr; <span class="lang-ko">Claude Code 101로 돌아가기</span><span class="lang-en">Back to Claude Code 101</span></a>
 
 <!-- =================== HERO =================== -->
 <div class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    Module 03 &mdash; 메모리 시스템
+    <span class="lang-ko">Module 04 &mdash; 메모리 시스템</span><span class="lang-en">Module 04 &mdash; Memory System</span>
   </div>
   <h1>
-    <span class="highlight">CLAUDE.md</span><br>& 자동 메모리
+    <span class="highlight">CLAUDE.md</span><br><span class="lang-ko">& 자동 메모리</span><span class="lang-en">& Auto Memory</span>
   </h1>
   <p class="hero-sub">
-    Claude Code의 두 가지 메모리 시스템 &mdash; 사람이 쓰는 규칙과 Claude가 스스로 쌓는 학습
+    <span class="lang-ko">Claude Code의 두 가지 메모리 시스템 &mdash; 사람이 쓰는 규칙과 Claude가 스스로 쌓는 학습</span>
+    <span class="lang-en">Claude Code's two memory systems &mdash; human-written rules and Claude's self-accumulated learning</span>
   </p>
   <div class="hero-cta">
-    <a href="#what" class="btn btn-primary">두 가지 메모리 보기</a>
-    <a href="#templates" class="btn btn-outline">템플릿 보기 &rarr;</a>
+    <a href="#what" class="btn btn-primary"><span class="lang-ko">두 가지 메모리 보기</span><span class="lang-en">View Two Memory Systems</span></a>
+    <a href="#templates" class="btn btn-outline"><span class="lang-ko">템플릿 보기</span><span class="lang-en">View Templates</span> &rarr;</a>
   </div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    스크롤
+    <span class="lang-ko">스크롤</span><span class="lang-en">Scroll</span>
   </div>
 </div>
 
 <!-- =================== NAV =================== -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
-    <a href="#what" class="nav-link">두 가지 메모리</a>
-    <a href="#hierarchy" class="nav-link">파일 계층</a>
-    <a href="#auto-memory" class="nav-link">자동 메모리</a>
-    <a href="#templates" class="nav-link">작성 템플릿</a>
-    <a href="#examples" class="nav-link">좋은 예 vs 나쁜 예</a>
-    <a href="#team" class="nav-link">팀 공유</a>
+    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; <span class="lang-ko">홈</span><span class="lang-en">Home</span></a>
+    <a href="#what" class="nav-link"><span class="lang-ko">두 가지 메모리</span><span class="lang-en">Two Memories</span></a>
+    <a href="#hierarchy" class="nav-link"><span class="lang-ko">파일 계층</span><span class="lang-en">File Hierarchy</span></a>
+    <a href="#auto-memory" class="nav-link"><span class="lang-ko">자동 메모리</span><span class="lang-en">Auto Memory</span></a>
+    <a href="#templates" class="nav-link"><span class="lang-ko">작성 템플릿</span><span class="lang-en">Templates</span></a>
+    <a href="#examples" class="nav-link"><span class="lang-ko">좋은 예 vs 나쁜 예</span><span class="lang-en">Good vs Bad Examples</span></a>
+    <a href="#team" class="nav-link"><span class="lang-ko">팀 공유</span><span class="lang-en">Team Sharing</span></a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
 </nav>
@@ -928,68 +930,90 @@
 <section id="what">
   <div class="container">
     <div class="section-number">01</div>
-    <h2 class="section-title">두 가지 메모리 시스템</h2>
-    <p class="section-desc">
-      Claude Code에는 서로 보완하는 <strong style="color:var(--accent)">두 가지 메모리 시스템</strong>이 있습니다. 하나는 사람이 작성하고, 하나는 Claude가 스스로 작성합니다.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">두 가지 메모리 시스템</h2>
+      <p class="section-desc">
+        Claude Code에는 서로 보완하는 <strong style="color:var(--accent)">두 가지 메모리 시스템</strong>이 있습니다. 하나는 사람이 작성하고, 하나는 Claude가 스스로 작성합니다.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">Two Memory Systems</h2>
+      <p class="section-desc">
+        Claude Code has <strong style="color:var(--accent)">two complementary memory systems</strong>. One is written by humans, and the other is written by Claude itself.
+      </p>
+    </div>
 
     <div class="card-grid card-grid-2" style="margin-bottom: 40px;">
       <div class="card" style="border-color: var(--accent-border); background: var(--accent-glow);">
         <div class="card-icon" style="background: var(--surface);">&#x270D;&#xFE0F;</div>
-        <h3 style="color: var(--accent)">CLAUDE.md 파일</h3>
-        <p style="margin-bottom: 16px;">사람이 작성합니다. 프로젝트 규칙, 기술 스택, 컨벤션 등 Claude에게 알려주고 싶은 모든 것을 담습니다.</p>
+        <h3 style="color: var(--accent)">CLAUDE.md <span class="lang-ko">파일</span><span class="lang-en">File</span></h3>
+        <p style="margin-bottom: 16px;"><span class="lang-ko">사람이 작성합니다. 프로젝트 규칙, 기술 스택, 컨벤션 등 Claude에게 알려주고 싶은 모든 것을 담습니다.</span><span class="lang-en">Written by humans. Contains everything you want Claude to know — project rules, tech stack, conventions, and more.</span></p>
         <div class="tag-row">
-          <span class="tag tag-purple">사람이 작성</span>
-          <span class="tag tag-purple">영구 유지</span>
-          <span class="tag tag-purple">팀 공유 가능</span>
+          <span class="tag tag-purple"><span class="lang-ko">사람이 작성</span><span class="lang-en">Human-written</span></span>
+          <span class="tag tag-purple"><span class="lang-ko">영구 유지</span><span class="lang-en">Persistent</span></span>
+          <span class="tag tag-purple"><span class="lang-ko">팀 공유 가능</span><span class="lang-en">Team-shareable</span></span>
         </div>
       </div>
       <div class="card" style="border-color: var(--green-border); background: var(--green-dim);">
         <div class="card-icon" style="background: var(--surface);">&#x1F916;</div>
-        <h3 style="color: var(--green)">자동 메모리 (Auto-memory)</h3>
-        <p style="margin-bottom: 16px;">Claude가 스스로 작성합니다. 세션 중 배운 것, 선호도, 패턴 등을 자동으로 기억에 저장합니다.</p>
+        <h3 style="color: var(--green)"><span class="lang-ko">자동 메모리 (Auto-memory)</span><span class="lang-en">Auto Memory</span></h3>
+        <p style="margin-bottom: 16px;"><span class="lang-ko">Claude가 스스로 작성합니다. 세션 중 배운 것, 선호도, 패턴 등을 자동으로 기억에 저장합니다.</span><span class="lang-en">Written by Claude itself. Automatically saves things it learned during a session — preferences, patterns, and more.</span></p>
         <div class="tag-row">
-          <span class="tag tag-green">Claude가 작성</span>
-          <span class="tag tag-green">자동 저장</span>
-          <span class="tag tag-green">개인 전용</span>
+          <span class="tag tag-green"><span class="lang-ko">Claude가 작성</span><span class="lang-en">Claude-written</span></span>
+          <span class="tag tag-green"><span class="lang-ko">자동 저장</span><span class="lang-en">Auto-saved</span></span>
+          <span class="tag tag-green"><span class="lang-ko">개인 전용</span><span class="lang-en">Personal only</span></span>
         </div>
       </div>
     </div>
 
     <div class="analogy-box">
-      <h4>"새 팀원" 비유로 이해하기</h4>
-      <p>
-        새 팀원이 입사하면 가장 먼저 뭘 하나요? 프로젝트 위키를 읽습니다.<br><br>
-        &nbsp;&nbsp;&#x1F4CB; <strong style="color:var(--text)">CLAUDE.md</strong> = 팀이 미리 써둔 <strong style="color:var(--accent)">프로젝트 온보딩 문서</strong><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"React + TypeScript, npm run build로 빌드, camelCase 사용..."<br><br>
-        &nbsp;&nbsp;&#x1F4D3; <strong style="color:var(--text)">자동 메모리</strong> = 팀원이 일하면서 스스로 적는 <strong style="color:var(--green)">개인 노트북</strong><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"이 팀은 PR에 스크린샷을 넣길 좋아하는군. 다음부터 기억해야지."<br><br>
-        둘을 함께 사용하면 Claude가 매 세션마다 처음부터 다시 배울 필요가 없습니다.
-      </p>
+      <div class="lang-ko">
+        <h4>"새 팀원" 비유로 이해하기</h4>
+        <p>
+          새 팀원이 입사하면 가장 먼저 뭘 하나요? 프로젝트 위키를 읽습니다.<br><br>
+          &nbsp;&nbsp;&#x1F4CB; <strong style="color:var(--text)">CLAUDE.md</strong> = 팀이 미리 써둔 <strong style="color:var(--accent)">프로젝트 온보딩 문서</strong><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"React + TypeScript, npm run build로 빌드, camelCase 사용..."<br><br>
+          &nbsp;&nbsp;&#x1F4D3; <strong style="color:var(--text)">자동 메모리</strong> = 팀원이 일하면서 스스로 적는 <strong style="color:var(--green)">개인 노트북</strong><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"이 팀은 PR에 스크린샷을 넣길 좋아하는군. 다음부터 기억해야지."<br><br>
+          둘을 함께 사용하면 Claude가 매 세션마다 처음부터 다시 배울 필요가 없습니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>The "New Team Member" Analogy</h4>
+        <p>
+          What does a new team member do first? Read the project wiki.<br><br>
+          &nbsp;&nbsp;&#x1F4CB; <strong style="color:var(--text)">CLAUDE.md</strong> = The team's pre-written <strong style="color:var(--accent)">project onboarding document</strong><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"React + TypeScript, build with npm run build, use camelCase..."<br><br>
+          &nbsp;&nbsp;&#x1F4D3; <strong style="color:var(--text)">Auto Memory</strong> = The team member's own <strong style="color:var(--green)">personal notebook</strong> they fill in as they work<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"This team likes screenshots in PRs. I'll remember that next time."<br><br>
+          Using both together means Claude doesn't need to relearn everything from scratch every session.
+        </p>
+      </div>
     </div>
 
     <div class="card-grid card-grid-3">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F504;</div>
-        <h3>세션마다 자동 로드</h3>
-        <p>Claude Code를 실행할 때마다 CLAUDE.md를 자동으로 읽습니다. 매번 "우리 프로젝트는 이거야" 하고 설명할 필요가 없어요.</p>
+        <h3><span class="lang-ko">세션마다 자동 로드</span><span class="lang-en">Auto-loaded Every Session</span></h3>
+        <p><span class="lang-ko">Claude Code를 실행할 때마다 CLAUDE.md를 자동으로 읽습니다. 매번 "우리 프로젝트는 이거야" 하고 설명할 필요가 없어요.</span><span class="lang-en">CLAUDE.md is automatically read every time Claude Code starts. No need to explain "this is our project" every time.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F9E0;</div>
-        <h3>프로젝트 컨텍스트 제공</h3>
-        <p>기술 스택, 폴더 구조, 빌드 명령어, 코딩 컨벤션 등 프로젝트의 핵심 정보를 Claude에게 전달합니다.</p>
+        <h3><span class="lang-ko">프로젝트 컨텍스트 제공</span><span class="lang-en">Provides Project Context</span></h3>
+        <p><span class="lang-ko">기술 스택, 폴더 구조, 빌드 명령어, 코딩 컨벤션 등 프로젝트의 핵심 정보를 Claude에게 전달합니다.</span><span class="lang-en">Communicates key project information to Claude — tech stack, folder structure, build commands, and coding conventions.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F3AF;</div>
-        <h3>일관된 코딩 스타일 유지</h3>
-        <p>네이밍 규칙, 에러 핸들링 패턴, 금지 사항 등을 명시해두면 Claude가 항상 같은 스타일로 코드를 작성합니다.</p>
+        <h3><span class="lang-ko">일관된 코딩 스타일 유지</span><span class="lang-en">Maintains Consistent Coding Style</span></h3>
+        <p><span class="lang-ko">네이밍 규칙, 에러 핸들링 패턴, 금지 사항 등을 명시해두면 Claude가 항상 같은 스타일로 코드를 작성합니다.</span><span class="lang-en">Specify naming rules, error handling patterns, and prohibitions so Claude always writes code in the same style.</span></p>
       </div>
     </div>
 
     <div class="tip" style="margin-top: 32px;">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>빠른 시작:</strong> 프로젝트 루트에서 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/init</code> 명령을 실행하면 Claude가 프로젝트를 분석해서 CLAUDE.md를 자동 생성해줍니다. 거기서 시작해서 직접 다듬어 나가면 됩니다. <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/memory</code>로 자동 메모리를 관리할 수 있습니다.
+        <div class="lang-ko"><strong>빠른 시작:</strong> 프로젝트 루트에서 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/init</code> 명령을 실행하면 Claude가 프로젝트를 분석해서 CLAUDE.md를 자동 생성해줍니다. 거기서 시작해서 직접 다듬어 나가면 됩니다. <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/memory</code>로 자동 메모리를 관리할 수 있습니다.</div>
+        <div class="lang-en"><strong>Quick start:</strong> Run <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/init</code> in the project root and Claude will analyze your project and auto-generate a CLAUDE.md. Start from there and refine it yourself. Use <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/memory</code> to manage auto memory.</div>
       </div>
     </div>
   </div>
@@ -1001,40 +1025,48 @@
 <section id="hierarchy">
   <div class="container">
     <div class="section-number">02</div>
-    <h2 class="section-title">CLAUDE.md 파일 위치 & 계층</h2>
-    <p class="section-desc">
-      CLAUDE.md는 4가지 범위에 배치할 수 있습니다. 범위가 넓은 것에서 좁은 것 순으로 모두 적용됩니다.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">CLAUDE.md 파일 위치 & 계층</h2>
+      <p class="section-desc">
+        CLAUDE.md는 4가지 범위에 배치할 수 있습니다. 범위가 넓은 것에서 좁은 것 순으로 모두 적용됩니다.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">CLAUDE.md File Location & Hierarchy</h2>
+      <p class="section-desc">
+        CLAUDE.md can be placed at 4 different scopes. All of them are applied, from broadest to narrowest.
+      </p>
+    </div>
 
     <!-- Location Table -->
     <table class="skill-table">
       <thead>
         <tr>
-          <th>범위</th>
-          <th>파일 위치</th>
-          <th>용도</th>
+          <th><span class="lang-ko">범위</span><span class="lang-en">Scope</span></th>
+          <th><span class="lang-ko">파일 위치</span><span class="lang-en">File Location</span></th>
+          <th><span class="lang-ko">용도</span><span class="lang-en">Purpose</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><span class="skill-name-cell">Managed Policy</span></td>
           <td style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim);">/Library/Application Support/<br>ClaudeCode/CLAUDE.md <span style="color:var(--text-muted)">(macOS)</span></td>
-          <td style="color:var(--text-dim); font-size:13px;">IT 관리자가 조직 전체에 강제 적용하는 정책</td>
+          <td style="color:var(--text-dim); font-size:13px;"><span class="lang-ko">IT 관리자가 조직 전체에 강제 적용하는 정책</span><span class="lang-en">Policy enforced org-wide by IT administrators</span></td>
         </tr>
         <tr>
-          <td><span class="skill-name-cell">User (전역)</span></td>
+          <td><span class="skill-name-cell">User (<span class="lang-ko">전역</span><span class="lang-en">Global</span>)</span></td>
           <td style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim);">~/.claude/CLAUDE.md</td>
-          <td style="color:var(--text-dim); font-size:13px;">모든 프로젝트에 공통 적용되는 개인 설정</td>
+          <td style="color:var(--text-dim); font-size:13px;"><span class="lang-ko">모든 프로젝트에 공통 적용되는 개인 설정</span><span class="lang-en">Personal settings applied across all projects</span></td>
         </tr>
         <tr>
-          <td><span class="skill-name-cell">Project (팀 공유)</span></td>
-          <td style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim);">./CLAUDE.md 또는<br>./.claude/CLAUDE.md</td>
-          <td style="color:var(--text-dim); font-size:13px;">Git으로 팀 전체가 공유하는 프로젝트 규칙</td>
+          <td><span class="skill-name-cell">Project (<span class="lang-ko">팀 공유</span><span class="lang-en">Team-shared</span>)</span></td>
+          <td style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim);">./CLAUDE.md <span class="lang-ko">또는</span><span class="lang-en">or</span><br>./.claude/CLAUDE.md</td>
+          <td style="color:var(--text-dim); font-size:13px;"><span class="lang-ko">Git으로 팀 전체가 공유하는 프로젝트 규칙</span><span class="lang-en">Project rules shared via Git with the whole team</span></td>
         </tr>
         <tr>
-          <td><span class="skill-name-cell">Local (개인 로컬)</span></td>
+          <td><span class="skill-name-cell">Local (<span class="lang-ko">개인 로컬</span><span class="lang-en">Personal Local</span>)</span></td>
           <td style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim);">./CLAUDE.local.md</td>
-          <td style="color:var(--text-dim); font-size:13px;">개인 전용, git에 추적되지 않음 (.gitignore)</td>
+          <td style="color:var(--text-dim); font-size:13px;"><span class="lang-ko">개인 전용, git에 추적되지 않음 (.gitignore)</span><span class="lang-en">Personal only, not tracked by git (.gitignore)</span></td>
         </tr>
       </tbody>
     </table>
@@ -1073,29 +1105,43 @@
     </div>
 
     <div class="analogy-box">
-      <h4>회사 규칙 비유로 이해하기</h4>
-      <p>
-        &nbsp;&nbsp;&#x1F3DB;&#xFE0F; <strong style="color:var(--text)">그룹사 정책</strong> (Managed Policy) &mdash; "모든 직원은 보안 규정 준수"<br>
-        &nbsp;&nbsp;&#x1F3E2; <strong style="color:var(--text)">본인 업무 스타일</strong> (전역 User) &mdash; "나는 항상 한국어로 메모"<br>
-        &nbsp;&nbsp;&#x1F3EC; <strong style="color:var(--text)">부서 규칙</strong> (Project) &mdash; "개발팀은 코드 리뷰 필수"<br>
-        &nbsp;&nbsp;&#x1F5CA;&#xFE0F; <strong style="color:var(--text)">내 개인 노트</strong> (Local) &mdash; "이 프로젝트의 내 로컬 세팅"<br><br>
-        범위가 겹치면 <strong style="color:var(--accent)">더 구체적인 규칙이 우선</strong>합니다.
-      </p>
+      <div class="lang-ko">
+        <h4>회사 규칙 비유로 이해하기</h4>
+        <p>
+          &nbsp;&nbsp;&#x1F3DB;&#xFE0F; <strong style="color:var(--text)">그룹사 정책</strong> (Managed Policy) &mdash; "모든 직원은 보안 규정 준수"<br>
+          &nbsp;&nbsp;&#x1F3E2; <strong style="color:var(--text)">본인 업무 스타일</strong> (전역 User) &mdash; "나는 항상 한국어로 메모"<br>
+          &nbsp;&nbsp;&#x1F3EC; <strong style="color:var(--text)">부서 규칙</strong> (Project) &mdash; "개발팀은 코드 리뷰 필수"<br>
+          &nbsp;&nbsp;&#x1F5CA;&#xFE0F; <strong style="color:var(--text)">내 개인 노트</strong> (Local) &mdash; "이 프로젝트의 내 로컬 세팅"<br><br>
+          범위가 겹치면 <strong style="color:var(--accent)">더 구체적인 규칙이 우선</strong>합니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>The "Company Rules" Analogy</h4>
+        <p>
+          &nbsp;&nbsp;&#x1F3DB;&#xFE0F; <strong style="color:var(--text)">Corporate policy</strong> (Managed Policy) &mdash; "All employees must comply with security regulations"<br>
+          &nbsp;&nbsp;&#x1F3E2; <strong style="color:var(--text)">Your own work style</strong> (User Global) &mdash; "I always take notes in English"<br>
+          &nbsp;&nbsp;&#x1F3EC; <strong style="color:var(--text)">Department rules</strong> (Project) &mdash; "Dev team requires code reviews"<br>
+          &nbsp;&nbsp;&#x1F5CA;&#xFE0F; <strong style="color:var(--text)">My personal notes</strong> (Local) &mdash; "My local settings for this project"<br><br>
+          When scopes overlap, <strong style="color:var(--accent)">the more specific rule takes precedence</strong>.
+        </p>
+      </div>
     </div>
 
     <div class="tip">
       <span class="tip-icon">&#x26A0;&#xFE0F;</span>
       <div>
-        <strong>충돌 시 우선순위:</strong> Managed Policy &gt; User 전역 &gt; Project &gt; Local 순서로 범위가 좁을수록 우선합니다. 하위(로컬) 파일이 상위(전역) 규칙을 덮어씁니다.
+        <div class="lang-ko"><strong>충돌 시 우선순위:</strong> Managed Policy &gt; User 전역 &gt; Project &gt; Local 순서로 범위가 좁을수록 우선합니다. 하위(로컬) 파일이 상위(전역) 규칙을 덮어씁니다.</div>
+        <div class="lang-en"><strong>Priority on conflict:</strong> The order is Managed Policy &gt; User Global &gt; Project &gt; Local — the narrower the scope, the higher the priority. Lower (local) files override higher (global) rules.</div>
       </div>
     </div>
 
     <!-- @import syntax -->
     <h3 style="font-size: 22px; font-weight: 700; margin: 64px 0 16px; display: flex; align-items: center; gap: 8px;">
-      <span style="color: var(--accent)">@</span> @import 문법으로 파일 가져오기
+      <span style="color: var(--accent)">@</span> <span class="lang-ko">@import 문법으로 파일 가져오기</span><span class="lang-en">Importing Files with @import Syntax</span>
     </h3>
     <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 20px;">
-      CLAUDE.md 안에서 다른 파일을 가져올 수 있습니다. 긴 문서를 분리하거나, README·패키지 정보를 바로 참조할 때 유용합니다.
+      <span class="lang-ko">CLAUDE.md 안에서 다른 파일을 가져올 수 있습니다. 긴 문서를 분리하거나, README·패키지 정보를 바로 참조할 때 유용합니다.</span>
+      <span class="lang-en">You can import other files inside CLAUDE.md. Useful for splitting long documents or referencing README and package info directly.</span>
     </p>
     <div class="code-block">
       <div class="code-header">
@@ -1115,10 +1161,11 @@
 
     <!-- .claude/rules/ directory -->
     <h3 style="font-size: 22px; font-weight: 700; margin: 64px 0 16px; display: flex; align-items: center; gap: 8px;">
-      <span style="color: var(--blue)">&#x1F4C2;</span> .claude/rules/ 디렉터리로 규칙 분리
+      <span style="color: var(--blue)">&#x1F4C2;</span> <span class="lang-ko">.claude/rules/ 디렉터리로 규칙 분리</span><span class="lang-en">Separating Rules with .claude/rules/ Directory</span>
     </h3>
     <p style="color: var(--text-dim); font-size: 15px; margin-bottom: 20px;">
-      규칙이 많아지면 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">.claude/rules/</code> 디렉터리에 주제별로 분리할 수 있습니다. 특정 파일 패턴에만 적용되는 규칙도 설정 가능합니다.
+      <span class="lang-ko">규칙이 많아지면 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">.claude/rules/</code> 디렉터리에 주제별로 분리할 수 있습니다. 특정 파일 패턴에만 적용되는 규칙도 설정 가능합니다.</span>
+      <span class="lang-en">When rules grow large, you can split them by topic inside the <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">.claude/rules/</code> directory. You can also configure rules that apply only to specific file patterns.</span>
     </p>
     <div class="code-block">
       <div class="code-header">
@@ -1156,25 +1203,26 @@
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>경로 기반 규칙:</strong> <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">paths</code> frontmatter를 사용하면, 해당 파일 패턴에 매칭되는 파일로 작업할 때만 그 규칙이 적용됩니다. 전체 CLAUDE.md를 짧게 유지하면서 세밀한 제어가 가능합니다.
+        <div class="lang-ko"><strong>경로 기반 규칙:</strong> <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">paths</code> frontmatter를 사용하면, 해당 파일 패턴에 매칭되는 파일로 작업할 때만 그 규칙이 적용됩니다. 전체 CLAUDE.md를 짧게 유지하면서 세밀한 제어가 가능합니다.</div>
+        <div class="lang-en"><strong>Path-based rules:</strong> Using the <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">paths</code> frontmatter applies that rule only when working with files matching that pattern. This allows fine-grained control while keeping the main CLAUDE.md short.</div>
       </div>
     </div>
 
     <div class="card-grid card-grid-3" style="margin-top: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F30D;</div>
-        <h3>전역 CLAUDE.md</h3>
-        <p>응답 언어, 커밋 메시지 스타일 등 <strong style="color:var(--text)">모든 프로젝트에 공통</strong>으로 적용할 규칙을 작성합니다.</p>
+        <h3><span class="lang-ko">전역 CLAUDE.md</span><span class="lang-en">Global CLAUDE.md</span></h3>
+        <p><span class="lang-ko">응답 언어, 커밋 메시지 스타일 등 <strong style="color:var(--text)">모든 프로젝트에 공통</strong>으로 적용할 규칙을 작성합니다.</span><span class="lang-en">Write rules that apply <strong style="color:var(--text)">across all projects</strong> — response language, commit message style, etc.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F4C1;</div>
-        <h3>프로젝트 CLAUDE.md</h3>
-        <p>기술 스택, 빌드/테스트 명령어, 아키텍처 등 <strong style="color:var(--text)">해당 프로젝트 고유</strong>의 정보를 작성합니다.</p>
+        <h3><span class="lang-ko">프로젝트 CLAUDE.md</span><span class="lang-en">Project CLAUDE.md</span></h3>
+        <p><span class="lang-ko">기술 스택, 빌드/테스트 명령어, 아키텍처 등 <strong style="color:var(--text)">해당 프로젝트 고유</strong>의 정보를 작성합니다.</span><span class="lang-en">Write information <strong style="color:var(--text)">unique to this project</strong> — tech stack, build/test commands, architecture, etc.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--orange-dim);">&#x1F4C4;</div>
         <h3>CLAUDE.local.md</h3>
-        <p>개인 전용 설정으로 <strong style="color:var(--text)">git에 추적되지 않습니다</strong>. 로컬 DB 포트, 개인 API 키 경로 등 팀과 공유하지 않을 내용을 넣습니다.</p>
+        <p><span class="lang-ko">개인 전용 설정으로 <strong style="color:var(--text)">git에 추적되지 않습니다</strong>. 로컬 DB 포트, 개인 API 키 경로 등 팀과 공유하지 않을 내용을 넣습니다.</span><span class="lang-en">Personal settings that are <strong style="color:var(--text)">not tracked by git</strong>. Put anything you don't want to share with the team — local DB port, personal API key paths, etc.</span></p>
       </div>
     </div>
   </div>
@@ -1186,31 +1234,51 @@
 <section id="auto-memory">
   <div class="container">
     <div class="section-number">03</div>
-    <h2 class="section-title">자동 메모리 시스템</h2>
-    <p class="section-desc">
-      Claude가 <strong style="color:var(--green)">스스로 작성</strong>하는 메모리입니다. 세션 중 배운 것을 자동으로 저장하고 다음 세션에서 활용합니다.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">자동 메모리 시스템</h2>
+      <p class="section-desc">
+        Claude가 <strong style="color:var(--green)">스스로 작성</strong>하는 메모리입니다. 세션 중 배운 것을 자동으로 저장하고 다음 세션에서 활용합니다.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">Auto Memory System</h2>
+      <p class="section-desc">
+        Memory that Claude <strong style="color:var(--green)">writes itself</strong>. It automatically saves what it learned during a session and uses it in the next.
+      </p>
+    </div>
 
     <div class="analogy-box">
-      <h4>어떻게 작동하나요?</h4>
-      <p>
-        Claude Code가 작업하면서 중요한 것을 발견하면 스스로 메모합니다.<br><br>
-        &nbsp;&nbsp;&#x1F4DD; "이 팀은 ESLint auto-fix 후 반드시 수동 검토를 원하는군"<br>
-        &nbsp;&nbsp;&#x1F4DD; "이 프로젝트의 API 에러 패턴은 커스텀 AppError 클래스를 사용함"<br>
-        &nbsp;&nbsp;&#x1F4DD; "배포 전에 항상 npm run e2e를 실행해야 함"<br><br>
-        다음 세션에서는 이 메모를 보고 <strong style="color:var(--green)">처음부터 다시 설명하지 않아도</strong> 됩니다.
-      </p>
+      <div class="lang-ko">
+        <h4>어떻게 작동하나요?</h4>
+        <p>
+          Claude Code가 작업하면서 중요한 것을 발견하면 스스로 메모합니다.<br><br>
+          &nbsp;&nbsp;&#x1F4DD; "이 팀은 ESLint auto-fix 후 반드시 수동 검토를 원하는군"<br>
+          &nbsp;&nbsp;&#x1F4DD; "이 프로젝트의 API 에러 패턴은 커스텀 AppError 클래스를 사용함"<br>
+          &nbsp;&nbsp;&#x1F4DD; "배포 전에 항상 npm run e2e를 실행해야 함"<br><br>
+          다음 세션에서는 이 메모를 보고 <strong style="color:var(--green)">처음부터 다시 설명하지 않아도</strong> 됩니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>How does it work?</h4>
+        <p>
+          When Claude Code discovers something important while working, it takes its own notes.<br><br>
+          &nbsp;&nbsp;&#x1F4DD; "This team always wants manual review after ESLint auto-fix"<br>
+          &nbsp;&nbsp;&#x1F4DD; "This project's API error pattern uses a custom AppError class"<br>
+          &nbsp;&nbsp;&#x1F4DD; "Must always run npm run e2e before deploying"<br><br>
+          In the next session, it reads these notes, so <strong style="color:var(--green)">you don't have to explain it from scratch</strong>.
+        </p>
+      </div>
     </div>
 
     <div class="card-grid card-grid-2" style="margin-bottom: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F4C2;</div>
-        <h3>저장 위치</h3>
-        <p style="margin-bottom: 16px;">자동 메모리는 프로젝트별로 다음 위치에 저장됩니다:</p>
+        <h3><span class="lang-ko">저장 위치</span><span class="lang-en">Storage Location</span></h3>
+        <p style="margin-bottom: 16px;"><span class="lang-ko">자동 메모리는 프로젝트별로 다음 위치에 저장됩니다:</span><span class="lang-en">Auto memory is saved per project at the following location:</span></p>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
-            <span>자동 메모리 경로</span>
+            <span><span class="lang-ko">자동 메모리 경로</span><span class="lang-en">Auto memory path</span></span>
           </div>
           <div class="code-body" style="font-size: 12px;">
 <span class="file">~/.claude/projects/</span>
@@ -1223,30 +1291,30 @@
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x2699;&#xFE0F;</div>
-        <h3>관리 방법</h3>
-        <p style="margin-bottom: 16px;"><code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/memory</code> 명령으로 자동 메모리를 관리합니다:</p>
+        <h3><span class="lang-ko">관리 방법</span><span class="lang-en">How to Manage</span></h3>
+        <p style="margin-bottom: 16px;"><span class="lang-ko"><code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/memory</code> 명령으로 자동 메모리를 관리합니다:</span><span class="lang-en">Use the <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/memory</code> command to manage auto memory:</span></p>
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--text-dim);">
           <li style="display: flex; align-items: flex-start; gap: 10px;">
             <span style="color: var(--accent); font-weight: 700; flex-shrink: 0;">&#x25B8;</span>
-            <span>로드된 모든 CLAUDE.md 파일 확인</span>
+            <span><span class="lang-ko">로드된 모든 CLAUDE.md 파일 확인</span><span class="lang-en">View all loaded CLAUDE.md files</span></span>
           </li>
           <li style="display: flex; align-items: flex-start; gap: 10px;">
             <span style="color: var(--accent); font-weight: 700; flex-shrink: 0;">&#x25B8;</span>
-            <span>자동 메모리 켜기/끄기 토글</span>
+            <span><span class="lang-ko">자동 메모리 켜기/끄기 토글</span><span class="lang-en">Toggle auto memory on/off</span></span>
           </li>
           <li style="display: flex; align-items: flex-start; gap: 10px;">
             <span style="color: var(--accent); font-weight: 700; flex-shrink: 0;">&#x25B8;</span>
-            <span>메모리 폴더 직접 열어서 편집</span>
+            <span><span class="lang-ko">메모리 폴더 직접 열어서 편집</span><span class="lang-en">Open and edit the memory folder directly</span></span>
           </li>
           <li style="display: flex; align-items: flex-start; gap: 10px;">
             <span style="color: var(--accent); font-weight: 700; flex-shrink: 0;">&#x25B8;</span>
-            <span>잘못된 메모리 삭제 또는 수정</span>
+            <span><span class="lang-ko">잘못된 메모리 삭제 또는 수정</span><span class="lang-en">Delete or correct inaccurate memories</span></span>
           </li>
         </ul>
       </div>
     </div>
 
-    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 24px;">핵심 동작 방식</h3>
+    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 24px;"><span class="lang-ko">핵심 동작 방식</span><span class="lang-en">How It Works</span></h3>
     <div class="steps">
       <div class="step">
         <div class="step-marker">
@@ -1254,8 +1322,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>세션 시작 시 MEMORY.md 로드</h3>
-          <p>매 세션마다 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">MEMORY.md</code>의 앞 200줄이 자동으로 컨텍스트에 포함됩니다. 가장 자주 참조되는 핵심 정보가 여기에 담겨있습니다.</p>
+          <h3><span class="lang-ko">세션 시작 시 MEMORY.md 로드</span><span class="lang-en">MEMORY.md Loads at Session Start</span></h3>
+          <p><span class="lang-ko">매 세션마다 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">MEMORY.md</code>의 앞 200줄이 자동으로 컨텍스트에 포함됩니다. 가장 자주 참조되는 핵심 정보가 여기에 담겨있습니다.</span><span class="lang-en">The first 200 lines of <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">MEMORY.md</code> are automatically included in context every session. This contains the most frequently referenced key information.</span></p>
         </div>
       </div>
       <div class="step">
@@ -1264,8 +1332,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>필요 시 주제별 파일 동적 로드</h3>
-          <p>디버깅 작업을 하면 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">debugging.md</code>가, 코드 패턴 관련 작업을 하면 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">patterns.md</code>가 자동으로 로드됩니다. 불필요한 컨텍스트 낭비를 방지합니다.</p>
+          <h3><span class="lang-ko">필요 시 주제별 파일 동적 로드</span><span class="lang-en">Topic-specific Files Loaded Dynamically When Needed</span></h3>
+          <p><span class="lang-ko">디버깅 작업을 하면 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">debugging.md</code>가, 코드 패턴 관련 작업을 하면 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">patterns.md</code>가 자동으로 로드됩니다. 불필요한 컨텍스트 낭비를 방지합니다.</span><span class="lang-en">When doing debugging work, <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">debugging.md</code> auto-loads; for code pattern work, <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">patterns.md</code> loads. This prevents unnecessary context waste.</span></p>
         </div>
       </div>
       <div class="step">
@@ -1274,8 +1342,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>Claude가 기억할 가치 있는 것을 판단</h3>
-          <p>모든 것을 다 저장하지 않습니다. Claude가 "다음 세션에도 알아야 할 중요한 정보"라고 판단한 것만 선별해서 메모리에 기록합니다.</p>
+          <h3><span class="lang-ko">Claude가 기억할 가치 있는 것을 판단</span><span class="lang-en">Claude Decides What Is Worth Remembering</span></h3>
+          <p><span class="lang-ko">모든 것을 다 저장하지 않습니다. Claude가 "다음 세션에도 알아야 할 중요한 정보"라고 판단한 것만 선별해서 메모리에 기록합니다.</span><span class="lang-en">Not everything is saved. Only what Claude judges as "important information to know in the next session" is selectively recorded in memory.</span></p>
         </div>
       </div>
       <div class="step">
@@ -1284,8 +1352,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>언제든 비활성화 가능</h3>
-          <p><code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/memory</code>에서 토글하거나, settings에서 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">autoMemoryEnabled: false</code>로 설정하면 자동 메모리가 비활성화됩니다.</p>
+          <h3><span class="lang-ko">언제든 비활성화 가능</span><span class="lang-en">Can Be Disabled Anytime</span></h3>
+          <p><span class="lang-ko"><code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/memory</code>에서 토글하거나, settings에서 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">autoMemoryEnabled: false</code>로 설정하면 자동 메모리가 비활성화됩니다.</span><span class="lang-en">Toggle from <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/memory</code>, or set <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">autoMemoryEnabled: false</code> in settings to disable auto memory.</span></p>
         </div>
       </div>
     </div>
@@ -1293,22 +1361,22 @@
     <div class="card-grid card-grid-2" style="margin-top: 40px;">
       <div class="card" style="border-color: var(--green-border);">
         <div class="card-icon" style="background: var(--green-dim);">&#x2705;</div>
-        <h3>자동 메모리가 잘하는 것</h3>
+        <h3><span class="lang-ko">자동 메모리가 잘하는 것</span><span class="lang-en">What Auto Memory Does Well</span></h3>
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--text-dim);">
-          <li>&#x25B8;&nbsp; 프로젝트별 특이한 패턴 기억</li>
-          <li>&#x25B8;&nbsp; 반복해서 설명하지 않아도 되는 컨벤션</li>
-          <li>&#x25B8;&nbsp; 이전 세션에서 발견한 버그 패턴</li>
-          <li>&#x25B8;&nbsp; 팀의 선호도나 작업 스타일</li>
+          <li>&#x25B8;&nbsp; <span class="lang-ko">프로젝트별 특이한 패턴 기억</span><span class="lang-en">Remembering project-specific patterns</span></li>
+          <li>&#x25B8;&nbsp; <span class="lang-ko">반복해서 설명하지 않아도 되는 컨벤션</span><span class="lang-en">Conventions you don't have to re-explain</span></li>
+          <li>&#x25B8;&nbsp; <span class="lang-ko">이전 세션에서 발견한 버그 패턴</span><span class="lang-en">Bug patterns discovered in previous sessions</span></li>
+          <li>&#x25B8;&nbsp; <span class="lang-ko">팀의 선호도나 작업 스타일</span><span class="lang-en">Team preferences and working style</span></li>
         </ul>
       </div>
       <div class="card" style="border-color: var(--red-border);">
         <div class="card-icon" style="background: var(--red-dim);">&#x26A0;&#xFE0F;</div>
-        <h3>주의할 점</h3>
+        <h3><span class="lang-ko">주의할 점</span><span class="lang-en">Watch Out For</span></h3>
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--text-dim);">
-          <li>&#x25B8;&nbsp; 잘못된 정보가 기억될 수 있으므로 /memory로 주기적 확인</li>
-          <li>&#x25B8;&nbsp; 개인 전용 (팀 공유 불가)</li>
-          <li>&#x25B8;&nbsp; CLAUDE.md와 중복되지 않게 관리</li>
-          <li>&#x25B8;&nbsp; 민감한 정보가 저장되지 않았는지 확인</li>
+          <li>&#x25B8;&nbsp; <span class="lang-ko">잘못된 정보가 기억될 수 있으므로 /memory로 주기적 확인</span><span class="lang-en">Incorrect info may be stored — review periodically with /memory</span></li>
+          <li>&#x25B8;&nbsp; <span class="lang-ko">개인 전용 (팀 공유 불가)</span><span class="lang-en">Personal only (cannot be shared with team)</span></li>
+          <li>&#x25B8;&nbsp; <span class="lang-ko">CLAUDE.md와 중복되지 않게 관리</span><span class="lang-en">Avoid duplicating content already in CLAUDE.md</span></li>
+          <li>&#x25B8;&nbsp; <span class="lang-ko">민감한 정보가 저장되지 않았는지 확인</span><span class="lang-en">Check that no sensitive information was stored</span></li>
         </ul>
       </div>
     </div>
@@ -1316,7 +1384,8 @@
     <div class="tip" style="margin-top: 32px;">
       <span class="tip-icon">&#x1F4CB;</span>
       <div>
-        <strong>CLAUDE.md vs 자동 메모리 역할 분리:</strong> <strong style="color:var(--accent)">CLAUDE.md</strong>는 팀 전체가 공유할 규칙과 프로젝트 구조를 담습니다. <strong style="color:var(--green)">자동 메모리</strong>는 작업하면서 Claude 스스로 발견한 개인적 학습을 담습니다. 둘을 중복 작성할 필요 없이, 각자의 역할에 집중하면 됩니다.
+        <span class="lang-ko"><strong>CLAUDE.md vs 자동 메모리 역할 분리:</strong> <strong style="color:var(--accent)">CLAUDE.md</strong>는 팀 전체가 공유할 규칙과 프로젝트 구조를 담습니다. <strong style="color:var(--green)">자동 메모리</strong>는 작업하면서 Claude 스스로 발견한 개인적 학습을 담습니다. 둘을 중복 작성할 필요 없이, 각자의 역할에 집중하면 됩니다.</span>
+        <span class="lang-en"><strong>CLAUDE.md vs Auto Memory — Clear Roles:</strong> <strong style="color:var(--accent)">CLAUDE.md</strong> holds rules and project structure that the whole team shares. <strong style="color:var(--green)">Auto memory</strong> holds personal learning Claude discovers while working. No need to duplicate — each has its own role.</span>
       </div>
     </div>
   </div>
@@ -1328,14 +1397,15 @@
 <section id="templates">
   <div class="container">
     <div class="section-number">04</div>
-    <h2 class="section-title">작성 템플릿 갤러리</h2>
+    <h2 class="section-title"><span class="lang-ko">작성 템플릿 갤러리</span><span class="lang-en">Template Gallery</span></h2>
     <p class="section-desc">
-      프로젝트 유형별로 바로 복사해서 쓸 수 있는 CLAUDE.md 템플릿입니다.
+      <span class="lang-ko">프로젝트 유형별로 바로 복사해서 쓸 수 있는 CLAUDE.md 템플릿입니다.</span>
+      <span class="lang-en">Ready-to-copy CLAUDE.md templates for each project type.</span>
     </p>
 
     <!-- Template 1: Web -->
     <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
-      <span style="color: var(--accent)">&#9679;</span> 웹 프로젝트 (React / Next.js)
+      <span style="color: var(--accent)">&#9679;</span> <span class="lang-ko">웹 프로젝트 (React / Next.js)</span><span class="lang-en">Web Project (React / Next.js)</span>
     </h3>
     <div class="code-block">
       <div class="code-header">
@@ -1370,7 +1440,7 @@
 
     <!-- Template 2: Mobile -->
     <h3 style="font-size: 18px; font-weight: 700; margin: 48px 0 16px; display: flex; align-items: center; gap: 8px;">
-      <span style="color: var(--green)">&#9679;</span> 모바일 앱 (SwiftUI / Flutter)
+      <span style="color: var(--green)">&#9679;</span> <span class="lang-ko">모바일 앱 (SwiftUI / Flutter)</span><span class="lang-en">Mobile App (SwiftUI / Flutter)</span>
     </h3>
     <div class="code-block">
       <div class="code-header">
@@ -1403,7 +1473,7 @@
 
     <!-- Template 3: API Server -->
     <h3 style="font-size: 18px; font-weight: 700; margin: 48px 0 16px; display: flex; align-items: center; gap: 8px;">
-      <span style="color: var(--blue)">&#9679;</span> API 서버 (Node.js / Python)
+      <span style="color: var(--blue)">&#9679;</span> <span class="lang-ko">API 서버 (Node.js / Python)</span><span class="lang-en">API Server (Node.js / Python)</span>
     </h3>
     <div class="code-block">
       <div class="code-header">
@@ -1438,7 +1508,7 @@
 
     <!-- Template 4: Data Analysis -->
     <h3 style="font-size: 18px; font-weight: 700; margin: 48px 0 16px; display: flex; align-items: center; gap: 8px;">
-      <span style="color: var(--orange)">&#9679;</span> 데이터 분석 (Python / Jupyter)
+      <span style="color: var(--orange)">&#9679;</span> <span class="lang-ko">데이터 분석 (Python / Jupyter)</span><span class="lang-en">Data Analysis (Python / Jupyter)</span>
     </h3>
     <div class="code-block">
       <div class="code-header">
@@ -1479,22 +1549,23 @@
 <section id="examples">
   <div class="container">
     <div class="section-number">05</div>
-    <h2 class="section-title">좋은 예 vs 나쁜 예</h2>
+    <h2 class="section-title"><span class="lang-ko">좋은 예 vs 나쁜 예</span><span class="lang-en">Good vs Bad Examples</span></h2>
     <p class="section-desc">
-      CLAUDE.md는 <strong style="color:var(--accent)">구체적일수록</strong> 효과적입니다. 실제 비교를 통해 차이를 느껴보세요.
+      <span class="lang-ko">CLAUDE.md는 <strong style="color:var(--accent)">구체적일수록</strong> 효과적입니다. 실제 비교를 통해 차이를 느껴보세요.</span>
+      <span class="lang-en">CLAUDE.md is more effective the <strong style="color:var(--accent)">more specific</strong> it is. See the difference through real comparisons.</span>
     </p>
 
     <!-- Comparison 1: Project Description -->
-    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">프로젝트 설명</h3>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;"><span class="lang-ko">프로젝트 설명</span><span class="lang-en">Project Description</span></h3>
     <div class="comparison">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 나쁜 예</div>
+        <div class="comp-label"><span class="lang-ko">&#10060; 나쁜 예</span><span class="lang-en">&#10060; Bad Example</span></div>
         <div class="comp-code">코드 잘 짜줘.
 웹 프로젝트야.
 React 써.</div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; 좋은 예</div>
+        <div class="comp-label"><span class="lang-ko">&#9989; 좋은 예</span><span class="lang-en">&#9989; Good Example</span></div>
         <div class="comp-code"># 프로젝트 개요
 SaaS 대시보드 웹앱.
 Next.js 14 App Router + TypeScript.
@@ -1505,15 +1576,15 @@ Tailwind CSS + shadcn/ui 사용.
     </div>
 
     <!-- Comparison 2: Build Commands -->
-    <h3 style="font-size: 18px; font-weight: 700; margin: 40px 0 16px;">빌드 &amp; 테스트 명령어</h3>
+    <h3 style="font-size: 18px; font-weight: 700; margin: 40px 0 16px;"><span class="lang-ko">빌드 &amp; 테스트 명령어</span><span class="lang-en">Build &amp; Test Commands</span></h3>
     <div class="comparison">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 나쁜 예</div>
+        <div class="comp-label"><span class="lang-ko">&#10060; 나쁜 예</span><span class="lang-en">&#10060; Bad Example</span></div>
         <div class="comp-code">빌드해서 테스트해줘.
 한국어로 해줘.</div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; 좋은 예</div>
+        <div class="comp-label"><span class="lang-ko">&#9989; 좋은 예</span><span class="lang-en">&#9989; Good Example</span></div>
         <div class="comp-code"># 빌드 & 테스트
 - npm run build     # 프로덕션 빌드
 - npm run test      # Vitest 유닛 테스트
@@ -1528,15 +1599,15 @@ Tailwind CSS + shadcn/ui 사용.
     </div>
 
     <!-- Comparison 3: Coding Convention -->
-    <h3 style="font-size: 18px; font-weight: 700; margin: 40px 0 16px;">코딩 컨벤션</h3>
+    <h3 style="font-size: 18px; font-weight: 700; margin: 40px 0 16px;"><span class="lang-ko">코딩 컨벤션</span><span class="lang-en">Coding Conventions</span></h3>
     <div class="comparison">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 나쁜 예</div>
+        <div class="comp-label"><span class="lang-ko">&#10060; 나쁜 예</span><span class="lang-en">&#10060; Bad Example</span></div>
         <div class="comp-code">깔끔하게 짜줘.
 변수명 잘 지어줘.</div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; 좋은 예</div>
+        <div class="comp-label"><span class="lang-ko">&#9989; 좋은 예</span><span class="lang-en">&#9989; Good Example</span></div>
         <div class="comp-code"># 코딩 컨벤션
 - 변수/함수: camelCase
 - 컴포넌트: PascalCase
@@ -1552,16 +1623,16 @@ Tailwind CSS + shadcn/ui 사용.
     </div>
 
     <!-- Comparison 4: Too Short -->
-    <h3 style="font-size: 18px; font-weight: 700; margin: 40px 0 16px;">파일 길이</h3>
+    <h3 style="font-size: 18px; font-weight: 700; margin: 40px 0 16px;"><span class="lang-ko">파일 길이</span><span class="lang-en">File Length</span></h3>
     <div class="comparison">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 너무 짧은 예</div>
+        <div class="comp-label"><span class="lang-ko">&#10060; 너무 짧은 예</span><span class="lang-en">&#10060; Too Short</span></div>
         <div class="comp-code">React 프로젝트입니다.
 TypeScript 사용합니다.
 잘 부탁합니다.</div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; 적절한 길이</div>
+        <div class="comp-label"><span class="lang-ko">&#9989; 적절한 길이</span><span class="lang-en">&#9989; Appropriate Length</span></div>
         <div class="comp-code"># 프로젝트 개요
 (구체적인 프로젝트 설명)
 
@@ -1585,7 +1656,8 @@ TypeScript 사용합니다.
     <div class="tip" style="margin-top: 32px;">
       <span class="tip-icon">&#x1F4CF;</span>
       <div>
-        <strong>핵심 원칙:</strong> CLAUDE.md는 "Claude에게 무엇을 해달라"가 아니라, "이 프로젝트는 이렇게 되어 있다"를 알려주는 문서입니다. 추상적인 요청 대신 구체적인 사실을 적어야 효과적입니다.
+        <span class="lang-ko"><strong>핵심 원칙:</strong> CLAUDE.md는 "Claude에게 무엇을 해달라"가 아니라, "이 프로젝트는 이렇게 되어 있다"를 알려주는 문서입니다. 추상적인 요청 대신 구체적인 사실을 적어야 효과적입니다.</span>
+        <span class="lang-en"><strong>Core Principle:</strong> CLAUDE.md is not "ask Claude to do something" — it's a document that says "this project is structured like this." Writing concrete facts instead of abstract requests makes it far more effective.</span>
       </div>
     </div>
   </div>
@@ -1597,33 +1669,34 @@ TypeScript 사용합니다.
 <section id="team">
   <div class="container">
     <div class="section-number">06</div>
-    <h2 class="section-title">팀 공유 &amp; Git 관리</h2>
+    <h2 class="section-title"><span class="lang-ko">팀 공유 &amp; Git 관리</span><span class="lang-en">Team Sharing &amp; Git Management</span></h2>
     <p class="section-desc">
-      CLAUDE.md를 팀에서 공유하는 두 가지 전략과 셋업 가이드입니다.
+      <span class="lang-ko">CLAUDE.md를 팀에서 공유하는 두 가지 전략과 셋업 가이드입니다.</span>
+      <span class="lang-en">Two strategies for sharing CLAUDE.md as a team, plus a setup guide.</span>
     </p>
 
     <div class="card-grid card-grid-2">
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F4E4;</div>
-        <h3>Git에 커밋하기</h3>
-        <p style="margin-bottom: 16px;">CLAUDE.md를 저장소에 포함시킵니다.</p>
+        <h3><span class="lang-ko">Git에 커밋하기</span><span class="lang-en">Commit to Git</span></h3>
+        <p style="margin-bottom: 16px;"><span class="lang-ko">CLAUDE.md를 저장소에 포함시킵니다.</span><span class="lang-en">Include CLAUDE.md in the repository.</span></p>
         <div class="tag-row">
-          <span class="tag tag-green">팀 전체 통일</span>
-          <span class="tag tag-green">버전 관리</span>
-          <span class="tag tag-green">코드 리뷰 가능</span>
+          <span class="tag tag-green"><span class="lang-ko">팀 전체 통일</span><span class="lang-en">Team-wide consistency</span></span>
+          <span class="tag tag-green"><span class="lang-ko">버전 관리</span><span class="lang-en">Version controlled</span></span>
+          <span class="tag tag-green"><span class="lang-ko">코드 리뷰 가능</span><span class="lang-en">Reviewable via PR</span></span>
         </div>
-        <p style="margin-top: 12px; font-size: 13px;">팀 전체가 동일한 규칙을 사용해야 할 때 추천합니다. PR을 통해 규칙 변경 이력도 관리됩니다.</p>
+        <p style="margin-top: 12px; font-size: 13px;"><span class="lang-ko">팀 전체가 동일한 규칙을 사용해야 할 때 추천합니다. PR을 통해 규칙 변경 이력도 관리됩니다.</span><span class="lang-en">Recommended when the whole team needs to use the same rules. Rule change history is also tracked through PRs.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--orange-dim);">&#x1F512;</div>
-        <h3>.gitignore에 넣기</h3>
-        <p style="margin-bottom: 16px;">CLAUDE.md를 개인만 사용합니다.</p>
+        <h3><span class="lang-ko">.gitignore에 넣기</span><span class="lang-en">Add to .gitignore</span></h3>
+        <p style="margin-bottom: 16px;"><span class="lang-ko">CLAUDE.md를 개인만 사용합니다.</span><span class="lang-en">Keep CLAUDE.md for personal use only.</span></p>
         <div class="tag-row">
-          <span class="tag tag-orange">개인 설정 유지</span>
-          <span class="tag tag-orange">자유도 높음</span>
-          <span class="tag tag-orange">충돌 없음</span>
+          <span class="tag tag-orange"><span class="lang-ko">개인 설정 유지</span><span class="lang-en">Personal settings</span></span>
+          <span class="tag tag-orange"><span class="lang-ko">자유도 높음</span><span class="lang-en">More flexibility</span></span>
+          <span class="tag tag-orange"><span class="lang-ko">충돌 없음</span><span class="lang-en">No conflicts</span></span>
         </div>
-        <p style="margin-top: 12px; font-size: 13px;">각자 선호하는 스타일이 다르거나, 개인적인 지시사항(예: 응답 언어)을 넣고 싶을 때 추천합니다.</p>
+        <p style="margin-top: 12px; font-size: 13px;"><span class="lang-ko">각자 선호하는 스타일이 다르거나, 개인적인 지시사항(예: 응답 언어)을 넣고 싶을 때 추천합니다.</span><span class="lang-en">Recommended when team members have different style preferences or want to add personal instructions (e.g., response language).</span></p>
       </div>
     </div>
 
@@ -1644,7 +1717,7 @@ TypeScript 사용합니다.
       </div>
     </div>
 
-    <h3 style="font-size: 22px; font-weight: 700; margin: 64px 0 24px;">팀 CLAUDE.md 셋업 가이드</h3>
+    <h3 style="font-size: 22px; font-weight: 700; margin: 64px 0 24px;"><span class="lang-ko">팀 CLAUDE.md 셋업 가이드</span><span class="lang-en">Team CLAUDE.md Setup Guide</span></h3>
 
     <div class="steps">
       <!-- STEP 1 -->
@@ -1654,8 +1727,8 @@ TypeScript 사용합니다.
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>팀 회의에서 규칙 합의</h3>
-          <p>코딩 컨벤션, 네이밍, 금지 사항 등을 팀원들과 함께 정합니다. 이미 있는 ESLint/Prettier 설정을 기반으로 하면 쉽습니다.</p>
+          <h3><span class="lang-ko">팀 회의에서 규칙 합의</span><span class="lang-en">Agree on Rules as a Team</span></h3>
+          <p><span class="lang-ko">코딩 컨벤션, 네이밍, 금지 사항 등을 팀원들과 함께 정합니다. 이미 있는 ESLint/Prettier 설정을 기반으로 하면 쉽습니다.</span><span class="lang-en">Agree with teammates on coding conventions, naming rules, and prohibitions. Starting from existing ESLint/Prettier config makes this easy.</span></p>
         </div>
       </div>
 
@@ -1666,8 +1739,8 @@ TypeScript 사용합니다.
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>CLAUDE.md 초안 작성</h3>
-          <p>한 명이 초안을 작성합니다. 위의 템플릿 갤러리에서 프로젝트에 맞는 것을 복사해서 시작하면 빠릅니다. <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/init</code>으로 자동 생성 후 다듬어도 좋습니다.</p>
+          <h3><span class="lang-ko">CLAUDE.md 초안 작성</span><span class="lang-en">Write a Draft CLAUDE.md</span></h3>
+          <p><span class="lang-ko">한 명이 초안을 작성합니다. 위의 템플릿 갤러리에서 프로젝트에 맞는 것을 복사해서 시작하면 빠릅니다. <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/init</code>으로 자동 생성 후 다듬어도 좋습니다.</span><span class="lang-en">One person writes the draft. Copying from the template gallery above and customizing is the fastest approach. Auto-generating with <code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">/init</code> then refining also works well.</span></p>
         </div>
       </div>
 
@@ -1678,8 +1751,8 @@ TypeScript 사용합니다.
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>PR로 리뷰 &amp; 머지</h3>
-          <p>CLAUDE.md 변경도 코드 리뷰처럼 PR을 거칩니다. "왜 이 규칙을 추가했는지" 이유를 PR 본문에 적으면 나중에 돌아볼 때 좋습니다.</p>
+          <h3><span class="lang-ko">PR로 리뷰 &amp; 머지</span><span class="lang-en">Review &amp; Merge via PR</span></h3>
+          <p><span class="lang-ko">CLAUDE.md 변경도 코드 리뷰처럼 PR을 거칩니다. "왜 이 규칙을 추가했는지" 이유를 PR 본문에 적으면 나중에 돌아볼 때 좋습니다.</span><span class="lang-en">Changes to CLAUDE.md go through a PR just like code reviews. Writing the reason "why this rule was added" in the PR description helps when looking back later.</span></p>
         </div>
       </div>
 
@@ -1690,8 +1763,8 @@ TypeScript 사용합니다.
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>정기적으로 업데이트</h3>
-          <p>프로젝트가 진행되면서 기술 스택이 바뀌거나 새 규칙이 필요해집니다. 스프린트 회고 때 CLAUDE.md도 함께 리뷰하면 항상 최신 상태를 유지할 수 있습니다.</p>
+          <h3><span class="lang-ko">정기적으로 업데이트</span><span class="lang-en">Update Regularly</span></h3>
+          <p><span class="lang-ko">프로젝트가 진행되면서 기술 스택이 바뀌거나 새 규칙이 필요해집니다. 스프린트 회고 때 CLAUDE.md도 함께 리뷰하면 항상 최신 상태를 유지할 수 있습니다.</span><span class="lang-en">As the project progresses, tech stacks change and new rules emerge. Reviewing CLAUDE.md during sprint retrospectives keeps it always up to date.</span></p>
         </div>
       </div>
     </div>
@@ -1699,7 +1772,8 @@ TypeScript 사용합니다.
     <div class="tip">
       <span class="tip-icon">&#x1F465;</span>
       <div>
-        <strong>하이브리드 전략:</strong> 팀 공통 CLAUDE.md는 Git에 커밋하고, 개인 설정(응답 언어, 선호 스타일 등)은 전역 CLAUDE.md(<code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">~/.claude/CLAUDE.md</code>)에 넣으면 둘 다 적용됩니다.
+        <span class="lang-ko"><strong>하이브리드 전략:</strong> 팀 공통 CLAUDE.md는 Git에 커밋하고, 개인 설정(응답 언어, 선호 스타일 등)은 전역 CLAUDE.md(<code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">~/.claude/CLAUDE.md</code>)에 넣으면 둘 다 적용됩니다.</span>
+        <span class="lang-en"><strong>Hybrid Strategy:</strong> Commit the shared team CLAUDE.md to Git, and put personal settings (response language, preferred style, etc.) in the global CLAUDE.md (<code style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:13px;">~/.claude/CLAUDE.md</code>) — both will apply.</span>
       </div>
     </div>
   </div>
@@ -1711,92 +1785,111 @@ TypeScript 사용합니다.
 <section id="faq">
   <div class="container">
     <div class="section-number">07</div>
-    <h2 class="section-title">자주 묻는 질문</h2>
+    <h2 class="section-title"><span class="lang-ko">자주 묻는 질문</span><span class="lang-en">Frequently Asked Questions</span></h2>
     <p class="section-desc">
-      CLAUDE.md에 대해 가장 많이 궁금해하는 것들
+      <span class="lang-ko">CLAUDE.md에 대해 가장 많이 궁금해하는 것들</span>
+      <span class="lang-en">The most common questions about CLAUDE.md</span>
     </p>
 
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          CLAUDE.md가 너무 길면 어떻게 되나요?
+          <span class="lang-ko">CLAUDE.md가 너무 길면 어떻게 되나요?</span><span class="lang-en">What happens if CLAUDE.md is too long?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            CLAUDE.md는 매 세션 시작 시 컨텍스트에 로드되므로, 너무 길면 컨텍스트 윈도우를 불필요하게 차지합니다. 공식 권장 사항은 <strong>200줄 이내</strong>입니다. 정보가 많다면 핵심 규칙만 프로젝트 루트 CLAUDE.md에 넣고, 세부 내용은 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">.claude/rules/</code> 디렉터리에 주제별로 분산시키거나, 하위 폴더별 CLAUDE.md로 나누세요. Claude는 해당 폴더에서 작업할 때만 하위 CLAUDE.md를 읽으므로 효율적입니다. 또한 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">@import</code> 문법으로 외부 파일을 참조하는 것도 좋은 방법입니다.
+            <span class="lang-ko">CLAUDE.md는 매 세션 시작 시 컨텍스트에 로드되므로, 너무 길면 컨텍스트 윈도우를 불필요하게 차지합니다. 공식 권장 사항은 <strong>200줄 이내</strong>입니다. 정보가 많다면 핵심 규칙만 프로젝트 루트 CLAUDE.md에 넣고, 세부 내용은 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">.claude/rules/</code> 디렉터리에 주제별로 분산시키거나, 하위 폴더별 CLAUDE.md로 나누세요. Claude는 해당 폴더에서 작업할 때만 하위 CLAUDE.md를 읽으므로 효율적입니다. 또한 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">@import</code> 문법으로 외부 파일을 참조하는 것도 좋은 방법입니다.</span>
+            <span class="lang-en">CLAUDE.md is loaded into context at the start of every session, so if it's too long it unnecessarily consumes your context window. The official recommendation is to keep it <strong>under 200 lines</strong>. If you have a lot of information, put only the core rules in the project root CLAUDE.md, and distribute the details across topic-specific files in the <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">.claude/rules/</code> directory, or split them into per-subfolder CLAUDE.md files. Claude only reads subfolder CLAUDE.md files when working in that folder, so it's efficient. Using <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">@import</code> syntax to reference external files is also a good option.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          /init으로 만든 것 직접 수정해도 되나요?
+          <span class="lang-ko">/init으로 만든 것 직접 수정해도 되나요?</span><span class="lang-en">Can I manually edit what /init generated?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            물론입니다! <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">/init</code>은 프로젝트를 분석해서 초안을 만들어주는 것일 뿐입니다. 자동 생성된 내용이 정확하지 않을 수 있고, 프로젝트의 특수한 규칙이나 컨벤션은 사람이 직접 추가해야 합니다. 오히려 /init으로 시작하고 직접 다듬는 것이 가장 추천하는 방법입니다.
+            <span class="lang-ko">물론입니다! <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">/init</code>은 프로젝트를 분석해서 초안을 만들어주는 것일 뿐입니다. 자동 생성된 내용이 정확하지 않을 수 있고, 프로젝트의 특수한 규칙이나 컨벤션은 사람이 직접 추가해야 합니다. 오히려 /init으로 시작하고 직접 다듬는 것이 가장 추천하는 방법입니다.</span>
+            <span class="lang-en">Absolutely! <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">/init</code> simply analyzes your project and produces a draft. The auto-generated content may not be perfectly accurate, and project-specific rules or conventions need to be added by hand. In fact, starting with /init and then refining it manually is the recommended approach.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          여러 사람이 각자 다른 CLAUDE.md를 쓰면?
+          <span class="lang-ko">여러 사람이 각자 다른 CLAUDE.md를 쓰면?</span><span class="lang-en">What if multiple people use different CLAUDE.md files?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            전역 CLAUDE.md(<code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">~/.claude/CLAUDE.md</code>)는 각자의 컴퓨터에 있으므로 자유롭게 다르게 쓸 수 있습니다. 하지만 프로젝트 루트 CLAUDE.md는 Git으로 공유되기 때문에, 각자 다른 내용을 넣으면 머지 충돌이 발생합니다. 해결 방법은 두 가지입니다: (1) 팀 규칙을 합의해서 하나로 통일하거나, (2) 개인 설정은 전역 CLAUDE.md에 넣고 프로젝트 CLAUDE.md는 공통 규칙만 담는 하이브리드 전략을 사용하세요.
+            <span class="lang-ko">전역 CLAUDE.md(<code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">~/.claude/CLAUDE.md</code>)는 각자의 컴퓨터에 있으므로 자유롭게 다르게 쓸 수 있습니다. 하지만 프로젝트 루트 CLAUDE.md는 Git으로 공유되기 때문에, 각자 다른 내용을 넣으면 머지 충돌이 발생합니다. 해결 방법은 두 가지입니다: (1) 팀 규칙을 합의해서 하나로 통일하거나, (2) 개인 설정은 전역 CLAUDE.md에 넣고 프로젝트 CLAUDE.md는 공통 규칙만 담는 하이브리드 전략을 사용하세요.</span>
+            <span class="lang-en">The global CLAUDE.md (<code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">~/.claude/CLAUDE.md</code>) lives on each person's machine, so everyone can freely use different content there. However, the project root CLAUDE.md is shared via Git — if different people put different content in it, merge conflicts will occur. There are two solutions: (1) agree on team rules and unify into one file, or (2) use the hybrid strategy where personal settings go in the global CLAUDE.md and the project CLAUDE.md contains only shared rules.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          .claudeignore와의 차이는?
+          <span class="lang-ko">.claudeignore와의 차이는?</span><span class="lang-en">What's the difference from .claudeignore?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            역할이 정반대입니다.<br><br>
+            <span class="lang-ko">역할이 정반대입니다.<br><br>
             <strong style="color:var(--accent)">CLAUDE.md</strong>는 "이 정보를 반드시 알아둬"라고 <strong>알려주는</strong> 파일입니다. 프로젝트의 컨텍스트와 규칙을 제공합니다.<br><br>
             <strong style="color:var(--orange)">.claudeignore</strong>는 "이 파일/폴더는 보지 마"라고 <strong>숨기는</strong> 파일입니다. .gitignore와 같은 형식으로, Claude가 읽지 말아야 할 파일(예: 대용량 데이터, 빌드 결과물, 민감한 설정 파일)을 지정합니다.<br><br>
-            둘을 함께 사용하면, Claude에게 필요한 정보만 효율적으로 전달할 수 있습니다.
+            둘을 함께 사용하면, Claude에게 필요한 정보만 효율적으로 전달할 수 있습니다.</span>
+            <span class="lang-en">Their roles are the opposite of each other.<br><br>
+            <strong style="color:var(--accent)">CLAUDE.md</strong> is a file that <strong>tells</strong> Claude "make sure you know this information." It provides the project's context and rules.<br><br>
+            <strong style="color:var(--orange)">.claudeignore</strong> is a file that <strong>hides</strong> things, saying "don't look at these files/folders." Using the same format as .gitignore, it specifies files Claude should not read (e.g., large data files, build artifacts, sensitive config files).<br><br>
+            Using both together lets you efficiently deliver only the information Claude needs.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          자동 메모리(Auto-memory)와 CLAUDE.md는 어떻게 다른가요?
+          <span class="lang-ko">자동 메모리(Auto-memory)와 CLAUDE.md는 어떻게 다른가요?</span><span class="lang-en">How is Auto-memory different from CLAUDE.md?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            작성 주체가 다릅니다.<br><br>
+            <span class="lang-ko">작성 주체가 다릅니다.<br><br>
             <strong style="color:var(--accent)">CLAUDE.md</strong>는 <strong>사람이 작성</strong>합니다. 팀이 합의한 규칙, 기술 스택, 빌드 명령어 등 Claude에게 미리 알려주고 싶은 것을 담습니다. Git으로 팀 전체가 공유 가능합니다.<br><br>
             <strong style="color:var(--green)">자동 메모리</strong>는 <strong>Claude가 스스로 작성</strong>합니다. 세션 중 학습한 것, 발견한 패턴, 팀의 선호도 등을 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">~/.claude/projects/&lt;project&gt;/memory/</code>에 자동 저장합니다. 개인 전용이라 팀과 공유되지 않습니다.<br><br>
-            두 시스템은 서로 보완합니다. CLAUDE.md로 팀 규칙을 명시하고, 자동 메모리로 Claude가 작업하면서 발견한 것을 축적하면, 시간이 지날수록 Claude가 더 잘 협업할 수 있게 됩니다. <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">/memory</code> 명령으로 자동 메모리를 열람하거나 끌 수 있습니다.
+            두 시스템은 서로 보완합니다. CLAUDE.md로 팀 규칙을 명시하고, 자동 메모리로 Claude가 작업하면서 발견한 것을 축적하면, 시간이 지날수록 Claude가 더 잘 협업할 수 있게 됩니다. <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">/memory</code> 명령으로 자동 메모리를 열람하거나 끌 수 있습니다.</span>
+            <span class="lang-en">The author is different.<br><br>
+            <strong style="color:var(--accent)">CLAUDE.md</strong> is <strong>written by a person</strong>. It contains things you want to tell Claude in advance — rules agreed upon by the team, tech stack, build commands, etc. It can be shared team-wide via Git.<br><br>
+            <strong style="color:var(--green)">Auto memory</strong> is <strong>written by Claude itself</strong>. Things learned during sessions, discovered patterns, and team preferences are automatically saved to <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">~/.claude/projects/&lt;project&gt;/memory/</code>. It's personal and not shared with the team.<br><br>
+            The two systems complement each other. By specifying team rules in CLAUDE.md and accumulating what Claude discovers while working in auto memory, Claude can collaborate more effectively over time. Use the <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">/memory</code> command to view or disable auto memory.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          CLAUDE.local.md는 언제 사용하나요?
+          <span class="lang-ko">CLAUDE.local.md는 언제 사용하나요?</span><span class="lang-en">When should I use CLAUDE.local.md?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            팀과 공유하고 싶지 않은 개인적인 프로젝트 설정이 있을 때 사용합니다.<br><br>
+            <span class="lang-ko">팀과 공유하고 싶지 않은 개인적인 프로젝트 설정이 있을 때 사용합니다.<br><br>
             예를 들어:<br>
             &bull; 내 로컬 환경의 DB 포트가 팀과 다를 때<br>
             &bull; 개인적으로 선호하는 디버깅 방식<br>
             &bull; 로컬에서만 사용하는 환경변수 경로<br>
             &bull; 팀 규칙과 충돌하지 않는 개인 편의 설정<br><br>
-            <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">CLAUDE.local.md</code>는 자동으로 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">.gitignore</code>에 추가하는 것이 좋습니다. 팀의 프로젝트 CLAUDE.md에는 영향을 주지 않고 개인 설정을 유지할 수 있습니다.
+            <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">CLAUDE.local.md</code>는 자동으로 <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">.gitignore</code>에 추가하는 것이 좋습니다. 팀의 프로젝트 CLAUDE.md에는 영향을 주지 않고 개인 설정을 유지할 수 있습니다.</span>
+            <span class="lang-en">Use it when you have personal project settings you don't want to share with the team.<br><br>
+            For example:<br>
+            &bull; Your local DB port is different from the team's<br>
+            &bull; A debugging approach you personally prefer<br>
+            &bull; Environment variable paths used only locally<br>
+            &bull; Personal convenience settings that don't conflict with team rules<br><br>
+            It's a good idea to automatically add <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">CLAUDE.local.md</code> to <code style="color:var(--accent); font-family:'JetBrains Mono',monospace;">.gitignore</code>. This lets you maintain personal settings without affecting the team's project CLAUDE.md.</span>
           </div>
         </div>
       </div>
@@ -1809,21 +1902,31 @@ TypeScript 사용합니다.
   <div class="container">
     <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.15); text-align: center; padding: 60px 40px;">
       <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
-        요약하면 이겁니다
+        <span class="lang-ko">요약하면 이겁니다</span><span class="lang-en">Here's the Summary</span>
       </h2>
-      <p style="color: var(--text-dim); font-size: 17px; max-width: 640px; margin: 0 auto 32px; line-height: 2;">
-        두 메모리 = <strong style="color: var(--accent)">CLAUDE.md (사람 작성)</strong> + <strong style="color: var(--green)">자동 메모리 (Claude 작성)</strong><br>
-        파일 범위 = <strong style="color: var(--blue)">Managed &rarr; User 전역 &rarr; Project &rarr; Local</strong><br>
-        고급 기능 = <strong style="color: var(--orange)">@import 문법 + .claude/rules/ 경로별 규칙</strong><br>
-        핵심 원칙 = <strong style="color: var(--accent)">200줄 이내, 구체적이고 사실적인 정보</strong>
-      </p>
+      <div class="lang-ko">
+        <p style="color: var(--text-dim); font-size: 17px; max-width: 640px; margin: 0 auto 32px; line-height: 2;">
+          두 메모리 = <strong style="color: var(--accent)">CLAUDE.md (사람 작성)</strong> + <strong style="color: var(--green)">자동 메모리 (Claude 작성)</strong><br>
+          파일 범위 = <strong style="color: var(--blue)">Managed &rarr; User 전역 &rarr; Project &rarr; Local</strong><br>
+          고급 기능 = <strong style="color: var(--orange)">@import 문법 + .claude/rules/ 경로별 규칙</strong><br>
+          핵심 원칙 = <strong style="color: var(--accent)">200줄 이내, 구체적이고 사실적인 정보</strong>
+        </p>
+      </div>
+      <div class="lang-en">
+        <p style="color: var(--text-dim); font-size: 17px; max-width: 640px; margin: 0 auto 32px; line-height: 2;">
+          Two memories = <strong style="color: var(--accent)">CLAUDE.md (written by you)</strong> + <strong style="color: var(--green)">Auto memory (written by Claude)</strong><br>
+          File scope = <strong style="color: var(--blue)">Managed &rarr; User global &rarr; Project &rarr; Local</strong><br>
+          Advanced = <strong style="color: var(--orange)">@import syntax + .claude/rules/ path-scoped rules</strong><br>
+          Core principle = <strong style="color: var(--accent)">Under 200 lines, concrete and factual information</strong>
+        </p>
+      </div>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <div style="text-align: left;">
-          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 8px;">CLAUDE.md 시작하기:</p>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 8px;"><span class="lang-ko">CLAUDE.md 시작하기:</span><span class="lang-en">Start CLAUDE.md:</span></p>
           <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px; background: var(--surface); border: 1px solid var(--border); padding: 6px 14px; border-radius: 6px; display: inline-block;">/init</span>
         </div>
         <div style="text-align: left;">
-          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 8px;">자동 메모리 관리:</p>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 8px;"><span class="lang-ko">자동 메모리 관리:</span><span class="lang-en">Manage auto memory:</span></p>
           <span style="color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 13px; background: var(--surface); border: 1px solid var(--border); padding: 6px 14px; border-radius: 6px; display: inline-block;">/memory</span>
         </div>
       </div>
@@ -1833,8 +1936,8 @@ TypeScript 사용합니다.
 
 <!-- =================== CHAPTER NAV =================== -->
 <div class="chapter-nav">
-  <a href="basics.html">&larr; 이전: 기본 사용법</a>
-  <a href="prompting.html">다음: 효과적인 프롬프팅 &rarr;</a>
+  <a href="basics.html">&larr; <span class="lang-ko">이전: 기본 사용법</span><span class="lang-en">Prev: Basic Usage</span></a>
+  <a href="prompting.html"><span class="lang-ko">다음: 효과적인 프롬프팅</span><span class="lang-en">Next: Effective Prompting</span> &rarr;</a>
 </div>
 
 <footer>
@@ -1886,5 +1989,6 @@ window.addEventListener('scroll', () => {
 
 <div id="community-widget"></div>
 <script src="community.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

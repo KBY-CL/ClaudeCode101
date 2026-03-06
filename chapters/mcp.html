@@ -6,9 +6,10 @@
 /* 챕터 테마 초기화 — FOUC 방지 */
 (function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCP 서버 연결 - Claude Code 101</title>
+<title><span class="lang-ko">MCP 서버 연결 - Claude Code 101</span><span class="lang-en">MCP Server Connection - Claude Code 101</span></title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../theme.css">
 <style id="chapter-accent">
@@ -907,42 +908,44 @@
 <body>
 
 <!-- =================== BACK LINK =================== -->
-<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+<a href="../index.html" class="back-link">&larr; <span class="lang-ko">Claude Code 101로 돌아가기</span><span class="lang-en">Back to Claude Code 101</span></a>
 
 <!-- =================== HERO =================== -->
 <div class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    Module 05 &middot; 외부 도구 연결
+    <span class="lang-ko">Module 05 &middot; 외부 도구 연결</span><span class="lang-en">Module 05 &middot; External Tools Connection</span>
   </div>
   <h1>
-    <span class="highlight">MCP</span> 서버 연결
+    <span class="highlight">MCP</span> <span class="lang-ko">서버 연결</span><span class="lang-en">Server Connection</span>
   </h1>
   <p class="hero-sub">
-    Claude에게 손발을 달아주는 마법,<br>
-    외부 도구와 연결하기
+    <span class="lang-ko">Claude에게 손발을 달아주는 마법,<br>
+    외부 도구와 연결하기</span>
+    <span class="lang-en">The magic of giving Claude hands and feet,<br>
+    connecting to external tools</span>
   </p>
   <div class="hero-cta">
-    <a href="#what" class="btn btn-primary">MCP란?</a>
-    <a href="#setup" class="btn btn-outline">설정 방법 &rarr;</a>
+    <a href="#what" class="btn btn-primary"><span class="lang-ko">MCP란?</span><span class="lang-en">What is MCP?</span></a>
+    <a href="#setup" class="btn btn-outline"><span class="lang-ko">설정 방법 &rarr;</span><span class="lang-en">Setup &rarr;</span></a>
   </div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    스크롤
+    <span class="lang-ko">스크롤</span><span class="lang-en">Scroll</span>
   </div>
 </div>
 
 <!-- =================== NAV =================== -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
-    <a href="#what" class="nav-link">MCP란?</a>
-    <a href="#architecture" class="nav-link">작동 원리</a>
-    <a href="#catalog" class="nav-link">인기 서버</a>
-    <a href="#setup" class="nav-link">설정 방법</a>
-    <a href="#scope" class="nav-link">범위 설정</a>
-    <a href="#scenarios" class="nav-link">실전 시나리오</a>
-    <a href="#caution" class="nav-link">주의사항</a>
+    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; <span class="lang-ko">홈</span><span class="lang-en">Home</span></a>
+    <a href="#what" class="nav-link"><span class="lang-ko">MCP란?</span><span class="lang-en">What is MCP?</span></a>
+    <a href="#architecture" class="nav-link"><span class="lang-ko">작동 원리</span><span class="lang-en">How It Works</span></a>
+    <a href="#catalog" class="nav-link"><span class="lang-ko">인기 서버</span><span class="lang-en">Popular Servers</span></a>
+    <a href="#setup" class="nav-link"><span class="lang-ko">설정 방법</span><span class="lang-en">Setup</span></a>
+    <a href="#scope" class="nav-link"><span class="lang-ko">범위 설정</span><span class="lang-en">Scope</span></a>
+    <a href="#scenarios" class="nav-link"><span class="lang-ko">실전 시나리오</span><span class="lang-en">Scenarios</span></a>
+    <a href="#caution" class="nav-link"><span class="lang-ko">주의사항</span><span class="lang-en">Caution</span></a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
 </nav>
@@ -951,12 +954,17 @@
 <section id="what">
   <div class="container">
     <div class="section-number">01</div>
-    <h2 class="section-title">MCP가 뭐야?</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">MCP가 뭐야?</h2></div>
+    <div class="lang-en"><h2 class="section-title">What is MCP?</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       한 줄 요약: Claude에게 <strong style="color:var(--accent)">외부 세계와 소통하는 능력</strong>을 달아주는 표준 규격이다.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      One-line summary: A standard protocol that gives Claude the <strong style="color:var(--accent)">ability to communicate with the outside world</strong>.
+    </p></div>
 
     <div class="analogy-box">
+      <div class="lang-ko">
       <h4>Claude에게 손발 달아주기</h4>
       <p>
         기본 Claude는 <strong style="color:var(--text)">머리만 있는 상태</strong>입니다. 아무리 똑똑해도 혼자서는 GitHub에 PR을 올리거나, DB를 조회하거나, Slack에 메시지를 보낼 수 없죠.<br><br>
@@ -967,23 +975,41 @@
         &nbsp;&nbsp;&#x1F441; <strong style="color:var(--text)">눈</strong> = PostgreSQL MCP (데이터 조회, 스키마 파악)<br><br>
         이제 Claude는 "이 이슈 확인하고, 코드 고치고, PR 올려줘"를 <strong style="color:var(--green)">한 번에</strong> 처리할 수 있습니다.
       </p>
+      </div>
+      <div class="lang-en">
+      <h4>Giving Claude hands and feet</h4>
+      <p>
+        Basic Claude is like <strong style="color:var(--text)">a brain without a body</strong>. No matter how smart it is, it can't create a GitHub PR, query a DB, or send a Slack message on its own.<br><br>
+        With MCP connected, Claude gains <strong style="color:var(--accent)">hands, feet, and eyes</strong>:<br><br>
+        &nbsp;&nbsp;&#x1F9E0; <strong style="color:var(--text)">Brain</strong> = Claude (reasoning, judgment, planning)<br>
+        &nbsp;&nbsp;&#x270B; <strong style="color:var(--text)">Hands</strong> = GitHub MCP (code management, PR creation)<br>
+        &nbsp;&nbsp;&#x1F9B6; <strong style="color:var(--text)">Feet</strong> = Filesystem MCP (file browsing, read/write)<br>
+        &nbsp;&nbsp;&#x1F441; <strong style="color:var(--text)">Eyes</strong> = PostgreSQL MCP (data queries, schema exploration)<br><br>
+        Now Claude can handle "check this issue, fix the code, and open a PR" <strong style="color:var(--green)">all in one go</strong>.
+      </p>
+      </div>
     </div>
 
     <div class="card-grid card-grid-3">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F50C;</div>
         <h3>Model Context Protocol</h3>
-        <p>MCP는 <strong style="color:var(--accent)">Model Context Protocol</strong>의 약자입니다. AI 모델이 외부 도구와 데이터에 접근하기 위한 개방형 표준 프로토콜이죠.</p>
+        <div class="lang-ko"><p>MCP는 <strong style="color:var(--accent)">Model Context Protocol</strong>의 약자입니다. AI 모델이 외부 도구와 데이터에 접근하기 위한 개방형 표준 프로토콜이죠.</p></div>
+        <div class="lang-en"><p>MCP stands for <strong style="color:var(--accent)">Model Context Protocol</strong>. It is an open standard protocol for AI models to access external tools and data.</p></div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F517;</div>
-        <h3>표준화된 연결 방식</h3>
-        <p>USB처럼 하나의 규격으로 다양한 도구를 연결합니다. 각 도구마다 따로 연동 코드를 짤 필요 없이, MCP 서버만 있으면 바로 연결됩니다.</p>
+        <div class="lang-ko"><h3>표준화된 연결 방식</h3></div>
+        <div class="lang-en"><h3>Standardized Connection</h3></div>
+        <div class="lang-ko"><p>USB처럼 하나의 규격으로 다양한 도구를 연결합니다. 각 도구마다 따로 연동 코드를 짤 필요 없이, MCP 서버만 있으면 바로 연결됩니다.</p></div>
+        <div class="lang-en"><p>Like USB, a single standard connects diverse tools. No need to write separate integration code for each tool — just have an MCP server and you're connected.</p></div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x267E;&#xFE0F;</div>
-        <h3>무한 확장 가능</h3>
-        <p>GitHub, Slack, DB, 웹 검색, 파일 시스템 등 MCP 서버는 계속 늘어나고 있습니다. 직접 만들 수도 있어서 확장에 한계가 없습니다.</p>
+        <div class="lang-ko"><h3>무한 확장 가능</h3></div>
+        <div class="lang-en"><h3>Infinitely Extensible</h3></div>
+        <div class="lang-ko"><p>GitHub, Slack, DB, 웹 검색, 파일 시스템 등 MCP 서버는 계속 늘어나고 있습니다. 직접 만들 수도 있어서 확장에 한계가 없습니다.</p></div>
+        <div class="lang-en"><p>GitHub, Slack, DB, web search, filesystem — MCP servers keep growing. You can even build your own, so there's no limit to expansion.</p></div>
       </div>
     </div>
   </div>
@@ -995,10 +1021,14 @@
 <section id="architecture">
   <div class="container">
     <div class="section-number">02</div>
-    <h2 class="section-title">작동 원리</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">작동 원리</h2></div>
+    <div class="lang-en"><h2 class="section-title">How It Works</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       MCP가 어떻게 Claude와 외부 도구를 연결하는지 흐름을 살펴봅니다.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      Let's walk through how MCP connects Claude with external tools.
+    </p></div>
 
     <div class="code-block">
       <div class="code-header">
@@ -1032,8 +1062,10 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>사용자가 요청</h3>
-          <p>"GitHub 이슈 #42 확인하고 수정해줘"처럼 자연어로 요청합니다. Claude가 어떤 MCP 서버를 호출할지 자동으로 판단합니다.</p>
+          <div class="lang-ko"><h3>사용자가 요청</h3></div>
+          <div class="lang-en"><h3>User Makes a Request</h3></div>
+          <div class="lang-ko"><p>"GitHub 이슈 #42 확인하고 수정해줘"처럼 자연어로 요청합니다. Claude가 어떤 MCP 서버를 호출할지 자동으로 판단합니다.</p></div>
+          <div class="lang-en"><p>You make a natural language request like "Check GitHub issue #42 and fix it." Claude automatically determines which MCP server to call.</p></div>
         </div>
       </div>
       <div class="step">
@@ -1042,8 +1074,10 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>MCP Client가 요청 전달</h3>
-          <p>Claude Code에 내장된 MCP Client가 JSON-RPC 2.0 형식으로 요청을 MCP Server에 전달합니다. 이 과정은 자동으로 이루어집니다.</p>
+          <div class="lang-ko"><h3>MCP Client가 요청 전달</h3></div>
+          <div class="lang-en"><h3>MCP Client Forwards Request</h3></div>
+          <div class="lang-ko"><p>Claude Code에 내장된 MCP Client가 JSON-RPC 2.0 형식으로 요청을 MCP Server에 전달합니다. 이 과정은 자동으로 이루어집니다.</p></div>
+          <div class="lang-en"><p>The MCP Client built into Claude Code forwards the request to the MCP Server in JSON-RPC 2.0 format. This process happens automatically.</p></div>
         </div>
       </div>
       <div class="step">
@@ -1052,8 +1086,10 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>MCP Server가 외부 도구 호출</h3>
-          <p>MCP Server가 실제 외부 API(GitHub API, DB 커넥션 등)를 호출하여 데이터를 가져옵니다.</p>
+          <div class="lang-ko"><h3>MCP Server가 외부 도구 호출</h3></div>
+          <div class="lang-en"><h3>MCP Server Calls External Tool</h3></div>
+          <div class="lang-ko"><p>MCP Server가 실제 외부 API(GitHub API, DB 커넥션 등)를 호출하여 데이터를 가져옵니다.</p></div>
+          <div class="lang-en"><p>The MCP Server calls the actual external API (GitHub API, DB connection, etc.) to fetch data.</p></div>
         </div>
       </div>
       <div class="step">
@@ -1062,8 +1098,10 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>결과를 Claude에게 전달</h3>
-          <p>외부 도구의 응답이 구조화된 형태로 Claude에게 돌아옵니다. Claude는 이 데이터를 분석하여 사용자에게 자연어로 답변합니다.</p>
+          <div class="lang-ko"><h3>결과를 Claude에게 전달</h3></div>
+          <div class="lang-en"><h3>Results Delivered to Claude</h3></div>
+          <div class="lang-ko"><p>외부 도구의 응답이 구조화된 형태로 Claude에게 돌아옵니다. Claude는 이 데이터를 분석하여 사용자에게 자연어로 답변합니다.</p></div>
+          <div class="lang-en"><p>The external tool's response is returned to Claude in a structured format. Claude analyzes this data and answers the user in natural language.</p></div>
         </div>
       </div>
     </div>
@@ -1071,7 +1109,8 @@
     <div class="tip">
       <span class="tip-icon">&#x1F4E1;</span>
       <div>
-        <strong>기술 포인트:</strong> MCP는 <strong>JSON-RPC 2.0</strong> 프로토콜을 기반으로 합니다. 각 MCP 서버는 로컬에서 실행되는 독립 프로세스이며, Claude Code가 stdin/stdout 또는 HTTP를 통해 통신합니다.
+        <div class="lang-ko"><strong>기술 포인트:</strong> MCP는 <strong>JSON-RPC 2.0</strong> 프로토콜을 기반으로 합니다. 각 MCP 서버는 로컬에서 실행되는 독립 프로세스이며, Claude Code가 stdin/stdout 또는 HTTP를 통해 통신합니다.</div>
+        <div class="lang-en"><strong>Technical point:</strong> MCP is based on the <strong>JSON-RPC 2.0</strong> protocol. Each MCP server is an independent process running locally, and Claude Code communicates via stdin/stdout or HTTP.</div>
       </div>
     </div>
   </div>
@@ -1083,49 +1122,53 @@
 <section id="catalog">
   <div class="container">
     <div class="section-number">03</div>
-    <h2 class="section-title">인기 MCP 서버 카탈로그</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">인기 MCP 서버 카탈로그</h2></div>
+    <div class="lang-en"><h2 class="section-title">Popular MCP Server Catalog</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       가장 많이 사용되는 MCP 서버들입니다. 필요에 따라 골라서 연결하세요.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      The most commonly used MCP servers. Pick and connect based on your needs.
+    </p></div>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th style="width: 130px;">서버명</th>
-          <th style="width: 300px;">npm 패키지</th>
-          <th>주요 기능</th>
+          <th style="width: 130px;"><span class="lang-ko">서버명</span><span class="lang-en">Server</span></th>
+          <th style="width: 300px;"><span class="lang-ko">npm 패키지</span><span class="lang-en">npm Package</span></th>
+          <th><span class="lang-ko">주요 기능</span><span class="lang-en">Key Features</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">Filesystem</td>
           <td style="color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 12px;">@modelcontextprotocol/server-filesystem</td>
-          <td style="color: var(--text-dim);">프로젝트 외부 파일 접근, 읽기/쓰기, 디렉토리 탐색</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">프로젝트 외부 파일 접근, 읽기/쓰기, 디렉토리 탐색</span><span class="lang-en">Access files outside project, read/write, directory navigation</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">GitHub</td>
           <td style="color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 12px;">@modelcontextprotocol/server-github</td>
-          <td style="color: var(--text-dim);">이슈/PR 조회·생성, 코드 검색, 리포지토리 관리</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">이슈/PR 조회·생성, 코드 검색, 리포지토리 관리</span><span class="lang-en">View/create issues &amp; PRs, code search, repository management</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Slack</td>
           <td style="color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 12px;">@modelcontextprotocol/server-slack</td>
-          <td style="color: var(--text-dim);">메시지 읽기/보내기, 채널 관리, 스레드 검색</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">메시지 읽기/보내기, 채널 관리, 스레드 검색</span><span class="lang-en">Read/send messages, channel management, thread search</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">PostgreSQL</td>
           <td style="color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 12px;">@modelcontextprotocol/server-postgres</td>
-          <td style="color: var(--text-dim);">데이터베이스 쿼리 실행, 스키마 조회, 테이블 분석</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">데이터베이스 쿼리 실행, 스키마 조회, 테이블 분석</span><span class="lang-en">Execute database queries, schema inspection, table analysis</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Brave Search</td>
           <td style="color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 12px;">@modelcontextprotocol/server-brave-search</td>
-          <td style="color: var(--text-dim);">웹 검색, 최신 정보 조회, 뉴스 검색</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">웹 검색, 최신 정보 조회, 뉴스 검색</span><span class="lang-en">Web search, latest information lookup, news search</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">Memory</td>
           <td style="color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 12px;">@modelcontextprotocol/server-memory</td>
-          <td style="color: var(--text-dim);">대화 간 정보 저장, 장기 기억 관리, 지식 그래프</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">대화 간 정보 저장, 장기 기억 관리, 지식 그래프</span><span class="lang-en">Store info across conversations, long-term memory, knowledge graph</span></td>
         </tr>
       </tbody>
     </table>
@@ -1133,7 +1176,8 @@
     <div class="tip">
       <span class="tip-icon">&#x1F4E6;</span>
       <div>
-        <strong>더 많은 서버:</strong> MCP 서버 목록은 계속 늘어나고 있습니다. <a href="https://github.com/modelcontextprotocol/servers" target="_blank" style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">github.com/modelcontextprotocol/servers</a>에서 공식 서버 목록을, <a href="https://api.anthropic.com/mcp-registry/docs" target="_blank" style="color: var(--accent);">Anthropic MCP Registry</a>에서 검증된 상업용 서버 목록을 확인할 수 있습니다.
+        <div class="lang-ko"><strong>더 많은 서버:</strong> MCP 서버 목록은 계속 늘어나고 있습니다. <a href="https://github.com/modelcontextprotocol/servers" target="_blank" style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">github.com/modelcontextprotocol/servers</a>에서 공식 서버 목록을, <a href="https://api.anthropic.com/mcp-registry/docs" target="_blank" style="color: var(--accent);">Anthropic MCP Registry</a>에서 검증된 상업용 서버 목록을 확인할 수 있습니다.</div>
+        <div class="lang-en"><strong>More servers:</strong> The MCP server list keeps growing. Find the official server list at <a href="https://github.com/modelcontextprotocol/servers" target="_blank" style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">github.com/modelcontextprotocol/servers</a>, and verified commercial servers at <a href="https://api.anthropic.com/mcp-registry/docs" target="_blank" style="color: var(--accent);">Anthropic MCP Registry</a>.</div>
       </div>
     </div>
   </div>
@@ -1145,10 +1189,14 @@
 <section id="setup">
   <div class="container">
     <div class="section-number">04</div>
-    <h2 class="section-title">설정 방법</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">설정 방법</h2></div>
+    <div class="lang-en"><h2 class="section-title">Setup</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       MCP 서버를 Claude Code에 연결하는 두 가지 방법을 알아봅니다.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      Learn two ways to connect an MCP server to Claude Code.
+    </p></div>
 
     <div class="steps">
 
@@ -1159,8 +1207,10 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>방법 A: CLI로 추가하기</h3>
-          <p>가장 간단한 방법입니다. 터미널에서 한 줄 명령어로 MCP 서버를 추가합니다.</p>
+          <div class="lang-ko"><h3>방법 A: CLI로 추가하기</h3></div>
+          <div class="lang-en"><h3>Method A: Add via CLI</h3></div>
+          <div class="lang-ko"><p>가장 간단한 방법입니다. 터미널에서 한 줄 명령어로 MCP 서버를 추가합니다.</p></div>
+          <div class="lang-en"><p>The simplest method. Add an MCP server with a single command in the terminal.</p></div>
 
           <div class="code-block">
             <div class="code-header">
@@ -1196,8 +1246,10 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>방법 B: JSON 직접 편집하기</h3>
-          <p>설정 파일을 직접 수정하여 더 세밀한 제어가 가능합니다. 설정은 <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">.claude/settings.json</code>(프로젝트) 또는 <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">~/.claude/settings.json</code>(전체)에 저장됩니다.</p>
+          <div class="lang-ko"><h3>방법 B: JSON 직접 편집하기</h3></div>
+          <div class="lang-en"><h3>Method B: Edit JSON Directly</h3></div>
+          <div class="lang-ko"><p>설정 파일을 직접 수정하여 더 세밀한 제어가 가능합니다. 설정은 <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">.claude/settings.json</code>(프로젝트) 또는 <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">~/.claude/settings.json</code>(전체)에 저장됩니다.</p></div>
+          <div class="lang-en"><p>Edit the configuration file directly for finer control. Settings are stored in <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">.claude/settings.json</code> (project) or <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">~/.claude/settings.json</code> (global).</p></div>
 
           <div class="code-block">
             <div class="code-header">
@@ -1239,8 +1291,10 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>세션 내 확인하기</h3>
-          <p>Claude Code 대화 중에 <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">/mcp</code> 명령어로 연결 상태와 컨텍스트 비용을 바로 확인할 수 있습니다.</p>
+          <div class="lang-ko"><h3>세션 내 확인하기</h3></div>
+          <div class="lang-en"><h3>Check Within Session</h3></div>
+          <div class="lang-ko"><p>Claude Code 대화 중에 <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">/mcp</code> 명령어로 연결 상태와 컨텍스트 비용을 바로 확인할 수 있습니다.</p></div>
+          <div class="lang-en"><p>During a Claude Code session, use <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">/mcp</code> to instantly check connection status and context cost.</p></div>
 
           <div class="code-block">
             <div class="code-header">
@@ -1265,7 +1319,8 @@
           <div class="tip" style="margin-top: 16px;">
             <span class="tip-icon">&#x1F4CA;</span>
             <div>
-              <strong>컨텍스트 비용 주의:</strong> 각 MCP 서버는 연결 시 도구 정의를 매 요청마다 컨텍스트에 포함합니다. <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">/mcp</code>로 서버별 토큰 소비량을 확인하고, 자주 쓰지 않는 서버는 제거하는 것이 좋습니다.
+              <div class="lang-ko"><strong>컨텍스트 비용 주의:</strong> 각 MCP 서버는 연결 시 도구 정의를 매 요청마다 컨텍스트에 포함합니다. <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">/mcp</code>로 서버별 토큰 소비량을 확인하고, 자주 쓰지 않는 서버는 제거하는 것이 좋습니다.</div>
+              <div class="lang-en"><strong>Watch context cost:</strong> Each MCP server includes its tool definitions in context with every request. Check token usage per server with <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">/mcp</code> and remove servers you rarely use.</div>
             </div>
           </div>
         </div>
@@ -1274,18 +1329,26 @@
 
     <div class="comparison" style="margin-top: 48px;">
       <div class="comp-good" style="background: var(--blue-dim); border-color: var(--blue-border);">
-        <div class="comp-label" style="color: var(--blue);">&#x2328;&#xFE0F; CLI 추가</div>
-        <div class="comp-code">&middot; 한 줄 명령어로 빠르게 추가
+        <div class="comp-label" style="color: var(--blue);">&#x2328;&#xFE0F; <span class="lang-ko">CLI 추가</span><span class="lang-en">CLI Add</span></div>
+        <div class="comp-code lang-ko">&middot; 한 줄 명령어로 빠르게 추가
 &middot; 실수 가능성이 낮음
 &middot; 간단한 설정에 적합
 &middot; 서버 하나씩 추가할 때 편리</div>
+        <div class="comp-code lang-en">&middot; Quick add with one command
+&middot; Low risk of mistakes
+&middot; Ideal for simple setups
+&middot; Convenient for adding servers one by one</div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#x1F4DD; JSON 편집</div>
-        <div class="comp-code">&middot; 여러 서버를 한번에 설정
+        <div class="comp-label">&#x1F4DD; <span class="lang-ko">JSON 편집</span><span class="lang-en">JSON Edit</span></div>
+        <div class="comp-code lang-ko">&middot; 여러 서버를 한번에 설정
 &middot; 복잡한 환경변수 관리 가능
 &middot; 팀과 설정 파일 공유 용이
 &middot; 버전 관리(Git)에 적합</div>
+        <div class="comp-code lang-en">&middot; Configure multiple servers at once
+&middot; Manage complex environment variables
+&middot; Easy to share config files with team
+&middot; Great for version control (Git)</div>
       </div>
     </div>
   </div>
@@ -1297,37 +1360,47 @@
 <section id="scope">
   <div class="container">
     <div class="section-number">05</div>
-    <h2 class="section-title">범위(Scope) 설정</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">범위(Scope) 설정</h2></div>
+    <div class="lang-en"><h2 class="section-title">Scope Configuration</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       MCP 서버를 어디에 저장할지 결정합니다. 프로젝트 범위, 사용자 범위, 로컬 범위 세 가지가 있습니다.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      Determines where to store the MCP server settings. There are three scopes: project, user, and local.
+    </p></div>
 
     <div class="card-grid card-grid-3" style="margin-bottom: 40px;">
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F4C1;</div>
-        <h3>프로젝트 범위</h3>
-        <p>프로젝트 루트의 <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:12px;">.claude/settings.json</code>에 저장됩니다. Git에 커밋하여 팀 전체가 동일한 MCP 서버를 공유할 수 있습니다.</p>
+        <div class="lang-ko"><h3>프로젝트 범위</h3></div>
+        <div class="lang-en"><h3>Project Scope</h3></div>
+        <div class="lang-ko"><p>프로젝트 루트의 <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:12px;">.claude/settings.json</code>에 저장됩니다. Git에 커밋하여 팀 전체가 동일한 MCP 서버를 공유할 수 있습니다.</p></div>
+        <div class="lang-en"><p>Stored in <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:12px;">.claude/settings.json</code> at the project root. Commit to Git so the whole team shares the same MCP servers.</p></div>
         <div class="tag-row" style="margin-top: 14px;">
-          <span class="tag tag-green">팀 공유</span>
-          <span class="tag tag-green">버전 관리</span>
+          <span class="tag tag-green"><span class="lang-ko">팀 공유</span><span class="lang-en">Team Shared</span></span>
+          <span class="tag tag-green"><span class="lang-ko">버전 관리</span><span class="lang-en">Version Control</span></span>
         </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F464;</div>
-        <h3>사용자 범위</h3>
-        <p><code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:12px;">~/.claude/settings.json</code>에 저장됩니다. 내 컴퓨터의 모든 프로젝트에서 사용 가능하지만 나만 사용합니다.</p>
+        <div class="lang-ko"><h3>사용자 범위</h3></div>
+        <div class="lang-en"><h3>User Scope</h3></div>
+        <div class="lang-ko"><p><code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:12px;">~/.claude/settings.json</code>에 저장됩니다. 내 컴퓨터의 모든 프로젝트에서 사용 가능하지만 나만 사용합니다.</p></div>
+        <div class="lang-en"><p>Stored in <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:12px;">~/.claude/settings.json</code>. Available across all projects on your machine, but only for you.</p></div>
         <div class="tag-row" style="margin-top: 14px;">
-          <span class="tag tag-purple">전체 프로젝트</span>
-          <span class="tag tag-purple">개인용</span>
+          <span class="tag tag-purple"><span class="lang-ko">전체 프로젝트</span><span class="lang-en">All Projects</span></span>
+          <span class="tag tag-purple"><span class="lang-ko">개인용</span><span class="lang-en">Personal</span></span>
         </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--orange-dim);">&#x1F512;</div>
-        <h3>로컬 범위</h3>
-        <p>현재 프로젝트에서만, 나만 사용하는 설정입니다. 민감한 자격 증명이나 실험적인 서버 설정에 적합합니다.</p>
+        <div class="lang-ko"><h3>로컬 범위</h3></div>
+        <div class="lang-en"><h3>Local Scope</h3></div>
+        <div class="lang-ko"><p>현재 프로젝트에서만, 나만 사용하는 설정입니다. 민감한 자격 증명이나 실험적인 서버 설정에 적합합니다.</p></div>
+        <div class="lang-en"><p>Settings for the current project only, personal use only. Ideal for sensitive credentials or experimental server configurations.</p></div>
         <div class="tag-row" style="margin-top: 14px;">
-          <span class="tag tag-orange">현재 프로젝트</span>
-          <span class="tag tag-orange">개인용</span>
+          <span class="tag tag-orange"><span class="lang-ko">현재 프로젝트</span><span class="lang-en">Current Project</span></span>
+          <span class="tag tag-orange"><span class="lang-ko">개인용</span><span class="lang-en">Personal</span></span>
         </div>
       </div>
     </div>
@@ -1350,10 +1423,18 @@
     </div>
 
     <div class="analogy-box" style="margin-top: 40px;">
+      <div class="lang-ko">
       <h4>서브에이전트에 특정 MCP 서버 할당하기</h4>
       <p>
         서브에이전트(Subagent)를 사용할 때, 특정 에이전트에게만 특정 MCP 서버를 제공할 수 있습니다. 예를 들어, DB 분석 전담 에이전트에게만 PostgreSQL MCP를 부여하는 식입니다.
       </p>
+      </div>
+      <div class="lang-en">
+      <h4>Assigning specific MCP servers to subagents</h4>
+      <p>
+        When using subagents, you can provide specific MCP servers to specific agents only. For example, giving only the DB analysis agent access to the PostgreSQL MCP.
+      </p>
+      </div>
       <div class="code-block" style="margin-top: 20px;">
         <div class="code-header">
           <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1373,10 +1454,18 @@
     <div class="tip" style="margin-top: 24px;">
       <span class="tip-icon">&#x1F9ED;</span>
       <div>
+        <div class="lang-ko">
         <strong>어떤 범위를 선택할까요?</strong><br>
         &middot; <strong>프로젝트 범위</strong>: 팀 전체가 공유해야 하는 서버 (Sentry, Jira 등 프로젝트 도구)<br>
         &middot; <strong>사용자 범위</strong>: 여러 프로젝트에서 자주 쓰는 개인 서버 (GitHub, Brave Search 등)<br>
         &middot; <strong>로컬 범위</strong>: 민감한 자격 증명이 포함되어 공유하면 안 되는 서버
+        </div>
+        <div class="lang-en">
+        <strong>Which scope to choose?</strong><br>
+        &middot; <strong>Project scope</strong>: Servers the whole team should share (Sentry, Jira, etc.)<br>
+        &middot; <strong>User scope</strong>: Personal servers used frequently across projects (GitHub, Brave Search, etc.)<br>
+        &middot; <strong>Local scope</strong>: Servers with sensitive credentials that should not be shared
+        </div>
       </div>
     </div>
   </div>
@@ -1388,20 +1477,28 @@
 <section id="scenarios">
   <div class="container">
     <div class="section-number">06</div>
-    <h2 class="section-title">실전 활용 시나리오</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">실전 활용 시나리오</h2></div>
+    <div class="lang-en"><h2 class="section-title">Real-world Scenarios</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       MCP 서버를 연결하면 어떤 일이 가능해지는지, 3가지 실전 시나리오로 보여드립니다.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      3 real-world scenarios showing what becomes possible when you connect MCP servers.
+    </p></div>
 
     <!-- Scenario 1 -->
     <div class="card" style="margin-bottom: 32px;">
       <h3 style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
         <span style="font-size: 28px;">&#x1F680;</span>
-        시나리오 1: GitHub 이슈 &rarr; 코드 수정 &rarr; PR 자동화
+        <span class="lang-ko">시나리오 1: GitHub 이슈 &rarr; 코드 수정 &rarr; PR 자동화</span>
+        <span class="lang-en">Scenario 1: GitHub Issue &rarr; Code Fix &rarr; PR Automation</span>
       </h3>
-      <p style="color: var(--text-dim); margin-bottom: 24px;">
+      <div class="lang-ko"><p style="color: var(--text-dim); margin-bottom: 24px;">
         GitHub MCP 서버를 연결하면, 이슈 확인부터 PR 생성까지 한 번의 요청으로 자동화할 수 있습니다.
-      </p>
+      </p></div>
+      <div class="lang-en"><p style="color: var(--text-dim); margin-bottom: 24px;">
+        With the GitHub MCP server connected, you can automate everything from checking an issue to creating a PR in a single request.
+      </p></div>
 
       <div class="steps">
         <div class="step">
@@ -1410,8 +1507,10 @@
             <div class="step-line"></div>
           </div>
           <div class="step-content" style="padding-bottom: 24px;">
-            <h3 style="font-size: 16px;">이슈 확인</h3>
-            <p>Claude가 GitHub MCP를 통해 이슈 내용을 읽어옵니다.</p>
+            <div class="lang-ko"><h3 style="font-size: 16px;">이슈 확인</h3></div>
+            <div class="lang-en"><h3 style="font-size: 16px;">Check Issue</h3></div>
+            <div class="lang-ko"><p>Claude가 GitHub MCP를 통해 이슈 내용을 읽어옵니다.</p></div>
+            <div class="lang-en"><p>Claude reads the issue content via GitHub MCP.</p></div>
           </div>
         </div>
         <div class="step">
@@ -1420,8 +1519,10 @@
             <div class="step-line"></div>
           </div>
           <div class="step-content" style="padding-bottom: 24px;">
-            <h3 style="font-size: 16px;">코드 분석 &amp; 수정</h3>
-            <p>이슈와 관련된 코드를 찾아 수정합니다.</p>
+            <div class="lang-ko"><h3 style="font-size: 16px;">코드 분석 &amp; 수정</h3></div>
+            <div class="lang-en"><h3 style="font-size: 16px;">Code Analysis &amp; Fix</h3></div>
+            <div class="lang-ko"><p>이슈와 관련된 코드를 찾아 수정합니다.</p></div>
+            <div class="lang-en"><p>Finds and fixes the code related to the issue.</p></div>
           </div>
         </div>
         <div class="step">
@@ -1430,8 +1531,10 @@
             <div class="step-line"></div>
           </div>
           <div class="step-content" style="padding-bottom: 24px;">
-            <h3 style="font-size: 16px;">PR 생성</h3>
-            <p>브랜치 생성, 커밋, PR 올리기까지 자동으로 처리합니다.</p>
+            <div class="lang-ko"><h3 style="font-size: 16px;">PR 생성</h3></div>
+            <div class="lang-en"><h3 style="font-size: 16px;">Create PR</h3></div>
+            <div class="lang-ko"><p>브랜치 생성, 커밋, PR 올리기까지 자동으로 처리합니다.</p></div>
+            <div class="lang-en"><p>Automatically handles branch creation, commit, and PR creation.</p></div>
           </div>
         </div>
       </div>
@@ -1464,11 +1567,15 @@
     <div class="card" style="margin-bottom: 32px;">
       <h3 style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
         <span style="font-size: 28px;">&#x1F5C4;&#xFE0F;</span>
-        시나리오 2: DB 스키마 분석 &rarr; 마이그레이션 작성
+        <span class="lang-ko">시나리오 2: DB 스키마 분석 &rarr; 마이그레이션 작성</span>
+        <span class="lang-en">Scenario 2: DB Schema Analysis &rarr; Migration Writing</span>
       </h3>
-      <p style="color: var(--text-dim); margin-bottom: 24px;">
+      <div class="lang-ko"><p style="color: var(--text-dim); margin-bottom: 24px;">
         PostgreSQL MCP 서버를 연결하면, DB 구조를 파악하고 마이그레이션 파일을 자동 생성할 수 있습니다.
-      </p>
+      </p></div>
+      <div class="lang-en"><p style="color: var(--text-dim); margin-bottom: 24px;">
+        With the PostgreSQL MCP server connected, you can understand the DB structure and auto-generate migration files.
+      </p></div>
 
       <div class="steps">
         <div class="step">
@@ -1477,8 +1584,10 @@
             <div class="step-line"></div>
           </div>
           <div class="step-content" style="padding-bottom: 24px;">
-            <h3 style="font-size: 16px;">스키마 조회</h3>
-            <p>PostgreSQL MCP를 통해 현재 DB 스키마를 읽어옵니다.</p>
+            <div class="lang-ko"><h3 style="font-size: 16px;">스키마 조회</h3></div>
+            <div class="lang-en"><h3 style="font-size: 16px;">Schema Lookup</h3></div>
+            <div class="lang-ko"><p>PostgreSQL MCP를 통해 현재 DB 스키마를 읽어옵니다.</p></div>
+            <div class="lang-en"><p>Reads the current DB schema via PostgreSQL MCP.</p></div>
           </div>
         </div>
         <div class="step">
@@ -1487,8 +1596,10 @@
             <div class="step-line"></div>
           </div>
           <div class="step-content" style="padding-bottom: 24px;">
-            <h3 style="font-size: 16px;">변경사항 분석</h3>
-            <p>요청한 변경이 기존 데이터에 미치는 영향을 분석합니다.</p>
+            <div class="lang-ko"><h3 style="font-size: 16px;">변경사항 분석</h3></div>
+            <div class="lang-en"><h3 style="font-size: 16px;">Impact Analysis</h3></div>
+            <div class="lang-ko"><p>요청한 변경이 기존 데이터에 미치는 영향을 분석합니다.</p></div>
+            <div class="lang-en"><p>Analyzes the impact of the requested change on existing data.</p></div>
           </div>
         </div>
         <div class="step">
@@ -1497,8 +1608,10 @@
             <div class="step-line"></div>
           </div>
           <div class="step-content" style="padding-bottom: 24px;">
-            <h3 style="font-size: 16px;">마이그레이션 생성</h3>
-            <p>안전한 마이그레이션 SQL과 롤백 스크립트를 작성합니다.</p>
+            <div class="lang-ko"><h3 style="font-size: 16px;">마이그레이션 생성</h3></div>
+            <div class="lang-en"><h3 style="font-size: 16px;">Generate Migration</h3></div>
+            <div class="lang-ko"><p>안전한 마이그레이션 SQL과 롤백 스크립트를 작성합니다.</p></div>
+            <div class="lang-en"><p>Writes safe migration SQL and rollback scripts.</p></div>
           </div>
         </div>
       </div>
@@ -1531,11 +1644,15 @@
     <div class="card">
       <h3 style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
         <span style="font-size: 28px;">&#x1F4AC;</span>
-        시나리오 3: Slack 메시지 분석 &rarr; 요약 레포트
+        <span class="lang-ko">시나리오 3: Slack 메시지 분석 &rarr; 요약 레포트</span>
+        <span class="lang-en">Scenario 3: Slack Message Analysis &rarr; Summary Report</span>
       </h3>
-      <p style="color: var(--text-dim); margin-bottom: 24px;">
+      <div class="lang-ko"><p style="color: var(--text-dim); margin-bottom: 24px;">
         Slack MCP 서버를 연결하면, 채널의 메시지를 분석하여 요약 레포트를 자동 생성할 수 있습니다.
-      </p>
+      </p></div>
+      <div class="lang-en"><p style="color: var(--text-dim); margin-bottom: 24px;">
+        With the Slack MCP server connected, you can analyze channel messages and auto-generate summary reports.
+      </p></div>
 
       <div class="steps">
         <div class="step">
@@ -1544,8 +1661,10 @@
             <div class="step-line"></div>
           </div>
           <div class="step-content" style="padding-bottom: 24px;">
-            <h3 style="font-size: 16px;">메시지 수집</h3>
-            <p>Slack MCP를 통해 특정 채널의 최근 메시지를 가져옵니다.</p>
+            <div class="lang-ko"><h3 style="font-size: 16px;">메시지 수집</h3></div>
+            <div class="lang-en"><h3 style="font-size: 16px;">Collect Messages</h3></div>
+            <div class="lang-ko"><p>Slack MCP를 통해 특정 채널의 최근 메시지를 가져옵니다.</p></div>
+            <div class="lang-en"><p>Fetches recent messages from a specific channel via Slack MCP.</p></div>
           </div>
         </div>
         <div class="step">
@@ -1554,8 +1673,10 @@
             <div class="step-line"></div>
           </div>
           <div class="step-content" style="padding-bottom: 24px;">
-            <h3 style="font-size: 16px;">내용 분석</h3>
-            <p>논의된 주제, 결정 사항, 액션 아이템을 자동으로 분류합니다.</p>
+            <div class="lang-ko"><h3 style="font-size: 16px;">내용 분석</h3></div>
+            <div class="lang-en"><h3 style="font-size: 16px;">Content Analysis</h3></div>
+            <div class="lang-ko"><p>논의된 주제, 결정 사항, 액션 아이템을 자동으로 분류합니다.</p></div>
+            <div class="lang-en"><p>Automatically categorizes discussion topics, decisions, and action items.</p></div>
           </div>
         </div>
         <div class="step">
@@ -1564,8 +1685,10 @@
             <div class="step-line"></div>
           </div>
           <div class="step-content" style="padding-bottom: 24px;">
-            <h3 style="font-size: 16px;">레포트 생성</h3>
-            <p>정리된 요약 레포트를 마크다운으로 생성합니다.</p>
+            <div class="lang-ko"><h3 style="font-size: 16px;">레포트 생성</h3></div>
+            <div class="lang-en"><h3 style="font-size: 16px;">Generate Report</h3></div>
+            <div class="lang-ko"><p>정리된 요약 레포트를 마크다운으로 생성합니다.</p></div>
+            <div class="lang-en"><p>Generates a clean summary report in Markdown.</p></div>
           </div>
         </div>
       </div>
@@ -1606,41 +1729,58 @@
 <section id="caution">
   <div class="container">
     <div class="section-number">07</div>
-    <h2 class="section-title">주의사항 &amp; 트러블슈팅</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">주의사항 &amp; 트러블슈팅</h2></div>
+    <div class="lang-en"><h2 class="section-title">Caution &amp; Troubleshooting</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       MCP 서버를 사용할 때 반드시 알아야 할 사항들과 흔한 문제 해결법입니다.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      Must-know information when using MCP servers, and solutions to common problems.
+    </p></div>
 
     <div class="warn">
       <span class="warn-icon">&#x1F511;</span>
       <div>
-        <strong>환경변수 설정 필수:</strong> 대부분의 MCP 서버는 API 토큰이 필요합니다. GitHub MCP는 <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">GITHUB_TOKEN</code>, Slack MCP는 <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">SLACK_BOT_TOKEN</code>을 반드시 설정해야 합니다. 토큰 없이 연결하면 인증 에러가 발생합니다.
+        <div class="lang-ko"><strong>환경변수 설정 필수:</strong> 대부분의 MCP 서버는 API 토큰이 필요합니다. GitHub MCP는 <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">GITHUB_TOKEN</code>, Slack MCP는 <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">SLACK_BOT_TOKEN</code>을 반드시 설정해야 합니다. 토큰 없이 연결하면 인증 에러가 발생합니다.</div>
+        <div class="lang-en"><strong>Environment variables required:</strong> Most MCP servers require API tokens. GitHub MCP requires <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">GITHUB_TOKEN</code>, Slack MCP requires <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">SLACK_BOT_TOKEN</code>. Connecting without a token will cause authentication errors.</div>
       </div>
     </div>
 
     <div class="warn">
       <span class="warn-icon">&#x1F6E1;&#xFE0F;</span>
       <div>
-        <strong>보안 주의:</strong> MCP 서버는 <strong>로컬에서 실행</strong>됩니다. 이는 장점이자 주의점입니다. DB 서버에 접근하는 MCP를 설정하면 Claude가 실제로 쿼리를 실행할 수 있으므로, <strong>프로덕션 DB에는 읽기 전용 계정</strong>을 사용하세요. 민감한 데이터가 있는 환경에서는 접근 범위를 최소화하는 것이 좋습니다.
+        <div class="lang-ko"><strong>보안 주의:</strong> MCP 서버는 <strong>로컬에서 실행</strong>됩니다. 이는 장점이자 주의점입니다. DB 서버에 접근하는 MCP를 설정하면 Claude가 실제로 쿼리를 실행할 수 있으므로, <strong>프로덕션 DB에는 읽기 전용 계정</strong>을 사용하세요. 민감한 데이터가 있는 환경에서는 접근 범위를 최소화하는 것이 좋습니다.</div>
+        <div class="lang-en"><strong>Security caution:</strong> MCP servers run <strong>locally</strong>. This is both an advantage and a concern. If you set up an MCP that accesses a DB server, Claude can actually execute queries — so use a <strong>read-only account for production DBs</strong>. In environments with sensitive data, minimize the access scope.</div>
       </div>
     </div>
 
     <div class="warn">
       <span class="warn-icon">&#x26A0;&#xFE0F;</span>
       <div>
+        <div class="lang-ko">
         <strong>흔한 에러: "MCP server not responding"</strong><br><br>
         이 에러가 발생하면 다음을 순서대로 확인하세요:<br>
         &middot; <strong>npm/npx가 설치되어 있는지</strong> &mdash; MCP 서버 대부분은 Node.js 기반입니다<br>
         &middot; <strong>패키지명이 정확한지</strong> &mdash; <code style="font-family:'JetBrains Mono',monospace;font-size:12px;">@modelcontextprotocol/server-*</code> 형식이 올바른지 확인<br>
         &middot; <strong>환경변수가 올바른지</strong> &mdash; 토큰이 만료되지 않았는지 확인<br>
         &middot; <strong>네트워크 연결</strong> &mdash; 외부 API에 접근 가능한지 확인
+        </div>
+        <div class="lang-en">
+        <strong>Common error: "MCP server not responding"</strong><br><br>
+        When this error occurs, check the following in order:<br>
+        &middot; <strong>Is npm/npx installed?</strong> &mdash; Most MCP servers are Node.js-based<br>
+        &middot; <strong>Is the package name correct?</strong> &mdash; Verify the <code style="font-family:'JetBrains Mono',monospace;font-size:12px;">@modelcontextprotocol/server-*</code> format<br>
+        &middot; <strong>Are environment variables correct?</strong> &mdash; Check that tokens haven't expired<br>
+        &middot; <strong>Network connection</strong> &mdash; Verify access to external APIs
+        </div>
       </div>
     </div>
 
     <div class="tip">
       <span class="tip-icon">&#x1F4BB;</span>
       <div>
-        <strong>/mcp 커맨드:</strong> Claude Code 대화 중에 <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/mcp</code>를 입력하면 현재 연결된 MCP 서버의 상태와 <strong>서버별 컨텍스트 토큰 소비량</strong>을 즉시 확인할 수 있습니다. 각 MCP 서버는 도구 정의를 매 요청에 포함시키기 때문에, 서버가 많을수록 컨텍스트 비용이 증가합니다. 문제가 의심될 때 가장 먼저 실행해보세요.
+        <div class="lang-ko"><strong>/mcp 커맨드:</strong> Claude Code 대화 중에 <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/mcp</code>를 입력하면 현재 연결된 MCP 서버의 상태와 <strong>서버별 컨텍스트 토큰 소비량</strong>을 즉시 확인할 수 있습니다. 각 MCP 서버는 도구 정의를 매 요청에 포함시키기 때문에, 서버가 많을수록 컨텍스트 비용이 증가합니다. 문제가 의심될 때 가장 먼저 실행해보세요.</div>
+        <div class="lang-en"><strong>/mcp command:</strong> During a Claude Code session, type <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/mcp</code> to instantly check the status of connected MCP servers and <strong>token consumption per server</strong>. Since each MCP server includes tool definitions in every request, more servers means higher context cost. Run this first when you suspect an issue.</div>
       </div>
     </div>
 
@@ -1677,56 +1817,68 @@
 <section id="faq">
   <div class="container">
     <div class="section-number">08</div>
-    <h2 class="section-title">자주 묻는 질문</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">자주 묻는 질문</h2></div>
+    <div class="lang-en"><h2 class="section-title">FAQ</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       MCP에 대해 가장 많이 궁금해하는 것들
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      The most common questions about MCP
+    </p></div>
 
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          MCP 서버를 직접 만들 수 있나요?
+          <span class="lang-ko">MCP 서버를 직접 만들 수 있나요?</span>
+          <span class="lang-en">Can I build my own MCP server?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네, 가능합니다! MCP는 오픈 프로토콜이기 때문에 누구나 서버를 만들 수 있습니다. TypeScript/Python SDK가 제공되어 있어서, 회사 내부 API나 특정 SaaS 도구를 MCP 서버로 감싸면 Claude가 직접 사용할 수 있게 됩니다. 예를 들어, 회사 내부 HR 시스템을 MCP 서버로 만들면 "이번 달 휴가 현황 알려줘"를 Claude가 처리할 수 있습니다.
+            <div class="lang-ko">네, 가능합니다! MCP는 오픈 프로토콜이기 때문에 누구나 서버를 만들 수 있습니다. TypeScript/Python SDK가 제공되어 있어서, 회사 내부 API나 특정 SaaS 도구를 MCP 서버로 감싸면 Claude가 직접 사용할 수 있게 됩니다. 예를 들어, 회사 내부 HR 시스템을 MCP 서버로 만들면 "이번 달 휴가 현황 알려줘"를 Claude가 처리할 수 있습니다.</div>
+            <div class="lang-en">Yes! MCP is an open protocol so anyone can build a server. TypeScript/Python SDKs are provided, so you can wrap an internal company API or specific SaaS tool as an MCP server for Claude to use directly. For example, build your HR system as an MCP server, and Claude can handle "show me this month's leave status."</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          MCP 서버가 너무 많으면 느려지나요?
+          <span class="lang-ko">MCP 서버가 너무 많으면 느려지나요?</span>
+          <span class="lang-en">Does having too many MCP servers slow things down?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            각 MCP 서버는 도구 정의를 Claude에게 매 요청마다 전달합니다. 즉, 서버가 많을수록 컨텍스트를 더 많이 소비하고 비용도 늘어납니다. 공식 문서에 따르면 MCP 도구 설명이 컨텍스트의 10%를 넘으면 Claude Code가 자동으로 Tool Search 모드를 활성화하여 필요한 도구만 동적으로 로드합니다. Claude Code 세션 내에서 <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">/mcp</code>를 입력하면 서버별 토큰 소비량을 확인할 수 있습니다. 실제 사용에서는 꼭 필요한 서버만 유지하는 것이 좋습니다.
+            <div class="lang-ko">각 MCP 서버는 도구 정의를 Claude에게 매 요청마다 전달합니다. 즉, 서버가 많을수록 컨텍스트를 더 많이 소비하고 비용도 늘어납니다. 공식 문서에 따르면 MCP 도구 설명이 컨텍스트의 10%를 넘으면 Claude Code가 자동으로 Tool Search 모드를 활성화하여 필요한 도구만 동적으로 로드합니다. Claude Code 세션 내에서 <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">/mcp</code>를 입력하면 서버별 토큰 소비량을 확인할 수 있습니다. 실제 사용에서는 꼭 필요한 서버만 유지하는 것이 좋습니다.</div>
+            <div class="lang-en">Each MCP server sends its tool definitions to Claude with every request. So more servers means more context consumed and higher cost. According to official docs, if MCP tool descriptions exceed 10% of context, Claude Code automatically activates Tool Search mode to dynamically load only needed tools. Type <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;">/mcp</code> in a Claude Code session to check token usage per server. In practice, keep only the servers you actually need.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          팀원과 MCP 설정을 공유할 수 있나요?
+          <span class="lang-ko">팀원과 MCP 설정을 공유할 수 있나요?</span>
+          <span class="lang-en">Can I share MCP settings with teammates?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네! <code style="color: var(--accent);">--scope project</code> 플래그를 사용하거나 프로젝트 루트의 <code style="color: var(--accent);">.claude/settings.json</code>에 직접 작성하면, 해당 프로젝트를 사용하는 모든 팀원이 동일한 MCP 서버 설정을 공유할 수 있습니다. 다만 API 토큰 같은 민감한 정보는 환경변수로 분리하고, 각 팀원이 자신의 토큰을 로컬에 설정하는 것이 좋습니다. 설정 파일은 Git에 커밋하되, 토큰은 <code style="color: var(--accent);">.env</code>에 넣어 <code style="color: var(--accent);">.gitignore</code>로 관리하세요. 개인 전용 설정은 <code style="color: var(--accent);">--scope user</code>로 <code style="color: var(--accent);">~/.claude/settings.json</code>에 저장하면 팀과 분리됩니다.
+            <div class="lang-ko">네! <code style="color: var(--accent);">--scope project</code> 플래그를 사용하거나 프로젝트 루트의 <code style="color: var(--accent);">.claude/settings.json</code>에 직접 작성하면, 해당 프로젝트를 사용하는 모든 팀원이 동일한 MCP 서버 설정을 공유할 수 있습니다. 다만 API 토큰 같은 민감한 정보는 환경변수로 분리하고, 각 팀원이 자신의 토큰을 로컬에 설정하는 것이 좋습니다. 설정 파일은 Git에 커밋하되, 토큰은 <code style="color: var(--accent);">.env</code>에 넣어 <code style="color: var(--accent);">.gitignore</code>로 관리하세요. 개인 전용 설정은 <code style="color: var(--accent);">--scope user</code>로 <code style="color: var(--accent);">~/.claude/settings.json</code>에 저장하면 팀과 분리됩니다.</div>
+            <div class="lang-en">Yes! Use the <code style="color: var(--accent);">--scope project</code> flag or write directly to <code style="color: var(--accent);">.claude/settings.json</code> at the project root, and all teammates working on that project will share the same MCP server settings. Separate sensitive info like API tokens into environment variables, with each teammate setting their own token locally. Commit the config file to Git, but put tokens in <code style="color: var(--accent);">.env</code> and manage with <code style="color: var(--accent);">.gitignore</code>. Personal settings can be separated from the team using <code style="color: var(--accent);">--scope user</code> to save in <code style="color: var(--accent);">~/.claude/settings.json</code>.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          MCP 없이도 Claude Code를 쓸 수 있나요?
+          <span class="lang-ko">MCP 없이도 Claude Code를 쓸 수 있나요?</span>
+          <span class="lang-en">Can I use Claude Code without MCP?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            물론입니다! MCP는 Claude Code의 기능을 확장하는 선택적 기능입니다. MCP 없이도 Claude Code는 파일 읽기/쓰기, 코드 생성, 터미널 명령어 실행 등 핵심 기능을 모두 사용할 수 있습니다. MCP는 "외부 서비스와의 연결"이 필요할 때 추가하는 것이라고 생각하면 됩니다. GitHub에 직접 PR을 올리거나, DB에 쿼리를 날리거나, Slack에 메시지를 보내는 등의 작업이 필요할 때 MCP를 도입하세요.
+            <div class="lang-ko">물론입니다! MCP는 Claude Code의 기능을 확장하는 선택적 기능입니다. MCP 없이도 Claude Code는 파일 읽기/쓰기, 코드 생성, 터미널 명령어 실행 등 핵심 기능을 모두 사용할 수 있습니다. MCP는 "외부 서비스와의 연결"이 필요할 때 추가하는 것이라고 생각하면 됩니다. GitHub에 직접 PR을 올리거나, DB에 쿼리를 날리거나, Slack에 메시지를 보내는 등의 작업이 필요할 때 MCP를 도입하세요.</div>
+            <div class="lang-en">Of course! MCP is an optional feature that extends Claude Code's capabilities. Without MCP, Claude Code still has all core features: file read/write, code generation, terminal command execution, and more. Think of MCP as something you add when you need "connections to external services." Adopt MCP when you need to create PRs directly on GitHub, execute queries on a DB, send Slack messages, etc.</div>
           </div>
         </div>
       </div>
@@ -1738,27 +1890,40 @@
 <section style="padding: 80px 0;">
   <div class="container">
     <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.15); text-align: center; padding: 60px 40px;">
-      <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
+      <div class="lang-ko"><h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
         요약하면 이겁니다
-      </h2>
-      <p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
+      </h2></div>
+      <div class="lang-en"><h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
+        The Bottom Line
+      </h2></div>
+      <div class="lang-ko"><p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
         MCP = Claude에게 <strong style="color: var(--accent)">외부 도구를 연결하는 표준 규격</strong><br>
         설정법 = <strong style="color: var(--green)">claude mcp add</strong> 한 줄이면 끝<br>
         범위 = <strong style="color: var(--blue)">project / user / local</strong> 로 팀/개인 분리<br>
         핵심 가치 = <strong style="color: var(--orange)">자동화 + 실제 시스템과 상호작용</strong>
-      </p>
-      <p style="color: var(--text-muted); font-size: 14px;">
+      </p></div>
+      <div class="lang-en"><p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
+        MCP = <strong style="color: var(--accent)">standard protocol for connecting Claude to external tools</strong><br>
+        Setup = just one line: <strong style="color: var(--green)">claude mcp add</strong><br>
+        Scope = <strong style="color: var(--blue)">project / user / local</strong> to separate team/personal<br>
+        Core value = <strong style="color: var(--orange)">automation + interact with real systems</strong>
+      </p></div>
+      <div class="lang-ko"><p style="color: var(--text-muted); font-size: 14px;">
         시작이 어려우면, Filesystem MCP부터 연결해보세요:<br>
         <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">claude mcp add filesystem npx -y @modelcontextprotocol/server-filesystem /path</span>
-      </p>
+      </p></div>
+      <div class="lang-en"><p style="color: var(--text-muted); font-size: 14px;">
+        If you're not sure where to start, try connecting the Filesystem MCP first:<br>
+        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">claude mcp add filesystem npx -y @modelcontextprotocol/server-filesystem /path</span>
+      </p></div>
     </div>
   </div>
 </section>
 
 <!-- =================== CHAPTER NAV =================== -->
 <div class="chapter-nav">
-  <a href="prompting.html">&larr; 이전: 효과적인 프롬프팅</a>
-  <a href="agents.html">다음: 서브에이전트 &rarr;</a>
+  <a href="prompting.html">&larr; <span class="lang-ko">이전: 효과적인 프롬프팅</span><span class="lang-en">Prev: Effective Prompting</span></a>
+  <a href="agents.html"><span class="lang-ko">다음: 서브에이전트 &rarr;</span><span class="lang-en">Next: Subagents &rarr;</span></a>
 </div>
 
 <footer>
@@ -1810,5 +1975,6 @@ window.addEventListener('scroll', () => {
 
 <div id="community-widget"></div>
 <script src="community.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

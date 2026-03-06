@@ -6,9 +6,10 @@
 /* 챕터 테마 초기화 — FOUC 방지 */
 (function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>효과적인 프롬프팅</title>
+<title><span class="lang-ko">효과적인 프롬프팅</span><span class="lang-en">Effective Prompting</span></title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../theme.css">
 <style id="chapter-accent">
@@ -956,41 +957,44 @@
 <body>
 
 <!-- =================== BACK LINK =================== -->
-<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+<a href="../index.html" class="back-link">&larr; <span class="lang-ko">Claude Code 101로 돌아가기</span><span class="lang-en">Back to Claude Code 101</span></a>
 
 <!-- =================== HERO =================== -->
 <div class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    Module 04 &mdash; 효과적인 프롬프팅
+    <span class="lang-ko">Module 04 &mdash; 효과적인 프롬프팅</span><span class="lang-en">Module 04 &mdash; Effective Prompting</span>
   </div>
   <h1>
-    효과적인<br><span class="highlight">프롬프팅</span>
+    <span class="lang-ko">효과적인<br><span class="highlight">프롬프팅</span></span>
+    <span class="lang-en">Effective<br><span class="highlight">Prompting</span></span>
   </h1>
   <p class="hero-sub">
-    같은 Claude인데 결과가 천지차이,<br>
-    프롬프트가 답이다
+    <span class="lang-ko">같은 Claude인데 결과가 천지차이,<br>
+    프롬프트가 답이다</span>
+    <span class="lang-en">Same Claude, but wildly different results —<br>
+    the prompt is the answer</span>
   </p>
   <div class="hero-cta">
-    <a href="#patterns" class="btn btn-primary">핵심 원칙 8가지</a>
-    <a href="#recipes" class="btn btn-outline">레시피 모음 &rarr;</a>
+    <a href="#patterns" class="btn btn-primary"><span class="lang-ko">핵심 원칙 8가지</span><span class="lang-en">8 Core Principles</span></a>
+    <a href="#recipes" class="btn btn-outline"><span class="lang-ko">레시피 모음 &rarr;</span><span class="lang-en">Recipe Collection &rarr;</span></a>
   </div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    스크롤
+    <span class="lang-ko">스크롤</span><span class="lang-en">Scroll</span>
   </div>
 </div>
 
 <!-- =================== NAV =================== -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
-    <a href="#why" class="nav-link">왜 프롬프트가 중요한가</a>
-    <a href="#patterns" class="nav-link">핵심 원칙 8가지</a>
+    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; <span class="lang-ko">홈</span><span class="lang-en">Home</span></a>
+    <a href="#why" class="nav-link"><span class="lang-ko">왜 프롬프트가 중요한가</span><span class="lang-en">Why Prompts Matter</span></a>
+    <a href="#patterns" class="nav-link"><span class="lang-ko">핵심 원칙 8가지</span><span class="lang-en">8 Core Principles</span></a>
     <a href="#plan-mode" class="nav-link">Plan Mode</a>
-    <a href="#mentions" class="nav-link">@ 멘션</a>
-    <a href="#context" class="nav-link">컨텍스트 관리</a>
-    <a href="#recipes" class="nav-link">레시피 모음</a>
+    <a href="#mentions" class="nav-link"><span class="lang-ko">@ 멘션</span><span class="lang-en">@ Mentions</span></a>
+    <a href="#context" class="nav-link"><span class="lang-ko">컨텍스트 관리</span><span class="lang-en">Context Management</span></a>
+    <a href="#recipes" class="nav-link"><span class="lang-ko">레시피 모음</span><span class="lang-en">Recipe Collection</span></a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
 </nav>
@@ -999,19 +1003,25 @@
 <section id="why">
   <div class="container">
     <div class="section-number">01</div>
-    <h2 class="section-title">프롬프트가 결과를 결정한다</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">프롬프트가 결과를 결정한다</h2></div>
+    <div class="lang-en"><h2 class="section-title">Prompts Determine Results</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       같은 모델, 같은 도구인데 누구는 놀라운 결과를 뽑아내고, 누구는 "AI 별거 아니네"라고 합니다.<br>
       차이는 <strong style="color:var(--accent)">프롬프트</strong>에 있습니다.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      Same model, same tools — yet some get amazing results while others say "AI is nothing special."<br>
+      The difference is the <strong style="color:var(--accent)">prompt</strong>.
+    </p></div>
 
     <div class="comparison">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 흔한 프롬프트</div>
-        <div class="comp-code">할 일 앱 만들어줘</div>
+        <div class="comp-label">&#10060; <span class="lang-ko">흔한 프롬프트</span><span class="lang-en">Common prompt</span></div>
+        <div class="comp-code lang-ko">할 일 앱 만들어줘</div>
+        <div class="comp-code lang-en">Make a todo app</div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; 효과적인 프롬프트</div>
+        <div class="comp-label">&#9989; <span class="lang-ko">효과적인 프롬프트</span><span class="lang-en">Effective prompt</span></div>
         <div class="comp-code">React + TypeScript로 할 일 앱을 만들어줘.
 요구사항:
 - 할 일 추가/삭제/완료 토글
@@ -1026,24 +1036,35 @@
 
     <div class="comparison">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 결과: 모호한 프롬프트</div>
-        <div class="comp-code">&rarr; 어떤 기술 스택? 바닐라 JS? React?
+        <div class="comp-label">&#10060; <span class="lang-ko">결과: 모호한 프롬프트</span><span class="lang-en">Result: Vague prompt</span></div>
+        <div class="comp-code lang-ko">&rarr; 어떤 기술 스택? 바닐라 JS? React?
 &rarr; 어떤 기능까지? 최소한만? 풍부하게?
 &rarr; 스타일은? 못생겨도 되나?
 &rarr; Claude가 추측해서 만듦
 &rarr; 원하는 게 아닐 확률 높음 &#x1F625;</div>
+        <div class="comp-code lang-en">&rarr; Which stack? Vanilla JS? React?
+&rarr; How many features? Minimal? Rich?
+&rarr; Styling? Is ugly okay?
+&rarr; Claude guesses and builds
+&rarr; High chance it's not what you wanted &#x1F625;</div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; 결과: 구체적인 프롬프트</div>
-        <div class="comp-code">&rarr; 기술 스택 확정 (React + TS)
+        <div class="comp-label">&#9989; <span class="lang-ko">결과: 구체적인 프롬프트</span><span class="lang-en">Result: Specific prompt</span></div>
+        <div class="comp-code lang-ko">&rarr; 기술 스택 확정 (React + TS)
 &rarr; 기능 범위 명확
 &rarr; 디자인 방향 제시 (Tailwind)
 &rarr; 작업 순서까지 지정
 &rarr; 원하는 결과 한 번에! &#x1F389;</div>
+        <div class="comp-code lang-en">&rarr; Tech stack confirmed (React + TS)
+&rarr; Feature scope clear
+&rarr; Design direction given (Tailwind)
+&rarr; Work order specified
+&rarr; Desired result in one shot! &#x1F389;</div>
       </div>
     </div>
 
     <div class="analogy-box">
+      <div class="lang-ko">
       <h4>요리 주문에 비유하면</h4>
       <p>
         식당에서 <strong style="color:var(--text)">"맛있는 거 주세요"</strong>라고 하면 셰프가 알아서 줍니다. 운이 좋으면 맛있고, 아니면 안 맞죠.<br><br>
@@ -1051,6 +1072,16 @@
         거의 100% 원하는 음식이 나옵니다.<br><br>
         Claude도 마찬가지입니다. <strong style="color:var(--accent)">구체적으로 주문할수록, 원하는 결과가 나옵니다.</strong>
       </p>
+      </div>
+      <div class="lang-en">
+      <h4>Like ordering food at a restaurant</h4>
+      <p>
+        If you say <strong style="color:var(--text)">"something delicious please"</strong> at a restaurant, the chef decides. If you're lucky it's good, otherwise it might not suit you.<br><br>
+        But if you say <strong style="color:var(--text)">"tomato pasta, spice level 2, al dente noodles, lots of garlic, add cheese topping"</strong>?<br>
+        You'll get exactly what you want nearly 100% of the time.<br><br>
+        Claude is the same. <strong style="color:var(--accent)">The more specifically you order, the more you get what you want.</strong>
+      </p>
+      </div>
     </div>
   </div>
 </section>
@@ -1061,10 +1092,14 @@
 <section id="patterns">
   <div class="container">
     <div class="section-number">02</div>
-    <h2 class="section-title">8가지 핵심 원칙</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">8가지 핵심 원칙</h2></div>
+    <div class="lang-en"><h2 class="section-title">8 Core Principles</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       Anthropic 공식 모범 사례에서 정리한 <strong style="color:var(--accent)">8가지 원칙</strong>입니다. 이것만 지켜도 결과가 극적으로 달라집니다.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      <strong style="color:var(--accent)">8 principles</strong> distilled from Anthropic's official best practices. Following just these will dramatically change your results.
+    </p></div>
 
     <div class="steps">
 
@@ -1075,28 +1110,37 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>처음부터 구체적으로 &mdash; 파일, 제약, 패턴까지</h3>
-          <p>특정 파일을 참조하고, 제약 조건을 언급하고, 기존 패턴을 가리켜주세요. Claude는 의도를 추론할 수 있지만 마음을 읽을 수는 없습니다.</p>
+          <div class="lang-ko"><h3>처음부터 구체적으로 &mdash; 파일, 제약, 패턴까지</h3></div>
+          <div class="lang-en"><h3>Be specific from the start &mdash; files, constraints, patterns</h3></div>
+          <div class="lang-ko"><p>특정 파일을 참조하고, 제약 조건을 언급하고, 기존 패턴을 가리켜주세요. Claude는 의도를 추론할 수 있지만 마음을 읽을 수는 없습니다.</p></div>
+          <div class="lang-en"><p>Reference specific files, mention constraints, point to existing patterns. Claude can infer intent but cannot read minds.</p></div>
 
           <div class="comparison">
             <div class="comp-bad">
-              <div class="comp-label">&#10060; 모호한 지시</div>
-              <div class="comp-code">로그인 버그 수정해줘</div>
+              <div class="comp-label">&#10060; <span class="lang-ko">모호한 지시</span><span class="lang-en">Vague instruction</span></div>
+              <div class="comp-code lang-ko">로그인 버그 수정해줘</div>
+              <div class="comp-code lang-en">Fix the login bug</div>
             </div>
             <div class="comp-good">
-              <div class="comp-label">&#9989; 구체적 지시</div>
-              <div class="comp-code">체크아웃 흐름에서 만료된 카드를
+              <div class="comp-label">&#9989; <span class="lang-ko">구체적 지시</span><span class="lang-en">Specific instruction</span></div>
+              <div class="comp-code lang-ko">체크아웃 흐름에서 만료된 카드를
 가진 사용자에게 오류가 발생합니다.
 src/payments/에서 토큰 갱신 로직을
 확인하고, 먼저 실패하는 테스트를
 작성한 후 수정해주세요.</div>
+              <div class="comp-code lang-en">Users with expired cards get an error
+in the checkout flow.
+Check the token renewal logic in
+src/payments/, write a failing test
+first, then fix it.</div>
             </div>
           </div>
 
           <div class="tip">
             <span class="tip-icon">&#x1F4A1;</span>
             <div>
-              <strong>팁:</strong> 모호한 프롬프트가 유용할 때도 있습니다. <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"이 파일에서 무엇을 개선하시겠습니까?"</code>처럼 열린 질문은 당신이 미처 생각하지 못한 것을 발견하게 해줍니다. 탐색 중이고 방향을 수정할 여유가 있을 때 효과적입니다.
+              <div class="lang-ko"><strong>팁:</strong> 모호한 프롬프트가 유용할 때도 있습니다. <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"이 파일에서 무엇을 개선하시겠습니까?"</code>처럼 열린 질문은 당신이 미처 생각하지 못한 것을 발견하게 해줍니다. 탐색 중이고 방향을 수정할 여유가 있을 때 효과적입니다.</div>
+              <div class="lang-en"><strong>Tip:</strong> Vague prompts can be useful too. Open questions like <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"What would you improve in this file?"</code> can reveal things you hadn't thought of. Effective when you're exploring and have room to adjust direction.</div>
             </div>
           </div>
         </div>
@@ -1109,17 +1153,21 @@ src/payments/에서 토큰 갱신 로직을
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>검증할 수 있는 것을 제공하라 &mdash; 테스트, 예상 출력</h3>
-          <p>Claude가 자신의 작업을 확인할 수 있도록 테스트, 스크린샷 또는 예상 출력을 포함하세요. 이것이 할 수 있는 가장 영향력 높은 단일 행동입니다.</p>
+          <div class="lang-ko"><h3>검증할 수 있는 것을 제공하라 &mdash; 테스트, 예상 출력</h3></div>
+          <div class="lang-en"><h3>Provide verifiable criteria &mdash; tests, expected output</h3></div>
+          <div class="lang-ko"><p>Claude가 자신의 작업을 확인할 수 있도록 테스트, 스크린샷 또는 예상 출력을 포함하세요. 이것이 할 수 있는 가장 영향력 높은 단일 행동입니다.</p></div>
+          <div class="lang-en"><p>Include tests, screenshots, or expected output so Claude can verify its own work. This is the single highest-impact thing you can do.</p></div>
 
           <div class="comparison">
             <div class="comp-bad">
-              <div class="comp-label">&#10060; 검증 기준 없음</div>
-              <div class="comp-code">이메일 주소를 검증하는 함수를
+              <div class="comp-label">&#10060; <span class="lang-ko">검증 기준 없음</span><span class="lang-en">No verification criteria</span></div>
+              <div class="comp-code lang-ko">이메일 주소를 검증하는 함수를
 구현해주세요</div>
+              <div class="comp-code lang-en">Implement a function to
+validate email addresses</div>
             </div>
             <div class="comp-good">
-              <div class="comp-label">&#9989; 검증 기준 포함</div>
+              <div class="comp-label">&#9989; <span class="lang-ko">검증 기준 포함</span><span class="lang-en">With verification criteria</span></div>
               <div class="comp-code">validateEmail을 구현해주세요.
 테스트 케이스:
 - 'user@example.com' → true
@@ -1132,18 +1180,24 @@ src/payments/에서 토큰 갱신 로직을
           <div class="card-grid card-grid-3" style="margin-top: 24px;">
             <div class="card" style="padding: 24px;">
               <div class="card-icon" style="background: var(--green-dim); width: 40px; height: 40px; font-size: 20px; margin-bottom: 12px;">&#x1F9EA;</div>
-              <h3 style="font-size: 15px; margin-bottom: 8px;">테스트 케이스</h3>
-              <p style="font-size: 13px;">구체적인 입력/출력 쌍을 제공해서 Claude가 결과를 스스로 검증하게 하세요.</p>
+              <div class="lang-ko"><h3 style="font-size: 15px; margin-bottom: 8px;">테스트 케이스</h3></div>
+              <div class="lang-en"><h3 style="font-size: 15px; margin-bottom: 8px;">Test Cases</h3></div>
+              <div class="lang-ko"><p style="font-size: 13px;">구체적인 입력/출력 쌍을 제공해서 Claude가 결과를 스스로 검증하게 하세요.</p></div>
+              <div class="lang-en"><p style="font-size: 13px;">Provide specific input/output pairs so Claude can verify results on its own.</p></div>
             </div>
             <div class="card" style="padding: 24px;">
               <div class="card-icon" style="background: var(--blue-dim); width: 40px; height: 40px; font-size: 20px; margin-bottom: 12px;">&#x1F4F8;</div>
-              <h3 style="font-size: 15px; margin-bottom: 8px;">스크린샷 비교</h3>
-              <p style="font-size: 13px;">UI 변경 시 목표 디자인 스크린샷을 붙여넣고, Claude가 결과와 비교하게 하세요.</p>
+              <div class="lang-ko"><h3 style="font-size: 15px; margin-bottom: 8px;">스크린샷 비교</h3></div>
+              <div class="lang-en"><h3 style="font-size: 15px; margin-bottom: 8px;">Screenshot Comparison</h3></div>
+              <div class="lang-ko"><p style="font-size: 13px;">UI 변경 시 목표 디자인 스크린샷을 붙여넣고, Claude가 결과와 비교하게 하세요.</p></div>
+              <div class="lang-en"><p style="font-size: 13px;">For UI changes, paste the target design screenshot and have Claude compare its result to it.</p></div>
             </div>
             <div class="card" style="padding: 24px;">
               <div class="card-icon" style="background: var(--orange-dim); width: 40px; height: 40px; font-size: 20px; margin-bottom: 12px;">&#x1F527;</div>
-              <h3 style="font-size: 15px; margin-bottom: 8px;">빌드/린트 검증</h3>
-              <p style="font-size: 13px;">"수정하고 빌드가 성공하는지 확인해주세요. 근본 원인을 해결하고 오류를 억제하지 마세요."</p>
+              <div class="lang-ko"><h3 style="font-size: 15px; margin-bottom: 8px;">빌드/린트 검증</h3></div>
+              <div class="lang-en"><h3 style="font-size: 15px; margin-bottom: 8px;">Build/Lint Verification</h3></div>
+              <div class="lang-ko"><p style="font-size: 13px;">"수정하고 빌드가 성공하는지 확인해주세요. 근본 원인을 해결하고 오류를 억제하지 마세요."</p></div>
+              <div class="lang-en"><p style="font-size: 13px;">"After fixing, verify the build succeeds. Resolve the root cause and don't suppress errors."</p></div>
             </div>
           </div>
         </div>
@@ -1156,8 +1210,10 @@ src/payments/에서 토큰 갱신 로직을
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>구현 전에 먼저 탐색하라 &mdash; Plan Mode 활용</h3>
-          <p>Claude가 바로 코딩으로 뛰어들도록 하면 잘못된 문제를 해결하는 코드가 생성될 수 있습니다. 탐색과 실행을 분리하세요.</p>
+          <div class="lang-ko"><h3>구현 전에 먼저 탐색하라 &mdash; Plan Mode 활용</h3></div>
+          <div class="lang-en"><h3>Explore before implementing &mdash; Use Plan Mode</h3></div>
+          <div class="lang-ko"><p>Claude가 바로 코딩으로 뛰어들도록 하면 잘못된 문제를 해결하는 코드가 생성될 수 있습니다. 탐색과 실행을 분리하세요.</p></div>
+          <div class="lang-en"><p>Letting Claude jump straight into coding can produce code that solves the wrong problem. Separate exploration from execution.</p></div>
 
           <div class="code-block">
             <div class="code-header">
@@ -1188,22 +1244,31 @@ src/payments/에서 토큰 갱신 로직을
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>위임하되 마이크로 관리하지 말라 &mdash; 방향만 제시</h3>
-          <p>컨텍스트와 방향을 제공하고 세부 사항은 Claude가 파악하도록 믿으세요. 세세하게 지시하면 오히려 Claude의 능력을 제한합니다.</p>
+          <div class="lang-ko"><h3>위임하되 마이크로 관리하지 말라 &mdash; 방향만 제시</h3></div>
+          <div class="lang-en"><h3>Delegate without micromanaging &mdash; just give direction</h3></div>
+          <div class="lang-ko"><p>컨텍스트와 방향을 제공하고 세부 사항은 Claude가 파악하도록 믿으세요. 세세하게 지시하면 오히려 Claude의 능력을 제한합니다.</p></div>
+          <div class="lang-en"><p>Provide context and direction, then trust Claude to figure out the details. Over-specifying actually limits Claude's capabilities.</p></div>
 
           <div class="comparison">
             <div class="comp-bad">
-              <div class="comp-label">&#10060; 마이크로 관리</div>
-              <div class="comp-code">payments.js 32번째 줄을 읽고,
+              <div class="comp-label">&#10060; <span class="lang-ko">마이크로 관리</span><span class="lang-en">Micromanaging</span></div>
+              <div class="comp-code lang-ko">payments.js 32번째 줄을 읽고,
 validateCard 함수를 찾고,
 그 함수에서 만료일 체크 로직을
 찾아서, 그 부분만 수정해줘...</div>
+              <div class="comp-code lang-en">Read line 32 of payments.js,
+find the validateCard function,
+find the expiry date check logic
+inside that function, and fix only that part...</div>
             </div>
             <div class="comp-good">
-              <div class="comp-label">&#9989; 방향만 제시</div>
-              <div class="comp-code">체크아웃 흐름에 버그가 있습니다.
+              <div class="comp-label">&#9989; <span class="lang-ko">방향만 제시</span><span class="lang-en">Just direction</span></div>
+              <div class="comp-code lang-ko">체크아웃 흐름에 버그가 있습니다.
 관련 코드는 src/payments/에 있습니다.
 조사하고 수정해주세요.</div>
+              <div class="comp-code lang-en">There's a bug in the checkout flow.
+Relevant code is in src/payments/.
+Investigate and fix it.</div>
             </div>
           </div>
         </div>
@@ -1216,24 +1281,29 @@ validateCard 함수를 찾고,
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>대화로 반복 개선하라 &mdash; 언제든 방향 수정</h3>
-          <p>Claude Code는 챗봇이 아니라 에이전트입니다. 처음부터 완벽한 프롬프트를 짜려 하지 말고, 시작한 후 피드백으로 개선하세요.</p>
+          <div class="lang-ko"><h3>대화로 반복 개선하라 &mdash; 언제든 방향 수정</h3></div>
+          <div class="lang-en"><h3>Iterate through conversation &mdash; redirect anytime</h3></div>
+          <div class="lang-ko"><p>Claude Code는 챗봇이 아니라 에이전트입니다. 처음부터 완벽한 프롬프트를 짜려 하지 말고, 시작한 후 피드백으로 개선하세요.</p></div>
+          <div class="lang-en"><p>Claude Code is an agent, not a chatbot. Don't try to craft the perfect prompt from the start — begin and improve through feedback.</p></div>
 
           <div class="card-grid card-grid-2" style="margin-top: 20px;">
             <div class="card" style="padding: 24px;">
-              <h3 style="font-size: 15px; margin-bottom: 10px; color: var(--accent);">&#x23F9; Esc로 즉시 중단</h3>
-              <p style="font-size: 13px;">Claude가 잘못된 방향으로 가고 있다면 Esc를 눌러 즉시 멈추세요. 컨텍스트는 보존됩니다.</p>
+              <h3 style="font-size: 15px; margin-bottom: 10px; color: var(--accent);">&#x23F9; <span class="lang-ko">Esc로 즉시 중단</span><span class="lang-en">Instant stop with Esc</span></h3>
+              <div class="lang-ko"><p style="font-size: 13px;">Claude가 잘못된 방향으로 가고 있다면 Esc를 눌러 즉시 멈추세요. 컨텍스트는 보존됩니다.</p></div>
+              <div class="lang-en"><p style="font-size: 13px;">If Claude is heading in the wrong direction, press Esc to stop immediately. The context is preserved.</p></div>
             </div>
             <div class="card" style="padding: 24px;">
-              <h3 style="font-size: 15px; margin-bottom: 10px; color: var(--green);">&#x1F504; 방향 수정</h3>
-              <p style="font-size: 13px;">"정확하지 않아요. 문제는 세션 처리에 있습니다."처럼 피드백을 주면 됩니다. 처음부터 다시 시작할 필요 없습니다.</p>
+              <h3 style="font-size: 15px; margin-bottom: 10px; color: var(--green);">&#x1F504; <span class="lang-ko">방향 수정</span><span class="lang-en">Course correction</span></h3>
+              <div class="lang-ko"><p style="font-size: 13px;">"정확하지 않아요. 문제는 세션 처리에 있습니다."처럼 피드백을 주면 됩니다. 처음부터 다시 시작할 필요 없습니다.</p></div>
+              <div class="lang-en"><p style="font-size: 13px;">Just give feedback like "That's not right. The issue is in session handling." No need to start over from scratch.</p></div>
             </div>
           </div>
 
           <div class="tip" style="margin-top: 16px;">
             <span class="tip-icon">&#x1F3AF;</span>
             <div>
-              <strong>경험 법칙:</strong> 같은 문제에 Claude를 두 번 이상 수정했다면 컨텍스트가 실패한 접근 방식으로 오염된 것입니다. <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/clear</code>를 실행하고 배운 내용을 통합한 더 구체적인 프롬프트로 새로 시작하세요.
+              <div class="lang-ko"><strong>경험 법칙:</strong> 같은 문제에 Claude를 두 번 이상 수정했다면 컨텍스트가 실패한 접근 방식으로 오염된 것입니다. <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/clear</code>를 실행하고 배운 내용을 통합한 더 구체적인 프롬프트로 새로 시작하세요.</div>
+              <div class="lang-en"><strong>Rule of thumb:</strong> If you've corrected Claude twice on the same problem, the context is polluted with the failed approach. Run <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/clear</code> and start fresh with a more specific prompt that incorporates what you've learned.</div>
             </div>
           </div>
         </div>
@@ -1246,8 +1316,10 @@ validateCard 함수를 찾고,
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>복잡한 문제엔 ultrathink &mdash; 확장 사고 모드</h3>
-          <p>아키텍처 설계, 복잡한 버그, 트레이드오프 분석처럼 깊은 사고가 필요한 문제에는 프롬프트에 <strong style="color:var(--accent)">ultrathink</strong>를 포함하세요.</p>
+          <div class="lang-ko"><h3>복잡한 문제엔 ultrathink &mdash; 확장 사고 모드</h3></div>
+          <div class="lang-en"><h3>For complex problems, use ultrathink &mdash; extended thinking mode</h3></div>
+          <div class="lang-ko"><p>아키텍처 설계, 복잡한 버그, 트레이드오프 분석처럼 깊은 사고가 필요한 문제에는 프롬프트에 <strong style="color:var(--accent)">ultrathink</strong>를 포함하세요.</p></div>
+          <div class="lang-en"><p>For problems requiring deep thinking like architecture design, complex bugs, or trade-off analysis, include <strong style="color:var(--accent)">ultrathink</strong> in your prompt.</p></div>
 
           <div class="code-block">
             <div class="code-header">
@@ -1268,7 +1340,8 @@ validateCard 함수를 찾고,
           <div class="tip">
             <span class="tip-icon">&#x1F9E0;</span>
             <div>
-              <strong>언제 사용하나:</strong> ultrathink는 Claude의 확장 사고(extended thinking)를 활성화합니다. 단순한 작업에는 불필요하지만, 여러 트레이드오프를 고려해야 하거나 깊은 추론이 필요한 문제에서 결과 품질이 크게 향상됩니다.
+              <div class="lang-ko"><strong>언제 사용하나:</strong> ultrathink는 Claude의 확장 사고(extended thinking)를 활성화합니다. 단순한 작업에는 불필요하지만, 여러 트레이드오프를 고려해야 하거나 깊은 추론이 필요한 문제에서 결과 품질이 크게 향상됩니다.</div>
+              <div class="lang-en"><strong>When to use it:</strong> ultrathink activates Claude's extended thinking. Unnecessary for simple tasks, but significantly improves quality when multiple trade-offs need consideration or deep reasoning is required.</div>
             </div>
           </div>
         </div>
@@ -1281,8 +1354,10 @@ validateCard 함수를 찾고,
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>격리된 작업엔 Subagent &mdash; 컨텍스트 오염 방지</h3>
-          <p>컨텍스트가 기본 제약입니다. Subagent는 별도의 컨텍스트 창에서 실행되고 요약만 보고하므로, 주요 대화를 깨끗하게 유지합니다.</p>
+          <div class="lang-ko"><h3>격리된 작업엔 Subagent &mdash; 컨텍스트 오염 방지</h3></div>
+          <div class="lang-en"><h3>Use Subagent for isolated tasks &mdash; prevent context pollution</h3></div>
+          <div class="lang-ko"><p>컨텍스트가 기본 제약입니다. Subagent는 별도의 컨텍스트 창에서 실행되고 요약만 보고하므로, 주요 대화를 깨끗하게 유지합니다.</p></div>
+          <div class="lang-en"><p>Context is the fundamental constraint. Subagents run in a separate context window and report only a summary, keeping the main conversation clean.</p></div>
 
           <div class="code-block">
             <div class="code-header">
@@ -1314,26 +1389,37 @@ validateCard 함수를 찾고,
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>반복 컨텍스트는 CLAUDE.md로 &mdash; 한 번 쓰고 계속 활용</h3>
-          <p>매번 같은 규칙을 프롬프트에 넣고 있다면 CLAUDE.md에 옮기세요. Claude가 모든 대화 시작 시 자동으로 읽습니다.</p>
+          <div class="lang-ko"><h3>반복 컨텍스트는 CLAUDE.md로 &mdash; 한 번 쓰고 계속 활용</h3></div>
+          <div class="lang-en"><h3>Repetitive context goes in CLAUDE.md &mdash; write once, reuse forever</h3></div>
+          <div class="lang-ko"><p>매번 같은 규칙을 프롬프트에 넣고 있다면 CLAUDE.md에 옮기세요. Claude가 모든 대화 시작 시 자동으로 읽습니다.</p></div>
+          <div class="lang-en"><p>If you're putting the same rules in every prompt, move them to CLAUDE.md. Claude reads it automatically at the start of every conversation.</p></div>
 
           <div class="comparison">
             <div class="comp-bad">
-              <div class="comp-label">&#10060; 매번 반복</div>
-              <div class="comp-code">TypeScript any 타입 금지,
+              <div class="comp-label">&#10060; <span class="lang-ko">매번 반복</span><span class="lang-en">Repeated every time</span></div>
+              <div class="comp-code lang-ko">TypeScript any 타입 금지,
 ESLint 규칙 따르기,
 테스트는 Vitest 사용,
 함수마다 JSDoc 주석 필수...
 [매 대화마다 반복]</div>
+              <div class="comp-code lang-en">No TypeScript any type,
+Follow ESLint rules,
+Use Vitest for tests,
+JSDoc comments for every function...
+[repeated every conversation]</div>
             </div>
             <div class="comp-good">
-              <div class="comp-label">&#9989; CLAUDE.md에 한 번</div>
+              <div class="comp-label">&#9989; <span class="lang-ko">CLAUDE.md에 한 번</span><span class="lang-en">Once in CLAUDE.md</span></div>
               <div class="comp-code"># CLAUDE.md
-- TypeScript any 타입 금지
+<span class="lang-ko">- TypeScript any 타입 금지
 - ESLint 규칙 항상 따를 것
 - 테스트: Vitest 사용
 - 함수마다 JSDoc 주석 필수
-[자동으로 모든 세션에 적용]</div>
+[자동으로 모든 세션에 적용]</span><span class="lang-en">- No TypeScript any type
+- Always follow ESLint rules
+- Tests: use Vitest
+- JSDoc comments required for every function
+[Auto-applied to all sessions]</span></div>
             </div>
           </div>
         </div>
@@ -1349,15 +1435,20 @@ ESLint 규칙 따르기,
 <section id="plan-mode">
   <div class="container">
     <div class="section-number">03</div>
-    <h2 class="section-title">Plan Mode 4단계 워크플로우</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">Plan Mode 4단계 워크플로우</h2></div>
+    <div class="lang-en"><h2 class="section-title">Plan Mode 4-Step Workflow</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       Anthropic 공식 권장 워크플로우입니다. <strong style="color:var(--accent)">탐색 &rarr; 계획 &rarr; 구현 &rarr; 커밋</strong> 4단계로 복잡한 작업을 안전하게 처리합니다.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      Anthropic's officially recommended workflow. Safely handle complex tasks in 4 steps: <strong style="color:var(--accent)">Explore &rarr; Plan &rarr; Implement &rarr; Commit</strong>.
+    </p></div>
 
     <div class="tip">
       <span class="tip-icon">&#x2328;&#xFE0F;</span>
       <div>
-        <strong>Plan Mode 진입:</strong> <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">Shift + Tab</code>을 두 번 눌러 Plan Mode로 전환합니다. Plan Mode에서 Claude는 파일을 읽고 질문에 답하지만 변경을 수행하지 않습니다.
+        <div class="lang-ko"><strong>Plan Mode 진입:</strong> <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">Shift + Tab</code>을 두 번 눌러 Plan Mode로 전환합니다. Plan Mode에서 Claude는 파일을 읽고 질문에 답하지만 변경을 수행하지 않습니다.</div>
+        <div class="lang-en"><strong>Enter Plan Mode:</strong> Press <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">Shift + Tab</code> twice to switch to Plan Mode. In Plan Mode, Claude reads files and answers questions but does not make changes.</div>
       </div>
     </div>
 
@@ -1369,12 +1460,14 @@ ESLint 규칙 따르기,
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>탐색 (Plan Mode에서)</h3>
-          <p>Claude가 파일을 읽고 코드베이스를 이해합니다. 이 단계에서는 어떤 변경도 하지 않습니다.</p>
+          <div class="lang-ko"><h3>탐색 (Plan Mode에서)</h3></div>
+          <div class="lang-en"><h3>Explore (in Plan Mode)</h3></div>
+          <div class="lang-ko"><p>Claude가 파일을 읽고 코드베이스를 이해합니다. 이 단계에서는 어떤 변경도 하지 않습니다.</p></div>
+          <div class="lang-en"><p>Claude reads files and understands the codebase. No changes are made at this stage.</p></div>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>탐색 프롬프트 예시 (Plan Mode)</span>
+              <span class="lang-ko">탐색 프롬프트 예시 (Plan Mode)</span><span class="lang-en">Explore prompt example (Plan Mode)</span>
             </div>
             <div class="code-body"><span class="string">src/auth/를 읽고 세션 및 로그인을
 어떻게 처리하는지 이해하세요.
@@ -1390,12 +1483,14 @@ ESLint 규칙 따르기,
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>계획 (Plan Mode에서)</h3>
-          <p>탐색을 바탕으로 상세한 구현 계획을 작성합니다. <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">Ctrl+G</code>를 눌러 계획을 텍스트 편집기에서 직접 편집할 수도 있습니다.</p>
+          <div class="lang-ko"><h3>계획 (Plan Mode에서)</h3></div>
+          <div class="lang-en"><h3>Plan (in Plan Mode)</h3></div>
+          <div class="lang-ko"><p>탐색을 바탕으로 상세한 구현 계획을 작성합니다. <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">Ctrl+G</code>를 눌러 계획을 텍스트 편집기에서 직접 편집할 수도 있습니다.</p></div>
+          <div class="lang-en"><p>Write a detailed implementation plan based on exploration. You can also press <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">Ctrl+G</code> to edit the plan directly in a text editor.</p></div>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>계획 요청 예시 (Plan Mode)</span>
+              <span class="lang-ko">계획 요청 예시 (Plan Mode)</span><span class="lang-en">Plan request example (Plan Mode)</span>
             </div>
             <div class="code-body"><span class="string">Google OAuth를 추가하고 싶습니다.
 어떤 파일을 변경해야 합니까?
@@ -1411,12 +1506,14 @@ ESLint 규칙 따르기,
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>구현 (Normal Mode로 전환)</h3>
-          <p>계획을 검토하고 승인한 후 Normal Mode로 다시 전환합니다. Claude가 계획에 따라 코드를 작성하고 테스트를 실행합니다.</p>
+          <div class="lang-ko"><h3>구현 (Normal Mode로 전환)</h3></div>
+          <div class="lang-en"><h3>Implement (switch to Normal Mode)</h3></div>
+          <div class="lang-ko"><p>계획을 검토하고 승인한 후 Normal Mode로 다시 전환합니다. Claude가 계획에 따라 코드를 작성하고 테스트를 실행합니다.</p></div>
+          <div class="lang-en"><p>Review and approve the plan, then switch back to Normal Mode. Claude writes code and runs tests according to the plan.</p></div>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>구현 요청 예시 (Normal Mode)</span>
+              <span class="lang-ko">구현 요청 예시 (Normal Mode)</span><span class="lang-en">Implementation request example (Normal Mode)</span>
             </div>
             <div class="code-body"><span class="string">계획에서 OAuth 흐름을 구현해주세요.
 콜백 핸들러에 대한 테스트를 작성하고,
@@ -1432,12 +1529,14 @@ ESLint 규칙 따르기,
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>커밋</h3>
-          <p>구현이 완료되면 Claude에게 설명적인 메시지로 커밋하고 PR을 생성하도록 요청합니다.</p>
+          <div class="lang-ko"><h3>커밋</h3></div>
+          <div class="lang-en"><h3>Commit</h3></div>
+          <div class="lang-ko"><p>구현이 완료되면 Claude에게 설명적인 메시지로 커밋하고 PR을 생성하도록 요청합니다.</p></div>
+          <div class="lang-en"><p>Once implementation is complete, ask Claude to commit with a descriptive message and create a PR.</p></div>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>커밋 요청</span>
+              <span class="lang-ko">커밋 요청</span><span class="lang-en">Commit request</span>
             </div>
             <div class="code-body"><span class="string">설명적인 메시지로 커밋하고
 PR을 열어주세요.</span></div>
@@ -1449,29 +1548,42 @@ PR을 열어주세요.</span></div>
 
     <div class="comparison" style="margin-top: 48px;">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 바로 실행</div>
-        <div class="comp-code">"결제 로직 리팩토링해줘"
+        <div class="comp-label">&#10060; <span class="lang-ko">바로 실행</span><span class="lang-en">Execute immediately</span></div>
+        <div class="comp-code lang-ko">"결제 로직 리팩토링해줘"
 
 &rarr; Claude가 바로 코드 수정 시작
 &rarr; 의도와 다른 방향으로 갈 수 있음
 &rarr; 되돌리기 어려움
 &rarr; 큰 변경에서 실수 확률 높음</div>
+        <div class="comp-code lang-en">"Refactor the payment logic"
+
+&rarr; Claude starts modifying code immediately
+&rarr; May go in unintended direction
+&rarr; Hard to undo
+&rarr; High chance of mistakes in large changes</div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; Plan Mode 활용</div>
-        <div class="comp-code">"결제 로직 리팩토링 계획 세워줘"
+        <div class="comp-label">&#9989; <span class="lang-ko">Plan Mode 활용</span><span class="lang-en">Using Plan Mode</span></div>
+        <div class="comp-code lang-ko">"결제 로직 리팩토링 계획 세워줘"
 
 &rarr; 변경 계획을 먼저 확인
 &rarr; 방향 수정 가능
 &rarr; 확인 후 실행 &rarr; 안전
 &rarr; 복잡한 작업도 체계적으로</div>
+        <div class="comp-code lang-en">"Make a plan to refactor the payment logic"
+
+&rarr; Review the change plan first
+&rarr; Can adjust direction
+&rarr; Execute after review &rarr; safe
+&rarr; Even complex work handled systematically</div>
       </div>
     </div>
 
     <div class="tip">
       <span class="tip-icon">&#x1F3AF;</span>
       <div>
-        <strong>언제 Plan Mode를 쓰나:</strong> 접근 방식이 불확실할 때, 변경이 여러 파일을 수정할 때, 또는 수정 중인 코드에 익숙하지 않을 때 가장 유용합니다. diff를 한 문장으로 설명할 수 있다면 계획을 건너뛰어도 됩니다.
+        <div class="lang-ko"><strong>언제 Plan Mode를 쓰나:</strong> 접근 방식이 불확실할 때, 변경이 여러 파일을 수정할 때, 또는 수정 중인 코드에 익숙하지 않을 때 가장 유용합니다. diff를 한 문장으로 설명할 수 있다면 계획을 건너뛰어도 됩니다.</div>
+        <div class="lang-en"><strong>When to use Plan Mode:</strong> Most useful when the approach is uncertain, when changes affect multiple files, or when you're unfamiliar with the code being modified. If you can describe the diff in one sentence, you can skip planning.</div>
       </div>
     </div>
   </div>
@@ -1483,15 +1595,19 @@ PR을 열어주세요.</span></div>
 <section id="mentions">
   <div class="container">
     <div class="section-number">04</div>
-    <h2 class="section-title">@ 멘션과 파일 참조</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">@ 멘션과 파일 참조</h2></div>
+    <div class="lang-en"><h2 class="section-title">@ Mentions and File References</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       Claude에게 정확한 파일을 가리켜주면, <strong style="color:var(--accent)">컨텍스트 정확도</strong>가 극적으로 올라갑니다.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      Pointing Claude to the exact files dramatically increases <strong style="color:var(--accent)">context accuracy</strong>.
+    </p></div>
 
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>@ 멘션 기본 사용법</span>
+        <span class="lang-ko">@ 멘션 기본 사용법</span><span class="lang-en">@ mention basic usage</span>
       </div>
       <div class="code-body"><span class="comment"># 특정 파일 참조</span>
 <span class="keyword">@src/components/Button.tsx</span> <span class="string">이 컴포넌트에 loading 상태를 추가해줘</span>
@@ -1508,20 +1624,24 @@ PR을 열어주세요.</span></div>
     <div class="card-grid card-grid-2" style="margin-top: 32px;">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F4C4;</div>
-        <h3>파일 참조 @파일경로</h3>
-        <p>특정 파일을 Claude의 컨텍스트에 직접 로드합니다. Claude가 해당 파일의 전체 내용을 읽고 이해한 상태에서 작업합니다. 정확한 수정이 필요할 때 필수입니다.</p>
+        <div class="lang-ko"><h3>파일 참조 @파일경로</h3></div>
+        <div class="lang-en"><h3>File reference @filepath</h3></div>
+        <div class="lang-ko"><p>특정 파일을 Claude의 컨텍스트에 직접 로드합니다. Claude가 해당 파일의 전체 내용을 읽고 이해한 상태에서 작업합니다. 정확한 수정이 필요할 때 필수입니다.</p></div>
+        <div class="lang-en"><p>Directly loads a specific file into Claude's context. Claude works with a full understanding of that file's content. Essential when precise modifications are needed.</p></div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F4C2;</div>
-        <h3>폴더 참조 @폴더/</h3>
-        <p>폴더 내의 파일 구조를 Claude에게 보여줍니다. 전체적인 구조를 파악하거나, 여러 파일에 걸친 패턴을 찾을 때 유용합니다.</p>
+        <div class="lang-ko"><h3>폴더 참조 @폴더/</h3></div>
+        <div class="lang-en"><h3>Folder reference @folder/</h3></div>
+        <div class="lang-ko"><p>폴더 내의 파일 구조를 Claude에게 보여줍니다. 전체적인 구조를 파악하거나, 여러 파일에 걸친 패턴을 찾을 때 유용합니다.</p></div>
+        <div class="lang-en"><p>Shows Claude the file structure inside a folder. Useful for understanding the overall structure or finding patterns across multiple files.</p></div>
       </div>
     </div>
 
     <div class="code-block" style="margin-top: 32px;">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>실전 활용 패턴</span>
+        <span class="lang-ko">실전 활용 패턴</span><span class="lang-en">Real-world patterns</span>
       </div>
       <div class="code-body"><span class="comment"># 패턴 1: 기존 파일 스타일에 맞추기</span>
 <span class="keyword">@src/api/users.ts</span> <span class="string">이 파일의 패턴을 따라서</span>
@@ -1543,7 +1663,8 @@ PR을 열어주세요.</span></div>
     <div class="tip">
       <span class="tip-icon">&#x1F3AF;</span>
       <div>
-        <strong>핵심 원칙:</strong> Claude가 "알아서 찾겠지"라고 기대하지 마세요. 관련 파일을 @ 멘션으로 직접 지정해주면 정확도가 크게 올라갑니다. 특히 프로젝트가 클수록 @ 멘션의 효과가 큽니다.
+        <div class="lang-ko"><strong>핵심 원칙:</strong> Claude가 "알아서 찾겠지"라고 기대하지 마세요. 관련 파일을 @ 멘션으로 직접 지정해주면 정확도가 크게 올라갑니다. 특히 프로젝트가 클수록 @ 멘션의 효과가 큽니다.</div>
+        <div class="lang-en"><strong>Key principle:</strong> Don't expect Claude to "figure it out." Specifying relevant files directly with @ mention dramatically improves accuracy. Especially in large projects, the effect of @ mentions is significant.</div>
       </div>
     </div>
   </div>
@@ -1555,12 +1676,17 @@ PR을 열어주세요.</span></div>
 <section id="context">
   <div class="container">
     <div class="section-number">05</div>
-    <h2 class="section-title">컨텍스트 윈도우 관리</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">컨텍스트 윈도우 관리</h2></div>
+    <div class="lang-en"><h2 class="section-title">Context Window Management</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       Claude의 기억력에는 한계가 있습니다. <strong style="color:var(--accent)">/compact</strong>와 <strong style="color:var(--accent)">/clear</strong>로 효율적으로 관리하세요.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      Claude's memory has limits. Manage it efficiently with <strong style="color:var(--accent)">/compact</strong> and <strong style="color:var(--accent)">/clear</strong>.
+    </p></div>
 
     <div class="analogy-box">
+      <div class="lang-ko">
       <h4>책상 위 공간에 비유하면</h4>
       <p>
         Claude의 컨텍스트 윈도우는 <strong style="color:var(--text)">책상 위 공간</strong>과 같습니다.<br><br>
@@ -1568,68 +1694,87 @@ PR을 열어주세요.</span></div>
         <strong style="color:var(--accent)">/compact</strong> = 서류를 정리해서 <strong style="color:var(--text)">핵심 내용만 요약 메모</strong>로 바꾸기. 공간은 확보되고, 중요한 맥락은 유지됩니다.<br>
         <strong style="color:var(--accent)">/clear</strong> = 책상을 <strong style="color:var(--text)">완전히 치우기</strong>. 깨끗한 상태에서 새 작업을 시작합니다.
       </p>
+      </div>
+      <div class="lang-en">
+      <h4>Like desk space</h4>
+      <p>
+        Claude's context window is like <strong style="color:var(--text)">desk space</strong>.<br><br>
+        As the conversation grows, papers pile up on the desk. The space that was once wide gets narrower, and old papers get pushed aside when new ones arrive.<br><br>
+        <strong style="color:var(--accent)">/compact</strong> = Organize the papers into <strong style="color:var(--text)">a summary note with just the key points</strong>. Space is freed, important context is preserved.<br>
+        <strong style="color:var(--accent)">/clear</strong> = <strong style="color:var(--text)">Clear the desk completely</strong>. Start fresh for a new task.
+      </p>
+      </div>
     </div>
 
     <div class="decision-tree">
-      <div class="dt-question">&#x1F914; 대화가 느려졌다면?</div>
+      <div class="dt-question"><span class="lang-ko">&#x1F914; 대화가 느려졌다면?</span><span class="lang-en">&#x1F914; If the conversation is slowing down?</span></div>
       <div class="dt-branches">
         <div class="dt-branch dt-yes">
-          <div class="dt-label">&#9989; /compact 사용</div>
-          <p>
+          <div class="dt-label">&#9989; /compact <span class="lang-ko">사용</span><span class="lang-en">use</span></div>
+          <div class="lang-ko"><p>
             같은 주제를 계속 작업 중이라면 <strong>/compact</strong>를 사용하세요.<br>
             대화 내용을 요약하여 컨텍스트를 압축합니다. 이전 맥락을 유지하면서 공간을 확보합니다.
-          </p>
+          </p></div>
+          <div class="lang-en"><p>
+            If you're still working on the same topic, use <strong>/compact</strong>.<br>
+            Summarizes the conversation to compress context. Frees space while preserving previous context.
+          </p></div>
         </div>
         <div class="dt-branch dt-no">
-          <div class="dt-label">&#x1F504; /clear 사용</div>
-          <p>
+          <div class="dt-label">&#x1F504; /clear <span class="lang-ko">사용</span><span class="lang-en">use</span></div>
+          <div class="lang-ko"><p>
             완전히 다른 주제로 전환한다면 <strong>/clear</strong>를 사용하세요.<br>
             이전 대화를 모두 지우고 깨끗한 상태에서 시작합니다. 이전 맥락이 오히려 방해가 될 때 유용합니다.
-          </p>
+          </p></div>
+          <div class="lang-en"><p>
+            If switching to a completely different topic, use <strong>/clear</strong>.<br>
+            Clears all previous conversation and starts fresh. Useful when previous context is actually a hindrance.
+          </p></div>
         </div>
       </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;">상황별 추천 커맨드</h3>
+    <div class="lang-ko"><h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;">상황별 추천 커맨드</h3></div>
+    <div class="lang-en"><h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;">Recommended Commands by Situation</h3></div>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th style="width: 200px;">상황</th>
-          <th style="width: 120px;">커맨드</th>
-          <th>설명</th>
+          <th style="width: 200px;"><span class="lang-ko">상황</span><span class="lang-en">Situation</span></th>
+          <th style="width: 120px;"><span class="lang-ko">커맨드</span><span class="lang-en">Command</span></th>
+          <th><span class="lang-ko">설명</span><span class="lang-en">Description</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td style="color: var(--text-dim);">대화가 길어져서 느려짐</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">대화가 길어져서 느려짐</span><span class="lang-en">Conversation is long and slow</span></td>
           <td class="skill-name-cell">/compact</td>
-          <td style="color: var(--text-dim);">대화를 요약하여 컨텍스트 공간 확보</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">대화를 요약하여 컨텍스트 공간 확보</span><span class="lang-en">Summarize conversation to free context space</span></td>
         </tr>
         <tr>
-          <td style="color: var(--text-dim);">완전히 다른 작업 시작</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">완전히 다른 작업 시작</span><span class="lang-en">Starting a completely different task</span></td>
           <td class="skill-name-cell">/clear</td>
-          <td style="color: var(--text-dim);">이전 맥락을 지우고 깨끗하게 시작</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">이전 맥락을 지우고 깨끗하게 시작</span><span class="lang-en">Clear previous context and start fresh</span></td>
         </tr>
         <tr>
-          <td style="color: var(--text-dim);">Claude가 이상한 답을 함</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">Claude가 이상한 답을 함</span><span class="lang-en">Claude is giving strange answers</span></td>
           <td class="skill-name-cell">/clear</td>
-          <td style="color: var(--text-dim);">오염된 컨텍스트를 리셋</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">오염된 컨텍스트를 리셋</span><span class="lang-en">Reset polluted context</span></td>
         </tr>
         <tr>
-          <td style="color: var(--text-dim);">대규모 코드 리뷰 중</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">대규모 코드 리뷰 중</span><span class="lang-en">During a large code review</span></td>
           <td class="skill-name-cell">/compact</td>
-          <td style="color: var(--text-dim);">리뷰 진행 상황을 유지하면서 공간 확보</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">리뷰 진행 상황을 유지하면서 공간 확보</span><span class="lang-en">Free space while preserving review progress</span></td>
         </tr>
         <tr>
-          <td style="color: var(--text-dim);">토큰 한도에 도달</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">토큰 한도에 도달</span><span class="lang-en">Reached token limit</span></td>
           <td class="skill-name-cell">/compact</td>
-          <td style="color: var(--text-dim);">자동으로 요약이 실행되지만, 수동으로 하면 더 정확</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">자동으로 요약이 실행되지만, 수동으로 하면 더 정확</span><span class="lang-en">Summary runs automatically, but manually is more accurate</span></td>
         </tr>
         <tr>
-          <td style="color: var(--text-dim);">민감한 정보를 입력함</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">민감한 정보를 입력함</span><span class="lang-en">Sensitive information was entered</span></td>
           <td class="skill-name-cell">/clear</td>
-          <td style="color: var(--text-dim);">컨텍스트에서 완전히 제거</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">컨텍스트에서 완전히 제거</span><span class="lang-en">Remove completely from context</span></td>
         </tr>
       </tbody>
     </table>
@@ -1637,7 +1782,8 @@ PR을 열어주세요.</span></div>
     <div class="tip">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>프로 팁:</strong> /compact에 커스텀 지시를 추가할 수 있습니다. <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/compact 현재 작업 중인 결제 모듈 관련 맥락은 반드시 유지해줘</code>처럼 쓰면, 중요한 맥락을 더 잘 보존합니다.
+        <div class="lang-ko"><strong>프로 팁:</strong> /compact에 커스텀 지시를 추가할 수 있습니다. <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/compact 현재 작업 중인 결제 모듈 관련 맥락은 반드시 유지해줘</code>처럼 쓰면, 중요한 맥락을 더 잘 보존합니다.</div>
+        <div class="lang-en"><strong>Pro tip:</strong> You can add custom instructions to /compact. Writing something like <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/compact make sure to keep context related to the payment module I'm working on</code> better preserves important context.</div>
       </div>
     </div>
   </div>
@@ -1649,19 +1795,24 @@ PR을 열어주세요.</span></div>
 <section id="recipes">
   <div class="container">
     <div class="section-number">06</div>
-    <h2 class="section-title">프롬프트 레시피 모음</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">프롬프트 레시피 모음</h2></div>
+    <div class="lang-en"><h2 class="section-title">Prompt Recipe Collection</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       바로 복사해서 쓸 수 있는 <strong style="color:var(--accent)">실전 프롬프트 템플릿</strong>입니다. 상황에 맞게 수정해서 사용하세요.
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      <strong style="color:var(--accent)">Ready-to-use prompt templates</strong> you can copy immediately. Modify them to fit your situation.
+    </p></div>
 
     <!-- Recipe 1 -->
     <div class="recipe-card">
       <div class="recipe-header">
         <span class="recipe-num">#1</span>
-        <h4>코드 리뷰 요청</h4>
+        <div class="lang-ko"><h4>코드 리뷰 요청</h4></div>
+        <div class="lang-en"><h4>Code Review Request</h4></div>
       </div>
       <div class="recipe-body">
-        <div class="recipe-situation"><strong>상황:</strong> 작성한 코드의 품질을 점검받고 싶을 때</div>
+        <div class="recipe-situation"><span class="lang-ko"><strong>상황:</strong> 작성한 코드의 품질을 점검받고 싶을 때</span><span class="lang-en"><strong>Situation:</strong> When you want to get quality feedback on code you wrote</span></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1677,7 +1828,7 @@ PR을 열어주세요.</span></div>
 
 <span class="comment">각 항목별로 구체적인 라인 번호와 개선 코드를 포함해줘.</span></div>
         </div>
-        <div class="recipe-why"><strong>왜 효과적인가:</strong> 리뷰 관점을 명시해서 Claude가 체계적으로 검토합니다. "코드 리뷰해줘"만 하면 피상적인 피드백만 나옵니다.</div>
+        <div class="recipe-why"><span class="lang-ko"><strong>왜 효과적인가:</strong> 리뷰 관점을 명시해서 Claude가 체계적으로 검토합니다. "코드 리뷰해줘"만 하면 피상적인 피드백만 나옵니다.</span><span class="lang-en"><strong>Why it works:</strong> Specifying review perspectives makes Claude review systematically. Just saying "review my code" only produces superficial feedback.</span></div>
       </div>
     </div>
 
@@ -1685,10 +1836,11 @@ PR을 열어주세요.</span></div>
     <div class="recipe-card">
       <div class="recipe-header">
         <span class="recipe-num">#2</span>
-        <h4>버그 수정</h4>
+        <div class="lang-ko"><h4>버그 수정</h4></div>
+        <div class="lang-en"><h4>Bug Fix</h4></div>
       </div>
       <div class="recipe-body">
-        <div class="recipe-situation"><strong>상황:</strong> 특정 조건에서 발생하는 버그를 고쳐야 할 때</div>
+        <div class="recipe-situation"><span class="lang-ko"><strong>상황:</strong> 특정 조건에서 발생하는 버그를 고쳐야 할 때</span><span class="lang-en"><strong>Situation:</strong> When you need to fix a bug that occurs under specific conditions</span></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1709,7 +1861,7 @@ PR을 열어주세요.</span></div>
 
 <span class="comment">수정하되, 기존 테스트가 깨지지 않게 해줘.</span></div>
         </div>
-        <div class="recipe-why"><strong>왜 효과적인가:</strong> 버그 설명, 재현 경로, 예상 동작, 관련 파일을 모두 제공해서 Claude가 정확한 위치에서 정확한 수정을 할 수 있습니다.</div>
+        <div class="recipe-why"><span class="lang-ko"><strong>왜 효과적인가:</strong> 버그 설명, 재현 경로, 예상 동작, 관련 파일을 모두 제공해서 Claude가 정확한 위치에서 정확한 수정을 할 수 있습니다.</span><span class="lang-en"><strong>Why it works:</strong> Providing bug description, reproduction path, expected behavior, and related files allows Claude to make precise fixes at the exact location.</span></div>
       </div>
     </div>
 
@@ -1717,10 +1869,11 @@ PR을 열어주세요.</span></div>
     <div class="recipe-card">
       <div class="recipe-header">
         <span class="recipe-num">#3</span>
-        <h4>리팩토링</h4>
+        <div class="lang-ko"><h4>리팩토링</h4></div>
+        <div class="lang-en"><h4>Refactoring</h4></div>
       </div>
       <div class="recipe-body">
-        <div class="recipe-situation"><strong>상황:</strong> 복잡해진 코드를 깔끔하게 정리하고 싶을 때</div>
+        <div class="recipe-situation"><span class="lang-ko"><strong>상황:</strong> 복잡해진 코드를 깔끔하게 정리하고 싶을 때</span><span class="lang-en"><strong>Situation:</strong> When you want to clean up code that has become complex</span></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1740,7 +1893,7 @@ PR을 열어주세요.</span></div>
 <span class="comment">- 외부 API 인터페이스는 변경하지 마 (컨트롤러의 라우트 시그니처 유지)</span>
 <span class="comment">- 먼저 계획을 보여주고, 승인 후 진행해줘</span></div>
         </div>
-        <div class="recipe-why"><strong>왜 효과적인가:</strong> 현재 문제, 리팩토링 목표, 제약 조건을 명확히 제시합니다. 특히 "외부 인터페이스 유지"와 "계획 먼저" 조건이 안전한 리팩토링을 보장합니다.</div>
+        <div class="recipe-why"><span class="lang-ko"><strong>왜 효과적인가:</strong> 현재 문제, 리팩토링 목표, 제약 조건을 명확히 제시합니다. 특히 "외부 인터페이스 유지"와 "계획 먼저" 조건이 안전한 리팩토링을 보장합니다.</span><span class="lang-en"><strong>Why it works:</strong> Clearly presents current problem, refactoring goals, and constraints. Especially the "keep external interface" and "plan first" conditions ensure safe refactoring.</span></div>
       </div>
     </div>
 
@@ -1748,10 +1901,11 @@ PR을 열어주세요.</span></div>
     <div class="recipe-card">
       <div class="recipe-header">
         <span class="recipe-num">#4</span>
-        <h4>테스트 작성</h4>
+        <div class="lang-ko"><h4>테스트 작성</h4></div>
+        <div class="lang-en"><h4>Writing Tests</h4></div>
       </div>
       <div class="recipe-body">
-        <div class="recipe-situation"><strong>상황:</strong> 기존 코드에 대한 테스트를 추가하고 싶을 때</div>
+        <div class="recipe-situation"><span class="lang-ko"><strong>상황:</strong> 기존 코드에 대한 테스트를 추가하고 싶을 때</span><span class="lang-en"><strong>Situation:</strong> When you want to add tests for existing code</span></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1774,7 +1928,7 @@ PR을 열어주세요.</span></div>
 <span class="comment">- 테스트 이름은 한국어로</span>
 <span class="comment">- AAA 패턴 (Arrange-Act-Assert)</span></div>
         </div>
-        <div class="recipe-why"><strong>왜 효과적인가:</strong> 테스트 프레임워크, 파일 위치, 케이스 목록, 코딩 스타일까지 지정해서 바로 실행 가능한 테스트가 나옵니다.</div>
+        <div class="recipe-why"><span class="lang-ko"><strong>왜 효과적인가:</strong> 테스트 프레임워크, 파일 위치, 케이스 목록, 코딩 스타일까지 지정해서 바로 실행 가능한 테스트가 나옵니다.</span><span class="lang-en"><strong>Why it works:</strong> Specifying the test framework, file location, case list, and coding style produces immediately runnable tests.</span></div>
       </div>
     </div>
 
@@ -1782,10 +1936,11 @@ PR을 열어주세요.</span></div>
     <div class="recipe-card">
       <div class="recipe-header">
         <span class="recipe-num">#5</span>
-        <h4>문서화</h4>
+        <div class="lang-ko"><h4>문서화</h4></div>
+        <div class="lang-en"><h4>Documentation</h4></div>
       </div>
       <div class="recipe-body">
-        <div class="recipe-situation"><strong>상황:</strong> 코드에 대한 문서를 작성하거나, 주석을 추가하고 싶을 때</div>
+        <div class="recipe-situation"><span class="lang-ko"><strong>상황:</strong> 코드에 대한 문서를 작성하거나, 주석을 추가하고 싶을 때</span><span class="lang-en"><strong>Situation:</strong> When you want to write documentation for code or add comments</span></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1803,7 +1958,7 @@ PR을 열어주세요.</span></div>
 <span class="comment">- 각 라우트 핸들러에 JSDoc 주석도 추가해줘</span>
 <span class="comment">- 파라미터 타입과 반환 타입을 명시</span></div>
         </div>
-        <div class="recipe-why"><strong>왜 효과적인가:</strong> 문서화의 범위, 포맷, 추가 작업을 구체적으로 지정해서 일관된 품질의 문서가 생성됩니다.</div>
+        <div class="recipe-why"><span class="lang-ko"><strong>왜 효과적인가:</strong> 문서화의 범위, 포맷, 추가 작업을 구체적으로 지정해서 일관된 품질의 문서가 생성됩니다.</span><span class="lang-en"><strong>Why it works:</strong> Specifying the scope, format, and additional tasks for documentation produces consistently high-quality docs.</span></div>
       </div>
     </div>
 
@@ -1811,10 +1966,11 @@ PR을 열어주세요.</span></div>
     <div class="recipe-card">
       <div class="recipe-header">
         <span class="recipe-num">#6</span>
-        <h4>API 엔드포인트 추가</h4>
+        <div class="lang-ko"><h4>API 엔드포인트 추가</h4></div>
+        <div class="lang-en"><h4>Adding API Endpoints</h4></div>
       </div>
       <div class="recipe-body">
-        <div class="recipe-situation"><strong>상황:</strong> 기존 API에 새로운 엔드포인트를 추가하고 싶을 때</div>
+        <div class="recipe-situation"><span class="lang-ko"><strong>상황:</strong> 기존 API에 새로운 엔드포인트를 추가하고 싶을 때</span><span class="lang-en"><strong>Situation:</strong> When you want to add new endpoints to an existing API</span></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1836,7 +1992,7 @@ PR을 열어주세요.</span></div>
 <span class="comment">- 관리자 권한 미들웨어 적용</span>
 <span class="comment">- 각 엔드포인트 테스트 코드</span></div>
         </div>
-        <div class="recipe-why"><strong>왜 효과적인가:</strong> 기존 패턴 참조(@), 엔드포인트 명세, 포함 사항을 명시해서 일관된 코드가 생성됩니다.</div>
+        <div class="recipe-why"><span class="lang-ko"><strong>왜 효과적인가:</strong> 기존 패턴 참조(@), 엔드포인트 명세, 포함 사항을 명시해서 일관된 코드가 생성됩니다.</span><span class="lang-en"><strong>Why it works:</strong> Referencing existing patterns (@), specifying endpoint specs and requirements produces consistent code.</span></div>
       </div>
     </div>
 
@@ -1844,10 +2000,11 @@ PR을 열어주세요.</span></div>
     <div class="recipe-card">
       <div class="recipe-header">
         <span class="recipe-num">#7</span>
-        <h4>성능 최적화</h4>
+        <div class="lang-ko"><h4>성능 최적화</h4></div>
+        <div class="lang-en"><h4>Performance Optimization</h4></div>
       </div>
       <div class="recipe-body">
-        <div class="recipe-situation"><strong>상황:</strong> 앱이 느려져서 성능을 개선하고 싶을 때</div>
+        <div class="recipe-situation"><span class="lang-ko"><strong>상황:</strong> 앱이 느려져서 성능을 개선하고 싶을 때</span><span class="lang-en"><strong>Situation:</strong> When the app is slow and you want to improve performance</span></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1870,7 +2027,7 @@ PR을 열어주세요.</span></div>
 <span class="comment">- 60fps 스크롤</span>
 <span class="comment">- React.memo, useMemo, useCallback 적절히 활용</span></div>
         </div>
-        <div class="recipe-why"><strong>왜 효과적인가:</strong> 증상, 데이터 규모, 분석 관점, 개선 목표를 구체적으로 제시해서 실질적인 최적화를 받을 수 있습니다.</div>
+        <div class="recipe-why"><span class="lang-ko"><strong>왜 효과적인가:</strong> 증상, 데이터 규모, 분석 관점, 개선 목표를 구체적으로 제시해서 실질적인 최적화를 받을 수 있습니다.</span><span class="lang-en"><strong>Why it works:</strong> Presenting specific symptoms, data scale, analysis angles, and improvement goals gets you practical optimization.</span></div>
       </div>
     </div>
 
@@ -1878,10 +2035,11 @@ PR을 열어주세요.</span></div>
     <div class="recipe-card">
       <div class="recipe-header">
         <span class="recipe-num">#8</span>
-        <h4>마이그레이션</h4>
+        <div class="lang-ko"><h4>마이그레이션</h4></div>
+        <div class="lang-en"><h4>Migration</h4></div>
       </div>
       <div class="recipe-body">
-        <div class="recipe-situation"><strong>상황:</strong> 기존 코드를 새로운 버전/프레임워크로 전환해야 할 때</div>
+        <div class="recipe-situation"><span class="lang-ko"><strong>상황:</strong> 기존 코드를 새로운 버전/프레임워크로 전환해야 할 때</span><span class="lang-en"><strong>Situation:</strong> When you need to migrate existing code to a new version/framework</span></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1904,7 +2062,7 @@ PR을 열어주세요.</span></div>
 <span class="comment">- 한 번에 전체를 바꾸지 말고 점진적으로</span>
 <span class="comment">- 각 단계에서 앱이 동작 가능한 상태를 유지</span></div>
         </div>
-        <div class="recipe-why"><strong>왜 효과적인가:</strong> 마이그레이션 대상, 현재 상태, 작업 순서, 점진적 접근 제약을 명시해서 안전한 마이그레이션이 가능합니다.</div>
+        <div class="recipe-why"><span class="lang-ko"><strong>왜 효과적인가:</strong> 마이그레이션 대상, 현재 상태, 작업 순서, 점진적 접근 제약을 명시해서 안전한 마이그레이션이 가능합니다.</span><span class="lang-en"><strong>Why it works:</strong> Specifying migration target, current state, task order, and incremental approach constraints enables safe migration.</span></div>
       </div>
     </div>
 
@@ -1912,10 +2070,11 @@ PR을 열어주세요.</span></div>
     <div class="recipe-card">
       <div class="recipe-header">
         <span class="recipe-num">#9</span>
-        <h4>새 프로젝트 초기 설정</h4>
+        <div class="lang-ko"><h4>새 프로젝트 초기 설정</h4></div>
+        <div class="lang-en"><h4>New Project Initial Setup</h4></div>
       </div>
       <div class="recipe-body">
-        <div class="recipe-situation"><strong>상황:</strong> 새 프로젝트를 처음부터 세팅하고 싶을 때</div>
+        <div class="recipe-situation"><span class="lang-ko"><strong>상황:</strong> 새 프로젝트를 처음부터 세팅하고 싶을 때</span><span class="lang-en"><strong>Situation:</strong> When you want to set up a new project from scratch</span></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1943,7 +2102,7 @@ PR을 열어주세요.</span></div>
 <span class="keyword">먼저 폴더 구조와 설정 파일만 만들어줘.</span>
 <span class="keyword">실제 기능 코드는 아직 작성하지 마.</span></div>
         </div>
-        <div class="recipe-why"><strong>왜 효과적인가:</strong> 기술 스택, 프로젝트 구조, 개발 환경 설정까지 한 번에 명시하고, "설정만 먼저"라는 제약으로 단계적 진행을 유도합니다.</div>
+        <div class="recipe-why"><span class="lang-ko"><strong>왜 효과적인가:</strong> 기술 스택, 프로젝트 구조, 개발 환경 설정까지 한 번에 명시하고, "설정만 먼저"라는 제약으로 단계적 진행을 유도합니다.</span><span class="lang-en"><strong>Why it works:</strong> Specifying tech stack, project structure, and dev environment setup all at once, with "setup only first" constraint guiding stepwise progress.</span></div>
       </div>
     </div>
 
@@ -1951,10 +2110,11 @@ PR을 열어주세요.</span></div>
     <div class="recipe-card">
       <div class="recipe-header">
         <span class="recipe-num">#10</span>
-        <h4>디버깅 도움 요청</h4>
+        <div class="lang-ko"><h4>디버깅 도움 요청</h4></div>
+        <div class="lang-en"><h4>Debugging Help Request</h4></div>
       </div>
       <div class="recipe-body">
-        <div class="recipe-situation"><strong>상황:</strong> 에러의 원인을 모르겠고, 도움이 필요할 때</div>
+        <div class="recipe-situation"><span class="lang-ko"><strong>상황:</strong> 에러의 원인을 모르겠고, 도움이 필요할 때</span><span class="lang-en"><strong>Situation:</strong> When you don't know the cause of an error and need help</span></div>
         <div class="code-block" style="margin: 0;">
           <div class="code-header">
             <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1979,7 +2139,7 @@ PR을 열어주세요.</span></div>
 <span class="comment">근본 원인을 찾아서 올바른 방법으로 수정해줘.</span>
 <span class="comment">옵셔널 체이닝으로 에러만 숨기는 건 원하지 않아.</span></div>
         </div>
-        <div class="recipe-why"><strong>왜 효과적인가:</strong> 에러 메시지, 발생 조건, 이미 시도한 것, 원하는 수정 방향까지 제공해서 Claude가 근본 원인을 파악하고 올바르게 수정합니다.</div>
+        <div class="recipe-why"><span class="lang-ko"><strong>왜 효과적인가:</strong> 에러 메시지, 발생 조건, 이미 시도한 것, 원하는 수정 방향까지 제공해서 Claude가 근본 원인을 파악하고 올바르게 수정합니다.</span><span class="lang-en"><strong>Why it works:</strong> Providing error message, reproduction conditions, what you've already tried, and desired fix direction helps Claude identify the root cause and fix it correctly.</span></div>
       </div>
     </div>
 
@@ -1992,92 +2152,110 @@ PR을 열어주세요.</span></div>
 <section id="faq">
   <div class="container">
     <div class="section-number">07</div>
-    <h2 class="section-title">자주 묻는 질문</h2>
-    <p class="section-desc">
+    <div class="lang-ko"><h2 class="section-title">자주 묻는 질문</h2></div>
+    <div class="lang-en"><h2 class="section-title">FAQ</h2></div>
+    <div class="lang-ko"><p class="section-desc">
       프롬프팅에 대해 가장 많이 궁금해하는 것들
-    </p>
+    </p></div>
+    <div class="lang-en"><p class="section-desc">
+      The most common questions about prompting
+    </p></div>
 
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          영어로 프롬프트하면 더 잘 되나요?
+          <span class="lang-ko">영어로 프롬프트하면 더 잘 되나요?</span>
+          <span class="lang-en">Does prompting in English work better?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            Claude는 한국어를 매우 잘 이해합니다. 일반적인 코딩 작업에서는 한국어와 영어의 결과 차이가 거의 없습니다. 다만 매우 전문적인 기술 용어나 특정 라이브러리의 API를 다룰 때는 영어 키워드를 섞어 쓰면 정확도가 약간 올라갈 수 있습니다. 예를 들어 "React의 useEffect에서 cleanup function을 구현해줘"처럼 기술 용어만 영어로 쓰는 하이브리드 방식이 실용적입니다. 중요한 것은 언어가 아니라 프롬프트의 구체성입니다.
+            <div class="lang-ko">Claude는 한국어를 매우 잘 이해합니다. 일반적인 코딩 작업에서는 한국어와 영어의 결과 차이가 거의 없습니다. 다만 매우 전문적인 기술 용어나 특정 라이브러리의 API를 다룰 때는 영어 키워드를 섞어 쓰면 정확도가 약간 올라갈 수 있습니다. 예를 들어 "React의 useEffect에서 cleanup function을 구현해줘"처럼 기술 용어만 영어로 쓰는 하이브리드 방식이 실용적입니다. 중요한 것은 언어가 아니라 프롬프트의 구체성입니다.</div>
+            <div class="lang-en">Claude understands Korean very well. For general coding tasks, there is almost no difference in results between Korean and English. However, when dealing with very specialized technical terms or specific library APIs, mixing in English keywords can slightly improve accuracy. For example, a hybrid approach like "React의 useEffect에서 cleanup function을 구현해줘" (using English for technical terms only) is practical. What matters is not the language but the specificity of the prompt.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          프롬프트가 너무 길면 안 좋나요?
+          <span class="lang-ko">프롬프트가 너무 길면 안 좋나요?</span>
+          <span class="lang-en">Is a very long prompt bad?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            프롬프트가 길다고 나쁜 것은 아닙니다. 오히려 구체적인 긴 프롬프트가 모호한 짧은 프롬프트보다 훨씬 좋은 결과를 냅니다. 다만 "장황한" 프롬프트와 "구체적인" 프롬프트는 다릅니다. 불필요한 배경 설명이나 반복은 오히려 핵심을 흐릴 수 있습니다. 핵심은 <strong>필요한 정보를 빠짐없이, 구조적으로</strong> 전달하는 것입니다. 목적, 컨텍스트, 요구사항, 제약조건을 명확한 섹션으로 나눠서 쓰면 길어도 효과적입니다.
+            <div class="lang-ko">프롬프트가 길다고 나쁜 것은 아닙니다. 오히려 구체적인 긴 프롬프트가 모호한 짧은 프롬프트보다 훨씬 좋은 결과를 냅니다. 다만 "장황한" 프롬프트와 "구체적인" 프롬프트는 다릅니다. 불필요한 배경 설명이나 반복은 오히려 핵심을 흐릴 수 있습니다. 핵심은 <strong>필요한 정보를 빠짐없이, 구조적으로</strong> 전달하는 것입니다. 목적, 컨텍스트, 요구사항, 제약조건을 명확한 섹션으로 나눠서 쓰면 길어도 효과적입니다.</div>
+            <div class="lang-en">Long prompts are not bad. In fact, a specific long prompt produces much better results than a vague short one. However, "verbose" and "specific" prompts are different. Unnecessary background explanation or repetition can actually blur the key points. The key is to convey <strong>all necessary information, structured clearly</strong>. Writing purpose, context, requirements, and constraints as clear sections is effective even if it gets long.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          Plan Mode에서 계획을 수정할 수 있나요?
+          <span class="lang-ko">Plan Mode에서 계획을 수정할 수 있나요?</span>
+          <span class="lang-en">Can I modify the plan in Plan Mode?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네, 그게 Plan Mode의 핵심 장점입니다. Claude가 계획을 제시하면 실행 전에 자유롭게 수정할 수 있습니다. "2번 단계를 이렇게 바꿔줘", "3번 단계를 빼고 대신 이걸 추가해줘", "순서를 바꿔서 테스트부터 해줘" 등 원하는 만큼 조정할 수 있습니다. 계획이 만족스러울 때 "이대로 진행해줘"라고 하면 됩니다. 실행 중간에도 "잠깐, 여기서 멈춰"라고 하면 중단할 수 있습니다.
+            <div class="lang-ko">네, 그게 Plan Mode의 핵심 장점입니다. Claude가 계획을 제시하면 실행 전에 자유롭게 수정할 수 있습니다. "2번 단계를 이렇게 바꿔줘", "3번 단계를 빼고 대신 이걸 추가해줘", "순서를 바꿔서 테스트부터 해줘" 등 원하는 만큼 조정할 수 있습니다. 계획이 만족스러울 때 "이대로 진행해줘"라고 하면 됩니다. 실행 중간에도 "잠깐, 여기서 멈춰"라고 하면 중단할 수 있습니다.</div>
+            <div class="lang-en">Yes, that's the core advantage of Plan Mode. When Claude presents a plan, you can freely modify it before execution. You can adjust as much as you want: "change step 2 like this", "remove step 3 and add this instead", "reorder to test first". When satisfied with the plan, just say "proceed as is." You can also stop mid-execution by saying "wait, stop here."</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          이전 대화를 참조하게 할 수 있나요?
+          <span class="lang-ko">이전 대화를 참조하게 할 수 있나요?</span>
+          <span class="lang-en">Can I have Claude reference previous conversations?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            Claude Code는 같은 세션 내에서는 이전 대화를 기억합니다. 하지만 세션이 끝나면 (터미널을 닫거나 /clear를 하면) 대화 기록은 사라집니다. 이전 대화의 맥락을 유지하고 싶다면 두 가지 방법이 있습니다. 첫째, <strong>CLAUDE.md에 중요한 규칙을 적어두면</strong> 매 세션마다 자동으로 로드됩니다. 둘째, <strong>새 세션에서 이전 작업의 맥락을 간단히 요약해서 알려주면</strong> Claude가 이해합니다. 예: "어제 결제 모듈 리팩토링을 시작했고, PaymentService 분리까지 완료했어. 오늘은 NotificationService를 분리할 거야." 세 번째 방법으로 <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">claude --continue</code>로 가장 최근 대화를 재개하거나, <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">claude --resume</code>으로 최근 세션 목록에서 선택할 수도 있습니다.
+            <div class="lang-ko">Claude Code는 같은 세션 내에서는 이전 대화를 기억합니다. 하지만 세션이 끝나면 (터미널을 닫거나 /clear를 하면) 대화 기록은 사라집니다. 이전 대화의 맥락을 유지하고 싶다면 두 가지 방법이 있습니다. 첫째, <strong>CLAUDE.md에 중요한 규칙을 적어두면</strong> 매 세션마다 자동으로 로드됩니다. 둘째, <strong>새 세션에서 이전 작업의 맥락을 간단히 요약해서 알려주면</strong> Claude가 이해합니다. 예: "어제 결제 모듈 리팩토링을 시작했고, PaymentService 분리까지 완료했어. 오늘은 NotificationService를 분리할 거야." 세 번째 방법으로 <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">claude --continue</code>로 가장 최근 대화를 재개하거나, <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">claude --resume</code>으로 최근 세션 목록에서 선택할 수도 있습니다.</div>
+            <div class="lang-en">Claude Code remembers previous conversation within the same session. But when a session ends (closing terminal or /clear), the conversation history disappears. To preserve context from previous conversations, there are two options: First, <strong>write important rules in CLAUDE.md</strong> and it loads automatically at the start of every session. Second, <strong>briefly summarize the previous work context in the new session</strong> and Claude will understand. Example: "Yesterday I started refactoring the payment module and completed separating PaymentService. Today I'll separate NotificationService." Third, you can resume the most recent conversation with <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">claude --continue</code>, or choose from recent sessions with <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">claude --resume</code>.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          ultrathink은 어떤 상황에 사용하나요?
+          <span class="lang-ko">ultrathink은 어떤 상황에 사용하나요?</span>
+          <span class="lang-en">When should I use ultrathink?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">ultrathink</code>를 프롬프트에 포함하면 Claude의 확장 사고(extended thinking)가 활성화됩니다. 이는 단순한 구현 작업에는 불필요하지만, 다음과 같은 상황에서 결과 품질을 크게 향상시킵니다: 아키텍처 설계, 여러 트레이드오프가 있는 기술 결정, 복잡한 경쟁 조건(race condition) 분석, 보안 취약점 검토 등 깊은 추론이 필요한 문제들입니다. 사용 예시: <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"ultrathink: 이 마이크로서비스 전환 전략의 트레이드오프를 분석해주세요."</code>
+            <div class="lang-ko"><code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">ultrathink</code>를 프롬프트에 포함하면 Claude의 확장 사고(extended thinking)가 활성화됩니다. 이는 단순한 구현 작업에는 불필요하지만, 다음과 같은 상황에서 결과 품질을 크게 향상시킵니다: 아키텍처 설계, 여러 트레이드오프가 있는 기술 결정, 복잡한 경쟁 조건(race condition) 분석, 보안 취약점 검토 등 깊은 추론이 필요한 문제들입니다. 사용 예시: <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"ultrathink: 이 마이크로서비스 전환 전략의 트레이드오프를 분석해주세요."</code></div>
+            <div class="lang-en">Including <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">ultrathink</code> in your prompt activates Claude's extended thinking. This is unnecessary for simple implementation tasks, but greatly improves quality in: architecture design, technical decisions with multiple trade-offs, complex race condition analysis, security vulnerability review, and other problems requiring deep reasoning. Example: <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"ultrathink: analyze the trade-offs of this microservices migration strategy."</code></div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          Subagent와 직접 작업의 차이가 무엇인가요?
+          <span class="lang-ko">Subagent와 직접 작업의 차이가 무엇인가요?</span>
+          <span class="lang-en">What's the difference between Subagent and direct work?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            Subagent는 별도의 컨텍스트 창에서 실행됩니다. 즉, 주요 대화의 컨텍스트를 소비하지 않고 독립적으로 작업합니다. 코드베이스 조사나 탐색처럼 많은 파일을 읽어야 하는 작업에 특히 유용합니다. 예를 들어 Claude가 직접 100개 파일을 읽으면 컨텍스트 창이 빠르게 채워지지만, subagent에게 위임하면 주요 대화는 깨끗하게 유지됩니다. 사용법: <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"subagent를 사용하여 [작업]을 처리하고 결과를 요약해서 보고해주세요."</code> 컨텍스트가 가득 찰 것 같거나, 조사/검증 작업을 주 대화에서 분리하고 싶을 때 활용하세요.
+            <div class="lang-ko">Subagent는 별도의 컨텍스트 창에서 실행됩니다. 즉, 주요 대화의 컨텍스트를 소비하지 않고 독립적으로 작업합니다. 코드베이스 조사나 탐색처럼 많은 파일을 읽어야 하는 작업에 특히 유용합니다. 예를 들어 Claude가 직접 100개 파일을 읽으면 컨텍스트 창이 빠르게 채워지지만, subagent에게 위임하면 주요 대화는 깨끗하게 유지됩니다. 사용법: <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"subagent를 사용하여 [작업]을 처리하고 결과를 요약해서 보고해주세요."</code> 컨텍스트가 가득 찰 것 같거나, 조사/검증 작업을 주 대화에서 분리하고 싶을 때 활용하세요.</div>
+            <div class="lang-en">Subagents run in a separate context window — they work independently without consuming the main conversation's context. Especially useful for tasks that require reading many files, like codebase investigation or exploration. For example, if Claude directly reads 100 files the context window fills up fast, but delegating to a subagent keeps the main conversation clean. Usage: <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"Use a subagent to handle [task] and report results with a summary."</code> Use it when the context might fill up, or when you want to separate investigation/verification tasks from the main conversation.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          Claude가 같은 실수를 반복할 때 어떻게 하나요?
+          <span class="lang-ko">Claude가 같은 실수를 반복할 때 어떻게 하나요?</span>
+          <span class="lang-en">What to do when Claude keeps making the same mistake?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            같은 문제에 대해 Claude를 두 번 이상 수정했다면, 컨텍스트가 실패한 접근 방식으로 오염된 것입니다. 이 때 계속 수정하는 것은 역효과입니다. 권장하는 접근: (1) <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/clear</code>로 컨텍스트를 완전히 리셋합니다. (2) 지금까지 배운 내용, 실패한 접근 방식, 제약 조건을 통합한 더 나은 초기 프롬프트를 작성합니다. (3) 새 대화에서 더 구체적인 프롬프트로 시작합니다. 누적된 수정이 있는 긴 세션보다 좋은 프롬프트를 가진 깨끗한 세션이 항상 더 나은 성능을 발휘합니다.
+            <div class="lang-ko">같은 문제에 대해 Claude를 두 번 이상 수정했다면, 컨텍스트가 실패한 접근 방식으로 오염된 것입니다. 이 때 계속 수정하는 것은 역효과입니다. 권장하는 접근: (1) <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/clear</code>로 컨텍스트를 완전히 리셋합니다. (2) 지금까지 배운 내용, 실패한 접근 방식, 제약 조건을 통합한 더 나은 초기 프롬프트를 작성합니다. (3) 새 대화에서 더 구체적인 프롬프트로 시작합니다. 누적된 수정이 있는 긴 세션보다 좋은 프롬프트를 가진 깨끗한 세션이 항상 더 나은 성능을 발휘합니다.</div>
+            <div class="lang-en">If you've corrected Claude more than twice on the same problem, the context is polluted with the failed approach. Continuing to correct at that point is counterproductive. Recommended approach: (1) Completely reset context with <code style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">/clear</code>. (2) Write a better initial prompt incorporating what you've learned, the failed approaches, and constraints. (3) Start fresh in a new conversation with a more specific prompt. A clean session with a good prompt always outperforms a long session with accumulated corrections.</div>
           </div>
         </div>
       </div>
@@ -2089,10 +2267,13 @@ PR을 열어주세요.</span></div>
 <section style="padding: 80px 0;">
   <div class="container">
     <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.15); text-align: center; padding: 60px 40px;">
-      <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
+      <div class="lang-ko"><h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
         요약하면 이겁니다
-      </h2>
-      <p style="color: var(--text-dim); font-size: 17px; max-width: 640px; margin: 0 auto 32px; line-height: 1.8;">
+      </h2></div>
+      <div class="lang-en"><h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
+        The Bottom Line
+      </h2></div>
+      <div class="lang-ko"><p style="color: var(--text-dim); font-size: 17px; max-width: 640px; margin: 0 auto 32px; line-height: 1.8;">
         <strong style="color: var(--accent)">처음부터 구체적으로</strong> &mdash; 파일, 제약, 패턴까지<br>
         <strong style="color: var(--green)">검증 기준 제공</strong> &mdash; 테스트, 예상 출력 포함<br>
         <strong style="color: var(--orange)">탐색 &rarr; 계획 &rarr; 구현</strong> &mdash; Plan Mode 4단계<br>
@@ -2101,19 +2282,33 @@ PR을 열어주세요.</span></div>
         <strong style="color: var(--yellow)">ultrathink</strong> &mdash; 복잡한 문제에 확장 사고 활성화<br>
         <strong style="color: var(--accent)">Subagent</strong> &mdash; 격리된 작업에 별도 컨텍스트<br>
         <strong style="color: var(--green)">CLAUDE.md</strong> &mdash; 반복 규칙은 한 번만 작성
-      </p>
-      <p style="color: var(--text-muted); font-size: 14px;">
+      </p></div>
+      <div class="lang-en"><p style="color: var(--text-dim); font-size: 17px; max-width: 640px; margin: 0 auto 32px; line-height: 1.8;">
+        <strong style="color: var(--accent)">Be specific from the start</strong> &mdash; files, constraints, patterns<br>
+        <strong style="color: var(--green)">Provide verification criteria</strong> &mdash; include tests, expected output<br>
+        <strong style="color: var(--orange)">Explore &rarr; Plan &rarr; Implement</strong> &mdash; Plan Mode 4 steps<br>
+        <strong style="color: var(--blue)">Delegate, don't micromanage</strong> &mdash; just give direction<br>
+        <strong style="color: var(--pink)">Iterate through conversation</strong> &mdash; stop with Esc, correct with feedback<br>
+        <strong style="color: var(--yellow)">ultrathink</strong> &mdash; activate extended thinking for complex problems<br>
+        <strong style="color: var(--accent)">Subagent</strong> &mdash; separate context for isolated tasks<br>
+        <strong style="color: var(--green)">CLAUDE.md</strong> &mdash; write repetitive rules just once
+      </p></div>
+      <div class="lang-ko"><p style="color: var(--text-muted); font-size: 14px;">
         프롬프트는 연습할수록 좋아집니다.<br>
         위의 레시피부터 시작해서, 자신만의 패턴을 만들어보세요.
-      </p>
+      </p></div>
+      <div class="lang-en"><p style="color: var(--text-muted); font-size: 14px;">
+        Prompting gets better with practice.<br>
+        Start with the recipes above and build your own patterns.
+      </p></div>
     </div>
   </div>
 </section>
 
 <!-- =================== CHAPTER NAV =================== -->
 <div class="chapter-nav">
-  <a href="claude-md.html">&larr; 이전: CLAUDE.md</a>
-  <a href="mcp.html">다음: MCP 서버 연결 &rarr;</a>
+  <a href="claude-md.html">&larr; <span class="lang-ko">이전: CLAUDE.md</span><span class="lang-en">Prev: CLAUDE.md</span></a>
+  <a href="mcp.html"><span class="lang-ko">다음: MCP 서버 연결 &rarr;</span><span class="lang-en">Next: MCP Server Connection &rarr;</span></a>
 </div>
 
 <footer>
@@ -2165,5 +2360,6 @@ window.addEventListener('scroll', () => {
 
 <div id="community-widget"></div>
 <script src="community.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

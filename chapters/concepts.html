@@ -6,6 +6,7 @@
 /* 챕터 테마 초기화 — FOUC 방지 */
 (function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Claude 핵심 개념 시각화 — Agent · Skills · MCP · Tools</title>
@@ -410,38 +411,39 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 </head>
 <body>
 
-<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+<a href="../index.html" class="back-link">&larr; <span class="lang-ko">Claude Code 101로 돌아가기</span><span class="lang-en">Back to Claude Code 101</span></a>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    Module 11 &mdash; 핵심 개념 시각화
+    <span class="lang-ko">Module 11 &mdash; 핵심 개념 시각화</span>
+    <span class="lang-en">Module 11 &mdash; Core Concepts Visualization</span>
   </div>
-  <h1>Claude 핵심 개념<br><span class="highlight">시각적 이해</span></h1>
-  <p class="hero-sub">Agent · Skills · MCP · Tools — 관계도와 실제 코드로 추상 개념을 완전히 이해합니다.</p>
+  <h1><span class="lang-ko">Claude 핵심 개념<br><span class="highlight">시각적 이해</span></span><span class="lang-en">Claude Core Concepts<br><span class="highlight">Visual Understanding</span></span></h1>
+  <p class="hero-sub"><span class="lang-ko">Agent · Skills · MCP · Tools — 관계도와 실제 코드로 추상 개념을 완전히 이해합니다.</span><span class="lang-en">Agent · Skills · MCP · Tools — Fully grasp abstract concepts through relationship maps and real code.</span></p>
   <div class="hero-cta">
-    <a href="#sec-map" class="btn btn-primary">개념 관계도 보기</a>
-    <a href="#sec-agent" class="btn btn-outline">Agent부터 시작 &rarr;</a>
+    <a href="#sec-map" class="btn btn-primary"><span class="lang-ko">개념 관계도 보기</span><span class="lang-en">View Relationship Map</span></a>
+    <a href="#sec-agent" class="btn btn-outline"><span class="lang-ko">Agent부터 시작</span><span class="lang-en">Start with Agent</span> &rarr;</a>
   </div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    스크롤
+    <span class="lang-ko">스크롤</span><span class="lang-en">Scroll</span>
   </div>
 </div>
 
 <!-- STICKY NAV -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-link nav-home">🏠 홈</a>
-    <a href="#sec-map" class="nav-link">관계도</a>
+    <a href="../index.html" class="nav-link nav-home">🏠 <span class="lang-ko">홈</span><span class="lang-en">Home</span></a>
+    <a href="#sec-map" class="nav-link"><span class="lang-ko">관계도</span><span class="lang-en">Relationship Map</span></a>
     <a href="#sec-agent" class="nav-link">Agent</a>
-    <a href="#sec-mcp" class="nav-link">MCP 서버</a>
+    <a href="#sec-mcp" class="nav-link"><span class="lang-ko">MCP 서버</span><span class="lang-en">MCP Server</span></a>
     <a href="#sec-skills" class="nav-link">Skills</a>
     <a href="#sec-tools" class="nav-link">Tools</a>
     <a href="#sec-context" class="nav-link">Context</a>
     <a href="#sec-thinking" class="nav-link">Thinking</a>
-    <a href="#sec-workflow" class="nav-link">워크플로우</a>
+    <a href="#sec-workflow" class="nav-link"><span class="lang-ko">워크플로우</span><span class="lang-en">Workflow</span></a>
   </div>
 </nav>
 
@@ -450,8 +452,8 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 ═══════════════════════════════════════════════════ -->
 <section class="section fadein" id="sec-map">
   <div class="section-label">00 · OVERVIEW</div>
-  <h2 class="section-title">개념 관계도</h2>
-  <p class="section-desc">Claude Code를 이루는 핵심 개념들이 어떤 관계로 연결되어 있는지 한눈에 봅니다. 가운데 Claude Agent를 중심으로 정보가 흐릅니다.</p>
+  <h2 class="section-title"><span class="lang-ko">개념 관계도</span><span class="lang-en">Concept Relationship Map</span></h2>
+  <p class="section-desc"><span class="lang-ko">Claude Code를 이루는 핵심 개념들이 어떤 관계로 연결되어 있는지 한눈에 봅니다. 가운데 Claude Agent를 중심으로 정보가 흐릅니다.</span><span class="lang-en">See at a glance how the core concepts of Claude Code connect. Information flows centered on Claude Agent in the middle.</span></p>
 
   <div class="rel-map">
     <!-- ── SVG 연결선 레이어 ── -->
@@ -467,49 +469,57 @@ hr.divider{border:none;border-top:1px solid var(--border)}
       <line x1="450" y1="96" x2="450" y2="244"
             stroke="var(--blue)" stroke-width="2" stroke-dasharray="6,4"
             opacity=".8" marker-end="url(#rm-arr)"/>
-      <text x="462" y="178" font-size="10" fill="var(--blue)" font-family="var(--mono)" opacity=".9">컨텍스트 주입</text>
+      <text x="462" y="178" font-size="10" fill="var(--blue)" font-family="var(--mono)" opacity=".9" class="lang-ko">컨텍스트 주입</text>
+      <text x="462" y="178" font-size="10" fill="var(--blue)" font-family="var(--mono)" opacity=".9" class="lang-en">Context Injection</text>
 
       <!-- Skills → Agent (초록: 지시 제공) -->
       <line x1="156" y1="272" x2="374" y2="272"
             stroke="var(--green)" stroke-width="2" stroke-dasharray="6,4"
             opacity=".8" marker-end="url(#rm-arr)"/>
-      <text x="200" y="262" font-size="10" fill="var(--green)" font-family="var(--mono)" opacity=".9">지시 제공</text>
+      <text x="200" y="262" font-size="10" fill="var(--green)" font-family="var(--mono)" opacity=".9" class="lang-ko">지시 제공</text>
+      <text x="200" y="262" font-size="10" fill="var(--green)" font-family="var(--mono)" opacity=".9" class="lang-en">Instruction</text>
 
       <!-- CLAUDE.md → Agent (노란색: 메모리) -->
       <line x1="234" y1="436" x2="392" y2="314"
             stroke="var(--yellow)" stroke-width="2" stroke-dasharray="6,4"
             opacity=".8" marker-end="url(#rm-arr)"/>
-      <text x="270" y="402" font-size="10" fill="var(--yellow)" font-family="var(--mono)" opacity=".9">프로젝트 메모리</text>
+      <text x="270" y="402" font-size="10" fill="var(--yellow)" font-family="var(--mono)" opacity=".9" class="lang-ko">프로젝트 메모리</text>
+      <text x="270" y="402" font-size="10" fill="var(--yellow)" font-family="var(--mono)" opacity=".9" class="lang-en">Project Memory</text>
 
       <!-- Agent → Sub-Agents (파란색: 위임) -->
       <line x1="384" y1="258" x2="214" y2="144"
             stroke="var(--blue)" stroke-width="2" stroke-dasharray="6,4"
             opacity=".8" marker-end="url(#rm-arr)"/>
-      <text x="252" y="214" font-size="10" fill="var(--blue)" font-family="var(--mono)" opacity=".9">위임</text>
+      <text x="252" y="214" font-size="10" fill="var(--blue)" font-family="var(--mono)" opacity=".9" class="lang-ko">위임</text>
+      <text x="252" y="214" font-size="10" fill="var(--blue)" font-family="var(--mono)" opacity=".9" class="lang-en">Delegate</text>
 
       <!-- Agent → Thinking (보라: 사용) -->
       <line x1="516" y1="258" x2="686" y2="144"
             stroke="var(--accent)" stroke-width="2" stroke-dasharray="6,4"
             opacity=".8" marker-end="url(#rm-arr)"/>
-      <text x="594" y="210" font-size="10" fill="var(--accent)" font-family="var(--mono)" opacity=".9">복잡한 추론</text>
+      <text x="594" y="210" font-size="10" fill="var(--accent)" font-family="var(--mono)" opacity=".9" class="lang-ko">복잡한 추론</text>
+      <text x="594" y="210" font-size="10" fill="var(--accent)" font-family="var(--mono)" opacity=".9" class="lang-en">Complex Reasoning</text>
 
       <!-- Agent → Tools (teal: 도구 호출) -->
       <line x1="524" y1="280" x2="742" y2="280"
             stroke="var(--teal)" stroke-width="2" stroke-dasharray="6,4"
             opacity=".8" marker-end="url(#rm-arr)"/>
-      <text x="588" y="270" font-size="10" fill="var(--teal)" font-family="var(--mono)" opacity=".9">도구 호출</text>
+      <text x="588" y="270" font-size="10" fill="var(--teal)" font-family="var(--mono)" opacity=".9" class="lang-ko">도구 호출</text>
+      <text x="588" y="270" font-size="10" fill="var(--teal)" font-family="var(--mono)" opacity=".9" class="lang-en">Tool Call</text>
 
       <!-- Agent → Hooks (분홍: 이벤트) -->
       <line x1="450" y1="318" x2="450" y2="466"
             stroke="var(--pink)" stroke-width="2" stroke-dasharray="6,4"
             opacity=".8" marker-end="url(#rm-arr)"/>
-      <text x="462" y="400" font-size="10" fill="var(--pink)" font-family="var(--mono)" opacity=".9">이벤트 트리거</text>
+      <text x="462" y="400" font-size="10" fill="var(--pink)" font-family="var(--mono)" opacity=".9" class="lang-ko">이벤트 트리거</text>
+      <text x="462" y="400" font-size="10" fill="var(--pink)" font-family="var(--mono)" opacity=".9" class="lang-en">Event Trigger</text>
 
       <!-- MCP → Tools (주황: 확장) -->
       <line x1="726" y1="440" x2="800" y2="316"
             stroke="var(--orange)" stroke-width="2" stroke-dasharray="4,5"
             opacity=".8" marker-end="url(#rm-arr)"/>
-      <text x="778" y="394" font-size="10" fill="var(--orange)" font-family="var(--mono)" opacity=".9">확장</text>
+      <text x="778" y="394" font-size="10" fill="var(--orange)" font-family="var(--mono)" opacity=".9" class="lang-ko">확장</text>
+      <text x="778" y="394" font-size="10" fill="var(--orange)" font-family="var(--mono)" opacity=".9" class="lang-en">Extend</text>
     </svg>
 
     <!-- ── HTML 노드 ── -->
@@ -523,13 +533,13 @@ hr.divider{border:none;border-top:1px solid var(--border)}
     <div class="rel-node rel-node-context" style="left:50%;top:11.1%">
       <div class="rel-node-icon">📖</div>
       <div class="rel-node-name">Context Window</div>
-      <div class="rel-node-sub">최대 100만 토큰</div>
+      <div class="rel-node-sub"><span class="lang-ko">최대 100만 토큰</span><span class="lang-en">Up to 1M tokens</span></div>
     </div>
     <!-- 우상단: Extended Thinking -->
     <div class="rel-node rel-node-thinking" style="left:82.9%;top:22.1%">
       <div class="rel-node-icon">🧠</div>
       <div class="rel-node-name">Extended Thinking</div>
-      <div class="rel-node-sub">깊은 추론</div>
+      <div class="rel-node-sub"><span class="lang-ko">깊은 추론</span><span class="lang-en">Deep Reasoning</span></div>
     </div>
     <!-- 우측: Tools -->
     <div class="rel-node rel-node-tools" style="left:88.9%;top:50%">
@@ -540,44 +550,44 @@ hr.divider{border:none;border-top:1px solid var(--border)}
     <!-- 우하단: MCP 서버 -->
     <div class="rel-node rel-node-mcp" style="left:80.7%;top:81.3%">
       <div class="rel-node-icon">🔌</div>
-      <div class="rel-node-name">MCP 서버</div>
-      <div class="rel-node-sub">외부 도구 확장</div>
+      <div class="rel-node-name"><span class="lang-ko">MCP 서버</span><span class="lang-en">MCP Server</span></div>
+      <div class="rel-node-sub"><span class="lang-ko">외부 도구 확장</span><span class="lang-en">External tool ext.</span></div>
     </div>
     <!-- 하단: Hooks -->
     <div class="rel-node rel-node-hooks" style="left:50%;top:89.3%">
       <div class="rel-node-icon">⚡</div>
       <div class="rel-node-name">Hooks</div>
-      <div class="rel-node-sub">라이프사이클 자동화</div>
+      <div class="rel-node-sub"><span class="lang-ko">라이프사이클 자동화</span><span class="lang-en">Lifecycle automation</span></div>
     </div>
     <!-- 좌하단: CLAUDE.md -->
     <div class="rel-node rel-node-claudemd" style="left:19.3%;top:81.3%">
       <div class="rel-node-icon">📋</div>
       <div class="rel-node-name">CLAUDE.md</div>
-      <div class="rel-node-sub">프로젝트 메모리</div>
+      <div class="rel-node-sub"><span class="lang-ko">프로젝트 메모리</span><span class="lang-en">Project Memory</span></div>
     </div>
     <!-- 좌측: Skills -->
     <div class="rel-node rel-node-skills" style="left:11.1%;top:50%">
       <div class="rel-node-icon">⚙️</div>
       <div class="rel-node-name">Skills</div>
-      <div class="rel-node-sub">재사용 지시</div>
+      <div class="rel-node-sub"><span class="lang-ko">재사용 지시</span><span class="lang-en">Reusable instructions</span></div>
     </div>
     <!-- 좌상단: Sub-Agents -->
     <div class="rel-node rel-node-subagent" style="left:17.1%;top:22.1%">
       <div class="rel-node-icon">👥</div>
       <div class="rel-node-name">Sub-Agents</div>
-      <div class="rel-node-sub">병렬 위임</div>
+      <div class="rel-node-sub"><span class="lang-ko">병렬 위임</span><span class="lang-en">Parallel delegation</span></div>
     </div>
   </div>
 
   <!-- 범례 -->
   <div class="rel-legend">
-    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--blue)"></div>컨텍스트·위임</div>
-    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--green)"></div>Skills 지시</div>
-    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--yellow)"></div>CLAUDE.md 메모리</div>
-    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--accent)"></div>Thinking 추론</div>
-    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--teal)"></div>Tools 호출</div>
-    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--orange)"></div>MCP 확장</div>
-    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--pink)"></div>Hooks 이벤트</div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--blue)"></div><span class="lang-ko">컨텍스트·위임</span><span class="lang-en">Context·Delegation</span></div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--green)"></div><span class="lang-ko">Skills 지시</span><span class="lang-en">Skills Instruction</span></div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--yellow)"></div><span class="lang-ko">CLAUDE.md 메모리</span><span class="lang-en">CLAUDE.md Memory</span></div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--accent)"></div><span class="lang-ko">Thinking 추론</span><span class="lang-en">Thinking Reasoning</span></div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--teal)"></div><span class="lang-ko">Tools 호출</span><span class="lang-en">Tools Call</span></div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--orange)"></div><span class="lang-ko">MCP 확장</span><span class="lang-en">MCP Extension</span></div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--pink)"></div><span class="lang-ko">Hooks 이벤트</span><span class="lang-en">Hooks Event</span></div>
   </div>
 </section>
 <hr class="divider">
@@ -587,19 +597,19 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 ═══════════════════════════════════════════════════ -->
 <section class="section" id="sec-agent">
   <div class="section-label">01 · AGENT</div>
-  <h2 class="section-title">에이전트란?</h2>
-  <p class="section-desc">Claude가 단순 응답을 넘어 <strong>목표 달성까지 자율적으로 계획·실행·반복</strong>하는 방식. Plan → Act → Observe 루프를 무한 반복합니다.</p>
+  <h2 class="section-title"><span class="lang-ko">에이전트란?</span><span class="lang-en">What is an Agent?</span></h2>
+  <p class="section-desc"><span class="lang-ko">Claude가 단순 응답을 넘어 <strong>목표 달성까지 자율적으로 계획·실행·반복</strong>하는 방식. Plan → Act → Observe 루프를 무한 반복합니다.</span><span class="lang-en">The way Claude goes beyond simple responses to <strong>autonomously plan, execute, and iterate</strong> until the goal is achieved. Repeats the Plan → Act → Observe loop indefinitely.</span></p>
 
   <div class="flow-box">
     <div class="flow-title">
       <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
-      에이전트 실행 루프 (ReAct 패턴)
+      <span class="lang-ko">에이전트 실행 루프 (ReAct 패턴)</span><span class="lang-en">Agent Execution Loop (ReAct Pattern)</span>
     </div>
     <div class="flow-steps">
       <div class="flow-step">
         <div class="step-node">
           <div class="ico">📋</div>
-          <div class="lbl">사용자 요청</div>
+          <div class="lbl"><span class="lang-ko">사용자 요청</span><span class="lang-en">User Request</span></div>
           <div class="sub">user goal</div>
         </div>
       </div>
@@ -607,7 +617,7 @@ hr.divider{border:none;border-top:1px solid var(--border)}
       <div class="flow-step">
         <div class="step-node highlight">
           <div class="ico">🧠</div>
-          <div class="lbl">추론 · 계획</div>
+          <div class="lbl"><span class="lang-ko">추론 · 계획</span><span class="lang-en">Reason · Plan</span></div>
           <div class="sub">think/plan</div>
         </div>
       </div>
@@ -615,7 +625,7 @@ hr.divider{border:none;border-top:1px solid var(--border)}
       <div class="flow-step">
         <div class="step-node highlight">
           <div class="ico">🛠️</div>
-          <div class="lbl">도구 실행</div>
+          <div class="lbl"><span class="lang-ko">도구 실행</span><span class="lang-en">Tool Exec</span></div>
           <div class="sub">tool_use</div>
         </div>
       </div>
@@ -623,7 +633,7 @@ hr.divider{border:none;border-top:1px solid var(--border)}
       <div class="flow-step">
         <div class="step-node highlight">
           <div class="ico">👁️</div>
-          <div class="lbl">결과 관찰</div>
+          <div class="lbl"><span class="lang-ko">결과 관찰</span><span class="lang-en">Observe</span></div>
           <div class="sub">observe</div>
         </div>
       </div>
@@ -631,7 +641,7 @@ hr.divider{border:none;border-top:1px solid var(--border)}
       <div class="flow-step">
         <div class="step-node">
           <div class="ico">🔁</div>
-          <div class="lbl">반복/종료</div>
+          <div class="lbl"><span class="lang-ko">반복/종료</span><span class="lang-en">Loop/Done</span></div>
           <div class="sub">loop/done</div>
         </div>
       </div>
@@ -639,7 +649,7 @@ hr.divider{border:none;border-top:1px solid var(--border)}
       <div class="flow-step">
         <div class="step-node highlight2">
           <div class="ico">✅</div>
-          <div class="lbl">최종 응답</div>
+          <div class="lbl"><span class="lang-ko">최종 응답</span><span class="lang-en">Final Answer</span></div>
           <div class="sub">final answer</div>
         </div>
       </div>
@@ -651,44 +661,44 @@ hr.divider{border:none;border-top:1px solid var(--border)}
     <div class="scenario-head">
       <span style="font-size:1.4rem">🤖</span>
       <div>
-        <div class="scenario-title">실제 시나리오: "우리 앱의 메모리 누수를 찾아서 고쳐줘"</div>
-        <div class="scenario-desc">Claude가 이 요청을 받았을 때 내부적으로 진행하는 과정</div>
+        <div class="scenario-title"><span class="lang-ko">실제 시나리오: "우리 앱의 메모리 누수를 찾아서 고쳐줘"</span><span class="lang-en">Real Scenario: "Find and fix the memory leak in our app"</span></div>
+        <div class="scenario-desc"><span class="lang-ko">Claude가 이 요청을 받았을 때 내부적으로 진행하는 과정</span><span class="lang-en">The internal process Claude follows when receiving this request</span></div>
       </div>
     </div>
     <div class="scenario-steps">
       <div class="sc-step">
         <div class="sc-num" style="--step-c:var(--purple)">①</div>
         <div class="sc-body">
-          <div class="sc-title">계획 수립</div>
-          <div class="sc-detail">프로파일러로 메모리 측정 → 코드 분석 → 누수 패턴 확인 → 수정 순서로 접근하겠습니다.</div>
+          <div class="sc-title"><span class="lang-ko">계획 수립</span><span class="lang-en">Planning</span></div>
+          <div class="sc-detail"><span class="lang-ko">프로파일러로 메모리 측정 → 코드 분석 → 누수 패턴 확인 → 수정 순서로 접근하겠습니다.</span><span class="lang-en">Approach: measure memory with profiler → analyze code → confirm leak pattern → fix.</span></div>
         </div>
       </div>
       <div class="sc-step">
         <div class="sc-num" style="--step-c:var(--yellow)">②</div>
         <div class="sc-body">
-          <div class="sc-title">bash 도구 실행</div>
-          <div class="sc-detail"><code>python -m memory_profiler app.py</code> → 결과: Line 47에서 500MB 누적 확인</div>
+          <div class="sc-title"><span class="lang-ko">bash 도구 실행</span><span class="lang-en">bash Tool Execution</span></div>
+          <div class="sc-detail"><code>python -m memory_profiler app.py</code> → <span class="lang-ko">결과: Line 47에서 500MB 누적 확인</span><span class="lang-en">Result: 500MB accumulation confirmed at Line 47</span></div>
         </div>
       </div>
       <div class="sc-step">
         <div class="sc-num" style="--step-c:var(--yellow)">③</div>
         <div class="sc-body">
-          <div class="sc-title">파일 읽기</div>
-          <div class="sc-detail"><code>text_editor: read app.py lines 40-60</code> → 이미지 캐시가 <code>clear()</code> 없이 무한 축적 중 발견</div>
+          <div class="sc-title"><span class="lang-ko">파일 읽기</span><span class="lang-en">File Read</span></div>
+          <div class="sc-detail"><code>text_editor: read app.py lines 40-60</code> → <span class="lang-ko">이미지 캐시가 <code>clear()</code> 없이 무한 축적 중 발견</span><span class="lang-en">Found: image cache accumulating infinitely without <code>clear()</code></span></div>
         </div>
       </div>
       <div class="sc-step">
         <div class="sc-num" style="--step-c:var(--blue)">④</div>
         <div class="sc-body">
-          <div class="sc-title">반영 · 추가 검증</div>
-          <div class="sc-detail">수정 전 테스트 코드 확인 → <code>test_cache.py</code> 실행해서 기대 동작 파악</div>
+          <div class="sc-title"><span class="lang-ko">반영 · 추가 검증</span><span class="lang-en">Reflect · Verify</span></div>
+          <div class="sc-detail"><span class="lang-ko">수정 전 테스트 코드 확인 → <code>test_cache.py</code> 실행해서 기대 동작 파악</span><span class="lang-en">Check test code before fix → run <code>test_cache.py</code> to understand expected behavior</span></div>
         </div>
       </div>
       <div class="sc-step">
         <div class="sc-num" style="--step-c:var(--green)">⑤</div>
         <div class="sc-body">
-          <div class="sc-title">코드 수정 + 검증</div>
-          <div class="sc-detail">LRU 캐시로 교체 → 다시 프로파일링 → 메모리 12MB로 감소 확인 → 완료</div>
+          <div class="sc-title"><span class="lang-ko">코드 수정 + 검증</span><span class="lang-en">Code Fix + Verification</span></div>
+          <div class="sc-detail"><span class="lang-ko">LRU 캐시로 교체 → 다시 프로파일링 → 메모리 12MB로 감소 확인 → 완료</span><span class="lang-en">Replace with LRU cache → re-profile → memory reduced to 12MB confirmed → done</span></div>
         </div>
       </div>
     </div>
@@ -697,18 +707,18 @@ hr.divider{border:none;border-top:1px solid var(--border)}
   <div class="two-col" style="margin-top:1.5rem">
     <div class="card fadein" style="--card-c:var(--blue)">
       <div class="card-top-bar" style="background:var(--blue)"></div>
-      <div class="card-title" style="margin-top:.5rem">🤖 단일 에이전트</div>
-      <div class="card-desc">하나의 Claude 인스턴스가 전체 작업을 처리. 순차적으로 도구를 사용하며 목표 달성.</div>
+      <div class="card-title" style="margin-top:.5rem">🤖 <span class="lang-ko">단일 에이전트</span><span class="lang-en">Single Agent</span></div>
+      <div class="card-desc"><span class="lang-ko">하나의 Claude 인스턴스가 전체 작업을 처리. 순차적으로 도구를 사용하며 목표 달성.</span><span class="lang-en">One Claude instance handles the entire task. Uses tools sequentially to achieve the goal.</span></div>
       <div class="tag-row">
-        <span class="tag">claude agents</span><span class="tag">직렬 실행</span>
+        <span class="tag">claude agents</span><span class="tag"><span class="lang-ko">직렬 실행</span><span class="lang-en">Sequential</span></span>
       </div>
     </div>
     <div class="card fadein" style="--card-c:var(--purple)">
       <div class="card-top-bar" style="background:var(--purple)"></div>
-      <div class="card-title" style="margin-top:.5rem">👥 서브에이전트 (병렬)</div>
-      <div class="card-desc">오케스트레이터가 작업을 분리해 여러 서브에이전트에 동시 위임. Claude Code의 <code>Task</code> 도구.</div>
+      <div class="card-title" style="margin-top:.5rem">👥 <span class="lang-ko">서브에이전트 (병렬)</span><span class="lang-en">Sub-Agents (Parallel)</span></div>
+      <div class="card-desc"><span class="lang-ko">오케스트레이터가 작업을 분리해 여러 서브에이전트에 동시 위임. Claude Code의 <code>Task</code> 도구.</span><span class="lang-en">Orchestrator splits tasks and delegates to multiple sub-agents simultaneously. Claude Code's <code>Task</code> tool.</span></div>
       <div class="tag-row">
-        <span class="tag">.claude/agents/</span><span class="tag">병렬 실행</span>
+        <span class="tag">.claude/agents/</span><span class="tag"><span class="lang-ko">병렬 실행</span><span class="lang-en">Parallel</span></span>
       </div>
     </div>
   </div>
@@ -721,8 +731,8 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 ═══════════════════════════════════════════════════ -->
 <section class="section" id="sec-mcp">
   <div class="section-label">02 · MCP</div>
-  <h2 class="section-title">MCP 서버 — 실제 연동 목록</h2>
-  <p class="section-desc">Model Context Protocol로 Claude를 외부 서비스에 연결합니다. 각 서버가 제공하는 <strong>실제 함수(tool)</strong>와 활용 사례를 확인하세요.</p>
+  <h2 class="section-title"><span class="lang-ko">MCP 서버 — 실제 연동 목록</span><span class="lang-en">MCP Servers — Real Integration List</span></h2>
+  <p class="section-desc"><span class="lang-ko">Model Context Protocol로 Claude를 외부 서비스에 연결합니다. 각 서버가 제공하는 <strong>실제 함수(tool)</strong>와 활용 사례를 확인하세요.</span><span class="lang-en">Connect Claude to external services using Model Context Protocol. Check the <strong>actual functions (tools)</strong> each server provides and usage examples.</span></p>
 
   <!-- Tabs -->
   <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden" class="fadein">
@@ -742,30 +752,30 @@ hr.divider{border:none;border-top:1px solid var(--border)}
           <div style="width:36px;height:36px;border-radius:8px;background:var(--blue-dim);display:flex;align-items:center;justify-content:center;font-size:1.2rem">⬛</div>
           <div>
             <div style="font-weight:700">GitHub MCP Server</div>
-            <div style="font-size:.75rem;color:var(--text-muted)">저장소 · PR · 이슈 · 코드 검색 완전 제어</div>
+            <div style="font-size:.75rem;color:var(--text-muted)"><span class="lang-ko">저장소 · PR · 이슈 · 코드 검색 완전 제어</span><span class="lang-en">Full control: Repo · PR · Issues · Code search</span></div>
           </div>
-          <span class="label-chip" style="background:var(--blue-dim);color:var(--blue);margin-left:auto">공식 서버</span>
+          <span class="label-chip" style="background:var(--blue-dim);color:var(--blue);margin-left:auto"><span class="lang-ko">공식 서버</span><span class="lang-en">Official Server</span></span>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
           <div>
-            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em">PR · 코드 리뷰</div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">create_pull_request</div><div class="tool-fn-desc">타이틀·본문·브랜치 지정해 PR 생성</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">list_pull_requests</div><div class="tool-fn-desc">열린/닫힌 PR 목록 필터링</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">get_pull_request_diff</div><div class="tool-fn-desc">PR diff 전체 가져오기</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">create_review</div><div class="tool-fn-desc">인라인 코멘트 포함 리뷰 제출</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">merge_pull_request</div><div class="tool-fn-desc">squash/merge/rebase 방식 선택 병합</div></div>
+            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em">PR · <span class="lang-ko">코드 리뷰</span><span class="lang-en">Code Review</span></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">create_pull_request</div><div class="tool-fn-desc"><span class="lang-ko">타이틀·본문·브랜치 지정해 PR 생성</span><span class="lang-en">Create PR with title, body, and branch</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">list_pull_requests</div><div class="tool-fn-desc"><span class="lang-ko">열린/닫힌 PR 목록 필터링</span><span class="lang-en">Filter open/closed PR list</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">get_pull_request_diff</div><div class="tool-fn-desc"><span class="lang-ko">PR diff 전체 가져오기</span><span class="lang-en">Fetch full PR diff</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">create_review</div><div class="tool-fn-desc"><span class="lang-ko">인라인 코멘트 포함 리뷰 제출</span><span class="lang-en">Submit review with inline comments</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">merge_pull_request</div><div class="tool-fn-desc"><span class="lang-ko">squash/merge/rebase 방식 선택 병합</span><span class="lang-en">Merge with squash/merge/rebase option</span></div></div>
           </div>
           <div>
-            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em">이슈 · 파일</div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">create_issue</div><div class="tool-fn-desc">레이블·담당자·마일스톤 포함 이슈</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">list_issues</div><div class="tool-fn-desc">라벨·상태로 이슈 검색</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">search_code</div><div class="tool-fn-desc">저장소 전체 코드 전문 검색</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">get_file_contents</div><div class="tool-fn-desc">특정 브랜치 파일 내용 읽기</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">push_files</div><div class="tool-fn-desc">파일 생성/수정 커밋 자동화</div></div>
+            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em"><span class="lang-ko">이슈 · 파일</span><span class="lang-en">Issues · Files</span></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">create_issue</div><div class="tool-fn-desc"><span class="lang-ko">레이블·담당자·마일스톤 포함 이슈</span><span class="lang-en">Issue with label, assignee, milestone</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">list_issues</div><div class="tool-fn-desc"><span class="lang-ko">라벨·상태로 이슈 검색</span><span class="lang-en">Search issues by label and status</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">search_code</div><div class="tool-fn-desc"><span class="lang-ko">저장소 전체 코드 전문 검색</span><span class="lang-en">Full-text code search across repo</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">get_file_contents</div><div class="tool-fn-desc"><span class="lang-ko">특정 브랜치 파일 내용 읽기</span><span class="lang-en">Read file content on a specific branch</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--blue)">push_files</div><div class="tool-fn-desc"><span class="lang-ko">파일 생성/수정 커밋 자동화</span><span class="lang-en">Automate file create/edit commits</span></div></div>
           </div>
         </div>
         <div class="code-block" style="margin-top:1rem">
-          <div class="code-header"><span><span class="dot" style="background:#ef4444"></span><span class="dot" style="background:#f59e0b"></span><span class="dot" style="background:#22c55e"></span> CLAUDE.md 설정</span></div>
+          <div class="code-header"><span><span class="dot" style="background:#ef4444"></span><span class="dot" style="background:#f59e0b"></span><span class="dot" style="background:#22c55e"></span> <span class="lang-ko">CLAUDE.md 설정</span><span class="lang-en">CLAUDE.md Config</span></span></div>
           <div class="code-body"><span class="c-muted"># .claude/settings.json</span>
 {
   <span class="c-green">"mcpServers"</span>: {
@@ -778,7 +788,8 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 }</div>
         </div>
         <div class="infobox" style="margin-top:.8rem">
-          <strong>실제 활용:</strong> "main 브랜치에 올라온 PR 목록 보여줘 → 각 PR diff 분석해서 문제 있는 것에 리뷰 달아줘 → LGTM이면 자동 merge"
+          <div class="lang-ko"><strong>실제 활용:</strong> "main 브랜치에 올라온 PR 목록 보여줘 → 각 PR diff 분석해서 문제 있는 것에 리뷰 달아줘 → LGTM이면 자동 merge"</div>
+          <div class="lang-en"><strong>Real use:</strong> "Show me open PRs on main → analyze each PR diff and add reviews to problematic ones → auto-merge if LGTM"</div>
         </div>
       </div>
 
@@ -788,30 +799,31 @@ hr.divider{border:none;border-top:1px solid var(--border)}
           <div style="width:36px;height:36px;border-radius:8px;background:var(--yellow-dim);display:flex;align-items:center;justify-content:center;font-size:1.2rem">📓</div>
           <div>
             <div style="font-weight:700">Notion MCP Server</div>
-            <div style="font-size:.75rem;color:var(--text-muted)">페이지 · 데이터베이스 · 블록 완전 CRUD</div>
+            <div style="font-size:.75rem;color:var(--text-muted)"><span class="lang-ko">페이지 · 데이터베이스 · 블록 완전 CRUD</span><span class="lang-en">Full CRUD: Page · Database · Block</span></div>
           </div>
-          <span class="label-chip" style="background:var(--yellow-dim);color:var(--yellow);margin-left:auto">공식 서버</span>
+          <span class="label-chip" style="background:var(--yellow-dim);color:var(--yellow);margin-left:auto"><span class="lang-ko">공식 서버</span><span class="lang-en">Official Server</span></span>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
           <div>
-            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em">페이지 관리</div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-create-pages</div><div class="tool-fn-desc">제목·내용·부모 페이지 지정 생성</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-fetch</div><div class="tool-fn-desc">페이지 전체 콘텐츠 가져오기</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-search</div><div class="tool-fn-desc">워크스페이스 전체 검색</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-duplicate-page</div><div class="tool-fn-desc">기존 페이지를 템플릿으로 복제</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-move-pages</div><div class="tool-fn-desc">페이지를 다른 섹션으로 이동</div></div>
+            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em"><span class="lang-ko">페이지 관리</span><span class="lang-en">Page Management</span></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-create-pages</div><div class="tool-fn-desc"><span class="lang-ko">제목·내용·부모 페이지 지정 생성</span><span class="lang-en">Create page with title, content, parent</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-fetch</div><div class="tool-fn-desc"><span class="lang-ko">페이지 전체 콘텐츠 가져오기</span><span class="lang-en">Fetch full page content</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-search</div><div class="tool-fn-desc"><span class="lang-ko">워크스페이스 전체 검색</span><span class="lang-en">Search entire workspace</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-duplicate-page</div><div class="tool-fn-desc"><span class="lang-ko">기존 페이지를 템플릿으로 복제</span><span class="lang-en">Duplicate existing page as template</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-move-pages</div><div class="tool-fn-desc"><span class="lang-ko">페이지를 다른 섹션으로 이동</span><span class="lang-en">Move page to a different section</span></div></div>
           </div>
           <div>
-            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em">데이터베이스</div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-create-database</div><div class="tool-fn-desc">속성(날짜·선택·관계 등) 정의 DB 생성</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-update-page</div><div class="tool-fn-desc">DB 레코드 속성 값 업데이트</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-create-comment</div><div class="tool-fn-desc">페이지/블록에 코멘트 추가</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-get-users</div><div class="tool-fn-desc">워크스페이스 멤버 목록 조회</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-get-teams</div><div class="tool-fn-desc">팀/그룹 정보 조회</div></div>
+            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em"><span class="lang-ko">데이터베이스</span><span class="lang-en">Database</span></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-create-database</div><div class="tool-fn-desc"><span class="lang-ko">속성(날짜·선택·관계 등) 정의 DB 생성</span><span class="lang-en">Create DB with property definitions</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-update-page</div><div class="tool-fn-desc"><span class="lang-ko">DB 레코드 속성 값 업데이트</span><span class="lang-en">Update DB record property values</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-create-comment</div><div class="tool-fn-desc"><span class="lang-ko">페이지/블록에 코멘트 추가</span><span class="lang-en">Add comment to page/block</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-get-users</div><div class="tool-fn-desc"><span class="lang-ko">워크스페이스 멤버 목록 조회</span><span class="lang-en">Get workspace member list</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--yellow)">notion-get-teams</div><div class="tool-fn-desc"><span class="lang-ko">팀/그룹 정보 조회</span><span class="lang-en">Get team/group information</span></div></div>
           </div>
         </div>
         <div class="infobox" style="margin-top:1rem">
-          <strong>실제 활용:</strong> "오늘 스탠드업 내용 정리해서 Notion 팀 페이지에 자동 기록 → 완료된 Task는 Done으로 상태 변경 → 이번주 스프린트 통계 페이지 생성"
+          <div class="lang-ko"><strong>실제 활용:</strong> "오늘 스탠드업 내용 정리해서 Notion 팀 페이지에 자동 기록 → 완료된 Task는 Done으로 상태 변경 → 이번주 스프린트 통계 페이지 생성"</div>
+          <div class="lang-en"><strong>Real use:</strong> "Summarize today's standup and auto-log to Notion team page → mark completed tasks as Done → create this week's sprint stats page"</div>
         </div>
       </div>
 
@@ -821,28 +833,28 @@ hr.divider{border:none;border-top:1px solid var(--border)}
           <div style="width:36px;height:36px;border-radius:8px;background:var(--teal-dim);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🍎</div>
           <div>
             <div style="font-weight:700">Xcode MCP Server</div>
-            <div style="font-size:.75rem;color:var(--text-muted)">iOS/macOS 빌드 · 테스트 · 시뮬레이터 자동화</div>
+            <div style="font-size:.75rem;color:var(--text-muted)"><span class="lang-ko">iOS/macOS 빌드 · 테스트 · 시뮬레이터 자동화</span><span class="lang-en">iOS/macOS build · test · simulator automation</span></div>
           </div>
-          <span class="label-chip" style="background:var(--teal-dim);color:var(--teal);margin-left:auto">커뮤니티 서버</span>
+          <span class="label-chip" style="background:var(--teal-dim);color:var(--teal);margin-left:auto"><span class="lang-ko">커뮤니티 서버</span><span class="lang-en">Community Server</span></span>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
           <div>
-            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em">빌드 · 실행</div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">xcode_build</div><div class="tool-fn-desc">스킴·타겟·설정 지정 빌드</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">xcode_run</div><div class="tool-fn-desc">시뮬레이터/실기기 앱 실행</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">xcode_clean</div><div class="tool-fn-desc">빌드 캐시 및 DerivedData 정리</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">xcode_archive</div><div class="tool-fn-desc">배포용 .ipa/.xcarchive 생성</div></div>
+            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em"><span class="lang-ko">빌드 · 실행</span><span class="lang-en">Build · Run</span></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">xcode_build</div><div class="tool-fn-desc"><span class="lang-ko">스킴·타겟·설정 지정 빌드</span><span class="lang-en">Build with scheme, target, config</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">xcode_run</div><div class="tool-fn-desc"><span class="lang-ko">시뮬레이터/실기기 앱 실행</span><span class="lang-en">Run app on simulator/device</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">xcode_clean</div><div class="tool-fn-desc"><span class="lang-ko">빌드 캐시 및 DerivedData 정리</span><span class="lang-en">Clean build cache &amp; DerivedData</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">xcode_archive</div><div class="tool-fn-desc"><span class="lang-ko">배포용 .ipa/.xcarchive 생성</span><span class="lang-en">Create .ipa/.xcarchive for distribution</span></div></div>
           </div>
           <div>
-            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em">테스트 · 시뮬레이터</div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">xcode_test</div><div class="tool-fn-desc">Unit/UI 테스트 실행 및 결과 파싱</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">simulator_list</div><div class="tool-fn-desc">사용 가능한 시뮬레이터 목록</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">simulator_screenshot</div><div class="tool-fn-desc">시뮬레이터 스크린샷 캡처</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">get_build_errors</div><div class="tool-fn-desc">빌드 에러·경고 파싱 반환</div></div>
+            <div style="font-size:.72rem;font-family:var(--mono);color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em"><span class="lang-ko">테스트 · 시뮬레이터</span><span class="lang-en">Test · Simulator</span></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">xcode_test</div><div class="tool-fn-desc"><span class="lang-ko">Unit/UI 테스트 실행 및 결과 파싱</span><span class="lang-en">Run Unit/UI tests and parse results</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">simulator_list</div><div class="tool-fn-desc"><span class="lang-ko">사용 가능한 시뮬레이터 목록</span><span class="lang-en">List available simulators</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">simulator_screenshot</div><div class="tool-fn-desc"><span class="lang-ko">시뮬레이터 스크린샷 캡처</span><span class="lang-en">Capture simulator screenshot</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--teal)">get_build_errors</div><div class="tool-fn-desc"><span class="lang-ko">빌드 에러·경고 파싱 반환</span><span class="lang-en">Parse and return build errors/warnings</span></div></div>
           </div>
         </div>
         <div class="code-block" style="margin-top:1rem">
-          <div class="code-header"><span><span class="dot" style="background:#ef4444"></span><span class="dot" style="background:#f59e0b"></span><span class="dot" style="background:#22c55e"></span> 실제 Claude 활용 흐름</span></div>
+          <div class="code-header"><span><span class="dot" style="background:#ef4444"></span><span class="dot" style="background:#f59e0b"></span><span class="dot" style="background:#22c55e"></span> <span class="lang-ko">실제 Claude 활용 흐름</span><span class="lang-en">Real Claude Usage Flow</span></span></div>
           <div class="code-body"><span class="c-muted">> "앱 빌드하고 테스트 전부 돌려줘"</span>
 
 <span class="c-purple">xcode_clean</span>() <span class="c-muted">→ DerivedData 정리</span>
@@ -853,7 +865,8 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 <span class="c-muted">→ 실패한 테스트 코드 분석 후 수정 제안</span></div>
         </div>
         <div class="infobox" style="margin-top:.8rem">
-          <strong>실제 활용:</strong> "새 feature 브랜치 코드 빌드해봐 → 에러 있으면 분석해서 고쳐줘 → 테스트 통과하면 PR 자동 생성"
+          <div class="lang-ko"><strong>실제 활용:</strong> "새 feature 브랜치 코드 빌드해봐 → 에러 있으면 분석해서 고쳐줘 → 테스트 통과하면 PR 자동 생성"</div>
+          <div class="lang-en"><strong>Real use:</strong> "Build the new feature branch → analyze and fix any errors → auto-create PR if tests pass"</div>
         </div>
       </div>
 
@@ -863,23 +876,24 @@ hr.divider{border:none;border-top:1px solid var(--border)}
           <div style="width:36px;height:36px;border-radius:8px;background:var(--purple-dim);display:flex;align-items:center;justify-content:center;font-size:1.2rem">💬</div>
           <div>
             <div style="font-weight:700">Slack MCP Server</div>
-            <div style="font-size:.75rem;color:var(--text-muted)">채널 메시지 · DM · 파일 · 알림 자동화</div>
+            <div style="font-size:.75rem;color:var(--text-muted)"><span class="lang-ko">채널 메시지 · DM · 파일 · 알림 자동화</span><span class="lang-en">Channel messages · DM · Files · Notification automation</span></div>
           </div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
           <div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_post_message</div><div class="tool-fn-desc">채널/DM에 메시지 전송</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_list_channels</div><div class="tool-fn-desc">워크스페이스 채널 목록</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_get_messages</div><div class="tool-fn-desc">채널 최근 메시지 가져오기</div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_post_message</div><div class="tool-fn-desc"><span class="lang-ko">채널/DM에 메시지 전송</span><span class="lang-en">Send message to channel/DM</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_list_channels</div><div class="tool-fn-desc"><span class="lang-ko">워크스페이스 채널 목록</span><span class="lang-en">Workspace channel list</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_get_messages</div><div class="tool-fn-desc"><span class="lang-ko">채널 최근 메시지 가져오기</span><span class="lang-en">Fetch recent channel messages</span></div></div>
           </div>
           <div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_reply_to_thread</div><div class="tool-fn-desc">스레드에 답변 달기</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_add_reaction</div><div class="tool-fn-desc">메시지에 이모지 반응 추가</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_upload_file</div><div class="tool-fn-desc">파일/이미지 채널 공유</div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_reply_to_thread</div><div class="tool-fn-desc"><span class="lang-ko">스레드에 답변 달기</span><span class="lang-en">Reply to thread</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_add_reaction</div><div class="tool-fn-desc"><span class="lang-ko">메시지에 이모지 반응 추가</span><span class="lang-en">Add emoji reaction to message</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--purple)">slack_upload_file</div><div class="tool-fn-desc"><span class="lang-ko">파일/이미지 채널 공유</span><span class="lang-en">Share file/image to channel</span></div></div>
           </div>
         </div>
         <div class="infobox" style="margin-top:1rem">
-          <strong>실제 활용:</strong> "오늘 배포 완료됐다고 #releases 채널에 변경사항 요약해서 올려줘 → 팀장한테 DM도 보내줘"
+          <div class="lang-ko"><strong>실제 활용:</strong> "오늘 배포 완료됐다고 #releases 채널에 변경사항 요약해서 올려줘 → 팀장한테 DM도 보내줘"</div>
+          <div class="lang-en"><strong>Real use:</strong> "Post a summary of today's deployment to #releases → also DM the team lead"</div>
         </div>
       </div>
 
@@ -889,23 +903,23 @@ hr.divider{border:none;border-top:1px solid var(--border)}
           <div style="width:36px;height:36px;border-radius:8px;background:var(--green-dim);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🗄️</div>
           <div>
             <div style="font-weight:700">PostgreSQL MCP Server</div>
-            <div style="font-size:.75rem;color:var(--text-muted)">DB 스키마 탐색 · 쿼리 실행 · 데이터 분석</div>
+            <div style="font-size:.75rem;color:var(--text-muted)"><span class="lang-ko">DB 스키마 탐색 · 쿼리 실행 · 데이터 분석</span><span class="lang-en">DB schema explore · query exec · data analysis</span></div>
           </div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
           <div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">query</div><div class="tool-fn-desc">SQL 쿼리 실행 후 결과 반환</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">list_tables</div><div class="tool-fn-desc">데이터베이스 테이블 목록</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">describe_table</div><div class="tool-fn-desc">테이블 컬럼·타입·제약조건 조회</div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">query</div><div class="tool-fn-desc"><span class="lang-ko">SQL 쿼리 실행 후 결과 반환</span><span class="lang-en">Execute SQL query and return results</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">list_tables</div><div class="tool-fn-desc"><span class="lang-ko">데이터베이스 테이블 목록</span><span class="lang-en">Database table list</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">describe_table</div><div class="tool-fn-desc"><span class="lang-ko">테이블 컬럼·타입·제약조건 조회</span><span class="lang-en">Get table columns, types, constraints</span></div></div>
           </div>
           <div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">list_indexes</div><div class="tool-fn-desc">인덱스 정보 조회</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">explain_query</div><div class="tool-fn-desc">쿼리 실행계획 분석</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">get_schema</div><div class="tool-fn-desc">전체 DB 스키마 덤프</div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">list_indexes</div><div class="tool-fn-desc"><span class="lang-ko">인덱스 정보 조회</span><span class="lang-en">Get index information</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">explain_query</div><div class="tool-fn-desc"><span class="lang-ko">쿼리 실행계획 분석</span><span class="lang-en">Analyze query execution plan</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--green)">get_schema</div><div class="tool-fn-desc"><span class="lang-ko">전체 DB 스키마 덤프</span><span class="lang-en">Dump full DB schema</span></div></div>
           </div>
         </div>
         <div class="code-block" style="margin-top:1rem">
-          <div class="code-header"><span>실제 쿼리 자동화 예시</span></div>
+          <div class="code-header"><span><span class="lang-ko">실제 쿼리 자동화 예시</span><span class="lang-en">Real Query Automation Example</span></span></div>
           <div class="code-body"><span class="c-muted">> "지난달 매출 상위 10개 상품 알려줘"</span>
 
 <span class="c-green">query</span>(<span class="c-yellow">"""
@@ -923,23 +937,24 @@ hr.divider{border:none;border-top:1px solid var(--border)}
           <div style="width:36px;height:36px;border-radius:8px;background:var(--pink-dim);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🎨</div>
           <div>
             <div style="font-weight:700">Figma MCP Server</div>
-            <div style="font-size:.75rem;color:var(--text-muted)">디자인 파일 읽기 · 컴포넌트 추출 · 코드 생성</div>
+            <div style="font-size:.75rem;color:var(--text-muted)"><span class="lang-ko">디자인 파일 읽기 · 컴포넌트 추출 · 코드 생성</span><span class="lang-en">Read design files · extract components · generate code</span></div>
           </div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
           <div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_file</div><div class="tool-fn-desc">Figma 파일 전체 구조 가져오기</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_node</div><div class="tool-fn-desc">특정 컴포넌트/프레임 세부 정보</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_images</div><div class="tool-fn-desc">노드를 PNG/SVG로 내보내기</div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_file</div><div class="tool-fn-desc"><span class="lang-ko">Figma 파일 전체 구조 가져오기</span><span class="lang-en">Get full Figma file structure</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_node</div><div class="tool-fn-desc"><span class="lang-ko">특정 컴포넌트/프레임 세부 정보</span><span class="lang-en">Get specific component/frame details</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_images</div><div class="tool-fn-desc"><span class="lang-ko">노드를 PNG/SVG로 내보내기</span><span class="lang-en">Export node as PNG/SVG</span></div></div>
           </div>
           <div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_styles</div><div class="tool-fn-desc">컬러·타이포그래피 토큰 추출</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_components</div><div class="tool-fn-desc">컴포넌트 라이브러리 목록</div></div>
-            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_comments</div><div class="tool-fn-desc">디자인 코멘트/피드백 읽기</div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_styles</div><div class="tool-fn-desc"><span class="lang-ko">컬러·타이포그래피 토큰 추출</span><span class="lang-en">Extract color &amp; typography tokens</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_components</div><div class="tool-fn-desc"><span class="lang-ko">컴포넌트 라이브러리 목록</span><span class="lang-en">Component library list</span></div></div>
+            <div class="mcp-tool"><div class="tool-fn" style="color:var(--pink)">get_comments</div><div class="tool-fn-desc"><span class="lang-ko">디자인 코멘트/피드백 읽기</span><span class="lang-en">Read design comments/feedback</span></div></div>
           </div>
         </div>
         <div class="infobox" style="margin-top:1rem">
-          <strong>실제 활용:</strong> "Figma 링크에서 버튼 컴포넌트 스타일 추출 → SwiftUI/React 코드로 자동 변환 → 디자인 토큰 CSS 변수 파일 생성"
+          <div class="lang-ko"><strong>실제 활용:</strong> "Figma 링크에서 버튼 컴포넌트 스타일 추출 → SwiftUI/React 코드로 자동 변환 → 디자인 토큰 CSS 변수 파일 생성"</div>
+          <div class="lang-en"><strong>Real use:</strong> "Extract button component styles from Figma link → auto-convert to SwiftUI/React code → generate design token CSS variable file"</div>
         </div>
       </div>
 
@@ -948,7 +963,7 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 
   <!-- MCP 설정 코드 -->
   <div class="code-block fadein" style="margin-top:1.5rem">
-    <div class="code-header"><span><span class="dot" style="background:#ef4444"></span><span class="dot" style="background:#f59e0b"></span><span class="dot" style="background:#22c55e"></span> .claude/settings.json — 다중 MCP 서버 설정</span></div>
+    <div class="code-header"><span><span class="dot" style="background:#ef4444"></span><span class="dot" style="background:#f59e0b"></span><span class="dot" style="background:#22c55e"></span> .claude/settings.json — <span class="lang-ko">다중 MCP 서버 설정</span><span class="lang-en">Multiple MCP Server Config</span></span></div>
     <div class="code-body">{
   <span class="c-green">"mcpServers"</span>: {
     <span class="c-green">"github"</span>: {
@@ -978,20 +993,21 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 ═══════════════════════════════════════════════════ -->
 <section class="section" id="sec-skills">
   <div class="section-label">03 · SKILLS</div>
-  <h2 class="section-title">Skills 카탈로그 — 실제 예시</h2>
-  <p class="section-desc">Skills는 <code>SKILL.md</code> 파일 기반의 재사용 가능한 전문 지식 묶음. 카드를 클릭하면 실제 SKILL.md 내용을 볼 수 있습니다.</p>
+  <h2 class="section-title"><span class="lang-ko">Skills 카탈로그 — 실제 예시</span><span class="lang-en">Skills Catalog — Real Examples</span></h2>
+  <p class="section-desc"><span class="lang-ko">Skills는 <code>SKILL.md</code> 파일 기반의 재사용 가능한 전문 지식 묶음. 카드를 클릭하면 실제 SKILL.md 내용을 볼 수 있습니다.</span><span class="lang-en">Skills are reusable specialist knowledge bundles based on <code>SKILL.md</code> files. Click a card to see the actual SKILL.md content.</span></p>
 
   <div class="infobox fadein">
-    <strong>점진적 공개 원리:</strong> Claude는 시작 시 모든 Skill의 이름·설명(~100 토큰)만 로드합니다. 관련 요청이 오면 그때서야 <code>SKILL.md</code> 본문을 읽습니다 (5K 토큰 미만). 스크립트는 실행 결과만 받습니다. 수십 개 설치해도 성능 저하 없음.
+    <div class="lang-ko"><strong>점진적 공개 원리:</strong> Claude는 시작 시 모든 Skill의 이름·설명(~100 토큰)만 로드합니다. 관련 요청이 오면 그때서야 <code>SKILL.md</code> 본문을 읽습니다 (5K 토큰 미만). 스크립트는 실행 결과만 받습니다. 수십 개 설치해도 성능 저하 없음.</div>
+    <div class="lang-en"><strong>Progressive Loading Principle:</strong> Claude loads only each Skill's name and description (~100 tokens) on startup. When a relevant request arrives, it reads the <code>SKILL.md</code> body (under 5K tokens). Scripts return only execution results. No performance degradation even with dozens installed.</div>
   </div>
 
   <!-- Tabs by category -->
   <div style="margin-top:1.5rem" class="fadein">
     <div class="tabs" style="border-bottom:1px solid var(--border);margin-bottom:1rem">
-      <button class="tab-btn active" style="--tab-color:var(--green);--tab-bg:var(--green-dim)" onclick="switchTab('skill','builtin',this)">🏗️ 사전 구축</button>
-      <button class="tab-btn" style="--tab-color:var(--blue);--tab-bg:var(--blue-dim)" onclick="switchTab('skill','dev',this)">💻 개발</button>
-      <button class="tab-btn" style="--tab-color:var(--purple);--tab-bg:var(--purple-dim)" onclick="switchTab('skill','data',this)">📊 데이터</button>
-      <button class="tab-btn" style="--tab-color:var(--accent);--tab-bg:var(--accent-dim)" onclick="switchTab('skill','content',this)">✍️ 콘텐츠</button>
+      <button class="tab-btn active" style="--tab-color:var(--green);--tab-bg:var(--green-dim)" onclick="switchTab('skill','builtin',this)">🏗️ <span class="lang-ko">사전 구축</span><span class="lang-en">Built-in</span></button>
+      <button class="tab-btn" style="--tab-color:var(--blue);--tab-bg:var(--blue-dim)" onclick="switchTab('skill','dev',this)">💻 <span class="lang-ko">개발</span><span class="lang-en">Dev</span></button>
+      <button class="tab-btn" style="--tab-color:var(--purple);--tab-bg:var(--purple-dim)" onclick="switchTab('skill','data',this)">📊 <span class="lang-ko">데이터</span><span class="lang-en">Data</span></button>
+      <button class="tab-btn" style="--tab-color:var(--accent);--tab-bg:var(--accent-dim)" onclick="switchTab('skill','content',this)">✍️ <span class="lang-ko">콘텐츠</span><span class="lang-en">Content</span></button>
     </div>
 
     <!-- BUILTIN -->
@@ -1002,7 +1018,7 @@ hr.divider{border:none;border-top:1px solid var(--border)}
             <div class="skill-icon" style="background:var(--accent-dim)">📊</div>
             <div>
               <div class="skill-title">Excel / XLSX</div>
-              <div class="skill-when">스프레드시트 언급 시 자동 트리거</div>
+              <div class="skill-when"><span class="lang-ko">스프레드시트 언급 시 자동 트리거</span><span class="lang-en">Auto-triggered when spreadsheet mentioned</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1035,7 +1051,7 @@ BarChart/LineChart: <span class="c-yellow">→ [CHARTS.md 참조]</span></div>
             <div class="skill-icon" style="background:var(--blue-dim)">📑</div>
             <div>
               <div class="skill-title">PowerPoint / PPTX</div>
-              <div class="skill-when">프레젠테이션 생성 요청 시</div>
+              <div class="skill-when"><span class="lang-ko">프레젠테이션 생성 요청 시</span><span class="lang-en">When presentation creation requested</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1065,8 +1081,8 @@ slide = prs.slides.add_slide(layout)
           <div class="skill-card-head">
             <div class="skill-icon" style="background:var(--teal-dim)">📄</div>
             <div>
-              <div class="skill-title">PDF 처리</div>
-              <div class="skill-when">PDF 파일 작업, 추출, 분석 시</div>
+              <div class="skill-title"><span class="lang-ko">PDF 처리</span><span class="lang-en">PDF Processing</span></div>
+              <div class="skill-when"><span class="lang-ko">PDF 파일 작업, 추출, 분석 시</span><span class="lang-en">When working with, extracting, or analyzing PDF files</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1098,7 +1114,7 @@ name:</span> <span class="c-green">pdf</span>
             <div class="skill-icon" style="background:var(--purple-dim)">📝</div>
             <div>
               <div class="skill-title">Word / DOCX</div>
-              <div class="skill-when">Word 문서 생성·편집 요청 시</div>
+              <div class="skill-when"><span class="lang-ko">Word 문서 생성·편집 요청 시</span><span class="lang-en">When Word document create/edit requested</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1131,8 +1147,8 @@ doc.save(<span class="c-yellow">'output.docx'</span>)</div>
           <div class="skill-card-head">
             <div class="skill-icon" style="background:var(--blue-dim)">🔍</div>
             <div>
-              <div class="skill-title">코드 리뷰어</div>
-              <div class="skill-when">커밋 메시지 작성, 코드 검토 요청 시</div>
+              <div class="skill-title"><span class="lang-ko">코드 리뷰어</span><span class="lang-en">Code Reviewer</span></div>
+              <div class="skill-when"><span class="lang-ko">커밋 메시지 작성, 코드 검토 요청 시</span><span class="lang-en">When commit message writing or code review requested</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1168,8 +1184,8 @@ name:</span> <span class="c-green">code-reviewing</span>
           <div class="skill-card-head">
             <div class="skill-icon" style="background:var(--yellow-dim)">🐛</div>
             <div>
-              <div class="skill-title">Git 커밋 도우미</div>
-              <div class="skill-when">커밋 메시지 작성, staged 변경 검토 시</div>
+              <div class="skill-title"><span class="lang-ko">Git 커밋 도우미</span><span class="lang-en">Git Commit Helper</span></div>
+              <div class="skill-when"><span class="lang-ko">커밋 메시지 작성, staged 변경 검토 시</span><span class="lang-en">When writing commit messages or reviewing staged changes</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1200,8 +1216,8 @@ docs(api): POST /users 엔드포인트 추가</div>
           <div class="skill-card-head">
             <div class="skill-icon" style="background:var(--teal-dim)">🧪</div>
             <div>
-              <div class="skill-title">테스트 생성기</div>
-              <div class="skill-when">단위 테스트, 테스트 커버리지 개선 시</div>
+              <div class="skill-title"><span class="lang-ko">테스트 생성기</span><span class="lang-en">Test Generator</span></div>
+              <div class="skill-when"><span class="lang-ko">단위 테스트, 테스트 커버리지 개선 시</span><span class="lang-en">When writing unit tests or improving test coverage</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1233,8 +1249,8 @@ name:</span> <span class="c-green">testing-code</span>
           <div class="skill-card-head">
             <div class="skill-icon" style="background:var(--green-dim)">📖</div>
             <div>
-              <div class="skill-title">API 문서화</div>
-              <div class="skill-when">API 문서, README, JSDoc 작성 요청 시</div>
+              <div class="skill-title"><span class="lang-ko">API 문서화</span><span class="lang-en">API Documentation</span></div>
+              <div class="skill-when"><span class="lang-ko">API 문서, README, JSDoc 작성 요청 시</span><span class="lang-en">When API docs, README, or JSDoc writing requested</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1272,8 +1288,8 @@ name:</span> <span class="c-green">writing-documentation</span>
           <div class="skill-card-head">
             <div class="skill-icon" style="background:var(--purple-dim)">📈</div>
             <div>
-              <div class="skill-title">BigQuery 분석</div>
-              <div class="skill-when">매출·사용자 데이터 분석 요청 시</div>
+              <div class="skill-title"><span class="lang-ko">BigQuery 분석</span><span class="lang-en">BigQuery Analysis</span></div>
+              <div class="skill-when"><span class="lang-ko">매출·사용자 데이터 분석 요청 시</span><span class="lang-en">When revenue or user data analysis requested</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1304,8 +1320,8 @@ name:</span> <span class="c-green">analyzing-bigquery</span>
           <div class="skill-card-head">
             <div class="skill-icon" style="background:var(--blue-dim)">🔬</div>
             <div>
-              <div class="skill-title">연구 종합</div>
-              <div class="skill-when">문서 분석, 리서치 요약 요청 시</div>
+              <div class="skill-title"><span class="lang-ko">연구 종합</span><span class="lang-en">Research Synthesis</span></div>
+              <div class="skill-when"><span class="lang-ko">문서 분석, 리서치 요약 요청 시</span><span class="lang-en">When document analysis or research summary requested</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1340,8 +1356,8 @@ name:</span> <span class="c-green">research-synthesizing</span>
           <div class="skill-card-head">
             <div class="skill-icon" style="background:var(--accent-dim)">✍️</div>
             <div>
-              <div class="skill-title">블로그 작성</div>
-              <div class="skill-when">블로그 포스트, 기술 글쓰기 요청 시</div>
+              <div class="skill-title"><span class="lang-ko">블로그 작성</span><span class="lang-en">Blog Writing</span></div>
+              <div class="skill-when"><span class="lang-ko">블로그 포스트, 기술 글쓰기 요청 시</span><span class="lang-en">When blog post or technical writing requested</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1372,8 +1388,8 @@ name:</span> <span class="c-green">writing-blog-posts</span>
           <div class="skill-card-head">
             <div class="skill-icon" style="background:var(--pink-dim)">📧</div>
             <div>
-              <div class="skill-title">이메일 작성</div>
-              <div class="skill-when">비즈니스 이메일, 공식 서신 작성 시</div>
+              <div class="skill-title"><span class="lang-ko">이메일 작성</span><span class="lang-en">Email Writing</span></div>
+              <div class="skill-when"><span class="lang-ko">비즈니스 이메일, 공식 서신 작성 시</span><span class="lang-en">When business email or official correspondence writing requested</span></div>
             </div>
           </div>
           <div class="skill-code">
@@ -1403,7 +1419,7 @@ name:</span> <span class="c-green">writing-emails</span>
 
   <!-- Skill 파일 구조 -->
   <div class="code-block fadein" style="margin-top:1.5rem">
-    <div class="code-header"><span>📁 커스텀 Skill 만들기 — 디렉토리 구조</span></div>
+    <div class="code-header"><span>📁 <span class="lang-ko">커스텀 Skill 만들기 — 디렉토리 구조</span><span class="lang-en">Creating a Custom Skill — Directory Structure</span></span></div>
     <div class="code-body"><span class="c-muted"># Claude Code: 프로젝트 범위</span>
 .claude/skills/code-reviewing/
 ├── <span class="c-green">SKILL.md</span>          <span class="c-muted"># L1 메타데이터 + L2 지침 (항상 로드)</span>
@@ -1425,57 +1441,57 @@ name:</span> <span class="c-green">writing-emails</span>
 ═══════════════════════════════════════════════════ -->
 <section class="section" id="sec-tools">
   <div class="section-label">04 · TOOLS</div>
-  <h2 class="section-title">내장 도구 전체 목록</h2>
-  <p class="section-desc">에이전트가 실제 세계와 상호작용하는 함수들. Claude는 필요에 따라 이 도구들을 자율적으로 선택해 호출합니다.</p>
+  <h2 class="section-title"><span class="lang-ko">내장 도구 전체 목록</span><span class="lang-en">Full List of Built-in Tools</span></h2>
+  <p class="section-desc"><span class="lang-ko">에이전트가 실제 세계와 상호작용하는 함수들. Claude는 필요에 따라 이 도구들을 자율적으로 선택해 호출합니다.</span><span class="lang-en">Functions that let the agent interact with the real world. Claude autonomously selects and calls these tools as needed.</span></p>
 
   <div class="tool-grid fadein">
     <div class="tool-item" style="--tc:var(--yellow);--tb:var(--yellow-dim)">
       <div class="ti-icon">💻</div>
-      <div><div class="ti-name">bash</div><div class="ti-desc">셸 명령어 직접 실행</div></div>
+      <div><div class="ti-name">bash</div><div class="ti-desc"><span class="lang-ko">셸 명령어 직접 실행</span><span class="lang-en">Direct shell command execution</span></div></div>
     </div>
     <div class="tool-item" style="--tc:var(--blue);--tb:var(--blue-dim)">
       <div class="ti-icon">📝</div>
-      <div><div class="ti-name">text_editor</div><div class="ti-desc">파일 읽기·생성·편집</div></div>
+      <div><div class="ti-name">text_editor</div><div class="ti-desc"><span class="lang-ko">파일 읽기·생성·편집</span><span class="lang-en">File read, create, and edit</span></div></div>
     </div>
     <div class="tool-item" style="--tc:var(--green);--tb:var(--green-dim)">
       <div class="ti-icon">🐍</div>
-      <div><div class="ti-name">code_execution</div><div class="ti-desc">Python 샌드박스 실행</div></div>
+      <div><div class="ti-name">code_execution</div><div class="ti-desc"><span class="lang-ko">Python 샌드박스 실행</span><span class="lang-en">Python sandbox execution</span></div></div>
     </div>
     <div class="tool-item" style="--tc:var(--teal);--tb:var(--teal-dim)">
       <div class="ti-icon">🌐</div>
-      <div><div class="ti-name">web_search</div><div class="ti-desc">실시간 웹 검색</div></div>
+      <div><div class="ti-name">web_search</div><div class="ti-desc"><span class="lang-ko">실시간 웹 검색</span><span class="lang-en">Real-time web search</span></div></div>
     </div>
     <div class="tool-item" style="--tc:var(--purple);--tb:var(--purple-dim)">
       <div class="ti-icon">📄</div>
-      <div><div class="ti-name">web_fetch</div><div class="ti-desc">웹페이지·PDF 콘텐츠 추출</div></div>
+      <div><div class="ti-name">web_fetch</div><div class="ti-desc"><span class="lang-ko">웹페이지·PDF 콘텐츠 추출</span><span class="lang-en">Webpage &amp; PDF content extraction</span></div></div>
     </div>
     <div class="tool-item" style="--tc:var(--pink);--tb:var(--pink-dim)">
       <div class="ti-icon">🖥️</div>
-      <div><div class="ti-name">computer_use</div><div class="ti-desc">마우스·키보드 제어 (Beta)</div></div>
+      <div><div class="ti-name">computer_use</div><div class="ti-desc"><span class="lang-ko">마우스·키보드 제어 (Beta)</span><span class="lang-en">Mouse &amp; keyboard control (Beta)</span></div></div>
     </div>
     <div class="tool-item" style="--tc:var(--accent);--tb:var(--accent-dim)">
       <div class="ti-icon">💾</div>
-      <div><div class="ti-name">memory</div><div class="ti-desc">대화 간 정보 저장·검색</div></div>
+      <div><div class="ti-name">memory</div><div class="ti-desc"><span class="lang-ko">대화 간 정보 저장·검색</span><span class="lang-en">Store &amp; retrieve info across conversations</span></div></div>
     </div>
     <div class="tool-item" style="--tc:var(--blue);--tb:var(--blue-dim)">
       <div class="ti-icon">🔍</div>
-      <div><div class="ti-name">tool_search</div><div class="ti-desc">수천 개 도구 동적 검색</div></div>
+      <div><div class="ti-name">tool_search</div><div class="ti-desc"><span class="lang-ko">수천 개 도구 동적 검색</span><span class="lang-en">Dynamic search across thousands of tools</span></div></div>
     </div>
     <div class="tool-item" style="--tc:var(--teal);--tb:var(--teal-dim)">
       <div class="ti-icon">🔌</div>
-      <div><div class="ti-name">mcp_toolset</div><div class="ti-desc">원격 MCP 서버 도구 호출</div></div>
+      <div><div class="ti-name">mcp_toolset</div><div class="ti-desc"><span class="lang-ko">원격 MCP 서버 도구 호출</span><span class="lang-en">Call remote MCP server tools</span></div></div>
     </div>
     <div class="tool-item" style="--tc:var(--green);--tb:var(--green-dim)">
       <div class="ti-icon">📁</div>
-      <div><div class="ti-name">files_api</div><div class="ti-desc">파일 업로드·재사용 관리</div></div>
+      <div><div class="ti-name">files_api</div><div class="ti-desc"><span class="lang-ko">파일 업로드·재사용 관리</span><span class="lang-en">File upload &amp; reuse management</span></div></div>
     </div>
     <div class="tool-item" style="--tc:var(--yellow);--tb:var(--yellow-dim)">
       <div class="ti-icon">⚡</div>
-      <div><div class="ti-name">Skill (도구)</div><div class="ti-desc">등록된 Skill 직접 호출</div></div>
+      <div><div class="ti-name"><span class="lang-ko">Skill (도구)</span><span class="lang-en">Skill (Tool)</span></div><div class="ti-desc"><span class="lang-ko">등록된 Skill 직접 호출</span><span class="lang-en">Direct call to registered Skill</span></div></div>
     </div>
     <div class="tool-item" style="--tc:var(--purple);--tb:var(--purple-dim)">
       <div class="ti-icon">👥</div>
-      <div><div class="ti-name">Task (서브에이전트)</div><div class="ti-desc">병렬 서브에이전트 위임</div></div>
+      <div><div class="ti-name"><span class="lang-ko">Task (서브에이전트)</span><span class="lang-en">Task (Sub-Agent)</span></div><div class="ti-desc"><span class="lang-ko">병렬 서브에이전트 위임</span><span class="lang-en">Parallel sub-agent delegation</span></div></div>
     </div>
   </div>
 </section>
@@ -1487,28 +1503,28 @@ name:</span> <span class="c-green">writing-emails</span>
 ═══════════════════════════════════════════════════ -->
 <section class="section" id="sec-context">
   <div class="section-label">05 · CONTEXT WINDOW</div>
-  <h2 class="section-title">컨텍스트 윈도우 관리</h2>
-  <p class="section-desc">Claude가 한 번에 볼 수 있는 "작업 기억". 최대 1M 토큰이지만 무엇이 이 공간을 차지하는지 알아야 효율적으로 운용할 수 있습니다.</p>
+  <h2 class="section-title"><span class="lang-ko">컨텍스트 윈도우 관리</span><span class="lang-en">Context Window Management</span></h2>
+  <p class="section-desc"><span class="lang-ko">Claude가 한 번에 볼 수 있는 "작업 기억". 최대 1M 토큰이지만 무엇이 이 공간을 차지하는지 알아야 효율적으로 운용할 수 있습니다.</span><span class="lang-en">Claude's "working memory" that it can see at once. Up to 1M tokens, but you need to know what occupies this space to use it efficiently.</span></p>
 
   <div class="card fadein">
     <div class="ctx-bar-wrap">
       <div class="ctx-bar-label">
-        <span>일반적인 에이전트 세션 (200K 토큰 기준)</span>
-        <span style="color:var(--accent)">73% 사용</span>
+        <span><span class="lang-ko">일반적인 에이전트 세션 (200K 토큰 기준)</span><span class="lang-en">Typical agent session (200K token basis)</span></span>
+        <span style="color:var(--accent)"><span class="lang-ko">73% 사용</span><span class="lang-en">73% used</span></span>
       </div>
       <div class="ctx-bar">
-        <div class="ctx-seg" style="width:15%;background:var(--purple);color:#fff">시스템 프롬프트</div>
+        <div class="ctx-seg" style="width:15%;background:var(--purple);color:#fff"><span class="lang-ko">시스템 프롬프트</span><span class="lang-en">System Prompt</span></div>
         <div class="ctx-seg" style="width:7%;background:var(--green);color:#fff">Skills</div>
-        <div class="ctx-seg" style="width:28%;background:var(--blue);color:#fff">대화 내역</div>
-        <div class="ctx-seg" style="width:15%;background:var(--yellow);color:var(--bg)">도구 결과</div>
+        <div class="ctx-seg" style="width:28%;background:var(--blue);color:#fff"><span class="lang-ko">대화 내역</span><span class="lang-en">Conversation</span></div>
+        <div class="ctx-seg" style="width:15%;background:var(--yellow);color:var(--bg)"><span class="lang-ko">도구 결과</span><span class="lang-en">Tool Results</span></div>
         <div class="ctx-seg" style="width:8%;background:var(--pink);color:#fff">Thinking</div>
-        <div class="ctx-seg" style="width:27%;background:var(--bg-surface);color:var(--text-muted)">여유 (27%)</div>
+        <div class="ctx-seg" style="width:27%;background:var(--bg-surface);color:var(--text-muted)"><span class="lang-ko">여유 (27%)</span><span class="lang-en">Free (27%)</span></div>
       </div>
       <div class="ctx-legend">
-        <div class="ctx-leg"><div class="ctx-dot" style="background:var(--purple)"></div>시스템 프롬프트 15%</div>
-        <div class="ctx-leg"><div class="ctx-dot" style="background:var(--green)"></div>Skill 메타데이터 7%</div>
-        <div class="ctx-leg"><div class="ctx-dot" style="background:var(--blue)"></div>대화 내역 28%</div>
-        <div class="ctx-leg"><div class="ctx-dot" style="background:var(--yellow)"></div>도구 결과 15%</div>
+        <div class="ctx-leg"><div class="ctx-dot" style="background:var(--purple)"></div><span class="lang-ko">시스템 프롬프트 15%</span><span class="lang-en">System Prompt 15%</span></div>
+        <div class="ctx-leg"><div class="ctx-dot" style="background:var(--green)"></div><span class="lang-ko">Skill 메타데이터 7%</span><span class="lang-en">Skill Metadata 7%</span></div>
+        <div class="ctx-leg"><div class="ctx-dot" style="background:var(--blue)"></div><span class="lang-ko">대화 내역 28%</span><span class="lang-en">Conversation History 28%</span></div>
+        <div class="ctx-leg"><div class="ctx-dot" style="background:var(--yellow)"></div><span class="lang-ko">도구 결과 15%</span><span class="lang-en">Tool Results 15%</span></div>
         <div class="ctx-leg"><div class="ctx-dot" style="background:var(--pink)"></div>Extended Thinking 8%</div>
       </div>
     </div>
@@ -1516,19 +1532,19 @@ name:</span> <span class="c-green">writing-emails</span>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.7rem;margin-top:1.2rem">
       <div class="tool-item" style="--tc:var(--purple);--tb:var(--purple-dim)">
         <div class="ti-icon" style="background:var(--purple-dim)">⚡</div>
-        <div><div class="ti-name">프롬프트 캐싱</div><div class="ti-desc">5분·1시간 캐시, 90% 비용 절감</div></div>
+        <div><div class="ti-name"><span class="lang-ko">프롬프트 캐싱</span><span class="lang-en">Prompt Caching</span></div><div class="ti-desc"><span class="lang-ko">5분·1시간 캐시, 90% 비용 절감</span><span class="lang-en">5-min/1-hour cache, 90% cost reduction</span></div></div>
       </div>
       <div class="tool-item" style="--tc:var(--blue);--tb:var(--blue-dim)">
         <div class="ti-icon" style="background:var(--blue-dim)">🗜️</div>
-        <div><div class="ti-name">컨텍스트 압축</div><div class="ti-desc">오래된 대화 서버 측 자동 요약</div></div>
+        <div><div class="ti-name"><span class="lang-ko">컨텍스트 압축</span><span class="lang-en">Context Compression</span></div><div class="ti-desc"><span class="lang-ko">오래된 대화 서버 측 자동 요약</span><span class="lang-en">Auto-summarize old conversation server-side</span></div></div>
       </div>
       <div class="tool-item" style="--tc:var(--teal);--tb:var(--teal-dim)">
         <div class="ti-icon" style="background:var(--teal-dim)">✂️</div>
-        <div><div class="ti-name">컨텍스트 편집</div><div class="ti-desc">도구 결과 선택적 제거</div></div>
+        <div><div class="ti-name"><span class="lang-ko">컨텍스트 편집</span><span class="lang-en">Context Editing</span></div><div class="ti-desc"><span class="lang-ko">도구 결과 선택적 제거</span><span class="lang-en">Selectively remove tool results</span></div></div>
       </div>
       <div class="tool-item" style="--tc:var(--green);--tb:var(--green-dim)">
         <div class="ti-icon" style="background:var(--green-dim)">🔢</div>
-        <div><div class="ti-name">토큰 카운팅</div><div class="ti-desc">전송 전 사전 토큰 수 확인</div></div>
+        <div><div class="ti-name"><span class="lang-ko">토큰 카운팅</span><span class="lang-en">Token Counting</span></div><div class="ti-desc"><span class="lang-ko">전송 전 사전 토큰 수 확인</span><span class="lang-en">Check token count before sending</span></div></div>
       </div>
     </div>
   </div>
@@ -1542,31 +1558,31 @@ name:</span> <span class="c-green">writing-emails</span>
 <section class="section" id="sec-thinking">
   <div class="section-label">06 · EXTENDED THINKING</div>
   <h2 class="section-title">Extended Thinking</h2>
-  <p class="section-desc">복잡한 추론이 필요할 때 Claude의 단계별 사고 과정을 투명하게 볼 수 있습니다. 토글로 ON/OFF 비교해보세요.</p>
+  <p class="section-desc"><span class="lang-ko">복잡한 추론이 필요할 때 Claude의 단계별 사고 과정을 투명하게 볼 수 있습니다. 토글로 ON/OFF 비교해보세요.</span><span class="lang-en">When complex reasoning is needed, you can transparently view Claude's step-by-step thought process. Use the toggle to compare ON/OFF.</span></p>
 
   <div class="card fadein">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.6rem">
-      <div style="font-size:.85rem;color:var(--text-dim);font-weight:600">Extended Thinking 활성화 여부</div>
+      <div style="font-size:.85rem;color:var(--text-dim);font-weight:600"><span class="lang-ko">Extended Thinking 활성화 여부</span><span class="lang-en">Extended Thinking Toggle</span></div>
       <div class="t-toggle">
         <button class="t-btn on" id="t-on" onclick="toggleThinking(true)">💭 ON</button>
-        <button class="t-btn" id="t-off" onclick="toggleThinking(false)">⚡ OFF (빠름)</button>
+        <button class="t-btn" id="t-off" onclick="toggleThinking(false)">⚡ OFF (<span class="lang-ko">빠름</span><span class="lang-en">Fast</span>)</button>
       </div>
     </div>
     <div style="font-family:var(--mono);font-size:.75rem;color:var(--text-muted);margin-bottom:.8rem;padding:.5rem .7rem;background:var(--bg-surface);border-radius:6px;border:1px solid var(--border)">
-      질문: "우리 SaaS 앱의 가격 정책을 월 $29 vs 연 $249로 해야 할까요? 어떤 게 더 유리할까요?"
+      <span class="lang-ko">질문: "우리 SaaS 앱의 가격 정책을 월 $29 vs 연 $249로 해야 할까요? 어떤 게 더 유리할까요?"</span><span class="lang-en">Question: "Should our SaaS app's pricing be monthly $29 vs annual $249? Which is more advantageous?"</span>
     </div>
     <div id="thinking-blocks">
       <div class="t-block think" id="tb1">
-        <div class="blabel">🧠 thinking — 재무 분석</div>
-        월 $29 × 12 = $348/년. 연 $249면 고객은 $99 절약 (28% 할인). 회사 입장에서는 연간 선결제로 현금흐름이 좋아지고 이탈률이 낮아진다. SaaS 업계 평균 월→연 전환율이 높아지면 LTV가 크게 개선될 수 있다. 다만 연간 요금제 비중이 높아지면 신규 가입 장벽이 올라갈 수 있다...
+        <div class="blabel"><span class="lang-ko">🧠 thinking — 재무 분석</span><span class="lang-en">🧠 thinking — Financial Analysis</span></div>
+        <span class="lang-ko">월 $29 × 12 = $348/년. 연 $249면 고객은 $99 절약 (28% 할인). 회사 입장에서는 연간 선결제로 현금흐름이 좋아지고 이탈률이 낮아진다. SaaS 업계 평균 월→연 전환율이 높아지면 LTV가 크게 개선될 수 있다. 다만 연간 요금제 비중이 높아지면 신규 가입 장벽이 올라갈 수 있다...</span><span class="lang-en">Monthly $29 × 12 = $348/year. Annual $249 saves customers $99 (28% discount). From the company's perspective, annual prepayment improves cash flow and reduces churn. If the average monthly→annual conversion rate in the SaaS industry improves, LTV could improve significantly. However, higher proportion of annual plans may raise barriers for new sign-ups...</span>
       </div>
       <div class="t-block think" id="tb2">
-        <div class="blabel">🧠 thinking — 리스크 검토</div>
-        연간 결제 강요는 소규모 팀에게 부담. Freemium → 월간 → 연간 funnel이 효과적. Stripe 데이터에 따르면 연간 옵션 제공만으로도 전환율이 15-20% 상승하는 케이스가 있음. 두 옵션 모두 제공하는 것이 최선일 수 있다...
+        <div class="blabel"><span class="lang-ko">🧠 thinking — 리스크 검토</span><span class="lang-en">🧠 thinking — Risk Review</span></div>
+        <span class="lang-ko">연간 결제 강요는 소규모 팀에게 부담. Freemium → 월간 → 연간 funnel이 효과적. Stripe 데이터에 따르면 연간 옵션 제공만으로도 전환율이 15-20% 상승하는 케이스가 있음. 두 옵션 모두 제공하는 것이 최선일 수 있다...</span><span class="lang-en">Forcing annual payment is burdensome for small teams. Freemium → monthly → annual funnel is effective. Stripe data shows cases where simply offering annual option increases conversion rates by 15-20%. Providing both options may be the best approach...</span>
       </div>
       <div class="t-block answer">
-        <div class="blabel">✅ 최종 답변</div>
-        <strong>두 옵션을 모두 제공하는 것을 권장합니다.</strong> 월 $29 + 연 $249로 설정하면: (1) 월간은 진입 장벽 낮추고 (2) 연간은 현금흐름 개선 + 이탈률 감소. SaaS 업계 벤치마크에서 연간 옵션 추가 시 평균 LTV가 2.4배 상승합니다. 초기에는 월간으로 시작해 3개월 후 연간 전환 캠페인을 권장합니다.
+        <div class="blabel"><span class="lang-ko">✅ 최종 답변</span><span class="lang-en">✅ Final Answer</span></div>
+        <span class="lang-ko"><strong>두 옵션을 모두 제공하는 것을 권장합니다.</strong> 월 $29 + 연 $249로 설정하면: (1) 월간은 진입 장벽 낮추고 (2) 연간은 현금흐름 개선 + 이탈률 감소. SaaS 업계 벤치마크에서 연간 옵션 추가 시 평균 LTV가 2.4배 상승합니다. 초기에는 월간으로 시작해 3개월 후 연간 전환 캠페인을 권장합니다.</span><span class="lang-en"><strong>We recommend offering both options.</strong> Setting monthly $29 + annual $249: (1) monthly lowers the entry barrier and (2) annual improves cash flow + reduces churn. SaaS industry benchmarks show average LTV increases 2.4x when adding an annual option. We recommend starting monthly and running an annual conversion campaign after 3 months.</span>
       </div>
     </div>
   </div>
@@ -1578,26 +1594,26 @@ name:</span> <span class="c-green">writing-emails</span>
      SECTION 7 — REAL WORKFLOW
 ═══════════════════════════════════════════════════ -->
 <section class="section" id="sec-workflow">
-  <div class="section-label">07 · 실전 워크플로우</div>
-  <h2 class="section-title">모든 개념이 연결되는 실제 시나리오</h2>
-  <p class="section-desc">MCP + Skills + Tools + Agent가 협력하는 실제 자동화 파이프라인.</p>
+  <div class="section-label"><span class="lang-ko">07 · 실전 워크플로우</span><span class="lang-en">07 · REAL WORKFLOW</span></div>
+  <h2 class="section-title"><span class="lang-ko">모든 개념이 연결되는 실제 시나리오</span><span class="lang-en">Real Scenarios Where All Concepts Connect</span></h2>
+  <p class="section-desc"><span class="lang-ko">MCP + Skills + Tools + Agent가 협력하는 실제 자동화 파이프라인.</span><span class="lang-en">Real automation pipelines where MCP + Skills + Tools + Agent collaborate.</span></p>
 
   <!-- Scenario 1 -->
   <div class="scenario fadein">
     <div class="scenario-head" style="background:var(--blue-dim)">
       <span style="font-size:1.4rem">🚀</span>
       <div>
-        <div class="scenario-title">시나리오 A: "iOS 앱 PR 자동 리뷰 파이프라인"</div>
-        <div class="scenario-desc">GitHub MCP + Xcode MCP + 코드리뷰 Skill + bash Tool</div>
+        <div class="scenario-title"><span class="lang-ko">시나리오 A: "iOS 앱 PR 자동 리뷰 파이프라인"</span><span class="lang-en">Scenario A: "iOS App PR Auto-Review Pipeline"</span></div>
+        <div class="scenario-desc"><span class="lang-ko">GitHub MCP + Xcode MCP + 코드리뷰 Skill + bash Tool</span><span class="lang-en">GitHub MCP + Xcode MCP + Code Review Skill + bash Tool</span></div>
       </div>
     </div>
     <div class="scenario-steps">
-      <div class="sc-step"><div class="sc-num" style="--step-c:var(--blue)">①</div><div class="sc-body"><div class="sc-title">GitHub MCP: PR 감지</div><div class="sc-detail"><code>list_pull_requests(state:"open")</code> → 새 PR #42 발견: "feat: 다크모드 지원"</div></div></div>
-      <div class="sc-step"><div class="sc-num" style="--step-c:var(--blue)">②</div><div class="sc-body"><div class="sc-title">GitHub MCP: diff 가져오기</div><div class="sc-detail"><code>get_pull_request_diff(pr:42)</code> → 변경된 12개 Swift 파일 수신</div></div></div>
-      <div class="sc-step"><div class="sc-num" style="--step-c:var(--teal)">③</div><div class="sc-body"><div class="sc-title">Xcode MCP: 빌드 & 테스트</div><div class="sc-detail"><code>xcode_build(branch:"feat/dark-mode")</code> → <code>xcode_test()</code> → 3개 UI 테스트 실패</div></div></div>
-      <div class="sc-step"><div class="sc-num" style="--step-c:var(--green)">④</div><div class="sc-body"><div class="sc-title">Skill 트리거: 코드 리뷰</div><div class="sc-detail">code-reviewing Skill 로드 → 보안·성능·버그 체크리스트 적용 → 2개 이슈 발견</div></div></div>
-      <div class="sc-step"><div class="sc-num" style="--step-c:var(--blue)">⑤</div><div class="sc-body"><div class="sc-title">GitHub MCP: 리뷰 제출</div><div class="sc-detail"><code>create_review()</code> → 인라인 코멘트 4개 + "테스트 수정 필요" 요청 자동 제출</div></div></div>
-      <div class="sc-step"><div class="sc-num" style="--step-c:var(--purple)">⑥</div><div class="sc-body"><div class="sc-title">Slack MCP: 알림</div><div class="sc-detail"><code>slack_post_message(channel:"#ios-dev")</code> → "PR #42 리뷰 완료: 3개 테스트 실패, 2개 코드 이슈" 발송</div></div></div>
+      <div class="sc-step"><div class="sc-num" style="--step-c:var(--blue)">①</div><div class="sc-body"><div class="sc-title"><span class="lang-ko">GitHub MCP: PR 감지</span><span class="lang-en">GitHub MCP: Detect PR</span></div><div class="sc-detail"><code>list_pull_requests(state:"open")</code> → <span class="lang-ko">새 PR #42 발견: "feat: 다크모드 지원"</span><span class="lang-en">New PR #42 found: "feat: dark mode support"</span></div></div></div>
+      <div class="sc-step"><div class="sc-num" style="--step-c:var(--blue)">②</div><div class="sc-body"><div class="sc-title"><span class="lang-ko">GitHub MCP: diff 가져오기</span><span class="lang-en">GitHub MCP: Fetch diff</span></div><div class="sc-detail"><code>get_pull_request_diff(pr:42)</code> → <span class="lang-ko">변경된 12개 Swift 파일 수신</span><span class="lang-en">Received 12 changed Swift files</span></div></div></div>
+      <div class="sc-step"><div class="sc-num" style="--step-c:var(--teal)">③</div><div class="sc-body"><div class="sc-title"><span class="lang-ko">Xcode MCP: 빌드 & 테스트</span><span class="lang-en">Xcode MCP: Build & Test</span></div><div class="sc-detail"><code>xcode_build(branch:"feat/dark-mode")</code> → <code>xcode_test()</code> → <span class="lang-ko">3개 UI 테스트 실패</span><span class="lang-en">3 UI tests failed</span></div></div></div>
+      <div class="sc-step"><div class="sc-num" style="--step-c:var(--green)">④</div><div class="sc-body"><div class="sc-title"><span class="lang-ko">Skill 트리거: 코드 리뷰</span><span class="lang-en">Skill Trigger: Code Review</span></div><div class="sc-detail"><span class="lang-ko">code-reviewing Skill 로드 → 보안·성능·버그 체크리스트 적용 → 2개 이슈 발견</span><span class="lang-en">Load code-reviewing Skill → Apply security/performance/bug checklist → 2 issues found</span></div></div></div>
+      <div class="sc-step"><div class="sc-num" style="--step-c:var(--blue)">⑤</div><div class="sc-body"><div class="sc-title"><span class="lang-ko">GitHub MCP: 리뷰 제출</span><span class="lang-en">GitHub MCP: Submit Review</span></div><div class="sc-detail"><code>create_review()</code> → <span class="lang-ko">인라인 코멘트 4개 + "테스트 수정 필요" 요청 자동 제출</span><span class="lang-en">Auto-submit 4 inline comments + "Tests need fixing" request</span></div></div></div>
+      <div class="sc-step"><div class="sc-num" style="--step-c:var(--purple)">⑥</div><div class="sc-body"><div class="sc-title"><span class="lang-ko">Slack MCP: 알림</span><span class="lang-en">Slack MCP: Notify</span></div><div class="sc-detail"><code>slack_post_message(channel:"#ios-dev")</code> → <span class="lang-ko">"PR #42 리뷰 완료: 3개 테스트 실패, 2개 코드 이슈" 발송</span><span class="lang-en">"PR #42 review done: 3 test failures, 2 code issues" sent</span></div></div></div>
     </div>
   </div>
 
@@ -1606,24 +1622,24 @@ name:</span> <span class="c-green">writing-emails</span>
     <div class="scenario-head" style="background:var(--green-dim)">
       <span style="font-size:1.4rem">📊</span>
       <div>
-        <div class="scenario-title">시나리오 B: "주간 비즈니스 리포트 자동 생성"</div>
+        <div class="scenario-title"><span class="lang-ko">시나리오 B: "주간 비즈니스 리포트 자동 생성"</span><span class="lang-en">Scenario B: "Auto-Generate Weekly Business Report"</span></div>
         <div class="scenario-desc">PostgreSQL MCP + Excel Skill + Notion MCP + Slack MCP</div>
       </div>
     </div>
     <div class="scenario-steps">
-      <div class="sc-step"><div class="sc-num" style="--step-c:var(--green)">①</div><div class="sc-body"><div class="sc-title">PostgreSQL MCP: 데이터 수집</div><div class="sc-detail"><code>query("SELECT...")</code> → 지난 7일 매출·사용자·이탈률 원시 데이터 수신</div></div></div>
-      <div class="sc-step"><div class="sc-num" style="--step-c:var(--accent)">②</div><div class="sc-body"><div class="sc-title">Excel Skill 트리거</div><div class="sc-detail">xlsx Skill 로드 → pandas로 집계 → openpyxl로 차트 포함 스프레드시트 생성</div></div></div>
-      <div class="sc-step"><div class="sc-num" style="--step-c:var(--blue)">③</div><div class="sc-body"><div class="sc-title">Extended Thinking: 분석</div><div class="sc-detail">이탈률 급증 원인 분석 (결제 오류 상관관계 발견) → 액션 아이템 3개 도출</div></div></div>
-      <div class="sc-step"><div class="sc-num" style="--step-c:var(--yellow)">④</div><div class="sc-body"><div class="sc-title">Notion MCP: 리포트 저장</div><div class="sc-detail"><code>notion-create-pages()</code> → "2026 W10 Weekly Report" 페이지 생성 + 차트 삽입</div></div></div>
-      <div class="sc-step"><div class="sc-num" style="--step-c:var(--purple)">⑤</div><div class="sc-body"><div class="sc-title">Slack MCP: 요약 발송</div><div class="sc-detail"><code>slack_post_message(channel:"#leadership")</code> → 핵심 지표 요약 + Notion 링크 자동 발송</div></div></div>
+      <div class="sc-step"><div class="sc-num" style="--step-c:var(--green)">①</div><div class="sc-body"><div class="sc-title"><span class="lang-ko">PostgreSQL MCP: 데이터 수집</span><span class="lang-en">PostgreSQL MCP: Collect Data</span></div><div class="sc-detail"><code>query("SELECT...")</code> → <span class="lang-ko">지난 7일 매출·사용자·이탈률 원시 데이터 수신</span><span class="lang-en">Received raw data for past 7 days: revenue, users, churn rate</span></div></div></div>
+      <div class="sc-step"><div class="sc-num" style="--step-c:var(--accent)">②</div><div class="sc-body"><div class="sc-title"><span class="lang-ko">Excel Skill 트리거</span><span class="lang-en">Excel Skill Trigger</span></div><div class="sc-detail"><span class="lang-ko">xlsx Skill 로드 → pandas로 집계 → openpyxl로 차트 포함 스프레드시트 생성</span><span class="lang-en">Load xlsx Skill → Aggregate with pandas → Generate chart-included spreadsheet with openpyxl</span></div></div></div>
+      <div class="sc-step"><div class="sc-num" style="--step-c:var(--blue)">③</div><div class="sc-body"><div class="sc-title"><span class="lang-ko">Extended Thinking: 분석</span><span class="lang-en">Extended Thinking: Analysis</span></div><div class="sc-detail"><span class="lang-ko">이탈률 급증 원인 분석 (결제 오류 상관관계 발견) → 액션 아이템 3개 도출</span><span class="lang-en">Analyze cause of churn spike (payment error correlation found) → Derive 3 action items</span></div></div></div>
+      <div class="sc-step"><div class="sc-num" style="--step-c:var(--yellow)">④</div><div class="sc-body"><div class="sc-title"><span class="lang-ko">Notion MCP: 리포트 저장</span><span class="lang-en">Notion MCP: Save Report</span></div><div class="sc-detail"><code>notion-create-pages()</code> → <span class="lang-ko">"2026 W10 Weekly Report" 페이지 생성 + 차트 삽입</span><span class="lang-en">Create "2026 W10 Weekly Report" page + insert charts</span></div></div></div>
+      <div class="sc-step"><div class="sc-num" style="--step-c:var(--purple)">⑤</div><div class="sc-body"><div class="sc-title"><span class="lang-ko">Slack MCP: 요약 발송</span><span class="lang-en">Slack MCP: Send Summary</span></div><div class="sc-detail"><code>slack_post_message(channel:"#leadership")</code> → <span class="lang-ko">핵심 지표 요약 + Notion 링크 자동 발송</span><span class="lang-en">Auto-send key metrics summary + Notion link</span></div></div></div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="page-footer">
-  <p>Claude 개발자 플랫폼 핵심 개념 · <a href="https://platform.claude.com/docs/ko/home" target="_blank" rel="noopener" style="color:var(--blue)">공식 문서</a> 기반 시각화</p>
-  <p style="margin-top:.4rem"><a href="../index.html" style="color:var(--accent)">← Claude Code 101 홈으로</a></p>
+  <p><span class="lang-ko">Claude 개발자 플랫폼 핵심 개념 · <a href="https://platform.claude.com/docs/ko/home" target="_blank" rel="noopener" style="color:var(--blue)">공식 문서</a> 기반 시각화</span><span class="lang-en">Claude Developer Platform Core Concepts · Visualization based on <a href="https://platform.claude.com/docs/en/home" target="_blank" rel="noopener" style="color:var(--blue)">official docs</a></span></p>
+  <p style="margin-top:.4rem"><a href="../index.html" style="color:var(--accent)"><span class="lang-ko">← Claude Code 101 홈으로</span><span class="lang-en">← Back to Claude Code 101 Home</span></a></p>
 </footer>
 
 <script>
@@ -1660,5 +1676,6 @@ document.querySelectorAll('.fadein').forEach(el=>obs.observe(el));
 <script src="community.js"></script>
 <button class="theme-btn" id="themeBtn" onclick="toggleThemeBtn()" title="테마 전환">🌙</button>
 <script src="theme.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

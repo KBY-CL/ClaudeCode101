@@ -6,6 +6,7 @@
 /* 챕터 테마 초기화 — FOUC 방지 */
 (function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>서브에이전트 & 커스텀 에이전트</title>
@@ -1016,40 +1017,40 @@
 <body>
 
 <!-- =================== BACK LINK =================== -->
-<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+<a href="../index.html" class="back-link">&larr; <span class="lang-ko">Claude Code 101로 돌아가기</span><span class="lang-en">Back to Claude Code 101</span></a>
 
 <!-- =================== HERO =================== -->
 <div class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    Module 06 &middot; 심화 과정
+    <span class="lang-ko">Module 06 &middot; 심화 과정</span><span class="lang-en">Module 06 &middot; Advanced</span>
   </div>
   <h1>
-    서브<span class="highlight">에이전트</span> &amp;<br>커스텀 에이전트
+    <span class="lang-ko">서브<span class="highlight">에이전트</span> &amp;<br>커스텀 에이전트</span><span class="lang-en">Sub-<span class="highlight">agent</span> &amp;<br>Custom Agents</span>
   </h1>
   <p class="hero-sub">
-    Claude에게 전문 팀원을 만들어주는 방법,<br>
-    내장 에이전트부터 나만의 커스텀 에이전트까지
+    <span class="lang-ko">Claude에게 전문 팀원을 만들어주는 방법,<br>
+    내장 에이전트부터 나만의 커스텀 에이전트까지</span><span class="lang-en">How to create specialist team members for Claude,<br>from built-in agents to your own custom agents</span>
   </p>
   <div class="hero-cta">
-    <a href="#what" class="btn btn-primary">에이전트란?</a>
-    <a href="#builtin" class="btn btn-outline">내장 에이전트 보기 &rarr;</a>
+    <a href="#what" class="btn btn-primary"><span class="lang-ko">에이전트란?</span><span class="lang-en">What are Agents?</span></a>
+    <a href="#builtin" class="btn btn-outline"><span class="lang-ko">내장 에이전트 보기</span><span class="lang-en">View Built-in Agents</span> &rarr;</a>
   </div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    스크롤
+    <span class="lang-ko">스크롤</span><span class="lang-en">Scroll</span>
   </div>
 </div>
 
 <!-- =================== NAV =================== -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
-    <a href="#what" class="nav-link">서브에이전트란?</a>
-    <a href="#builtin" class="nav-link">내장 에이전트</a>
-    <a href="#create" class="nav-link">커스텀 에이전트</a>
-    <a href="#config" class="nav-link">상세 설정</a>
-    <a href="#background" class="nav-link">백그라운드 실행</a>
+    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; <span class="lang-ko">홈</span><span class="lang-en">Home</span></a>
+    <a href="#what" class="nav-link"><span class="lang-ko">서브에이전트란?</span><span class="lang-en">What is a Sub-agent?</span></a>
+    <a href="#builtin" class="nav-link"><span class="lang-ko">내장 에이전트</span><span class="lang-en">Built-in Agents</span></a>
+    <a href="#create" class="nav-link"><span class="lang-ko">커스텀 에이전트</span><span class="lang-en">Custom Agents</span></a>
+    <a href="#config" class="nav-link"><span class="lang-ko">상세 설정</span><span class="lang-en">Configuration</span></a>
+    <a href="#background" class="nav-link"><span class="lang-ko">백그라운드 실행</span><span class="lang-en">Background Execution</span></a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
 </nav>
@@ -1058,64 +1059,85 @@
 <section id="what">
   <div class="container">
     <div class="section-number">01</div>
-    <h2 class="section-title">서브에이전트란?</h2>
+    <h2 class="section-title"><span class="lang-ko">서브에이전트란?</span><span class="lang-en">What is a Sub-agent?</span></h2>
     <p class="section-desc">
-      한 줄 요약: Claude가 <strong style="color:var(--accent)">특정 작업을 처리하는 전문 AI 어시스턴트에게 일을 위임하는 것</strong>입니다.
+      <span class="lang-ko">한 줄 요약: Claude가 <strong style="color:var(--accent)">특정 작업을 처리하는 전문 AI 어시스턴트에게 일을 위임하는 것</strong>입니다.</span><span class="lang-en">One-line summary: Claude <strong style="color:var(--accent)">delegates work to a specialized AI assistant that handles specific tasks</strong>.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>팀장이 전문 팀원에게 일을 분배하는 것과 같습니다</h4>
-      <p>
-        서브에이전트는 자체 컨텍스트 윈도우에서 실행됩니다. 사용자 정의 시스템 프롬프트, 특정 도구 접근 권한, 독립적인 권한을 가집니다.<br><br>
-        &nbsp;&nbsp;&#x1F468;&#x200D;&#x1F4BC; <strong style="color:var(--text)">메인 Claude = 팀장</strong> &rarr; 작업 파악 및 적절한 에이전트에게 위임 결정<br>
-        &nbsp;&nbsp;&#x1F9D1;&#x200D;&#x1F4BB; <strong style="color:var(--text)">서브에이전트 = 전문 팀원</strong> &rarr; 자체 컨텍스트에서 독립적으로 처리 후 결과 반환<br><br>
-        Claude는 서브에이전트의 <strong style="color:var(--accent)">description 필드</strong>를 기반으로 어떤 에이전트에게 위임할지 자동으로 결정합니다.
-      </p>
+      <div class="lang-ko">
+        <h4>팀장이 전문 팀원에게 일을 분배하는 것과 같습니다</h4>
+        <p>
+          서브에이전트는 자체 컨텍스트 윈도우에서 실행됩니다. 사용자 정의 시스템 프롬프트, 특정 도구 접근 권한, 독립적인 권한을 가집니다.<br><br>
+          &nbsp;&nbsp;&#x1F468;&#x200D;&#x1F4BC; <strong style="color:var(--text)">메인 Claude = 팀장</strong> &rarr; 작업 파악 및 적절한 에이전트에게 위임 결정<br>
+          &nbsp;&nbsp;&#x1F9D1;&#x200D;&#x1F4BB; <strong style="color:var(--text)">서브에이전트 = 전문 팀원</strong> &rarr; 자체 컨텍스트에서 독립적으로 처리 후 결과 반환<br><br>
+          Claude는 서브에이전트의 <strong style="color:var(--accent)">description 필드</strong>를 기반으로 어떤 에이전트에게 위임할지 자동으로 결정합니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>Like a team leader distributing work to specialist team members</h4>
+        <p>
+          Sub-agents run in their own context window. They have custom system prompts, specific tool access permissions, and independent permissions.<br><br>
+          &nbsp;&nbsp;&#x1F468;&#x200D;&#x1F4BC; <strong style="color:var(--text)">Main Claude = Team Leader</strong> &rarr; Understands tasks and decides delegation to appropriate agents<br>
+          &nbsp;&nbsp;&#x1F9D1;&#x200D;&#x1F4BB; <strong style="color:var(--text)">Sub-agent = Specialist team member</strong> &rarr; Processes independently in its own context and returns results<br><br>
+          Claude automatically decides which agent to delegate to based on the sub-agent's <strong style="color:var(--accent)">description field</strong>.
+        </p>
+      </div>
     </div>
 
     <div class="card-grid card-grid-3">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F9E0;</div>
-        <h3>컨텍스트 보존</h3>
-        <p>탐색·구현을 주 대화에서 분리합니다. 각 에이전트는 독립적인 컨텍스트 윈도우를 가져 메인 Claude의 컨텍스트를 아낄 수 있습니다.</p>
+        <h3><span class="lang-ko">컨텍스트 보존</span><span class="lang-en">Context Preservation</span></h3>
+        <p><span class="lang-ko">탐색·구현을 주 대화에서 분리합니다. 각 에이전트는 독립적인 컨텍스트 윈도우를 가져 메인 Claude의 컨텍스트를 아낄 수 있습니다.</span><span class="lang-en">Separates exploration and implementation from the main conversation. Each agent has its own independent context window, conserving main Claude's context.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F6E1;&#xFE0F;</div>
-        <h3>제약 조건 적용</h3>
-        <p>에이전트가 사용할 수 있는 도구를 제한합니다. 리뷰 에이전트에게 Write 도구를 빼면 코드를 읽기만 하고 수정하지 않습니다.</p>
+        <h3><span class="lang-ko">제약 조건 적용</span><span class="lang-en">Apply Constraints</span></h3>
+        <p><span class="lang-ko">에이전트가 사용할 수 있는 도구를 제한합니다. 리뷰 에이전트에게 Write 도구를 빼면 코드를 읽기만 하고 수정하지 않습니다.</span><span class="lang-en">Restricts the tools available to an agent. Removing the Write tool from a review agent makes it read-only, preventing modifications.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F4B8;</div>
-        <h3>비용 제어</h3>
-        <p>Haiku 같은 빠르고 저렴한 모델로 간단한 작업을 라우팅합니다. 탐색 작업에 Haiku를 쓰고 복잡한 작업에 Opus를 쓰는 전략이 가능합니다.</p>
+        <h3><span class="lang-ko">비용 제어</span><span class="lang-en">Cost Control</span></h3>
+        <p><span class="lang-ko">Haiku 같은 빠르고 저렴한 모델로 간단한 작업을 라우팅합니다. 탐색 작업에 Haiku를 쓰고 복잡한 작업에 Opus를 쓰는 전략이 가능합니다.</span><span class="lang-en">Routes simple tasks to fast, cheap models like Haiku. Enables strategies like using Haiku for exploration and Opus for complex tasks.</span></p>
       </div>
     </div>
 
     <div class="comparison" style="margin-top: 48px;">
       <div class="comp-bad">
-        <div class="comp-label">&#10060; 직접 다 하기</div>
-        <div class="comp-code">"10개 파일 리팩토링 해줘"
+        <div class="comp-label"><span class="lang-ko">&#10060; 직접 다 하기</span><span class="lang-en">&#10060; Doing everything directly</span></div>
+        <div class="comp-code"><span class="lang-ko">"10개 파일 리팩토링 해줘"
 
 &rarr; Claude가 순차적으로 하나씩 처리
 &rarr; 컨텍스트가 점점 커짐
 &rarr; 뒤쪽 파일은 앞쪽 내용 잊어버림
-&rarr; 시간도 오래 걸림 &#x23F3;</div>
+&rarr; 시간도 오래 걸림 &#x23F3;</span><span class="lang-en">"Refactor these 10 files"
+
+&rarr; Claude processes them one by one
+&rarr; Context grows larger and larger
+&rarr; Forgets earlier content for later files
+&rarr; Takes a long time &#x23F3;</span></div>
       </div>
       <div class="comp-good">
-        <div class="comp-label">&#9989; 에이전트 위임</div>
-        <div class="comp-code">"10개 파일 리팩토링 해줘"
+        <div class="comp-label"><span class="lang-ko">&#9989; 에이전트 위임</span><span class="lang-en">&#9989; Agent Delegation</span></div>
+        <div class="comp-code"><span class="lang-ko">"10개 파일 리팩토링 해줘"
 
 &rarr; Claude가 작업 분석 및 위임 결정
 &rarr; 서브에이전트 여러 개 생성
 &rarr; 각자 독립적으로 병렬 처리
-&rarr; 결과를 메인에게 보고 &#x26A1;</div>
+&rarr; 결과를 메인에게 보고 &#x26A1;</span><span class="lang-en">"Refactor these 10 files"
+
+&rarr; Claude analyzes task and decides delegation
+&rarr; Creates multiple sub-agents
+&rarr; Each processes independently in parallel
+&rarr; Reports results to main Claude &#x26A1;</span></div>
       </div>
     </div>
 
     <div class="tip">
       <span class="tip-icon">&#x1F4AC;</span>
       <div>
-        <strong>서브에이전트 vs Agent Teams:</strong> 서브에이전트는 단일 세션 내에서 작동합니다. 여러 에이전트가 별도의 세션 간에 병렬로 통신해야 하는 경우 Agent Teams를 사용합니다. 서브에이전트는 다른 서브에이전트를 생성할 수 없습니다.
+        <span class="lang-ko"><strong>서브에이전트 vs Agent Teams:</strong> 서브에이전트는 단일 세션 내에서 작동합니다. 여러 에이전트가 별도의 세션 간에 병렬로 통신해야 하는 경우 Agent Teams를 사용합니다. 서브에이전트는 다른 서브에이전트를 생성할 수 없습니다.</span><span class="lang-en"><strong>Sub-agents vs Agent Teams:</strong> Sub-agents operate within a single session. Use Agent Teams when multiple agents need to communicate in parallel across separate sessions. Sub-agents cannot create other sub-agents.</span>
       </div>
     </div>
   </div>
@@ -1127,9 +1149,9 @@
 <section id="builtin">
   <div class="container">
     <div class="section-number">02</div>
-    <h2 class="section-title">내장 서브에이전트</h2>
+    <h2 class="section-title"><span class="lang-ko">내장 서브에이전트</span><span class="lang-en">Built-in Sub-agents</span></h2>
     <p class="section-desc">
-      Claude Code에는 Claude가 적절할 때 자동으로 사용하는 내장 서브에이전트가 포함되어 있습니다. 각각은 부모 대화의 권한을 상속하며 추가 도구 제한이 있습니다.
+      <span class="lang-ko">Claude Code에는 Claude가 적절할 때 자동으로 사용하는 내장 서브에이전트가 포함되어 있습니다. 각각은 부모 대화의 권한을 상속하며 추가 도구 제한이 있습니다.</span><span class="lang-en">Claude Code includes built-in sub-agents that Claude automatically uses when appropriate. Each inherits permissions from the parent conversation and has additional tool restrictions.</span>
     </p>
 
     <div class="agent-tabs">
@@ -1137,18 +1159,18 @@
         <button class="agent-tab-btn active" onclick="switchTab(this, 'tab-explore')">Explore</button>
         <button class="agent-tab-btn" onclick="switchTab(this, 'tab-plan')">Plan</button>
         <button class="agent-tab-btn" onclick="switchTab(this, 'tab-general')">general-purpose</button>
-        <button class="agent-tab-btn" onclick="switchTab(this, 'tab-other')">기타 에이전트</button>
+        <button class="agent-tab-btn" onclick="switchTab(this, 'tab-other')"><span class="lang-ko">기타 에이전트</span><span class="lang-en">Other Agents</span></button>
       </div>
 
       <div id="tab-explore" class="agent-tab-panel active">
         <div class="agent-panel-card">
           <h4>&#x1F50D; Explore</h4>
-          <p>코드베이스 검색 및 분석에 최적화된 빠른 읽기 전용 에이전트입니다. Claude는 변경 없이 코드베이스를 검색하거나 이해해야 할 때 Explore에 위임합니다. 탐색 결과가 주 대화 컨텍스트에서 분리됩니다.</p>
-          <p>Explore를 호출할 때 Claude는 철저함 수준을 지정합니다: 대상 조회의 경우 <strong>quick</strong>, 균형 잡힌 탐색의 경우 <strong>medium</strong>, 포괄적인 분석의 경우 <strong>very thorough</strong>.</p>
+          <p><span class="lang-ko">코드베이스 검색 및 분석에 최적화된 빠른 읽기 전용 에이전트입니다. Claude는 변경 없이 코드베이스를 검색하거나 이해해야 할 때 Explore에 위임합니다. 탐색 결과가 주 대화 컨텍스트에서 분리됩니다.</span><span class="lang-en">A fast, read-only agent optimized for searching and analyzing codebases. Claude delegates to Explore when it needs to search or understand a codebase without making changes. Exploration results are separated from the main conversation context.</span></p>
+          <p><span class="lang-ko">Explore를 호출할 때 Claude는 철저함 수준을 지정합니다: 대상 조회의 경우 <strong>quick</strong>, 균형 잡힌 탐색의 경우 <strong>medium</strong>, 포괄적인 분석의 경우 <strong>very thorough</strong>.</span><span class="lang-en">When invoking Explore, Claude specifies a thoroughness level: <strong>quick</strong> for targeted lookups, <strong>medium</strong> for balanced exploration, <strong>very thorough</strong> for comprehensive analysis.</span></p>
           <div class="agent-meta">
-            <span class="tag tag-purple">모델: Haiku (빠름, 낮은 지연시간)</span>
-            <span class="tag tag-orange">도구: 읽기 전용 (Write/Edit 거부)</span>
-            <span class="tag tag-green">목적: 파일 검색, 코드 탐색</span>
+            <span class="tag tag-purple"><span class="lang-ko">모델: Haiku (빠름, 낮은 지연시간)</span><span class="lang-en">Model: Haiku (fast, low latency)</span></span>
+            <span class="tag tag-orange"><span class="lang-ko">도구: 읽기 전용 (Write/Edit 거부)</span><span class="lang-en">Tools: Read-only (Write/Edit denied)</span></span>
+            <span class="tag tag-green"><span class="lang-ko">목적: 파일 검색, 코드 탐색</span><span class="lang-en">Purpose: File search, code exploration</span></span>
           </div>
         </div>
       </div>
@@ -1156,12 +1178,12 @@
       <div id="tab-plan" class="agent-tab-panel">
         <div class="agent-panel-card">
           <h4>&#x1F4CB; Plan</h4>
-          <p>계획을 제시하기 전에 컨텍스트를 수집하기 위해 Plan Mode 중에 사용되는 연구 에이전트입니다. Plan mode에 있고 Claude가 코드베이스를 이해해야 할 때 연구를 Plan 서브에이전트에 위임합니다.</p>
-          <p>무한 중첩을 방지하면서(서브에이전트는 다른 서브에이전트를 생성할 수 없음) 필요한 컨텍스트를 수집합니다.</p>
+          <p><span class="lang-ko">계획을 제시하기 전에 컨텍스트를 수집하기 위해 Plan Mode 중에 사용되는 연구 에이전트입니다. Plan mode에 있고 Claude가 코드베이스를 이해해야 할 때 연구를 Plan 서브에이전트에 위임합니다.</span><span class="lang-en">A research agent used during Plan Mode to gather context before presenting a plan. When in Plan mode and Claude needs to understand the codebase, it delegates research to the Plan sub-agent.</span></p>
+          <p><span class="lang-ko">무한 중첩을 방지하면서(서브에이전트는 다른 서브에이전트를 생성할 수 없음) 필요한 컨텍스트를 수집합니다.</span><span class="lang-en">Gathers necessary context while preventing infinite nesting (sub-agents cannot create other sub-agents).</span></p>
           <div class="agent-meta">
-            <span class="tag tag-purple">모델: 주 대화에서 상속</span>
-            <span class="tag tag-orange">도구: 읽기 전용 (Write/Edit 거부)</span>
-            <span class="tag tag-green">목적: 계획을 위한 코드베이스 연구</span>
+            <span class="tag tag-purple"><span class="lang-ko">모델: 주 대화에서 상속</span><span class="lang-en">Model: Inherited from main conversation</span></span>
+            <span class="tag tag-orange"><span class="lang-ko">도구: 읽기 전용 (Write/Edit 거부)</span><span class="lang-en">Tools: Read-only (Write/Edit denied)</span></span>
+            <span class="tag tag-green"><span class="lang-ko">목적: 계획을 위한 코드베이스 연구</span><span class="lang-en">Purpose: Codebase research for planning</span></span>
           </div>
         </div>
       </div>
@@ -1169,42 +1191,42 @@
       <div id="tab-general" class="agent-tab-panel">
         <div class="agent-panel-card">
           <h4>&#x2699;&#xFE0F; general-purpose</h4>
-          <p>탐색과 작업 모두를 필요로 하는 복잡한 다단계 작업을 위한 유능한 에이전트입니다. Claude는 작업이 탐색과 수정 모두를 필요로 하거나, 결과를 해석하기 위한 복잡한 추론이 필요하거나, 여러 종속 단계가 필요할 때 이 에이전트에 위임합니다.</p>
+          <p><span class="lang-ko">탐색과 작업 모두를 필요로 하는 복잡한 다단계 작업을 위한 유능한 에이전트입니다. Claude는 작업이 탐색과 수정 모두를 필요로 하거나, 결과를 해석하기 위한 복잡한 추론이 필요하거나, 여러 종속 단계가 필요할 때 이 에이전트에 위임합니다.</span><span class="lang-en">A capable agent for complex multi-step tasks that require both exploration and action. Claude delegates to this agent when the task requires both exploration and modification, needs complex reasoning to interpret results, or involves multiple dependent steps.</span></p>
           <div class="agent-meta">
-            <span class="tag tag-purple">모델: 주 대화에서 상속</span>
-            <span class="tag tag-blue">도구: 모든 도구</span>
-            <span class="tag tag-green">목적: 복잡한 연구, 다단계 작업, 코드 수정</span>
+            <span class="tag tag-purple"><span class="lang-ko">모델: 주 대화에서 상속</span><span class="lang-en">Model: Inherited from main conversation</span></span>
+            <span class="tag tag-blue"><span class="lang-ko">도구: 모든 도구</span><span class="lang-en">Tools: All tools</span></span>
+            <span class="tag tag-green"><span class="lang-ko">목적: 복잡한 연구, 다단계 작업, 코드 수정</span><span class="lang-en">Purpose: Complex research, multi-step tasks, code modification</span></span>
           </div>
         </div>
       </div>
 
       <div id="tab-other" class="agent-tab-panel">
         <div class="agent-panel-card">
-          <h4>&#x1F4E6; 기타 내장 에이전트</h4>
-          <p>Claude Code에는 특정 작업을 위한 추가 도우미 에이전트가 포함되어 있습니다. 이들은 일반적으로 자동으로 호출되므로 직접 사용할 필요가 없습니다.</p>
+          <h4>&#x1F4E6; <span class="lang-ko">기타 내장 에이전트</span><span class="lang-en">Other Built-in Agents</span></h4>
+          <p><span class="lang-ko">Claude Code에는 특정 작업을 위한 추가 도우미 에이전트가 포함되어 있습니다. 이들은 일반적으로 자동으로 호출되므로 직접 사용할 필요가 없습니다.</span><span class="lang-en">Claude Code includes additional helper agents for specific tasks. They are generally invoked automatically, so you don't need to use them directly.</span></p>
           <table class="skill-table" style="margin-top: 20px;">
             <thead>
               <tr>
-                <th>에이전트</th>
-                <th>모델</th>
-                <th>Claude가 사용하는 경우</th>
+                <th><span class="lang-ko">에이전트</span><span class="lang-en">Agent</span></th>
+                <th><span class="lang-ko">모델</span><span class="lang-en">Model</span></th>
+                <th><span class="lang-ko">Claude가 사용하는 경우</span><span class="lang-en">When Claude uses it</span></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td class="skill-name-cell">Bash</td>
-                <td>상속</td>
-                <td>별도의 컨텍스트에서 터미널 명령 실행</td>
+                <td><span class="lang-ko">상속</span><span class="lang-en">Inherited</span></td>
+                <td><span class="lang-ko">별도의 컨텍스트에서 터미널 명령 실행</span><span class="lang-en">Running terminal commands in a separate context</span></td>
               </tr>
               <tr>
                 <td class="skill-name-cell">statusline-setup</td>
                 <td>Sonnet</td>
-                <td><code>/statusline</code>을 실행하여 상태 표시줄을 구성할 때</td>
+                <td><span class="lang-ko"><code>/statusline</code>을 실행하여 상태 표시줄을 구성할 때</span><span class="lang-en">When running <code>/statusline</code> to configure the status bar</span></td>
               </tr>
               <tr>
                 <td class="skill-name-cell">Claude Code Guide</td>
                 <td>Haiku</td>
-                <td>Claude Code 기능에 대한 질문을 할 때</td>
+                <td><span class="lang-ko">Claude Code 기능에 대한 질문을 할 때</span><span class="lang-en">When asking questions about Claude Code features</span></td>
               </tr>
             </tbody>
           </table>
@@ -1215,8 +1237,9 @@
     <div class="tip" style="margin-top: 16px;">
       <span class="tip-icon">&#x1F6AB;</span>
       <div>
-        <strong>특정 내장 에이전트 비활성화:</strong> <code style="color:var(--blue)">permissions.deny</code>에 추가하면 됩니다.
-        예: <code style="color:var(--blue)">{"permissions": {"deny": ["Agent(Explore)", "Agent(my-agent)"]}}</code>
+        <span class="lang-ko"><strong>특정 내장 에이전트 비활성화:</strong> <code style="color:var(--blue)">permissions.deny</code>에 추가하면 됩니다.
+        예: <code style="color:var(--blue)">{"permissions": {"deny": ["Agent(Explore)", "Agent(my-agent)"]}}</code></span><span class="lang-en"><strong>Disable a specific built-in agent:</strong> Add it to <code style="color:var(--blue)">permissions.deny</code>.
+        Example: <code style="color:var(--blue)">{"permissions": {"deny": ["Agent(Explore)", "Agent(my-agent)"]}}</code></span>
       </div>
     </div>
   </div>
@@ -1228,9 +1251,9 @@
 <section id="create">
   <div class="container">
     <div class="section-number">03</div>
-    <h2 class="section-title">커스텀 에이전트 만들기</h2>
+    <h2 class="section-title"><span class="lang-ko">커스텀 에이전트 만들기</span><span class="lang-en">Creating Custom Agents</span></h2>
     <p class="section-desc">
-      서브에이전트는 YAML frontmatter가 있는 마크다운 파일입니다. <code style="color:var(--accent)">/agents</code> 명령으로 대화형 생성하거나, 직접 파일을 작성할 수 있습니다.
+      <span class="lang-ko">서브에이전트는 YAML frontmatter가 있는 마크다운 파일입니다. <code style="color:var(--accent)">/agents</code> 명령으로 대화형 생성하거나, 직접 파일을 작성할 수 있습니다.</span><span class="lang-en">Sub-agents are markdown files with YAML frontmatter. You can create them interactively with the <code style="color:var(--accent)">/agents</code> command, or write the file directly.</span>
     </p>
 
     <div class="steps">
@@ -1242,12 +1265,12 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>/agents 명령으로 에이전트 생성</h3>
-          <p>Claude Code 세션에서 <code style="color:var(--accent)">/agents</code>를 실행하면 대화형 에이전트 관리 인터페이스가 열립니다. <strong>Create new agent</strong>를 선택한 후 <strong>User-level</strong> 또는 <strong>Project-level</strong>을 선택합니다.</p>
+          <h3><span class="lang-ko">/agents 명령으로 에이전트 생성</span><span class="lang-en">Create Agent with /agents Command</span></h3>
+          <p><span class="lang-ko">Claude Code 세션에서 <code style="color:var(--accent)">/agents</code>를 실행하면 대화형 에이전트 관리 인터페이스가 열립니다. <strong>Create new agent</strong>를 선택한 후 <strong>User-level</strong> 또는 <strong>Project-level</strong>을 선택합니다.</span><span class="lang-en">Running <code style="color:var(--accent)">/agents</code> in a Claude Code session opens an interactive agent management interface. Select <strong>Create new agent</strong>, then choose <strong>User-level</strong> or <strong>Project-level</strong>.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>Claude Code 세션</span>
+              <span><span class="lang-ko">Claude Code 세션</span><span class="lang-en">Claude Code Session</span></span>
             </div>
             <div class="code-body">
 <span class="keyword">/agents</span>
@@ -1270,36 +1293,36 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>저장 위치 선택 (범위 결정)</h3>
-          <p>에이전트 파일의 위치에 따라 적용 범위가 달라집니다. 팀과 공유할 프로젝트 에이전트는 버전 제어에 체크인하세요.</p>
+          <h3><span class="lang-ko">저장 위치 선택 (범위 결정)</span><span class="lang-en">Choose Save Location (Determine Scope)</span></h3>
+          <p><span class="lang-ko">에이전트 파일의 위치에 따라 적용 범위가 달라집니다. 팀과 공유할 프로젝트 에이전트는 버전 제어에 체크인하세요.</span><span class="lang-en">The scope varies depending on where the agent file is located. Check project agents to share with your team into version control.</span></p>
           <table class="priority-table">
             <thead>
               <tr>
-                <th>위치</th>
-                <th>범위</th>
-                <th>우선순위</th>
+                <th><span class="lang-ko">위치</span><span class="lang-en">Location</span></th>
+                <th><span class="lang-ko">범위</span><span class="lang-en">Scope</span></th>
+                <th><span class="lang-ko">우선순위</span><span class="lang-en">Priority</span></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><code>--agents</code> CLI 플래그</td>
-                <td>현재 세션만</td>
-                <td><span class="priority-badge priority-1">1 (최고)</span></td>
+                <td><code>--agents</code> CLI <span class="lang-ko">플래그</span><span class="lang-en">flag</span></td>
+                <td><span class="lang-ko">현재 세션만</span><span class="lang-en">Current session only</span></td>
+                <td><span class="priority-badge priority-1"><span class="lang-ko">1 (최고)</span><span class="lang-en">1 (Highest)</span></span></td>
               </tr>
               <tr>
                 <td><code>.claude/agents/</code></td>
-                <td>현재 프로젝트</td>
+                <td><span class="lang-ko">현재 프로젝트</span><span class="lang-en">Current project</span></td>
                 <td><span class="priority-badge priority-2">2</span></td>
               </tr>
               <tr>
                 <td><code>~/.claude/agents/</code></td>
-                <td>모든 프로젝트 (개인)</td>
+                <td><span class="lang-ko">모든 프로젝트 (개인)</span><span class="lang-en">All projects (personal)</span></td>
                 <td><span class="priority-badge priority-3">3</span></td>
               </tr>
               <tr>
-                <td>플러그인 <code>agents/</code> 디렉토리</td>
-                <td>플러그인이 활성화된 위치</td>
-                <td><span class="priority-badge priority-4">4 (최저)</span></td>
+                <td><span class="lang-ko">플러그인 <code>agents/</code> 디렉토리</span><span class="lang-en">Plugin <code>agents/</code> directory</span></td>
+                <td><span class="lang-ko">플러그인이 활성화된 위치</span><span class="lang-en">Where the plugin is active</span></td>
+                <td><span class="priority-badge priority-4"><span class="lang-ko">4 (최저)</span><span class="lang-en">4 (Lowest)</span></span></td>
               </tr>
             </tbody>
           </table>
@@ -1313,8 +1336,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>마크다운 파일 작성 (YAML frontmatter)</h3>
-          <p>서브에이전트 파일은 YAML frontmatter + 마크다운 시스템 프롬프트로 구성됩니다. 파일명 = 에이전트 이름이 됩니다.</p>
+          <h3><span class="lang-ko">마크다운 파일 작성 (YAML frontmatter)</span><span class="lang-en">Write Markdown File (YAML frontmatter)</span></h3>
+          <p><span class="lang-ko">서브에이전트 파일은 YAML frontmatter + 마크다운 시스템 프롬프트로 구성됩니다. 파일명 = 에이전트 이름이 됩니다.</span><span class="lang-en">A sub-agent file consists of YAML frontmatter + markdown system prompt. The filename becomes the agent name.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
@@ -1360,12 +1383,12 @@
           <div class="step-num">4</div>
         </div>
         <div class="step-content">
-          <h3>에이전트 사용하기</h3>
-          <p>저장 즉시 사용 가능합니다 (재시작 불필요). Claude가 description을 기반으로 자동 위임하거나, 직접 요청할 수 있습니다.</p>
+          <h3><span class="lang-ko">에이전트 사용하기</span><span class="lang-en">Using the Agent</span></h3>
+          <p><span class="lang-ko">저장 즉시 사용 가능합니다 (재시작 불필요). Claude가 description을 기반으로 자동 위임하거나, 직접 요청할 수 있습니다.</span><span class="lang-en">Available immediately after saving (no restart required). Claude can auto-delegate based on the description, or you can request directly.</span></p>
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>에이전트 호출 방법</span>
+              <span><span class="lang-ko">에이전트 호출 방법</span><span class="lang-en">How to Invoke Agent</span></span>
             </div>
             <div class="code-body">
 <span class="comment"># 자동 위임 (description 기반으로 Claude가 자동 선택)</span>
@@ -1393,118 +1416,118 @@
 <section id="config">
   <div class="container">
     <div class="section-number">04</div>
-    <h2 class="section-title">상세 설정 옵션</h2>
+    <h2 class="section-title"><span class="lang-ko">상세 설정 옵션</span><span class="lang-en">Detailed Configuration Options</span></h2>
     <p class="section-desc">
-      서브에이전트의 모든 frontmatter 필드와 고급 기능을 알아봅니다.
+      <span class="lang-ko">서브에이전트의 모든 frontmatter 필드와 고급 기능을 알아봅니다.</span><span class="lang-en">Learn about all frontmatter fields and advanced features of sub-agents.</span>
     </p>
 
-    <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 20px;">&#x1F4CB; 지원되는 Frontmatter 필드 전체 목록</h3>
+    <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 20px;">&#x1F4CB; <span class="lang-ko">지원되는 Frontmatter 필드 전체 목록</span><span class="lang-en">Complete List of Supported Frontmatter Fields</span></h3>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th>필드</th>
-          <th>필수</th>
-          <th>설명</th>
+          <th><span class="lang-ko">필드</span><span class="lang-en">Field</span></th>
+          <th><span class="lang-ko">필수</span><span class="lang-en">Required</span></th>
+          <th><span class="lang-ko">설명</span><span class="lang-en">Description</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">name</td>
-          <td><span class="tag tag-green" style="font-size:11px;">필수</span></td>
-          <td>소문자 문자와 하이픈을 사용하는 고유 식별자</td>
+          <td><span class="tag tag-green" style="font-size:11px;"><span class="lang-ko">필수</span><span class="lang-en">Required</span></span></td>
+          <td><span class="lang-ko">소문자 문자와 하이픈을 사용하는 고유 식별자</span><span class="lang-en">Unique identifier using lowercase letters and hyphens</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">description</td>
-          <td><span class="tag tag-green" style="font-size:11px;">필수</span></td>
-          <td>Claude가 이 에이전트에 위임해야 할 때 (위임 판단 기준)</td>
+          <td><span class="tag tag-green" style="font-size:11px;"><span class="lang-ko">필수</span><span class="lang-en">Required</span></span></td>
+          <td><span class="lang-ko">Claude가 이 에이전트에 위임해야 할 때 (위임 판단 기준)</span><span class="lang-en">When Claude should delegate to this agent (basis for delegation decisions)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">tools</td>
-          <td>선택</td>
-          <td>허용할 도구 목록. 생략하면 모든 도구 상속. <code>Agent(name)</code> 구문으로 생성 가능한 서브에이전트 제한 가능</td>
+          <td><span class="lang-ko">선택</span><span class="lang-en">Optional</span></td>
+          <td><span class="lang-ko">허용할 도구 목록. 생략하면 모든 도구 상속. <code>Agent(name)</code> 구문으로 생성 가능한 서브에이전트 제한 가능</span><span class="lang-en">List of allowed tools. If omitted, inherits all tools. Can restrict spawnable sub-agents with <code>Agent(name)</code> syntax</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">disallowedTools</td>
-          <td>선택</td>
-          <td>차단할 도구 목록 (허용 목록에서 제거)</td>
+          <td><span class="lang-ko">선택</span><span class="lang-en">Optional</span></td>
+          <td><span class="lang-ko">차단할 도구 목록 (허용 목록에서 제거)</span><span class="lang-en">List of tools to block (removed from allowlist)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">model</td>
-          <td>선택</td>
-          <td><code>sonnet</code>, <code>opus</code>, <code>haiku</code>, <code>inherit</code> 중 선택. 기본값: <code>inherit</code></td>
+          <td><span class="lang-ko">선택</span><span class="lang-en">Optional</span></td>
+          <td><span class="lang-ko"><code>sonnet</code>, <code>opus</code>, <code>haiku</code>, <code>inherit</code> 중 선택. 기본값: <code>inherit</code></span><span class="lang-en">Choose from <code>sonnet</code>, <code>opus</code>, <code>haiku</code>, <code>inherit</code>. Default: <code>inherit</code></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">permissionMode</td>
-          <td>선택</td>
+          <td><span class="lang-ko">선택</span><span class="lang-en">Optional</span></td>
           <td><code>default</code>, <code>acceptEdits</code>, <code>dontAsk</code>, <code>bypassPermissions</code>, <code>plan</code></td>
         </tr>
         <tr>
           <td class="skill-name-cell">maxTurns</td>
-          <td>선택</td>
-          <td>에이전트가 중지되기 전의 최대 에이전트 턴 수</td>
+          <td><span class="lang-ko">선택</span><span class="lang-en">Optional</span></td>
+          <td><span class="lang-ko">에이전트가 중지되기 전의 최대 에이전트 턴 수</span><span class="lang-en">Maximum agent turns before the agent stops</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">skills</td>
-          <td>선택</td>
-          <td>시작 시 에이전트 컨텍스트에 로드할 Skills. 에이전트는 부모 대화에서 skill을 상속하지 않으므로 명시적으로 나열 필요</td>
+          <td><span class="lang-ko">선택</span><span class="lang-en">Optional</span></td>
+          <td><span class="lang-ko">시작 시 에이전트 컨텍스트에 로드할 Skills. 에이전트는 부모 대화에서 skill을 상속하지 않으므로 명시적으로 나열 필요</span><span class="lang-en">Skills to load into the agent context at startup. Agents don't inherit skills from the parent conversation, so must be listed explicitly</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">mcpServers</td>
-          <td>선택</td>
-          <td>이 에이전트에서 사용 가능한 MCP 서버 이름 목록 또는 인라인 정의</td>
+          <td><span class="lang-ko">선택</span><span class="lang-en">Optional</span></td>
+          <td><span class="lang-ko">이 에이전트에서 사용 가능한 MCP 서버 이름 목록 또는 인라인 정의</span><span class="lang-en">List of MCP server names or inline definitions available in this agent</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">hooks</td>
-          <td>선택</td>
-          <td>이 에이전트로 범위가 지정된 라이프사이클 hooks (PreToolUse, PostToolUse, Stop 등)</td>
+          <td><span class="lang-ko">선택</span><span class="lang-en">Optional</span></td>
+          <td><span class="lang-ko">이 에이전트로 범위가 지정된 라이프사이클 hooks (PreToolUse, PostToolUse, Stop 등)</span><span class="lang-en">Lifecycle hooks scoped to this agent (PreToolUse, PostToolUse, Stop, etc.)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">memory</td>
-          <td>선택</td>
-          <td>지속적 메모리 범위: <code>user</code>, <code>project</code>, <code>local</code>. 세션 간 학습 활성화</td>
+          <td><span class="lang-ko">선택</span><span class="lang-en">Optional</span></td>
+          <td><span class="lang-ko">지속적 메모리 범위: <code>user</code>, <code>project</code>, <code>local</code>. 세션 간 학습 활성화</span><span class="lang-en">Persistent memory scope: <code>user</code>, <code>project</code>, <code>local</code>. Enables learning across sessions</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">background</td>
-          <td>선택</td>
-          <td><code>true</code>로 설정하면 항상 백그라운드 태스크로 실행. 기본값: <code>false</code></td>
+          <td><span class="lang-ko">선택</span><span class="lang-en">Optional</span></td>
+          <td><span class="lang-ko"><code>true</code>로 설정하면 항상 백그라운드 태스크로 실행. 기본값: <code>false</code></span><span class="lang-en">When set to <code>true</code>, always runs as a background task. Default: <code>false</code></span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">isolation</td>
-          <td>선택</td>
-          <td><code>worktree</code>로 설정하면 임시 git worktree에서 실행 (격리된 저장소 복사본 제공)</td>
+          <td><span class="lang-ko">선택</span><span class="lang-en">Optional</span></td>
+          <td><span class="lang-ko"><code>worktree</code>로 설정하면 임시 git worktree에서 실행 (격리된 저장소 복사본 제공)</span><span class="lang-en">When set to <code>worktree</code>, runs in a temporary git worktree (provides an isolated repo copy)</span></td>
         </tr>
       </tbody>
     </table>
 
-    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 20px;">&#x1F9E0; 지속적 메모리 (Persistent Memory)</h3>
+    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 20px;">&#x1F9E0; <span class="lang-ko">지속적 메모리 (Persistent Memory)</span><span class="lang-en">Persistent Memory</span></h3>
     <p style="color:var(--text-dim); font-size:15px; margin-bottom: 20px;">
-      <code>memory</code> 필드는 서브에이전트에 대화 간에 유지되는 지속적 디렉토리를 제공합니다. 코드베이스 패턴, 디버깅 통찰력, 아키텍처 결정 등의 지식을 시간에 따라 축적합니다.
+      <span class="lang-ko"><code>memory</code> 필드는 서브에이전트에 대화 간에 유지되는 지속적 디렉토리를 제공합니다. 코드베이스 패턴, 디버깅 통찰력, 아키텍처 결정 등의 지식을 시간에 따라 축적합니다.</span><span class="lang-en">The <code>memory</code> field provides a persistent directory maintained between conversations for the sub-agent. Accumulates knowledge like codebase patterns, debugging insights, and architecture decisions over time.</span>
     </p>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th>범위</th>
-          <th>저장 위치</th>
-          <th>사용 시기</th>
+          <th><span class="lang-ko">범위</span><span class="lang-en">Scope</span></th>
+          <th><span class="lang-ko">저장 위치</span><span class="lang-en">Storage Location</span></th>
+          <th><span class="lang-ko">사용 시기</span><span class="lang-en">When to Use</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">user</td>
           <td><code>~/.claude/agent-memory/&lt;name&gt;/</code></td>
-          <td>모든 프로젝트에서 학습 기억 (권장 기본값)</td>
+          <td><span class="lang-ko">모든 프로젝트에서 학습 기억 (권장 기본값)</span><span class="lang-en">Learned memory across all projects (recommended default)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">project</td>
           <td><code>.claude/agent-memory/&lt;name&gt;/</code></td>
-          <td>프로젝트별 지식, 버전 제어로 팀 공유 가능</td>
+          <td><span class="lang-ko">프로젝트별 지식, 버전 제어로 팀 공유 가능</span><span class="lang-en">Project-specific knowledge, shareable with team via version control</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">local</td>
           <td><code>.claude/agent-memory-local/&lt;name&gt;/</code></td>
-          <td>프로젝트별이지만 버전 제어에 포함하지 않을 때</td>
+          <td><span class="lang-ko">프로젝트별이지만 버전 제어에 포함하지 않을 때</span><span class="lang-en">Project-specific but not to be included in version control</span></td>
         </tr>
       </tbody>
     </table>
@@ -1531,35 +1554,35 @@
 </div>
     </div>
 
-    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 20px;">&#x26A0;&#xFE0F; 권한 모드 (Permission Modes)</h3>
+    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 20px;">&#x26A0;&#xFE0F; <span class="lang-ko">권한 모드 (Permission Modes)</span><span class="lang-en">Permission Modes</span></h3>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th>모드</th>
-          <th>동작</th>
+          <th><span class="lang-ko">모드</span><span class="lang-en">Mode</span></th>
+          <th><span class="lang-ko">동작</span><span class="lang-en">Behavior</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">default</td>
-          <td>프롬프트를 사용한 표준 권한 확인</td>
+          <td><span class="lang-ko">프롬프트를 사용한 표준 권한 확인</span><span class="lang-en">Standard permission confirmation using prompts</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">acceptEdits</td>
-          <td>파일 편집 자동 수락</td>
+          <td><span class="lang-ko">파일 편집 자동 수락</span><span class="lang-en">Auto-accept file edits</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">dontAsk</td>
-          <td>권한 프롬프트 자동 거부 (명시적으로 허용된 도구는 여전히 작동)</td>
+          <td><span class="lang-ko">권한 프롬프트 자동 거부 (명시적으로 허용된 도구는 여전히 작동)</span><span class="lang-en">Auto-reject permission prompts (explicitly allowed tools still work)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">bypassPermissions</td>
-          <td>모든 권한 확인 건너뛰기 (주의해서 사용)</td>
+          <td><span class="lang-ko">모든 권한 확인 건너뛰기 (주의해서 사용)</span><span class="lang-en">Skip all permission confirmations (use with caution)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">plan</td>
-          <td>Plan mode (읽기 전용 탐색)</td>
+          <td><span class="lang-ko">Plan mode (읽기 전용 탐색)</span><span class="lang-en">Plan mode (read-only exploration)</span></td>
         </tr>
       </tbody>
     </table>
@@ -1567,13 +1590,13 @@
     <div class="warning">
       <span style="font-size:20px; flex-shrink:0;">&#x26A0;&#xFE0F;</span>
       <div>
-        <strong>주의:</strong> <code>bypassPermissions</code>는 모든 권한 확인을 건너뛰어 서브에이전트가 승인 없이 모든 작업을 실행할 수 있게 합니다. 신중하게 사용하세요. 부모가 <code>bypassPermissions</code>를 사용하면 이것이 우선하며 재정의할 수 없습니다.
+        <span class="lang-ko"><strong>주의:</strong> <code>bypassPermissions</code>는 모든 권한 확인을 건너뛰어 서브에이전트가 승인 없이 모든 작업을 실행할 수 있게 합니다. 신중하게 사용하세요. 부모가 <code>bypassPermissions</code>를 사용하면 이것이 우선하며 재정의할 수 없습니다.</span><span class="lang-en"><strong>Warning:</strong> <code>bypassPermissions</code> skips all permission checks, allowing the sub-agent to execute any action without approval. Use with caution. If the parent uses <code>bypassPermissions</code>, it takes precedence and cannot be overridden.</span>
       </div>
     </div>
 
-    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 20px;">&#x1F4E6; CLI --agents 플래그 (세션용)</h3>
+    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 20px;">&#x1F4E6; CLI --agents <span class="lang-ko">플래그 (세션용)</span><span class="lang-en">Flag (for sessions)</span></h3>
     <p style="color:var(--text-dim); font-size:15px; margin-bottom: 16px;">
-      세션 중에만 사용할 에이전트를 JSON으로 전달합니다. 디스크에 저장되지 않아 빠른 테스트나 자동화 스크립트에 유용합니다.
+      <span class="lang-ko">세션 중에만 사용할 에이전트를 JSON으로 전달합니다. 디스크에 저장되지 않아 빠른 테스트나 자동화 스크립트에 유용합니다.</span><span class="lang-en">Pass agents as JSON to use only during the session. Not saved to disk, so useful for quick tests or automation scripts.</span>
     </p>
 
     <div class="code-block">
@@ -1593,81 +1616,81 @@
 </div>
     </div>
 
-    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 20px;">&#x1F5C2;&#xFE0F; 에이전트 갤러리</h3>
+    <h3 style="font-size: 22px; font-weight: 700; margin: 48px 0 20px;">&#x1F5C2;&#xFE0F; <span class="lang-ko">에이전트 갤러리</span><span class="lang-en">Agent Gallery</span></h3>
     <p style="color:var(--text-dim); font-size:15px; margin-bottom: 24px;">
-      바로 활용할 수 있는 실전 에이전트 아이디어 모음입니다.
+      <span class="lang-ko">바로 활용할 수 있는 실전 에이전트 아이디어 모음입니다.</span><span class="lang-en">A collection of practical agent ideas you can use right away.</span>
     </p>
 
     <div class="card-grid card-grid-3">
       <div class="example-card">
         <div class="example-top">
           <h4>&#x1F50D; code-reviewer</h4>
-          <p>코드를 수정하지 않고 검토하는 읽기 전용 에이전트. 보안, 성능, 가독성 관점 피드백.</p>
+          <p><span class="lang-ko">코드를 수정하지 않고 검토하는 읽기 전용 에이전트. 보안, 성능, 가독성 관점 피드백.</span><span class="lang-en">Read-only agent that reviews code without modifying it. Feedback from security, performance, and readability perspectives.</span></p>
         </div>
         <div class="example-bottom">
-          <span style="color:var(--accent)">모델:</span> sonnet<br>
-          <span style="color:var(--green)">도구:</span> Read, Grep, Glob, Bash<br>
-          <span style="color:var(--blue)">권한:</span> Write/Edit 없음
+          <span style="color:var(--accent)"><span class="lang-ko">모델:</span><span class="lang-en">Model:</span></span> sonnet<br>
+          <span style="color:var(--green)"><span class="lang-ko">도구:</span><span class="lang-en">Tools:</span></span> Read, Grep, Glob, Bash<br>
+          <span style="color:var(--blue)"><span class="lang-ko">권한:</span><span class="lang-en">Perms:</span></span> <span class="lang-ko">Write/Edit 없음</span><span class="lang-en">No Write/Edit</span>
         </div>
       </div>
 
       <div class="example-card">
         <div class="example-top">
           <h4>&#x1F41B; debugger</h4>
-          <p>오류, 테스트 실패, 예상치 못한 동작 디버깅 전문가. 근본 원인 분석 후 수정.</p>
+          <p><span class="lang-ko">오류, 테스트 실패, 예상치 못한 동작 디버깅 전문가. 근본 원인 분석 후 수정.</span><span class="lang-en">Expert debugger for errors, test failures, and unexpected behavior. Analyzes root cause then fixes.</span></p>
         </div>
         <div class="example-bottom">
-          <span style="color:var(--accent)">모델:</span> inherit<br>
-          <span style="color:var(--green)">도구:</span> Read, Edit, Bash, Grep, Glob<br>
-          <span style="color:var(--blue)">특징:</span> 진단 → 수정 → 검증
+          <span style="color:var(--accent)"><span class="lang-ko">모델:</span><span class="lang-en">Model:</span></span> inherit<br>
+          <span style="color:var(--green)"><span class="lang-ko">도구:</span><span class="lang-en">Tools:</span></span> Read, Edit, Bash, Grep, Glob<br>
+          <span style="color:var(--blue)"><span class="lang-ko">특징:</span><span class="lang-en">Feature:</span></span> <span class="lang-ko">진단 → 수정 → 검증</span><span class="lang-en">Diagnose → Fix → Verify</span>
         </div>
       </div>
 
       <div class="example-card">
         <div class="example-top">
           <h4>&#x1F4CA; data-scientist</h4>
-          <p>SQL, BigQuery 분석 전문가. 데이터 분석 작업과 쿼리에 proactively 사용.</p>
+          <p><span class="lang-ko">SQL, BigQuery 분석 전문가. 데이터 분석 작업과 쿼리에 proactively 사용.</span><span class="lang-en">SQL, BigQuery analysis expert. Use proactively for data analysis tasks and queries.</span></p>
         </div>
         <div class="example-bottom">
-          <span style="color:var(--accent)">모델:</span> sonnet<br>
-          <span style="color:var(--green)">도구:</span> Bash, Read, Write<br>
-          <span style="color:var(--blue)">특징:</span> BigQuery CLI 활용
+          <span style="color:var(--accent)"><span class="lang-ko">모델:</span><span class="lang-en">Model:</span></span> sonnet<br>
+          <span style="color:var(--green)"><span class="lang-ko">도구:</span><span class="lang-en">Tools:</span></span> Bash, Read, Write<br>
+          <span style="color:var(--blue)"><span class="lang-ko">특징:</span><span class="lang-en">Feature:</span></span> <span class="lang-ko">BigQuery CLI 활용</span><span class="lang-en">BigQuery CLI usage</span>
         </div>
       </div>
 
       <div class="example-card">
         <div class="example-top">
           <h4>&#x1F5C4;&#xFE0F; db-reader</h4>
-          <p>읽기 전용 DB 쿼리만 허용. PreToolUse hook으로 SQL 쓰기 작업 차단.</p>
+          <p><span class="lang-ko">읽기 전용 DB 쿼리만 허용. PreToolUse hook으로 SQL 쓰기 작업 차단.</span><span class="lang-en">Only allows read-only DB queries. Blocks SQL write operations with PreToolUse hook.</span></p>
         </div>
         <div class="example-bottom">
-          <span style="color:var(--accent)">모델:</span> inherit<br>
-          <span style="color:var(--green)">도구:</span> Bash (SELECT만 허용)<br>
-          <span style="color:var(--blue)">특징:</span> hooks로 세밀한 제어
+          <span style="color:var(--accent)"><span class="lang-ko">모델:</span><span class="lang-en">Model:</span></span> inherit<br>
+          <span style="color:var(--green)"><span class="lang-ko">도구:</span><span class="lang-en">Tools:</span></span> <span class="lang-ko">Bash (SELECT만 허용)</span><span class="lang-en">Bash (SELECT only)</span><br>
+          <span style="color:var(--blue)"><span class="lang-ko">특징:</span><span class="lang-en">Feature:</span></span> <span class="lang-ko">hooks로 세밀한 제어</span><span class="lang-en">Fine-grained control with hooks</span>
         </div>
       </div>
 
       <div class="example-card">
         <div class="example-top">
           <h4>&#x1F9EA; test-writer</h4>
-          <p>테스트 작성 전문가. 기존 코드를 분석하여 유닛·통합 테스트를 자동 생성합니다.</p>
+          <p><span class="lang-ko">테스트 작성 전문가. 기존 코드를 분석하여 유닛·통합 테스트를 자동 생성합니다.</span><span class="lang-en">Test writing specialist. Analyzes existing code and auto-generates unit and integration tests.</span></p>
         </div>
         <div class="example-bottom">
-          <span style="color:var(--accent)">트리거:</span> "테스트 작성해줘"<br>
-          <span style="color:var(--green)">출력:</span> 테스트 파일<br>
-          <span style="color:var(--blue)">도구:</span> Read, Write, Bash
+          <span style="color:var(--accent)"><span class="lang-ko">트리거:</span><span class="lang-en">Trigger:</span></span> <span class="lang-ko">"테스트 작성해줘"</span><span class="lang-en">"Write tests"</span><br>
+          <span style="color:var(--green)"><span class="lang-ko">출력:</span><span class="lang-en">Output:</span></span> <span class="lang-ko">테스트 파일</span><span class="lang-en">Test files</span><br>
+          <span style="color:var(--blue)"><span class="lang-ko">도구:</span><span class="lang-en">Tools:</span></span> Read, Write, Bash
         </div>
       </div>
 
       <div class="example-card">
         <div class="example-top">
           <h4>&#x1F4DD; doc-writer</h4>
-          <p>문서 작성 전문가. 코드를 분석하여 README, API 문서, 주석을 자동으로 생성합니다.</p>
+          <p><span class="lang-ko">문서 작성 전문가. 코드를 분석하여 README, API 문서, 주석을 자동으로 생성합니다.</span><span class="lang-en">Documentation specialist. Analyzes code and auto-generates README, API docs, and comments.</span></p>
         </div>
         <div class="example-bottom">
-          <span style="color:var(--accent)">트리거:</span> "문서 만들어줘"<br>
-          <span style="color:var(--green)">출력:</span> 마크다운 문서<br>
-          <span style="color:var(--blue)">도구:</span> Read, Write, Glob
+          <span style="color:var(--accent)"><span class="lang-ko">트리거:</span><span class="lang-en">Trigger:</span></span> <span class="lang-ko">"문서 만들어줘"</span><span class="lang-en">"Create docs"</span><br>
+          <span style="color:var(--green)"><span class="lang-ko">출력:</span><span class="lang-en">Output:</span></span> <span class="lang-ko">마크다운 문서</span><span class="lang-en">Markdown docs</span><br>
+          <span style="color:var(--blue)"><span class="lang-ko">도구:</span><span class="lang-en">Tools:</span></span> Read, Write, Glob
         </div>
       </div>
     </div>
@@ -1680,28 +1703,28 @@
 <section id="background">
   <div class="container">
     <div class="section-number">05</div>
-    <h2 class="section-title">백그라운드 실행 &amp; 멀티태스킹</h2>
+    <h2 class="section-title"><span class="lang-ko">백그라운드 실행 &amp; 멀티태스킹</span><span class="lang-en">Background Execution &amp; Multitasking</span></h2>
     <p class="section-desc">
-      서브에이전트는 포어그라운드(차단) 또는 백그라운드(동시)에서 실행할 수 있습니다.
+      <span class="lang-ko">서브에이전트는 포어그라운드(차단) 또는 백그라운드(동시)에서 실행할 수 있습니다.</span><span class="lang-en">Sub-agents can run in the foreground (blocking) or background (concurrent).</span>
     </p>
 
     <div class="card-grid card-grid-2">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x1F3AE;</div>
-        <h3>포어그라운드 (Foreground)</h3>
-        <p>완료될 때까지 주 대화를 차단합니다. 권한 프롬프트 및 명확한 질문이 사용자에게 전달됩니다. 결과를 즉시 확인해야 할 때 사용합니다.</p>
+        <h3><span class="lang-ko">포어그라운드 (Foreground)</span><span class="lang-en">Foreground</span></h3>
+        <p><span class="lang-ko">완료될 때까지 주 대화를 차단합니다. 권한 프롬프트 및 명확한 질문이 사용자에게 전달됩니다. 결과를 즉시 확인해야 할 때 사용합니다.</span><span class="lang-en">Blocks the main conversation until complete. Permission prompts and clarifying questions are passed to the user. Use when you need to see results immediately.</span></p>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F680;</div>
-        <h3>백그라운드 (Background)</h3>
-        <p>동시에 실행되는 동안 다른 작업을 계속할 수 있습니다. <code style="color:var(--accent)">Ctrl+B</code>로 실행 중인 작업을 백그라운드로 전환할 수 있습니다.</p>
+        <h3><span class="lang-ko">백그라운드 (Background)</span><span class="lang-en">Background</span></h3>
+        <p><span class="lang-ko">동시에 실행되는 동안 다른 작업을 계속할 수 있습니다. <code style="color:var(--accent)">Ctrl+B</code>로 실행 중인 작업을 백그라운드로 전환할 수 있습니다.</span><span class="lang-en">Allows you to continue other work while it runs simultaneously. Use <code style="color:var(--accent)">Ctrl+B</code> to send a running task to the background.</span></p>
       </div>
     </div>
 
     <div class="tip" style="margin-top: 24px;">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>백그라운드 에이전트 권한:</strong> 시작 전에 Claude Code가 필요한 도구 권한을 미리 요청합니다. 실행 중에는 사전 승인된 권한만 사용하고, 그 외는 자동 거부됩니다. 권한 부족으로 실패한 경우 에이전트를 재개하여 대화형 프롬프트로 다시 시도할 수 있습니다.
+        <span class="lang-ko"><strong>백그라운드 에이전트 권한:</strong> 시작 전에 Claude Code가 필요한 도구 권한을 미리 요청합니다. 실행 중에는 사전 승인된 권한만 사용하고, 그 외는 자동 거부됩니다. 권한 부족으로 실패한 경우 에이전트를 재개하여 대화형 프롬프트로 다시 시도할 수 있습니다.</span><span class="lang-en"><strong>Background agent permissions:</strong> Claude Code pre-requests necessary tool permissions before starting. During execution, only pre-approved permissions are used; others are automatically denied. If it fails due to insufficient permissions, you can resume the agent to retry with interactive prompts.</span>
       </div>
     </div>
 
@@ -1728,43 +1751,58 @@
 </div>
     </div>
 
-    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;">&#x1F4CA; 일반적인 활용 패턴</h3>
+    <h3 style="font-size: 20px; font-weight: 700; margin: 48px 0 20px;">&#x1F4CA; <span class="lang-ko">일반적인 활용 패턴</span><span class="lang-en">Common Usage Patterns</span></h3>
 
     <div class="card-grid card-grid-2" style="margin-bottom: 24px;">
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F9F9;</div>
-        <h3>대량 작업 격리</h3>
-        <p>테스트 실행, 로그 분석처럼 많은 출력을 생성하는 작업을 서브에이전트에 위임합니다. 상세 출력은 에이전트 컨텍스트에 유지되고, 관련 요약만 주 대화로 반환됩니다.</p>
+        <h3><span class="lang-ko">대량 작업 격리</span><span class="lang-en">Isolate Bulk Operations</span></h3>
+        <p><span class="lang-ko">테스트 실행, 로그 분석처럼 많은 출력을 생성하는 작업을 서브에이전트에 위임합니다. 상세 출력은 에이전트 컨텍스트에 유지되고, 관련 요약만 주 대화로 반환됩니다.</span><span class="lang-en">Delegate tasks that generate lots of output, like running tests or analyzing logs, to sub-agents. Detailed output stays in the agent context; only relevant summaries return to the main conversation.</span></p>
         <div class="code-block" style="margin-top: 16px;">
           <div class="code-body" style="font-size:12px;">
-<span class="string">"서브에이전트로 테스트 스위트를 실행하고
-실패한 테스트와 오류 메시지만 보고해줘"</span>
+<span class="string"><span class="lang-ko">"서브에이전트로 테스트 스위트를 실행하고
+실패한 테스트와 오류 메시지만 보고해줘"</span><span class="lang-en">"Run the test suite with a sub-agent
+and report only failed tests and error messages"</span></span>
 </div>
         </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--orange-dim);">&#x1F500;</div>
-        <h3>병렬 연구 실행</h3>
-        <p>독립적인 조사를 여러 서브에이전트가 동시에 수행합니다. 각 에이전트가 자신의 영역을 탐색한 후 결과를 종합합니다.</p>
+        <h3><span class="lang-ko">병렬 연구 실행</span><span class="lang-en">Run Parallel Research</span></h3>
+        <p><span class="lang-ko">독립적인 조사를 여러 서브에이전트가 동시에 수행합니다. 각 에이전트가 자신의 영역을 탐색한 후 결과를 종합합니다.</span><span class="lang-en">Multiple sub-agents perform independent investigations simultaneously. Each agent explores its own area, then results are synthesized.</span></p>
         <div class="code-block" style="margin-top: 16px;">
           <div class="code-body" style="font-size:12px;">
-<span class="string">"인증, 데이터베이스, API 모듈을
-별도 서브에이전트로 병렬 연구해줘"</span>
+<span class="string"><span class="lang-ko">"인증, 데이터베이스, API 모듈을
+별도 서브에이전트로 병렬 연구해줘"</span><span class="lang-en">"Research the auth, database, and API modules
+in parallel with separate sub-agents"</span></span>
 </div>
         </div>
       </div>
     </div>
 
     <div class="analogy-box">
-      <h4>실전 시나리오: 에이전트 체인 (순차 연결)</h4>
-      <p>
-        다단계 워크플로우를 위해 에이전트를 순차적으로 연결합니다.<br><br>
-        <span class="keyword" style="color:var(--accent)">예시:</span><br>
-        &nbsp;&nbsp;1. code-reviewer 에이전트로 성능 문제 발견<br>
-        &nbsp;&nbsp;2. 결과를 받아서 optimizer 에이전트로 수정<br><br>
-        <strong style="color:var(--accent)">"code-reviewer 에이전트로 성능 문제를 찾고, 그 다음 optimizer 에이전트로 수정해줘"</strong><br><br>
-        <strong>주의:</strong> 서브에이전트는 다른 서브에이전트를 생성할 수 없습니다. 중첩 위임이 필요하면 Skills를 사용하거나 주 대화에서 에이전트를 체인하세요.
-      </p>
+      <div class="lang-ko">
+        <h4>실전 시나리오: 에이전트 체인 (순차 연결)</h4>
+        <p>
+          다단계 워크플로우를 위해 에이전트를 순차적으로 연결합니다.<br><br>
+          <span class="keyword" style="color:var(--accent)">예시:</span><br>
+          &nbsp;&nbsp;1. code-reviewer 에이전트로 성능 문제 발견<br>
+          &nbsp;&nbsp;2. 결과를 받아서 optimizer 에이전트로 수정<br><br>
+          <strong style="color:var(--accent)">"code-reviewer 에이전트로 성능 문제를 찾고, 그 다음 optimizer 에이전트로 수정해줘"</strong><br><br>
+          <strong>주의:</strong> 서브에이전트는 다른 서브에이전트를 생성할 수 없습니다. 중첩 위임이 필요하면 Skills를 사용하거나 주 대화에서 에이전트를 체인하세요.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>Real Scenario: Agent Chain (Sequential Connection)</h4>
+        <p>
+          Connect agents sequentially for multi-step workflows.<br><br>
+          <span class="keyword" style="color:var(--accent)">Example:</span><br>
+          &nbsp;&nbsp;1. Find performance issues with the code-reviewer agent<br>
+          &nbsp;&nbsp;2. Take those results and fix them with the optimizer agent<br><br>
+          <strong style="color:var(--accent)">"Find performance issues with the code-reviewer agent, then fix them with the optimizer agent"</strong><br><br>
+          <strong>Note:</strong> Sub-agents cannot create other sub-agents. If nested delegation is needed, use Skills or chain agents from the main conversation.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -1775,80 +1813,80 @@
 <section id="faq">
   <div class="container">
     <div class="section-number">06</div>
-    <h2 class="section-title">자주 묻는 질문</h2>
+    <h2 class="section-title"><span class="lang-ko">자주 묻는 질문</span><span class="lang-en">Frequently Asked Questions</span></h2>
     <p class="section-desc">
-      에이전트에 대해 가장 많이 궁금해하는 것들
+      <span class="lang-ko">에이전트에 대해 가장 많이 궁금해하는 것들</span><span class="lang-en">The most common questions about agents</span>
     </p>
 
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          서브에이전트 파일을 수동으로 추가했는데 바로 작동하지 않아요.
+          <span class="lang-ko">서브에이전트 파일을 수동으로 추가했는데 바로 작동하지 않아요.</span><span class="lang-en">I manually added a sub-agent file but it doesn't work right away.</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            서브에이전트는 세션 시작 시 로드됩니다. 파일을 수동으로 추가한 경우 두 가지 방법으로 즉시 로드할 수 있습니다: (1) <code>/agents</code> 명령을 실행하면 새 에이전트가 즉시 로드됩니다. (2) 세션을 재시작합니다. <code>/agents</code>로 생성한 에이전트는 저장 즉시 사용 가능합니다.
+            <span class="lang-ko">서브에이전트는 세션 시작 시 로드됩니다. 파일을 수동으로 추가한 경우 두 가지 방법으로 즉시 로드할 수 있습니다: (1) <code>/agents</code> 명령을 실행하면 새 에이전트가 즉시 로드됩니다. (2) 세션을 재시작합니다. <code>/agents</code>로 생성한 에이전트는 저장 즉시 사용 가능합니다.</span><span class="lang-en">Sub-agents are loaded when a session starts. If you manually added a file, there are two ways to load it immediately: (1) Run the <code>/agents</code> command to load new agents immediately. (2) Restart the session. Agents created with <code>/agents</code> are available immediately after saving.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          같은 이름의 에이전트가 여러 위치에 있으면 어떻게 되나요?
+          <span class="lang-ko">같은 이름의 에이전트가 여러 위치에 있으면 어떻게 되나요?</span><span class="lang-en">What happens if agents with the same name exist in multiple locations?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            우선순위가 높은 위치의 에이전트가 우선합니다. 우선순위 순서: CLI --agents (1위) &gt; .claude/agents/ (2위) &gt; ~/.claude/agents/ (3위) &gt; 플러그인 (4위). <code>claude agents</code> 명령으로 소스별로 그룹화된 에이전트 목록과 재정의 현황을 확인할 수 있습니다.
+            <span class="lang-ko">우선순위가 높은 위치의 에이전트가 우선합니다. 우선순위 순서: CLI --agents (1위) &gt; .claude/agents/ (2위) &gt; ~/.claude/agents/ (3위) &gt; 플러그인 (4위). <code>claude agents</code> 명령으로 소스별로 그룹화된 에이전트 목록과 재정의 현황을 확인할 수 있습니다.</span><span class="lang-en">The agent from the higher-priority location takes precedence. Priority order: CLI --agents (1st) &gt; .claude/agents/ (2nd) &gt; ~/.claude/agents/ (3rd) &gt; Plugin (4th). Use the <code>claude agents</code> command to see agents grouped by source and current override status.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          에이전트에게 특정 도구만 사용하게 제한할 수 있나요?
+          <span class="lang-ko">에이전트에게 특정 도구만 사용하게 제한할 수 있나요?</span><span class="lang-en">Can I restrict an agent to use only specific tools?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네, 두 가지 방법으로 제한할 수 있습니다. <code>tools</code> 필드(허용 목록): 허용할 도구만 나열합니다. <code>disallowedTools</code> 필드(거부 목록): 제외할 도구를 나열합니다. 예를 들어 리뷰 에이전트에 <code>tools: Read, Grep, Glob, Bash</code>만 허용하면 Write나 Edit은 사용할 수 없습니다. <code>Agent(name)</code> 구문으로 생성 가능한 서브에이전트 유형도 제한할 수 있습니다.
+            <span class="lang-ko">네, 두 가지 방법으로 제한할 수 있습니다. <code>tools</code> 필드(허용 목록): 허용할 도구만 나열합니다. <code>disallowedTools</code> 필드(거부 목록): 제외할 도구를 나열합니다. 예를 들어 리뷰 에이전트에 <code>tools: Read, Grep, Glob, Bash</code>만 허용하면 Write나 Edit은 사용할 수 없습니다. <code>Agent(name)</code> 구문으로 생성 가능한 서브에이전트 유형도 제한할 수 있습니다.</span><span class="lang-en">Yes, there are two ways to restrict. <code>tools</code> field (allowlist): list only the tools you allow. <code>disallowedTools</code> field (denylist): list tools to exclude. For example, allowing only <code>tools: Read, Grep, Glob, Bash</code> for a review agent means Write and Edit cannot be used. You can also restrict the types of sub-agents that can be spawned using the <code>Agent(name)</code> syntax.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          서브에이전트가 완료된 후 컨텍스트를 이어서 사용할 수 있나요?
+          <span class="lang-ko">서브에이전트가 완료된 후 컨텍스트를 이어서 사용할 수 있나요?</span><span class="lang-en">Can I continue using the context after a sub-agent completes?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네, 에이전트를 재개(resume)할 수 있습니다. 서브에이전트가 완료되면 Claude는 에이전트 ID를 받습니다. Claude에게 "이전 작업을 계속해줘"라고 요청하면 전체 대화 기록(모든 도구 호출, 결과, 추론)을 유지한 채로 정확히 중단된 위치에서 계속합니다. 서브에이전트 트랜스크립트는 <code>~/.claude/projects/{project}/{sessionId}/subagents/agent-{agentId}.jsonl</code>에 저장됩니다. 동일한 세션을 재개하면 Claude Code 재시작 후에도 서브에이전트를 재개할 수 있습니다.
+            <span class="lang-ko">네, 에이전트를 재개(resume)할 수 있습니다. 서브에이전트가 완료되면 Claude는 에이전트 ID를 받습니다. Claude에게 "이전 작업을 계속해줘"라고 요청하면 전체 대화 기록(모든 도구 호출, 결과, 추론)을 유지한 채로 정확히 중단된 위치에서 계속합니다. 서브에이전트 트랜스크립트는 <code>~/.claude/projects/{project}/{sessionId}/subagents/agent-{agentId}.jsonl</code>에 저장됩니다. 동일한 세션을 재개하면 Claude Code 재시작 후에도 서브에이전트를 재개할 수 있습니다.</span><span class="lang-en">Yes, you can resume the agent. When a sub-agent completes, Claude receives the agent ID. Asking Claude to "continue the previous work" resumes exactly where it left off, maintaining the full conversation history (all tool calls, results, and reasoning). Sub-agent transcripts are stored at <code>~/.claude/projects/{project}/{sessionId}/subagents/agent-{agentId}.jsonl</code>. Resuming the same session allows sub-agent resumption even after restarting Claude Code.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          커스텀 에이전트 없이도 서브에이전트가 작동하나요?
+          <span class="lang-ko">커스텀 에이전트 없이도 서브에이전트가 작동하나요?</span><span class="lang-en">Do sub-agents work without custom agents?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            네, 작동합니다! Claude Code는 Explore, Plan, general-purpose 같은 내장 서브에이전트를 기본으로 포함합니다. 복잡한 작업을 받으면 이 내장 에이전트들을 자동으로 활용합니다. 커스텀 에이전트는 "특정 역할과 규칙을 미리 정의"하는 것으로, 더 정밀하고 일관된 결과를 원할 때 만듭니다.
+            <span class="lang-ko">네, 작동합니다! Claude Code는 Explore, Plan, general-purpose 같은 내장 서브에이전트를 기본으로 포함합니다. 복잡한 작업을 받으면 이 내장 에이전트들을 자동으로 활용합니다. 커스텀 에이전트는 "특정 역할과 규칙을 미리 정의"하는 것으로, 더 정밀하고 일관된 결과를 원할 때 만듭니다.</span><span class="lang-en">Yes, they work! Claude Code includes built-in sub-agents like Explore, Plan, and general-purpose by default. When given complex tasks, it automatically utilizes these built-in agents. Custom agents "pre-define specific roles and rules" — create them when you want more precise and consistent results.</span>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          서브에이전트가 다른 서브에이전트를 생성할 수 있나요?
+          <span class="lang-ko">서브에이전트가 다른 서브에이전트를 생성할 수 있나요?</span><span class="lang-en">Can a sub-agent create other sub-agents?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            아니요, 서브에이전트는 다른 서브에이전트를 생성할 수 없습니다. 이것은 무한 중첩을 방지하기 위한 설계입니다. <code>Agent(agent_type)</code> 구문은 서브에이전트 정의에서는 효과가 없습니다. 중첩된 위임이 필요한 경우 Skills를 사용하거나 주 대화에서 에이전트를 체인하세요. 단, <code>claude --agent</code>로 주 스레드로 실행되는 에이전트는 서브에이전트를 생성할 수 있습니다.
+            <span class="lang-ko">아니요, 서브에이전트는 다른 서브에이전트를 생성할 수 없습니다. 이것은 무한 중첩을 방지하기 위한 설계입니다. <code>Agent(agent_type)</code> 구문은 서브에이전트 정의에서는 효과가 없습니다. 중첩된 위임이 필요한 경우 Skills를 사용하거나 주 대화에서 에이전트를 체인하세요. 단, <code>claude --agent</code>로 주 스레드로 실행되는 에이전트는 서브에이전트를 생성할 수 있습니다.</span><span class="lang-en">No, sub-agents cannot create other sub-agents. This is by design to prevent infinite nesting. The <code>Agent(agent_type)</code> syntax has no effect in sub-agent definitions. If nested delegation is needed, use Skills or chain agents from the main conversation. However, agents run as the main thread with <code>claude --agent</code> can create sub-agents.</span>
           </div>
         </div>
       </div>
@@ -1861,17 +1899,23 @@
   <div class="container">
     <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.15); text-align: center; padding: 60px 40px;">
       <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
-        요약하면 이겁니다
+        <span class="lang-ko">요약하면 이겁니다</span><span class="lang-en">Here's the Summary</span>
       </h2>
       <p style="color: var(--text-dim); font-size: 17px; max-width: 640px; margin: 0 auto 32px; line-height: 1.8;">
-        내장 에이전트 = <strong style="color: var(--accent)">Explore, Plan, general-purpose 기본 제공</strong><br>
+        <span class="lang-ko">내장 에이전트 = <strong style="color: var(--accent)">Explore, Plan, general-purpose 기본 제공</strong><br>
         커스텀 에이전트 = <strong style="color: var(--green)">.claude/agents/에 마크다운 하나</strong><br>
         핵심 가치 = <strong style="color: var(--orange)">병렬 처리 + 전문 분야 특화 + 컨텍스트 분리</strong><br>
-        지속 학습 = <strong style="color: var(--blue)">memory 필드로 세션 간 지식 축적</strong>
+        지속 학습 = <strong style="color: var(--blue)">memory 필드로 세션 간 지식 축적</strong></span>
+        <span class="lang-en">Built-in Agents = <strong style="color: var(--accent)">Explore, Plan, general-purpose provided by default</strong><br>
+        Custom Agents = <strong style="color: var(--green)">One markdown file in .claude/agents/</strong><br>
+        Core Value = <strong style="color: var(--orange)">Parallel processing + Domain specialization + Context separation</strong><br>
+        Continuous Learning = <strong style="color: var(--blue)">Accumulate knowledge across sessions with the memory field</strong></span>
       </p>
       <p style="color: var(--text-muted); font-size: 14px;">
-        시작이 어려우면, Claude에게 이렇게 말해보세요:<br>
-        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"/agents 명령으로 코드 리뷰 에이전트를 만들어줘"</span>
+        <span class="lang-ko">시작이 어려우면, Claude에게 이렇게 말해보세요:<br>
+        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"/agents 명령으로 코드 리뷰 에이전트를 만들어줘"</span></span>
+        <span class="lang-en">If you're not sure where to start, try saying this to Claude:<br>
+        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">"Create a code review agent with the /agents command"</span></span>
       </p>
     </div>
   </div>
@@ -1879,8 +1923,8 @@
 
 <!-- =================== CHAPTER NAV =================== -->
 <div class="chapter-nav">
-  <a href="mcp.html">&larr; 이전: MCP 서버 연결</a>
-  <a href="skill.html">다음: Skills 완전 가이드 &rarr;</a>
+  <a href="mcp.html">&larr; <span class="lang-ko">이전: MCP 서버 연결</span><span class="lang-en">Prev: MCP Server Connection</span></a>
+  <a href="skill.html"><span class="lang-ko">다음: Skills 완전 가이드</span><span class="lang-en">Next: Complete Skills Guide</span> &rarr;</a>
 </div>
 
 <footer>
@@ -1942,5 +1986,6 @@ window.addEventListener('scroll', () => {
 
 <div id="community-widget"></div>
 <script src="community.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

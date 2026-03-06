@@ -6,9 +6,10 @@
 /* 챕터 테마 초기화 — FOUC 방지 */
 (function(){var t=localStorage.getItem('cc101-chapter-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>터미널이 처음이라면 - Claude Code 101</title>
+<title>Terminal Basics - Claude Code 101</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../theme.css">
 <style id="chapter-accent">
@@ -886,44 +887,47 @@
 <body>
 
 <!-- =================== BACK LINK =================== -->
-<a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
+<a href="../index.html" class="back-link">&larr; <span class="lang-ko">Claude Code 101로 돌아가기</span><span class="lang-en">Back to Claude Code 101</span></a>
 
 <!-- =================== HERO =================== -->
 <div class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    Pre-requisite Module
+    <span class="lang-ko">사전 준비 모듈</span><span class="lang-en">Pre-requisite Module</span>
   </div>
   <h1>
-    <span class="highlight">터미널</span>이<br>처음이라면
+    <div class="lang-ko"><span class="highlight">터미널</span>이<br>처음이라면</div>
+    <div class="lang-en">New to the<br><span class="highlight">Terminal</span>?</div>
   </h1>
   <p class="hero-sub">
-    비개발자를 위한 첫 걸음 안내서,<br>
-    컴퓨터와 대화하는 법을 배워봅시다
+    <span class="lang-ko">비개발자를 위한 첫 걸음 안내서,<br>
+    컴퓨터와 대화하는 법을 배워봅시다</span>
+    <span class="lang-en">A beginner's guide for non-developers —<br>
+    learn how to communicate with your computer</span>
   </p>
   <div class="hero-cta">
-    <a href="#what" class="btn btn-primary">터미널이 뭐야?</a>
-    <a href="#commands" class="btn btn-outline">명령어 배우기 &rarr;</a>
+    <a href="#what" class="btn btn-primary"><span class="lang-ko">터미널이 뭐야?</span><span class="lang-en">What is a terminal?</span></a>
+    <a href="#commands" class="btn btn-outline"><span class="lang-ko">명령어 배우기 &rarr;</span><span class="lang-en">Learn commands &rarr;</span></a>
   </div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    스크롤
+    <span class="lang-ko">스크롤</span><span class="lang-en">Scroll</span>
   </div>
 </div>
 
 <!-- =================== NAV =================== -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; 홈</a>
-    <a href="#what" class="nav-link">터미널이란?</a>
-    <a href="#open" class="nav-link">터미널 여는 법</a>
-    <a href="#commands" class="nav-link">필수 명령어 5개</a>
-    <a href="#filesystem" class="nav-link">파일 시스템</a>
-    <a href="#setup" class="nav-link">개발 환경 설치</a>
-    <a href="#cli-flags" class="nav-link">CLI 플래그</a>
-    <a href="#slash-commands" class="nav-link">슬래시 명령어</a>
-    <a href="#piping" class="nav-link">파이프 활용</a>
-    <a href="#terminal-tips" class="nav-link">터미널 최적화</a>
+    <a href="../index.html" class="nav-link nav-home">&#x1F3E0; <span class="lang-ko">홈</span><span class="lang-en">Home</span></a>
+    <a href="#what" class="nav-link"><span class="lang-ko">터미널이란?</span><span class="lang-en">What is a terminal?</span></a>
+    <a href="#open" class="nav-link"><span class="lang-ko">터미널 여는 법</span><span class="lang-en">Opening terminal</span></a>
+    <a href="#commands" class="nav-link"><span class="lang-ko">필수 명령어 5개</span><span class="lang-en">5 essential commands</span></a>
+    <a href="#filesystem" class="nav-link"><span class="lang-ko">파일 시스템</span><span class="lang-en">File system</span></a>
+    <a href="#setup" class="nav-link"><span class="lang-ko">개발 환경 설치</span><span class="lang-en">Dev environment</span></a>
+    <a href="#cli-flags" class="nav-link">CLI <span class="lang-ko">플래그</span><span class="lang-en">flags</span></a>
+    <a href="#slash-commands" class="nav-link"><span class="lang-ko">슬래시 명령어</span><span class="lang-en">Slash commands</span></a>
+    <a href="#piping" class="nav-link"><span class="lang-ko">파이프 활용</span><span class="lang-en">Piping</span></a>
+    <a href="#terminal-tips" class="nav-link"><span class="lang-ko">터미널 최적화</span><span class="lang-en">Terminal tips</span></a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
 </nav>
@@ -932,50 +936,101 @@
 <section id="what">
   <div class="container">
     <div class="section-number">01</div>
-    <h2 class="section-title">터미널이란?</h2>
-    <p class="section-desc">
-      한 줄 요약: 컴퓨터에게 <strong style="color:var(--accent)">글자로 명령을 내리는 도구</strong>입니다.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">터미널이란?</h2>
+      <p class="section-desc">
+        한 줄 요약: 컴퓨터에게 <strong style="color:var(--accent)">글자로 명령을 내리는 도구</strong>입니다.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">What is a Terminal?</h2>
+      <p class="section-desc">
+        In one line: a tool for giving your computer <strong style="color:var(--accent)">instructions in text</strong>.
+      </p>
+    </div>
 
     <div class="analogy-box">
-      <h4>카페 키오스크 비유로 이해하기</h4>
-      <p>
-        카페에서 주문하는 두 가지 방법을 떠올려보세요.<br><br>
-        &nbsp;&nbsp;&#x1F5B1;&#65039; <strong style="color:var(--text)">GUI (키오스크 터치)</strong> &rarr; 화면에서 "아메리카노" 버튼을 누르고, "ICE" 버튼을 누르고, "결제" 버튼을 누른다<br>
-        &nbsp;&nbsp;&#x2328;&#65039; <strong style="color:var(--text)">CLI (점원에게 말로 주문)</strong> &rarr; "아이스 아메리카노 한 잔이요"라고 한마디면 끝<br><br>
-        <strong style="color:var(--accent)">터미널 = 컴퓨터라는 카페의 점원</strong>입니다.<br>
-        마우스로 이것저것 클릭하는 대신, 텍스트로 "이거 해줘"라고 말하면 컴퓨터가 바로 실행합니다. 처음에는 낯설지만, 익숙해지면 마우스보다 훨씬 빠르고 정확합니다.
-      </p>
+      <div class="lang-ko">
+        <h4>카페 키오스크 비유로 이해하기</h4>
+        <p>
+          카페에서 주문하는 두 가지 방법을 떠올려보세요.<br><br>
+          &nbsp;&nbsp;&#x1F5B1;&#65039; <strong style="color:var(--text)">GUI (키오스크 터치)</strong> &rarr; 화면에서 "아메리카노" 버튼을 누르고, "ICE" 버튼을 누르고, "결제" 버튼을 누른다<br>
+          &nbsp;&nbsp;&#x2328;&#65039; <strong style="color:var(--text)">CLI (점원에게 말로 주문)</strong> &rarr; "아이스 아메리카노 한 잔이요"라고 한마디면 끝<br><br>
+          <strong style="color:var(--accent)">터미널 = 컴퓨터라는 카페의 점원</strong>입니다.<br>
+          마우스로 이것저것 클릭하는 대신, 텍스트로 "이거 해줘"라고 말하면 컴퓨터가 바로 실행합니다. 처음에는 낯설지만, 익숙해지면 마우스보다 훨씬 빠르고 정확합니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>Think of it like ordering at a coffee shop</h4>
+        <p>
+          Imagine two ways to order at a cafe:<br><br>
+          &nbsp;&nbsp;&#x1F5B1;&#65039; <strong style="color:var(--text)">GUI (touchscreen kiosk)</strong> &rarr; tap "Americano", tap "Iced", tap "Pay"<br>
+          &nbsp;&nbsp;&#x2328;&#65039; <strong style="color:var(--text)">CLI (telling the barista)</strong> &rarr; just say "one iced Americano, please"<br><br>
+          <strong style="color:var(--accent)">The terminal is your computer's barista.</strong><br>
+          Instead of clicking around with your mouse, you type "do this" and the computer acts immediately. It feels unfamiliar at first, but once you get the hang of it, it's far faster and more precise than a mouse.
+        </p>
+      </div>
     </div>
 
     <div class="card-grid card-grid-3">
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x2328;&#65039;</div>
-        <h3>텍스트 기반 인터페이스</h3>
-        <p>터미널은 글자만으로 컴퓨터와 소통하는 창입니다. 버튼이나 아이콘 대신, 명령어를 타이핑하면 컴퓨터가 결과를 텍스트로 보여줍니다. 마치 문자 메시지를 주고받는 것과 비슷합니다.</p>
+        <div class="lang-ko">
+          <h3>텍스트 기반 인터페이스</h3>
+          <p>터미널은 글자만으로 컴퓨터와 소통하는 창입니다. 버튼이나 아이콘 대신, 명령어를 타이핑하면 컴퓨터가 결과를 텍스트로 보여줍니다. 마치 문자 메시지를 주고받는 것과 비슷합니다.</p>
+        </div>
+        <div class="lang-en">
+          <h3>Text-based interface</h3>
+          <p>The terminal is a window where you communicate with your computer purely through text. Instead of buttons and icons, you type commands and the computer responds with text — much like exchanging messages.</p>
+        </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F6E0;&#65039;</div>
-        <h3>개발자의 기본 도구</h3>
-        <p>프로그래머들은 매일 터미널을 씁니다. 코드 실행, 파일 관리, 서버 접속, 패키지 설치 등 거의 모든 개발 작업이 터미널에서 시작됩니다. 개발의 "출입문"이라고 생각하면 됩니다.</p>
+        <div class="lang-ko">
+          <h3>개발자의 기본 도구</h3>
+          <p>프로그래머들은 매일 터미널을 씁니다. 코드 실행, 파일 관리, 서버 접속, 패키지 설치 등 거의 모든 개발 작업이 터미널에서 시작됩니다. 개발의 "출입문"이라고 생각하면 됩니다.</p>
+        </div>
+        <div class="lang-en">
+          <h3>The developer's essential tool</h3>
+          <p>Programmers use the terminal every single day. Running code, managing files, connecting to servers, installing packages — nearly every development task starts here. Think of it as the "front door" to software development.</p>
+        </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F916;</div>
-        <h3>왜 Claude Code에 필요한가</h3>
-        <p>Claude Code는 터미널에서 실행되는 AI 도구입니다. "claude"라고 타이핑해서 시작하고, 대화도 터미널 안에서 진행됩니다. 터미널 기초만 알면 Claude Code를 바로 쓸 수 있습니다.</p>
+        <div class="lang-ko">
+          <h3>왜 Claude Code에 필요한가</h3>
+          <p>Claude Code는 터미널에서 실행되는 AI 도구입니다. "claude"라고 타이핑해서 시작하고, 대화도 터미널 안에서 진행됩니다. 터미널 기초만 알면 Claude Code를 바로 쓸 수 있습니다.</p>
+        </div>
+        <div class="lang-en">
+          <h3>Why you need it for Claude Code</h3>
+          <p>Claude Code is an AI tool that runs inside the terminal. You start it by typing "claude", and all your conversations happen right there. If you know the terminal basics, you're ready to use Claude Code immediately.</p>
+        </div>
       </div>
     </div>
 
     <div class="analogy-box" style="margin-top: 48px;">
-      <h4>터미널은 어떻게 작동하나요?</h4>
-      <p>
-        터미널의 작동 원리는 매우 단순합니다:<br><br>
-        <strong style="color:var(--text)">1.</strong> 사용자가 명령어를 입력한다 (예: <code style="color:var(--accent)">ls</code>)<br>
-        <strong style="color:var(--text)">2.</strong> Enter를 누른다<br>
-        <strong style="color:var(--text)">3.</strong> 컴퓨터가 명령을 실행하고 결과를 보여준다<br>
-        <strong style="color:var(--text)">4.</strong> 다시 입력을 기다린다<br><br>
-        이 과정의 반복입니다. 마치 카카오톡에서 메시지를 보내고 답장을 받는 것처럼, 명령을 보내고 결과를 받는 "대화"를 하는 겁니다.
-      </p>
+      <div class="lang-ko">
+        <h4>터미널은 어떻게 작동하나요?</h4>
+        <p>
+          터미널의 작동 원리는 매우 단순합니다:<br><br>
+          <strong style="color:var(--text)">1.</strong> 사용자가 명령어를 입력한다 (예: <code style="color:var(--accent)">ls</code>)<br>
+          <strong style="color:var(--text)">2.</strong> Enter를 누른다<br>
+          <strong style="color:var(--text)">3.</strong> 컴퓨터가 명령을 실행하고 결과를 보여준다<br>
+          <strong style="color:var(--text)">4.</strong> 다시 입력을 기다린다<br><br>
+          이 과정의 반복입니다. 마치 카카오톡에서 메시지를 보내고 답장을 받는 것처럼, 명령을 보내고 결과를 받는 "대화"를 하는 겁니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>How does the terminal work?</h4>
+        <p>
+          The principle is beautifully simple:<br><br>
+          <strong style="color:var(--text)">1.</strong> You type a command (e.g., <code style="color:var(--accent)">ls</code>)<br>
+          <strong style="color:var(--text)">2.</strong> Press Enter<br>
+          <strong style="color:var(--text)">3.</strong> The computer runs the command and shows the result<br>
+          <strong style="color:var(--text)">4.</strong> It waits for your next input<br><br>
+          Repeat. It's a back-and-forth "conversation" — you send a command and receive a result, just like exchanging messages in a chat app.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -986,15 +1041,24 @@
 <section id="open">
   <div class="container">
     <div class="section-number">02</div>
-    <h2 class="section-title">터미널 여는 법</h2>
-    <p class="section-desc">
-      운영체제마다 터미널을 여는 방법이 조금 다릅니다. 아래에서 자신의 OS를 찾아보세요.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">터미널 여는 법</h2>
+      <p class="section-desc">
+        운영체제마다 터미널을 여는 방법이 조금 다릅니다. 아래에서 자신의 OS를 찾아보세요.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">How to Open a Terminal</h2>
+      <p class="section-desc">
+        The method varies slightly by operating system. Find yours below.
+      </p>
+    </div>
 
     <div class="comparison" style="grid-template-columns: 1fr 1fr 1fr;">
       <div class="comp-good" style="background: var(--blue-dim); border-color: var(--blue-border);">
         <div class="comp-label" style="color: var(--blue);">&#x1F34E; macOS</div>
-        <div class="comp-code"><strong style="color:var(--text)">방법 1: Spotlight</strong>
+        <div class="comp-code">
+          <div class="lang-ko"><strong style="color:var(--text)">방법 1: Spotlight</strong>
 <span style="color:var(--accent)">Cmd</span> + <span style="color:var(--accent)">Space</span> 누르기
 &rarr; "터미널" 입력
 &rarr; Enter
@@ -1003,10 +1067,21 @@
 응용 프로그램
 &rarr; 유틸리티
 &rarr; 터미널.app</div>
+          <div class="lang-en"><strong style="color:var(--text)">Option 1: Spotlight</strong>
+Press <span style="color:var(--accent)">Cmd</span> + <span style="color:var(--accent)">Space</span>
+&rarr; Type "Terminal"
+&rarr; Press Enter
+
+<strong style="color:var(--text)">Option 2: Finder</strong>
+Applications
+&rarr; Utilities
+&rarr; Terminal.app</div>
+        </div>
       </div>
       <div class="comp-good" style="background: var(--accent-glow); border-color: var(--accent-border);">
         <div class="comp-label" style="color: var(--accent);">&#x1FA9F; Windows</div>
-        <div class="comp-code"><strong style="color:var(--text)">방법 1: 검색</strong>
+        <div class="comp-code">
+          <div class="lang-ko"><strong style="color:var(--text)">방법 1: 검색</strong>
 시작 메뉴 클릭
 &rarr; "PowerShell" 검색
 &rarr; Enter
@@ -1014,38 +1089,57 @@
 <strong style="color:var(--text)">방법 2: 단축키</strong>
 <span style="color:var(--accent)">Win</span> + <span style="color:var(--accent)">X</span> 누르기
 &rarr; "터미널" 선택</div>
+          <div class="lang-en"><strong style="color:var(--text)">Option 1: Search</strong>
+Click Start menu
+&rarr; Search "PowerShell"
+&rarr; Press Enter
+
+<strong style="color:var(--text)">Option 2: Shortcut</strong>
+Press <span style="color:var(--accent)">Win</span> + <span style="color:var(--accent)">X</span>
+&rarr; Select "Terminal"</div>
+        </div>
       </div>
       <div class="comp-good" style="background: var(--orange-dim); border-color: var(--orange-border);">
         <div class="comp-label" style="color: var(--orange);">&#x1F427; Linux</div>
-        <div class="comp-code"><strong style="color:var(--text)">단축키 한 방!</strong>
+        <div class="comp-code">
+          <div class="lang-ko"><strong style="color:var(--text)">단축키 한 방!</strong>
 <span style="color:var(--accent)">Ctrl</span> + <span style="color:var(--accent)">Alt</span> + <span style="color:var(--accent)">T</span>
 
 바로 터미널이 열립니다.
 
 대부분의 Linux 배포판에서
 이 단축키가 작동합니다.</div>
+          <div class="lang-en"><strong style="color:var(--text)">One shortcut to rule them all!</strong>
+<span style="color:var(--accent)">Ctrl</span> + <span style="color:var(--accent)">Alt</span> + <span style="color:var(--accent)">T</span>
+
+The terminal opens immediately.
+
+This shortcut works in most
+Linux distributions.</div>
+        </div>
       </div>
     </div>
 
     <div class="tip">
       <span class="tip-icon">&#x1F49C;</span>
       <div>
-        <strong>처음 보는 검은 화면이 무서워도 괜찮습니다.</strong> 터미널은 그냥 텍스트 입력창일 뿐입니다. 잘못 입력해도 대부분 "그런 명령어 없어"라고 알려주기만 하고, 컴퓨터가 망가지는 일은 거의 없습니다. 편하게 이것저것 입력해보세요.
+        <span class="lang-ko"><strong>처음 보는 검은 화면이 무서워도 괜찮습니다.</strong> 터미널은 그냥 텍스트 입력창일 뿐입니다. 잘못 입력해도 대부분 "그런 명령어 없어"라고 알려주기만 하고, 컴퓨터가 망가지는 일은 거의 없습니다. 편하게 이것저것 입력해보세요.</span>
+        <span class="lang-en"><strong>Don't worry if the black screen looks intimidating.</strong> The terminal is just a text input window. If you type something wrong, it usually just says "command not found" — your computer almost never breaks from a typo. Feel free to experiment.</span>
       </div>
     </div>
 
     <div class="code-block" style="margin-top: 32px;">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>터미널을 열면 보이는 화면</span>
+        <span><span class="lang-ko">터미널을 열면 보이는 화면</span><span class="lang-en">What you see when you open a terminal</span></span>
       </div>
       <div class="code-body">
-<span class="comment"># 이런 식으로 생긴 화면이 나타납니다</span>
+<span class="comment"># <span class="lang-ko">이런 식으로 생긴 화면이 나타납니다</span><span class="lang-en">A screen like this will appear</span></span>
 <span class="string">username@computer</span> ~ <span class="keyword">$</span> <span class="desc">&#x2588;</span>
 
-<span class="comment"># &uarr; 여기에 커서가 깜빡이고 있습니다</span>
-<span class="comment"># &uarr; 이 "$" 또는 "%" 뒤에 명령어를 입력하면 됩니다</span>
-<span class="comment"># &uarr; "username"은 여러분의 컴퓨터 사용자 이름입니다</span>
+<span class="comment"># &uarr; <span class="lang-ko">여기에 커서가 깜빡이고 있습니다</span><span class="lang-en">Your cursor is blinking here</span></span>
+<span class="comment"># &uarr; <span class="lang-ko">이 "$" 또는 "%" 뒤에 명령어를 입력하면 됩니다</span><span class="lang-en">Type your command after this "$" or "%" symbol</span></span>
+<span class="comment"># &uarr; <span class="lang-ko">"username"은 여러분의 컴퓨터 사용자 이름입니다</span><span class="lang-en">"username" is your computer's user name</span></span>
       </div>
     </div>
   </div>
@@ -1057,50 +1151,58 @@
 <section id="commands">
   <div class="container">
     <div class="section-number">03</div>
-    <h2 class="section-title">필수 명령어 5개</h2>
-    <p class="section-desc">
-      이 5개만 알면 터미널의 기본은 끝입니다. 하나씩 천천히 따라해보세요.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">필수 명령어 5개</h2>
+      <p class="section-desc">
+        이 5개만 알면 터미널의 기본은 끝입니다. 하나씩 천천히 따라해보세요.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">5 Essential Commands</h2>
+      <p class="section-desc">
+        These five commands are all you need to get started. Work through them one by one.
+      </p>
+    </div>
 
     <table class="skill-table">
       <thead>
         <tr>
-          <th style="width: 100px;">명령어</th>
-          <th style="width: 160px;">하는 일</th>
-          <th style="width: 160px;">비유</th>
-          <th>예시</th>
+          <th style="width: 100px;"><span class="lang-ko">명령어</span><span class="lang-en">Command</span></th>
+          <th style="width: 160px;"><span class="lang-ko">하는 일</span><span class="lang-en">What it does</span></th>
+          <th style="width: 160px;"><span class="lang-ko">비유</span><span class="lang-en">Analogy</span></th>
+          <th><span class="lang-ko">예시</span><span class="lang-en">Example</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">pwd</td>
-          <td style="color: var(--text-dim);">현재 위치 확인</td>
-          <td style="color: var(--text-dim);">"지금 내가 어디에 있지?" 라고 물어보기</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">현재 위치 확인</span><span class="lang-en">Show current location</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">"지금 내가 어디에 있지?" 라고 물어보기</span><span class="lang-en">Asking "Where am I right now?"</span></td>
           <td style="color: var(--text-dim);"><code style="color:var(--accent)">pwd</code> &rarr; /Users/hyunho</td>
         </tr>
         <tr>
           <td class="skill-name-cell">ls</td>
-          <td style="color: var(--text-dim);">폴더 내용 보기</td>
-          <td style="color: var(--text-dim);">서랍을 열어서 안에 뭐가 있는지 보기</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">폴더 내용 보기</span><span class="lang-en">List folder contents</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">서랍을 열어서 안에 뭐가 있는지 보기</span><span class="lang-en">Opening a drawer to see what's inside</span></td>
           <td style="color: var(--text-dim);"><code style="color:var(--accent)">ls</code> &rarr; Documents Photos Music ...</td>
         </tr>
         <tr>
           <td class="skill-name-cell">cd</td>
-          <td style="color: var(--text-dim);">폴더 이동</td>
-          <td style="color: var(--text-dim);">다른 방으로 걸어가기</td>
-          <td style="color: var(--text-dim);"><code style="color:var(--accent)">cd Documents</code> &rarr; Documents 폴더로 이동</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">폴더 이동</span><span class="lang-en">Change directory</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">다른 방으로 걸어가기</span><span class="lang-en">Walking into another room</span></td>
+          <td style="color: var(--text-dim);"><code style="color:var(--accent)">cd Documents</code> &rarr; <span class="lang-ko">Documents 폴더로 이동</span><span class="lang-en">move to Documents</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">mkdir</td>
-          <td style="color: var(--text-dim);">새 폴더 만들기</td>
-          <td style="color: var(--text-dim);">새 서랍 추가하기</td>
-          <td style="color: var(--text-dim);"><code style="color:var(--accent)">mkdir my-project</code> &rarr; my-project 폴더 생성</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">새 폴더 만들기</span><span class="lang-en">Create a new folder</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">새 서랍 추가하기</span><span class="lang-en">Adding a new drawer</span></td>
+          <td style="color: var(--text-dim);"><code style="color:var(--accent)">mkdir my-project</code> &rarr; <span class="lang-ko">my-project 폴더 생성</span><span class="lang-en">creates my-project folder</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">clear</td>
-          <td style="color: var(--text-dim);">화면 지우기</td>
-          <td style="color: var(--text-dim);">칠판을 깨끗하게 지우기</td>
-          <td style="color: var(--text-dim);"><code style="color:var(--accent)">clear</code> &rarr; 화면이 깨끗해짐</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">화면 지우기</span><span class="lang-en">Clear the screen</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">칠판을 깨끗하게 지우기</span><span class="lang-en">Erasing a whiteboard</span></td>
+          <td style="color: var(--text-dim);"><code style="color:var(--accent)">clear</code> &rarr; <span class="lang-ko">화면이 깨끗해짐</span><span class="lang-en">screen is cleared</span></td>
         </tr>
       </tbody>
     </table>
@@ -1108,31 +1210,31 @@
     <div class="code-block" style="margin-top: 32px;">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>실전 예시: 명령어 따라해보기</span>
+        <span><span class="lang-ko">실전 예시: 명령어 따라해보기</span><span class="lang-en">Hands-on example: follow along</span></span>
       </div>
       <div class="code-body">
-<span class="comment"># 1. 현재 위치 확인</span>
+<span class="comment"># 1. <span class="lang-ko">현재 위치 확인</span><span class="lang-en">Check current location</span></span>
 <span class="keyword">$</span> pwd
 <span class="string">/Users/hyunho</span>
 
-<span class="comment"># 2. 현재 폴더에 뭐가 있는지 확인</span>
+<span class="comment"># 2. <span class="lang-ko">현재 폴더에 뭐가 있는지 확인</span><span class="lang-en">See what's in the current folder</span></span>
 <span class="keyword">$</span> ls
 <span class="file">Desktop</span>  <span class="file">Documents</span>  <span class="file">Downloads</span>  <span class="file">Music</span>  <span class="file">Pictures</span>
 
-<span class="comment"># 3. Documents 폴더로 이동</span>
+<span class="comment"># 3. <span class="lang-ko">Documents 폴더로 이동</span><span class="lang-en">Navigate to the Documents folder</span></span>
 <span class="keyword">$</span> cd Documents
 
-<span class="comment"># 4. 이동했는지 확인</span>
+<span class="comment"># 4. <span class="lang-ko">이동했는지 확인</span><span class="lang-en">Verify you moved there</span></span>
 <span class="keyword">$</span> pwd
 <span class="string">/Users/hyunho/Documents</span>
 
-<span class="comment"># 5. 새 폴더 만들기</span>
+<span class="comment"># 5. <span class="lang-ko">새 폴더 만들기</span><span class="lang-en">Create a new folder</span></span>
 <span class="keyword">$</span> mkdir my-first-project
 
-<span class="comment"># 6. 만든 폴더로 이동</span>
+<span class="comment"># 6. <span class="lang-ko">만든 폴더로 이동</span><span class="lang-en">Move into the new folder</span></span>
 <span class="keyword">$</span> cd my-first-project
 
-<span class="comment"># 7. 화면 정리하기</span>
+<span class="comment"># 7. <span class="lang-ko">화면 정리하기</span><span class="lang-en">Clean up the screen</span></span>
 <span class="keyword">$</span> clear
       </div>
     </div>
@@ -1140,7 +1242,8 @@
     <div class="tip" style="margin-top: 24px;">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>꿀팁:</strong> 명령어를 입력하다가 <code style="color:var(--accent)">Tab</code> 키를 누르면 자동완성이 됩니다. 예를 들어 <code style="color:var(--accent)">cd Doc</code>까지 입력하고 Tab을 누르면 <code style="color:var(--accent)">cd Documents</code>로 완성됩니다. 또한 위쪽 화살표(<code style="color:var(--accent)">&uarr;</code>)를 누르면 이전에 입력한 명령어가 다시 나타납니다.
+        <span class="lang-ko"><strong>꿀팁:</strong> 명령어를 입력하다가 <code style="color:var(--accent)">Tab</code> 키를 누르면 자동완성이 됩니다. 예를 들어 <code style="color:var(--accent)">cd Doc</code>까지 입력하고 Tab을 누르면 <code style="color:var(--accent)">cd Documents</code>로 완성됩니다. 또한 위쪽 화살표(<code style="color:var(--accent)">&uarr;</code>)를 누르면 이전에 입력한 명령어가 다시 나타납니다.</span>
+        <span class="lang-en"><strong>Pro tip:</strong> Press <code style="color:var(--accent)">Tab</code> while typing a command to autocomplete it. For example, type <code style="color:var(--accent)">cd Doc</code> and press Tab — it completes to <code style="color:var(--accent)">cd Documents</code>. Press the up arrow (<code style="color:var(--accent)">&uarr;</code>) to recall your previous commands.</span>
       </div>
     </div>
   </div>
@@ -1152,65 +1255,94 @@
 <section id="filesystem">
   <div class="container">
     <div class="section-number">04</div>
-    <h2 class="section-title">파일 시스템 이해하기</h2>
-    <p class="section-desc">
-      컴퓨터의 파일과 폴더가 어떻게 정리되어 있는지 알면, 터미널에서 길을 잃지 않습니다.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">파일 시스템 이해하기</h2>
+      <p class="section-desc">
+        컴퓨터의 파일과 폴더가 어떻게 정리되어 있는지 알면, 터미널에서 길을 잃지 않습니다.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">Understanding the File System</h2>
+      <p class="section-desc">
+        Understanding how your computer's files and folders are organized will keep you from getting lost in the terminal.
+      </p>
+    </div>
 
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>컴퓨터의 폴더 구조 (트리)</span>
+        <span><span class="lang-ko">컴퓨터의 폴더 구조 (트리)</span><span class="lang-en">Folder structure (tree view)</span></span>
       </div>
       <div class="code-body">
-<span class="keyword">/</span> <span class="comment">(최상위 폴더, 루트라고 부릅니다)</span>
+<span class="keyword">/</span> <span class="comment">(<span class="lang-ko">최상위 폴더, 루트라고 부릅니다</span><span class="lang-en">top-level folder, called the root</span>)</span>
 ├── <span class="file">Users/</span>
-│   └── <span class="file">hyunho/</span> <span class="comment">&larr; 여러분의 홈 폴더 (~)</span>
-│       ├── <span class="file">Desktop/</span> <span class="comment">&larr; 바탕화면</span>
-│       ├── <span class="file">Documents/</span> <span class="comment">&larr; 문서</span>
-│       │   └── <span class="string">my-project/</span> <span class="comment">&larr; 우리가 만든 폴더!</span>
+│   └── <span class="file">hyunho/</span> <span class="comment">&larr; <span class="lang-ko">여러분의 홈 폴더 (~)</span><span class="lang-en">your home folder (~)</span></span>
+│       ├── <span class="file">Desktop/</span> <span class="comment">&larr; <span class="lang-ko">바탕화면</span><span class="lang-en">Desktop</span></span>
+│       ├── <span class="file">Documents/</span> <span class="comment">&larr; <span class="lang-ko">문서</span><span class="lang-en">Documents</span></span>
+│       │   └── <span class="string">my-project/</span> <span class="comment">&larr; <span class="lang-ko">우리가 만든 폴더!</span><span class="lang-en">the folder we created!</span></span>
 │       │       ├── <span class="desc">index.html</span>
 │       │       └── <span class="desc">style.css</span>
-│       ├── <span class="file">Downloads/</span> <span class="comment">&larr; 다운로드</span>
-│       └── <span class="file">Music/</span> <span class="comment">&larr; 음악</span>
-├── <span class="file">Applications/</span> <span class="comment">&larr; 설치된 앱들</span>
-└── <span class="file">System/</span> <span class="comment">&larr; 시스템 파일 (건드리지 마세요!)</span>
+│       ├── <span class="file">Downloads/</span> <span class="comment">&larr; <span class="lang-ko">다운로드</span><span class="lang-en">Downloads</span></span>
+│       └── <span class="file">Music/</span> <span class="comment">&larr; <span class="lang-ko">음악</span><span class="lang-en">Music</span></span>
+├── <span class="file">Applications/</span> <span class="comment">&larr; <span class="lang-ko">설치된 앱들</span><span class="lang-en">installed apps</span></span>
+└── <span class="file">System/</span> <span class="comment">&larr; <span class="lang-ko">시스템 파일 (건드리지 마세요!)</span><span class="lang-en">system files (don't touch!)</span></span>
       </div>
     </div>
 
     <div class="analogy-box">
-      <h4>서랍장 비유로 이해하기</h4>
-      <p>
-        파일 시스템은 거대한 서랍장과 같습니다.<br><br>
-        <strong style="color:var(--text)">최상위 폴더 (<code style="color:var(--accent)">/</code>)</strong> = 서랍장 자체. 모든 것이 여기 안에 있습니다.<br>
-        <strong style="color:var(--text)">하위 폴더</strong> = 서랍장의 각 서랍칸. Documents, Downloads 같은 폴더들이죠.<br>
-        <strong style="color:var(--text)">파일</strong> = 서랍칸 안에 들어있는 물건들. index.html, photo.jpg 같은 것들입니다.<br><br>
-        터미널에서 <code style="color:var(--accent)">cd</code> 명령어는 "다른 서랍칸을 열겠다"는 뜻이고, <code style="color:var(--accent)">ls</code>는 "이 서랍칸 안에 뭐가 있지?"라고 확인하는 것입니다.
-      </p>
+      <div class="lang-ko">
+        <h4>서랍장 비유로 이해하기</h4>
+        <p>
+          파일 시스템은 거대한 서랍장과 같습니다.<br><br>
+          <strong style="color:var(--text)">최상위 폴더 (<code style="color:var(--accent)">/</code>)</strong> = 서랍장 자체. 모든 것이 여기 안에 있습니다.<br>
+          <strong style="color:var(--text)">하위 폴더</strong> = 서랍장의 각 서랍칸. Documents, Downloads 같은 폴더들이죠.<br>
+          <strong style="color:var(--text)">파일</strong> = 서랍칸 안에 들어있는 물건들. index.html, photo.jpg 같은 것들입니다.<br><br>
+          터미널에서 <code style="color:var(--accent)">cd</code> 명령어는 "다른 서랍칸을 열겠다"는 뜻이고, <code style="color:var(--accent)">ls</code>는 "이 서랍칸 안에 뭐가 있지?"라고 확인하는 것입니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <h4>Think of it as a chest of drawers</h4>
+        <p>
+          The file system is like a giant chest of drawers.<br><br>
+          <strong style="color:var(--text)">Root folder (<code style="color:var(--accent)">/</code>)</strong> = the chest itself. Everything lives inside it.<br>
+          <strong style="color:var(--text)">Subfolders</strong> = individual drawers. Folders like Documents and Downloads.<br>
+          <strong style="color:var(--text)">Files</strong> = the items inside each drawer. Things like index.html or photo.jpg.<br><br>
+          In the terminal, <code style="color:var(--accent)">cd</code> means "open a different drawer", and <code style="color:var(--accent)">ls</code> means "what's inside this drawer?".
+        </p>
+      </div>
     </div>
 
     <div style="margin-top: 48px;">
-      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">절대 경로 vs 상대 경로</h3>
+      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">절대 경로 vs 상대 경로</span><span class="lang-en">Absolute paths vs relative paths</span></h3>
 
       <div class="comparison">
         <div class="comp-good" style="background: var(--blue-dim); border-color: var(--blue-border);">
-          <div class="comp-label" style="color: var(--blue);">&#x1F4CD; 절대 경로 (전체 주소)</div>
-          <div class="comp-code">"서울시 강남구 역삼동 123번지"
+          <div class="comp-label" style="color: var(--blue);">&#x1F4CD; <span class="lang-ko">절대 경로 (전체 주소)</span><span class="lang-en">Absolute path (full address)</span></div>
+          <div class="comp-code">
+            <span class="lang-ko">"서울시 강남구 역삼동 123번지"</span>
+            <span class="lang-en">"123 Main Street, Springfield"</span>
 
 <span style="color:var(--accent)">/Users/hyunho/Documents/my-project</span>
 
-&rarr; 어디에 있든 정확한 위치를 가리킴
-&rarr; 항상 <span style="color:var(--accent)">/</span>(슬래시)로 시작</div>
+<span class="lang-ko">&rarr; 어디에 있든 정확한 위치를 가리킴
+&rarr; 항상 <span style="color:var(--accent)">/</span>(슬래시)로 시작</span>
+<span class="lang-en">&rarr; Points to the exact location from anywhere
+&rarr; Always starts with <span style="color:var(--accent)">/</span> (slash)</span>
+          </div>
         </div>
         <div class="comp-good">
-          <div class="comp-label">&#x1F9ED; 상대 경로 (현재 위치 기준)</div>
-          <div class="comp-code">"여기서 오른쪽으로 두 블록"
+          <div class="comp-label">&#x1F9ED; <span class="lang-ko">상대 경로 (현재 위치 기준)</span><span class="lang-en">Relative path (from current location)</span></div>
+          <div class="comp-code">
+            <span class="lang-ko">"여기서 오른쪽으로 두 블록"</span>
+            <span class="lang-en">"Two blocks to the right from here"</span>
 
-<span style="color:var(--green)">./my-project</span>  <span style="color:var(--text-muted)">(현재 폴더의 my-project)</span>
-<span style="color:var(--green)">..</span>            <span style="color:var(--text-muted)">(한 단계 상위 폴더)</span>
-<span style="color:var(--green)">../Music</span>      <span style="color:var(--text-muted)">(상위 폴더의 Music)</span>
+<span style="color:var(--green)">./my-project</span>  <span style="color:var(--text-muted)"><span class="lang-ko">(현재 폴더의 my-project)</span><span class="lang-en">(my-project in current folder)</span></span>
+<span style="color:var(--green)">..</span>            <span style="color:var(--text-muted)"><span class="lang-ko">(한 단계 상위 폴더)</span><span class="lang-en">(one level up)</span></span>
+<span style="color:var(--green)">../Music</span>      <span style="color:var(--text-muted)"><span class="lang-ko">(상위 폴더의 Music)</span><span class="lang-en">(Music in parent folder)</span></span>
 
-&rarr; 현재 위치에 따라 도착지가 달라짐</div>
+<span class="lang-ko">&rarr; 현재 위치에 따라 도착지가 달라짐</span>
+<span class="lang-en">&rarr; Destination depends on where you are now</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1218,7 +1350,8 @@
     <div class="tip" style="margin-top: 24px;">
       <span class="tip-icon">&#x1F3E0;</span>
       <div>
-        <strong>홈 폴더 단축키:</strong> <code style="color:var(--accent)">~</code> (물결표)는 여러분의 홈 폴더를 의미합니다. 어디에 있든 <code style="color:var(--accent)">cd ~</code>를 입력하면 홈 폴더로 돌아갑니다. <code style="color:var(--accent)">cd ~/Documents</code>는 홈 폴더 안의 Documents로 바로 이동합니다.
+        <span class="lang-ko"><strong>홈 폴더 단축키:</strong> <code style="color:var(--accent)">~</code> (물결표)는 여러분의 홈 폴더를 의미합니다. 어디에 있든 <code style="color:var(--accent)">cd ~</code>를 입력하면 홈 폴더로 돌아갑니다. <code style="color:var(--accent)">cd ~/Documents</code>는 홈 폴더 안의 Documents로 바로 이동합니다.</span>
+        <span class="lang-en"><strong>Home folder shortcut:</strong> <code style="color:var(--accent)">~</code> (tilde) represents your home folder. No matter where you are, typing <code style="color:var(--accent)">cd ~</code> takes you straight back home. <code style="color:var(--accent)">cd ~/Documents</code> goes directly to the Documents folder inside your home.</span>
       </div>
     </div>
   </div>
@@ -1230,10 +1363,18 @@
 <section id="setup">
   <div class="container">
     <div class="section-number">05</div>
-    <h2 class="section-title">개발 환경 설치</h2>
-    <p class="section-desc">
-      Claude Code를 사용하려면 몇 가지 도구를 먼저 설치해야 합니다. 터미널에서 하나씩 따라해보세요.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">개발 환경 설치</h2>
+      <p class="section-desc">
+        Claude Code를 사용하려면 몇 가지 도구를 먼저 설치해야 합니다. 터미널에서 하나씩 따라해보세요.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">Setting Up Your Dev Environment</h2>
+      <p class="section-desc">
+        A few tools need to be installed before you can use Claude Code. Follow along in your terminal, one step at a time.
+      </p>
+    </div>
 
     <div class="steps">
 
@@ -1244,28 +1385,35 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>Homebrew 설치 (macOS)</h3>
-          <p>Homebrew는 macOS의 "앱 스토어 터미널 버전"입니다. 개발 도구를 쉽게 설치하고 관리할 수 있게 해줍니다.</p>
+          <div class="lang-ko">
+            <h3>Homebrew 설치 (macOS)</h3>
+            <p>Homebrew는 macOS의 "앱 스토어 터미널 버전"입니다. 개발 도구를 쉽게 설치하고 관리할 수 있게 해줍니다.</p>
+          </div>
+          <div class="lang-en">
+            <h3>Install Homebrew (macOS)</h3>
+            <p>Homebrew is the "App Store for the terminal" on macOS. It makes installing and managing developer tools easy.</p>
+          </div>
 
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>macOS 터미널</span>
+              <span>macOS <span class="lang-ko">터미널</span><span class="lang-en">Terminal</span></span>
             </div>
             <div class="code-body">
-<span class="comment"># Homebrew 설치 (이 한 줄을 복사해서 붙여넣고 Enter)</span>
+<span class="comment"># <span class="lang-ko">Homebrew 설치 (이 한 줄을 복사해서 붙여넣고 Enter)</span><span class="lang-en">Install Homebrew (copy this line, paste it, and press Enter)</span></span>
 <span class="keyword">/bin/bash</span> -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-<span class="comment"># 설치가 끝나면 확인</span>
+<span class="comment"># <span class="lang-ko">설치가 끝나면 확인</span><span class="lang-en">Verify the installation</span></span>
 <span class="keyword">brew</span> --version
-<span class="string">Homebrew 4.x.x</span> <span class="comment">&larr; 이런 식으로 나오면 성공!</span>
+<span class="string">Homebrew 4.x.x</span> <span class="comment">&larr; <span class="lang-ko">이런 식으로 나오면 성공!</span><span class="lang-en">if you see this, you're good!</span></span>
             </div>
           </div>
 
           <div class="tip">
             <span class="tip-icon">&#x1FA9F;</span>
             <div>
-              <strong>Windows 사용자:</strong> Homebrew 대신 <code style="color:var(--accent)">winget</code>이 기본 내장되어 있습니다. 또는 <a href="https://nodejs.org" target="_blank" style="color:var(--accent)">nodejs.org</a>에서 직접 다운로드해도 됩니다.
+              <span class="lang-ko"><strong>Windows 사용자:</strong> Homebrew 대신 <code style="color:var(--accent)">winget</code>이 기본 내장되어 있습니다. 또는 <a href="https://nodejs.org" target="_blank" style="color:var(--accent)">nodejs.org</a>에서 직접 다운로드해도 됩니다.</span>
+              <span class="lang-en"><strong>Windows users:</strong> <code style="color:var(--accent)">winget</code> is built in — no Homebrew needed. You can also download directly from <a href="https://nodejs.org" target="_blank" style="color:var(--accent)">nodejs.org</a>.</span>
             </div>
           </div>
         </div>
@@ -1278,16 +1426,22 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>Node.js 설치</h3>
-          <p>Node.js는 JavaScript를 실행할 수 있게 해주는 프로그램입니다. Claude Code가 이것 위에서 작동합니다.</p>
+          <div class="lang-ko">
+            <h3>Node.js 설치</h3>
+            <p>Node.js는 JavaScript를 실행할 수 있게 해주는 프로그램입니다. Claude Code가 이것 위에서 작동합니다.</p>
+          </div>
+          <div class="lang-en">
+            <h3>Install Node.js</h3>
+            <p>Node.js is the runtime that lets your computer run JavaScript. Claude Code is built on top of it.</p>
+          </div>
 
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>macOS 터미널</span>
+              <span>macOS <span class="lang-ko">터미널</span><span class="lang-en">Terminal</span></span>
             </div>
             <div class="code-body">
-<span class="comment"># macOS: Homebrew로 Node.js 설치</span>
+<span class="comment"># macOS: <span class="lang-ko">Homebrew로 Node.js 설치</span><span class="lang-en">Install Node.js via Homebrew</span></span>
 <span class="keyword">brew</span> install node
             </div>
           </div>
@@ -1298,7 +1452,7 @@
               <span>Windows PowerShell</span>
             </div>
             <div class="code-body">
-<span class="comment"># Windows: winget으로 Node.js 설치</span>
+<span class="comment"># Windows: <span class="lang-ko">winget으로 Node.js 설치</span><span class="lang-en">Install Node.js via winget</span></span>
 <span class="keyword">winget</span> install OpenJS.NodeJS.LTS
             </div>
           </div>
@@ -1312,24 +1466,30 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h3>설치 확인</h3>
-          <p>모든 것이 잘 설치되었는지 확인합니다. 아래 명령어를 하나씩 입력해보세요.</p>
+          <div class="lang-ko">
+            <h3>설치 확인</h3>
+            <p>모든 것이 잘 설치되었는지 확인합니다. 아래 명령어를 하나씩 입력해보세요.</p>
+          </div>
+          <div class="lang-en">
+            <h3>Verify installation</h3>
+            <p>Confirm that everything installed correctly. Enter these commands one by one.</p>
+          </div>
 
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span></span><span></span><span></span></div>
-              <span>설치 확인</span>
+              <span><span class="lang-ko">설치 확인</span><span class="lang-en">Verify installation</span></span>
             </div>
             <div class="code-body">
-<span class="comment"># Node.js 버전 확인</span>
+<span class="comment"># <span class="lang-ko">Node.js 버전 확인</span><span class="lang-en">Check Node.js version</span></span>
 <span class="keyword">$</span> node --version
-<span class="string">v20.x.x</span> <span class="comment">&larr; 숫자가 나오면 성공!</span>
+<span class="string">v20.x.x</span> <span class="comment">&larr; <span class="lang-ko">숫자가 나오면 성공!</span><span class="lang-en">if you see a version number, you're good!</span></span>
 
-<span class="comment"># npm (Node 패키지 매니저) 확인</span>
+<span class="comment"># npm (Node <span class="lang-ko">패키지 매니저) 확인</span><span class="lang-en">package manager) check</span></span>
 <span class="keyword">$</span> npm --version
-<span class="string">10.x.x</span> <span class="comment">&larr; 이것도 숫자가 나오면 OK</span>
+<span class="string">10.x.x</span> <span class="comment">&larr; <span class="lang-ko">이것도 숫자가 나오면 OK</span><span class="lang-en">same here — any version number means OK</span></span>
 
-<span class="comment"># 이제 Claude Code를 설치할 수 있습니다!</span>
+<span class="comment"># <span class="lang-ko">이제 Claude Code를 설치할 수 있습니다!</span><span class="lang-en">Now you can install Claude Code!</span></span>
 <span class="keyword">$</span> npm install -g @anthropic-ai/claude-code
             </div>
           </div>
@@ -1337,7 +1497,8 @@
           <div class="tip">
             <span class="tip-icon">&#x1F389;</span>
             <div>
-              <strong>축하합니다!</strong> 여기까지 했다면 개발 환경 설정은 끝입니다. 이제 Claude Code를 설치하고 사용할 준비가 되었습니다. 다음 챕터에서 Claude Code가 무엇인지 자세히 알아보겠습니다.
+              <span class="lang-ko"><strong>축하합니다!</strong> 여기까지 했다면 개발 환경 설정은 끝입니다. 이제 Claude Code를 설치하고 사용할 준비가 되었습니다. 다음 챕터에서 Claude Code가 무엇인지 자세히 알아보겠습니다.</span>
+              <span class="lang-en"><strong>Congratulations!</strong> Your dev environment is set up. You're now ready to install and use Claude Code. The next chapter will walk you through what Claude Code actually is.</span>
             </div>
           </div>
         </div>
@@ -1352,62 +1513,70 @@
 <section id="cli-flags">
   <div class="container">
     <div class="section-number">06</div>
-    <h2 class="section-title">Claude Code CLI 플래그</h2>
-    <p class="section-desc">
-      터미널에서 <code style="color:var(--accent)">claude</code> 명령어를 실행할 때 사용하는 주요 플래그들입니다. 공식 CLI 레퍼런스 기준 최신 내용입니다.
-    </p>
+    <div class="lang-ko">
+      <h2 class="section-title">Claude Code CLI 플래그</h2>
+      <p class="section-desc">
+        터미널에서 <code style="color:var(--accent)">claude</code> 명령어를 실행할 때 사용하는 주요 플래그들입니다. 공식 CLI 레퍼런스 기준 최신 내용입니다.
+      </p>
+    </div>
+    <div class="lang-en">
+      <h2 class="section-title">Claude Code CLI Flags</h2>
+      <p class="section-desc">
+        The key flags you can use when running the <code style="color:var(--accent)">claude</code> command in your terminal. Based on the official CLI reference.
+      </p>
+    </div>
 
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>기본 실행 방법</span>
+        <span><span class="lang-ko">기본 실행 방법</span><span class="lang-en">Basic usage</span></span>
       </div>
       <div class="code-body">
-<span class="comment"># 대화형 세션 시작 (가장 기본)</span>
+<span class="comment"># <span class="lang-ko">대화형 세션 시작 (가장 기본)</span><span class="lang-en">Start an interactive session (most basic)</span></span>
 <span class="keyword">claude</span>
 
-<span class="comment"># 초기 프롬프트와 함께 대화형 세션 시작</span>
-<span class="keyword">claude</span> <span class="string">"이 프로젝트를 설명해줘"</span>
+<span class="comment"># <span class="lang-ko">초기 프롬프트와 함께 대화형 세션 시작</span><span class="lang-en">Start with an initial prompt</span></span>
+<span class="keyword">claude</span> <span class="string">"<span class="lang-ko">이 프로젝트를 설명해줘</span><span class="lang-en">explain this project</span>"</span>
 
-<span class="comment"># 출력 모드 (비대화형, 파이프 전용)</span>
-<span class="keyword">claude</span> <span class="desc">-p</span> <span class="string">"이 함수를 설명해줘"</span>
+<span class="comment"># <span class="lang-ko">출력 모드 (비대화형, 파이프 전용)</span><span class="lang-en">Print mode (non-interactive, for piping)</span></span>
+<span class="keyword">claude</span> <span class="desc">-p</span> <span class="string">"<span class="lang-ko">이 함수를 설명해줘</span><span class="lang-en">explain this function</span>"</span>
 
-<span class="comment"># 마지막 세션 이어서 시작</span>
+<span class="comment"># <span class="lang-ko">마지막 세션 이어서 시작</span><span class="lang-en">Resume the most recent session</span></span>
 <span class="keyword">claude</span> <span class="desc">--continue</span>
 
-<span class="comment"># 세션 목록에서 선택해서 재개</span>
+<span class="comment"># <span class="lang-ko">세션 목록에서 선택해서 재개</span><span class="lang-en">Pick a session to resume from a list</span></span>
 <span class="keyword">claude</span> <span class="desc">--resume</span>
 
-<span class="comment"># 세션을 분기(포크)해서 재개</span>
+<span class="comment"># <span class="lang-ko">세션을 분기(포크)해서 재개</span><span class="lang-en">Resume and fork the session</span></span>
 <span class="keyword">claude</span> <span class="desc">--continue --fork-session</span>
 
-<span class="comment"># ID 또는 이름으로 특정 세션 재개</span>
-<span class="keyword">claude</span> <span class="desc">-r</span> <span class="string">"auth-refactor"</span> <span class="string">"이 PR 마무리해줘"</span>
+<span class="comment"># <span class="lang-ko">ID 또는 이름으로 특정 세션 재개</span><span class="lang-en">Resume a specific session by ID or name</span></span>
+<span class="keyword">claude</span> <span class="desc">-r</span> <span class="string">"auth-refactor"</span> <span class="string">"<span class="lang-ko">이 PR 마무리해줘</span><span class="lang-en">finish this PR</span>"</span>
       </div>
     </div>
 
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>모델 및 도구 제어</span>
+        <span><span class="lang-ko">모델 및 도구 제어</span><span class="lang-en">Model and tool control</span></span>
       </div>
       <div class="code-body">
-<span class="comment"># 사용할 모델 지정</span>
+<span class="comment"># <span class="lang-ko">사용할 모델 지정</span><span class="lang-en">Specify the model to use</span></span>
 <span class="keyword">claude</span> <span class="desc">--model</span> claude-sonnet-4-6
 
-<span class="comment"># 별칭으로도 지정 가능 (sonnet, opus)</span>
+<span class="comment"># <span class="lang-ko">별칭으로도 지정 가능 (sonnet, opus)</span><span class="lang-en">Or use an alias (sonnet, opus)</span></span>
 <span class="keyword">claude</span> <span class="desc">--model</span> sonnet
 
-<span class="comment"># 추가 작업 디렉토리 지정</span>
+<span class="comment"># <span class="lang-ko">추가 작업 디렉토리 지정</span><span class="lang-en">Add an extra working directory</span></span>
 <span class="keyword">claude</span> <span class="desc">--add-dir</span> /path/to/other/project
 
-<span class="comment"># 허용할 도구만 지정 (권한 프롬프트 없이 실행)</span>
+<span class="comment"># <span class="lang-ko">허용할 도구만 지정 (권한 프롬프트 없이 실행)</span><span class="lang-en">Allow specific tools (no permission prompt)</span></span>
 <span class="keyword">claude</span> <span class="desc">--allowedTools</span> <span class="string">"Bash,Read"</span>
 
-<span class="comment"># 특정 도구 차단</span>
+<span class="comment"># <span class="lang-ko">특정 도구 차단</span><span class="lang-en">Block specific tools</span></span>
 <span class="keyword">claude</span> <span class="desc">--disallowedTools</span> <span class="string">"Write"</span>
 
-<span class="comment"># 사용 가능한 도구를 제한 (명명된 도구만)</span>
+<span class="comment"># <span class="lang-ko">사용 가능한 도구를 제한 (명명된 도구만)</span><span class="lang-en">Restrict to specific named tools</span></span>
 <span class="keyword">claude</span> <span class="desc">--tools</span> <span class="string">"Bash,Edit,Read"</span>
       </div>
     </div>
@@ -1415,7 +1584,7 @@
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>서브에이전트(Subagent) 정의</span>
+        <span><span class="lang-ko">서브에이전트(Subagent) 정의</span><span class="lang-en">Defining subagents</span></span>
       </div>
       <div class="code-body">
 <span class="comment"># --agents 플래그로 세션 전용 서브에이전트 정의</span>
@@ -1437,166 +1606,166 @@
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>시스템 프롬프트 커스터마이징</span>
+        <span><span class="lang-ko">시스템 프롬프트 커스터마이징</span><span class="lang-en">Customizing the system prompt</span></span>
       </div>
       <div class="code-body">
-<span class="comment"># 기본 시스템 프롬프트에 지침 추가 (권장)</span>
-<span class="keyword">claude</span> <span class="desc">--append-system-prompt</span> <span class="string">"항상 TypeScript를 사용해줘"</span>
+<span class="comment"># <span class="lang-ko">기본 시스템 프롬프트에 지침 추가 (권장)</span><span class="lang-en">Append instructions to the default system prompt (recommended)</span></span>
+<span class="keyword">claude</span> <span class="desc">--append-system-prompt</span> <span class="string">"<span class="lang-ko">항상 TypeScript를 사용해줘</span><span class="lang-en">always use TypeScript</span>"</span>
 
-<span class="comment"># 전체 시스템 프롬프트를 교체 (고급 사용)</span>
-<span class="keyword">claude</span> <span class="desc">--system-prompt</span> <span class="string">"당신은 Python 전문가입니다"</span>
+<span class="comment"># <span class="lang-ko">전체 시스템 프롬프트를 교체 (고급 사용)</span><span class="lang-en">Replace the entire system prompt (advanced)</span></span>
+<span class="keyword">claude</span> <span class="desc">--system-prompt</span> <span class="string">"<span class="lang-ko">당신은 Python 전문가입니다</span><span class="lang-en">You are a Python expert</span>"</span>
 
-<span class="comment"># 파일에서 시스템 프롬프트 로드 (인쇄 모드만)</span>
-<span class="keyword">claude</span> -p <span class="desc">--system-prompt-file</span> ./prompts/code-review.txt <span class="string">"이 PR 리뷰해줘"</span>
+<span class="comment"># <span class="lang-ko">파일에서 시스템 프롬프트 로드 (인쇄 모드만)</span><span class="lang-en">Load system prompt from file (print mode only)</span></span>
+<span class="keyword">claude</span> -p <span class="desc">--system-prompt-file</span> ./prompts/code-review.txt <span class="string">"<span class="lang-ko">이 PR 리뷰해줘</span><span class="lang-en">review this PR</span>"</span>
       </div>
     </div>
 
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>출력 형식 및 자동화</span>
+        <span><span class="lang-ko">출력 형식 및 자동화</span><span class="lang-en">Output format and automation</span></span>
       </div>
       <div class="code-body">
-<span class="comment"># JSON 형식으로 출력 (스크립팅에 유용)</span>
-<span class="keyword">claude</span> -p <span class="string">"쿼리"</span> <span class="desc">--output-format</span> json
+<span class="comment"># <span class="lang-ko">JSON 형식으로 출력 (스크립팅에 유용)</span><span class="lang-en">Output in JSON format (useful for scripting)</span></span>
+<span class="keyword">claude</span> -p <span class="string">"<span class="lang-ko">쿼리</span><span class="lang-en">query</span>"</span> <span class="desc">--output-format</span> json
 
-<span class="comment"># 스트리밍 JSON 출력</span>
-<span class="keyword">claude</span> -p <span class="string">"쿼리"</span> <span class="desc">--output-format</span> stream-json
+<span class="comment"># <span class="lang-ko">스트리밍 JSON 출력</span><span class="lang-en">Streaming JSON output</span></span>
+<span class="keyword">claude</span> -p <span class="string">"<span class="lang-ko">쿼리</span><span class="lang-en">query</span>"</span> <span class="desc">--output-format</span> stream-json
 
-<span class="comment"># 최대 에이전트 턴 수 제한 (인쇄 모드)</span>
-<span class="keyword">claude</span> -p <span class="desc">--max-turns</span> 5 <span class="string">"쿼리"</span>
+<span class="comment"># <span class="lang-ko">최대 에이전트 턴 수 제한 (인쇄 모드)</span><span class="lang-en">Limit the number of agent turns (print mode)</span></span>
+<span class="keyword">claude</span> -p <span class="desc">--max-turns</span> 5 <span class="string">"<span class="lang-ko">쿼리</span><span class="lang-en">query</span>"</span>
 
-<span class="comment"># 최대 예산 설정 (인쇄 모드)</span>
-<span class="keyword">claude</span> -p <span class="desc">--max-budget-usd</span> 5.00 <span class="string">"쿼리"</span>
+<span class="comment"># <span class="lang-ko">최대 예산 설정 (인쇄 모드)</span><span class="lang-en">Set a maximum budget (print mode)</span></span>
+<span class="keyword">claude</span> -p <span class="desc">--max-budget-usd</span> 5.00 <span class="string">"<span class="lang-ko">쿼리</span><span class="lang-en">query</span>"</span>
 
-<span class="comment"># 기본 모델 과부하 시 폴백 모델 지정 (인쇄 모드)</span>
-<span class="keyword">claude</span> -p <span class="desc">--fallback-model</span> sonnet <span class="string">"쿼리"</span>
+<span class="comment"># <span class="lang-ko">기본 모델 과부하 시 폴백 모델 지정 (인쇄 모드)</span><span class="lang-en">Specify a fallback model if the primary is overloaded (print mode)</span></span>
+<span class="keyword">claude</span> -p <span class="desc">--fallback-model</span> sonnet <span class="string">"<span class="lang-ko">쿼리</span><span class="lang-en">query</span>"</span>
       </div>
     </div>
 
     <table class="skill-table" style="margin-top: 32px;">
       <thead>
         <tr>
-          <th style="width: 220px;">플래그</th>
-          <th>설명</th>
-          <th style="width: 120px;">모드</th>
+          <th style="width: 220px;"><span class="lang-ko">플래그</span><span class="lang-en">Flag</span></th>
+          <th><span class="lang-ko">설명</span><span class="lang-en">Description</span></th>
+          <th style="width: 120px;"><span class="lang-ko">모드</span><span class="lang-en">Mode</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">--continue, -c</td>
-          <td style="color: var(--text-dim);">현재 디렉토리에서 가장 최근 대화 로드</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">현재 디렉토리에서 가장 최근 대화 로드</span><span class="lang-en">Load the most recent conversation in the current directory</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--resume, -r</td>
-          <td style="color: var(--text-dim);">ID 또는 이름으로 특정 세션 재개, 또는 선택기 표시</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">ID 또는 이름으로 특정 세션 재개, 또는 선택기 표시</span><span class="lang-en">Resume a specific session by ID or name, or show the session picker</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--fork-session</td>
-          <td style="color: var(--text-dim);">--resume 또는 --continue 시 새 세션 ID 생성 (분기)</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">--resume 또는 --continue 시 새 세션 ID 생성 (분기)</span><span class="lang-en">Create a new session ID when using --resume or --continue (fork)</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--model</td>
-          <td style="color: var(--text-dim);">모델 지정 (sonnet, opus, claude-sonnet-4-6 등)</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">모델 지정 (sonnet, opus, claude-sonnet-4-6 등)</span><span class="lang-en">Specify the model (sonnet, opus, claude-sonnet-4-6, etc.)</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--add-dir</td>
-          <td style="color: var(--text-dim);">Claude가 접근할 추가 작업 디렉토리 추가</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">Claude가 접근할 추가 작업 디렉토리 추가</span><span class="lang-en">Add an extra working directory for Claude to access</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--allowedTools</td>
-          <td style="color: var(--text-dim);">권한 프롬프트 없이 실행할 도구 지정</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">권한 프롬프트 없이 실행할 도구 지정</span><span class="lang-en">Specify tools to run without a permission prompt</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--disallowedTools</td>
-          <td style="color: var(--text-dim);">모델의 컨텍스트에서 제거하고 사용 금지할 도구</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">모델의 컨텍스트에서 제거하고 사용 금지할 도구</span><span class="lang-en">Remove tools from the model's context and prevent their use</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--tools</td>
-          <td style="color: var(--text-dim);">Claude가 사용할 수 있는 내장 도구 제한</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">Claude가 사용할 수 있는 내장 도구 제한</span><span class="lang-en">Restrict which built-in tools Claude can use</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--agents</td>
-          <td style="color: var(--text-dim);">JSON으로 세션 전용 서브에이전트 동적 정의</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">JSON으로 세션 전용 서브에이전트 동적 정의</span><span class="lang-en">Dynamically define session-scoped subagents as JSON</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--print, -p</td>
-          <td style="color: var(--text-dim);">대화형 모드 없이 응답 출력 (파이프·자동화 용도)</td>
-          <td style="color: var(--text-dim);">인쇄 모드</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">대화형 모드 없이 응답 출력 (파이프·자동화 용도)</span><span class="lang-en">Print the response without entering interactive mode (for piping and automation)</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">인쇄 모드</span><span class="lang-en">Print mode</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--output-format</td>
-          <td style="color: var(--text-dim);">출력 형식 지정: text, json, stream-json</td>
-          <td style="color: var(--text-dim);">인쇄 모드</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">출력 형식 지정: text, json, stream-json</span><span class="lang-en">Set output format: text, json, or stream-json</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">인쇄 모드</span><span class="lang-en">Print mode</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--max-turns</td>
-          <td style="color: var(--text-dim);">에이전트 턴 수 제한 (기본값: 무제한)</td>
-          <td style="color: var(--text-dim);">인쇄 모드</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">에이전트 턴 수 제한 (기본값: 무제한)</span><span class="lang-en">Limit the number of agent turns (default: unlimited)</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">인쇄 모드</span><span class="lang-en">Print mode</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--max-budget-usd</td>
-          <td style="color: var(--text-dim);">중지하기 전에 소비할 최대 API 예산 (달러)</td>
-          <td style="color: var(--text-dim);">인쇄 모드</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">중지하기 전에 소비할 최대 API 예산 (달러)</span><span class="lang-en">Maximum API budget in USD to spend before stopping</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">인쇄 모드</span><span class="lang-en">Print mode</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--system-prompt</td>
-          <td style="color: var(--text-dim);">전체 시스템 프롬프트를 사용자 정의 텍스트로 교체</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체 시스템 프롬프트를 사용자 정의 텍스트로 교체</span><span class="lang-en">Replace the entire system prompt with custom text</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--append-system-prompt</td>
-          <td style="color: var(--text-dim);">기본 시스템 프롬프트 끝에 텍스트 추가</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">기본 시스템 프롬프트 끝에 텍스트 추가</span><span class="lang-en">Append text to the end of the default system prompt</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--permission-mode</td>
-          <td style="color: var(--text-dim);">지정된 권한 모드로 시작 (예: plan)</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">지정된 권한 모드로 시작 (예: plan)</span><span class="lang-en">Start in a specified permission mode (e.g., plan)</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--mcp-config</td>
-          <td style="color: var(--text-dim);">JSON 파일 또는 문자열에서 MCP 서버 로드</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">JSON 파일 또는 문자열에서 MCP 서버 로드</span><span class="lang-en">Load MCP servers from a JSON file or string</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--verbose</td>
-          <td style="color: var(--text-dim);">자세한 로깅 활성화 (디버깅에 유용)</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">자세한 로깅 활성화 (디버깅에 유용)</span><span class="lang-en">Enable verbose logging (useful for debugging)</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--debug</td>
-          <td style="color: var(--text-dim);">디버그 모드 활성화, 카테고리 필터링 지원</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">디버그 모드 활성화, 카테고리 필터링 지원</span><span class="lang-en">Enable debug mode with optional category filtering</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--version, -v</td>
-          <td style="color: var(--text-dim);">버전 번호 출력</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">버전 번호 출력</span><span class="lang-en">Print the version number</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--worktree, -w</td>
-          <td style="color: var(--text-dim);">격리된 git worktree에서 Claude 시작</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">격리된 git worktree에서 Claude 시작</span><span class="lang-en">Start Claude in an isolated git worktree</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--remote</td>
-          <td style="color: var(--text-dim);">claude.ai에서 새 웹 세션 생성</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">claude.ai에서 새 웹 세션 생성</span><span class="lang-en">Create a new web session on claude.ai</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">--dangerously-skip-permissions</td>
-          <td style="color: var(--text-dim);">모든 권한 프롬프트 건너뜀 (주의해서 사용)</td>
-          <td style="color: var(--text-dim);">전체</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">모든 권한 프롬프트 건너뜀 (주의해서 사용)</span><span class="lang-en">Skip all permission prompts (use with caution)</span></td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체</span><span class="lang-en">All</span></td>
         </tr>
       </tbody>
     </table>
@@ -1604,7 +1773,8 @@
     <div class="tip" style="margin-top: 24px;">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>팁:</strong> <code style="color:var(--accent)">--output-format json</code> 플래그는 스크립팅 및 자동화에 특히 유용합니다. Claude의 응답을 프로그래밍 방식으로 파싱할 수 있습니다.
+        <div class="lang-ko"><strong>팁:</strong> <code style="color:var(--accent)">--output-format json</code> 플래그는 스크립팅 및 자동화에 특히 유용합니다. Claude의 응답을 프로그래밍 방식으로 파싱할 수 있습니다.</div>
+        <div class="lang-en"><strong>Tip:</strong> The <code style="color:var(--accent)">--output-format json</code> flag is especially useful for scripting and automation. It allows you to programmatically parse Claude's responses.</div>
       </div>
     </div>
   </div>
@@ -1616,177 +1786,189 @@
 <section id="slash-commands">
   <div class="container">
     <div class="section-number">07</div>
-    <h2 class="section-title">내장 슬래시 명령어</h2>
+    <h2 class="section-title"><span class="lang-ko">내장 슬래시 명령어</span><span class="lang-en">Built-in Slash Commands</span></h2>
     <p class="section-desc">
-      Claude Code 세션 안에서 <code style="color:var(--accent)">/</code>를 입력하면 사용 가능한 모든 명령어가 표시됩니다. 아래는 주요 내장 명령어 목록입니다.
+      <span class="lang-ko">Claude Code 세션 안에서 <code style="color:var(--accent)">/</code>를 입력하면 사용 가능한 모든 명령어가 표시됩니다. 아래는 주요 내장 명령어 목록입니다.</span>
+      <span class="lang-en">Type <code style="color:var(--accent)">/</code> inside a Claude Code session to display all available commands. Below is a list of the main built-in commands.</span>
     </p>
 
     <div class="tip">
       <span class="tip-icon">&#x2139;&#xFE0F;</span>
       <div>
-        <strong>사용 방법:</strong> Claude Code 세션 안에서 <code style="color:var(--accent)">/</code>를 입력하면 자동완성 목록이 나타납니다. <code style="color:var(--accent)">/</code> 뒤에 문자를 입력하면 필터링됩니다. 모든 명령어가 모든 사용자에게 표시되는 것은 아닙니다. 일부는 플랫폼, 요금제 또는 환경에 따라 다릅니다.
+        <div class="lang-ko"><strong>사용 방법:</strong> Claude Code 세션 안에서 <code style="color:var(--accent)">/</code>를 입력하면 자동완성 목록이 나타납니다. <code style="color:var(--accent)">/</code> 뒤에 문자를 입력하면 필터링됩니다. 모든 명령어가 모든 사용자에게 표시되는 것은 아닙니다. 일부는 플랫폼, 요금제 또는 환경에 따라 다릅니다.</div>
+        <div class="lang-en"><strong>How to use:</strong> Type <code style="color:var(--accent)">/</code> inside a Claude Code session to bring up the autocomplete list. Typing characters after <code style="color:var(--accent)">/</code> filters the results. Not all commands are visible to all users — some depend on platform, plan, or environment.</div>
       </div>
     </div>
 
     <table class="skill-table" style="margin-top: 24px;">
       <thead>
         <tr>
-          <th style="width: 200px;">명령어</th>
-          <th>설명</th>
+          <th style="width: 200px;"><span class="lang-ko">명령어</span><span class="lang-en">Command</span></th>
+          <th><span class="lang-ko">설명</span><span class="lang-en">Description</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="skill-name-cell">/help</td>
-          <td style="color: var(--text-dim);">도움말 및 사용 가능한 명령어 표시</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">도움말 및 사용 가능한 명령어 표시</span><span class="lang-en">Show help and available commands</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/init</td>
-          <td style="color: var(--text-dim);"><code style="color:var(--accent)">CLAUDE.md</code> 가이드로 프로젝트 초기화</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko"><code style="color:var(--accent)">CLAUDE.md</code> 가이드로 프로젝트 초기화</span><span class="lang-en">Initialize a project with a <code style="color:var(--accent)">CLAUDE.md</code> guide</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/memory</td>
-          <td style="color: var(--text-dim);"><code style="color:var(--accent)">CLAUDE.md</code> 메모리 파일 편집, 자동 메모리 활성화/비활성화</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko"><code style="color:var(--accent)">CLAUDE.md</code> 메모리 파일 편집, 자동 메모리 활성화/비활성화</span><span class="lang-en">Edit <code style="color:var(--accent)">CLAUDE.md</code> memory files, toggle auto-memory on/off</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/model [model]</td>
-          <td style="color: var(--text-dim);">AI 모델 선택 또는 변경 (즉시 적용)</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">AI 모델 선택 또는 변경 (즉시 적용)</span><span class="lang-en">Select or change the AI model (takes effect immediately)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/compact [instructions]</td>
-          <td style="color: var(--text-dim);">선택적 포커스 지침으로 대화 압축</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">선택적 포커스 지침으로 대화 압축</span><span class="lang-en">Compact the conversation with optional focus instructions</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/context</td>
-          <td style="color: var(--text-dim);">현재 컨텍스트 사용량을 색상 그리드로 시각화</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">현재 컨텍스트 사용량을 색상 그리드로 시각화</span><span class="lang-en">Visualize current context usage as a color grid</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/agents</td>
-          <td style="color: var(--text-dim);">서브에이전트(subagent) 구성 관리</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">서브에이전트(subagent) 구성 관리</span><span class="lang-en">Manage subagent configuration</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/fast [on|off]</td>
-          <td style="color: var(--text-dim);">빠른 모드(Fast Mode) 켜기 또는 끄기</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">빠른 모드(Fast Mode) 켜기 또는 끄기</span><span class="lang-en">Toggle Fast Mode on or off</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/permissions</td>
-          <td style="color: var(--text-dim);">도구 권한 보기 또는 업데이트 (별칭: /allowed-tools)</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">도구 권한 보기 또는 업데이트 (별칭: /allowed-tools)</span><span class="lang-en">View or update tool permissions (alias: /allowed-tools)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/doctor</td>
-          <td style="color: var(--text-dim);">Claude Code 설치 및 설정 진단 및 확인</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">Claude Code 설치 및 설정 진단 및 확인</span><span class="lang-en">Diagnose and verify Claude Code installation and configuration</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/mcp</td>
-          <td style="color: var(--text-dim);">MCP 서버 연결 및 OAuth 인증 관리</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">MCP 서버 연결 및 OAuth 인증 관리</span><span class="lang-en">Manage MCP server connections and OAuth authentication</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/clear</td>
-          <td style="color: var(--text-dim);">대화 기록을 지우고 컨텍스트 해제 (별칭: /reset, /new)</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">대화 기록을 지우고 컨텍스트 해제 (별칭: /reset, /new)</span><span class="lang-en">Clear conversation history and release context (alias: /reset, /new)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/cost</td>
-          <td style="color: var(--text-dim);">토큰 사용 통계 및 세션 비용 표시</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">토큰 사용 통계 및 세션 비용 표시</span><span class="lang-en">Show token usage statistics and session cost</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/exit</td>
-          <td style="color: var(--text-dim);">CLI 종료 (별칭: /quit)</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">CLI 종료 (별칭: /quit)</span><span class="lang-en">Exit the CLI (alias: /quit)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/config</td>
-          <td style="color: var(--text-dim);">설정 인터페이스 열기 (별칭: /settings)</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">설정 인터페이스 열기 (별칭: /settings)</span><span class="lang-en">Open the settings interface (alias: /settings)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/diff</td>
-          <td style="color: var(--text-dim);">커밋되지 않은 변경 사항 및 턴별 diff를 보여주는 대화형 diff 뷰어</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">커밋되지 않은 변경 사항 및 턴별 diff를 보여주는 대화형 diff 뷰어</span><span class="lang-en">Interactive diff viewer showing uncommitted changes and per-turn diffs</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/resume [session]</td>
-          <td style="color: var(--text-dim);">ID 또는 이름으로 대화 재개 또는 세션 선택기 열기</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">ID 또는 이름으로 대화 재개 또는 세션 선택기 열기</span><span class="lang-en">Resume a conversation by ID or name, or open the session picker</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/fork [name]</td>
-          <td style="color: var(--text-dim);">현재 지점에서 대화 포크 생성</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">현재 지점에서 대화 포크 생성</span><span class="lang-en">Fork the conversation from the current point</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/rewind</td>
-          <td style="color: var(--text-dim);">대화 및/또는 코드를 이전 지점으로 되돌리기 (별칭: /checkpoint)</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">대화 및/또는 코드를 이전 지점으로 되돌리기 (별칭: /checkpoint)</span><span class="lang-en">Rewind the conversation and/or code to a previous point (alias: /checkpoint)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/review</td>
-          <td style="color: var(--text-dim);">코드 품질, 보안 등에 대한 풀 리퀘스트 리뷰 (gh CLI 필요)</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">코드 품질, 보안 등에 대한 풀 리퀘스트 리뷰 (gh CLI 필요)</span><span class="lang-en">Review a pull request for code quality, security, and more (requires gh CLI)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/security-review</td>
-          <td style="color: var(--text-dim);">현재 브랜치 변경 사항의 보안 취약점 분석</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">현재 브랜치 변경 사항의 보안 취약점 분석</span><span class="lang-en">Analyze current branch changes for security vulnerabilities</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/plan</td>
-          <td style="color: var(--text-dim);">프롬프트에서 직접 Plan Mode 진입</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">프롬프트에서 직접 Plan Mode 진입</span><span class="lang-en">Enter Plan Mode directly from the prompt</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/vim</td>
-          <td style="color: var(--text-dim);">Vim 및 일반 편집 모드 간 토글</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">Vim 및 일반 편집 모드 간 토글</span><span class="lang-en">Toggle between Vim and normal editing mode</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/theme</td>
-          <td style="color: var(--text-dim);">색상 테마 변경</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">색상 테마 변경</span><span class="lang-en">Change the color theme</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/skills</td>
-          <td style="color: var(--text-dim);">사용 가능한 skills 나열</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">사용 가능한 skills 나열</span><span class="lang-en">List available skills</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/tasks</td>
-          <td style="color: var(--text-dim);">백그라운드 작업 나열 및 관리</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">백그라운드 작업 나열 및 관리</span><span class="lang-en">List and manage background tasks</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/hooks</td>
-          <td style="color: var(--text-dim);">hook 구성 관리 (도구 이벤트용)</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">hook 구성 관리 (도구 이벤트용)</span><span class="lang-en">Manage hook configuration (for tool events)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/add-dir &lt;path&gt;</td>
-          <td style="color: var(--text-dim);">현재 세션에 새 작업 디렉토리 추가</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">현재 세션에 새 작업 디렉토리 추가</span><span class="lang-en">Add a new working directory to the current session</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/pr-comments [PR]</td>
-          <td style="color: var(--text-dim);">GitHub 풀 리퀘스트 댓글 가져오기 (gh CLI 필요)</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">GitHub 풀 리퀘스트 댓글 가져오기 (gh CLI 필요)</span><span class="lang-en">Fetch GitHub pull request comments (requires gh CLI)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/export [filename]</td>
-          <td style="color: var(--text-dim);">현재 대화를 일반 텍스트로 내보내기</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">현재 대화를 일반 텍스트로 내보내기</span><span class="lang-en">Export the current conversation as plain text</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/status</td>
-          <td style="color: var(--text-dim);">버전, 모델, 계정, 연결성 표시</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">버전, 모델, 계정, 연결성 표시</span><span class="lang-en">Show version, model, account, and connectivity status</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/stats</td>
-          <td style="color: var(--text-dim);">일일 사용, 세션 기록, 연속 기록 및 모델 선호도 시각화</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">일일 사용, 세션 기록, 연속 기록 및 모델 선호도 시각화</span><span class="lang-en">Visualize daily usage, session history, streaks, and model preferences</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/usage</td>
-          <td style="color: var(--text-dim);">요금제 사용 제한 및 속도 제한 상태 표시</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">요금제 사용 제한 및 속도 제한 상태 표시</span><span class="lang-en">Show plan usage limits and rate limit status</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/feedback [report]</td>
-          <td style="color: var(--text-dim);">Claude Code에 대한 피드백 제출 (별칭: /bug)</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">Claude Code에 대한 피드백 제출 (별칭: /bug)</span><span class="lang-en">Submit feedback about Claude Code (alias: /bug)</span></td>
         </tr>
         <tr>
           <td class="skill-name-cell">/release-notes</td>
-          <td style="color: var(--text-dim);">전체 변경 로그 보기</td>
+          <td style="color: var(--text-dim);"><span class="lang-ko">전체 변경 로그 보기</span><span class="lang-en">View the full changelog</span></td>
         </tr>
       </tbody>
     </table>
 
     <div class="analogy-box" style="margin-top: 32px;">
-      <h4>빠른 입력 접두사</h4>
-      <p>
-        슬래시 명령어 외에도 Claude Code 입력창에서 특수 접두사를 사용할 수 있습니다:<br><br>
-        <strong style="color:var(--text)"><code style="color:var(--accent)">/</code></strong> &rarr; 명령어 또는 skill 실행<br>
-        <strong style="color:var(--text)"><code style="color:var(--accent)">!</code></strong> &rarr; Claude를 거치지 않고 bash 명령 직접 실행, 실행 결과를 대화 컨텍스트에 추가<br>
-        <strong style="color:var(--text)"><code style="color:var(--accent)">@</code></strong> &rarr; 파일 경로 자동완성 트리거
-      </p>
+      <h4><span class="lang-ko">빠른 입력 접두사</span><span class="lang-en">Quick Input Prefixes</span></h4>
+      <div class="lang-ko">
+        <p>
+          슬래시 명령어 외에도 Claude Code 입력창에서 특수 접두사를 사용할 수 있습니다:<br><br>
+          <strong style="color:var(--text)"><code style="color:var(--accent)">/</code></strong> &rarr; 명령어 또는 skill 실행<br>
+          <strong style="color:var(--text)"><code style="color:var(--accent)">!</code></strong> &rarr; Claude를 거치지 않고 bash 명령 직접 실행, 실행 결과를 대화 컨텍스트에 추가<br>
+          <strong style="color:var(--text)"><code style="color:var(--accent)">@</code></strong> &rarr; 파일 경로 자동완성 트리거
+        </p>
+      </div>
+      <div class="lang-en">
+        <p>
+          In addition to slash commands, you can use special prefixes in the Claude Code input field:<br><br>
+          <strong style="color:var(--text)"><code style="color:var(--accent)">/</code></strong> &rarr; Run a command or skill<br>
+          <strong style="color:var(--text)"><code style="color:var(--accent)">!</code></strong> &rarr; Run a bash command directly (bypassing Claude), result is added to conversation context<br>
+          <strong style="color:var(--text)"><code style="color:var(--accent)">@</code></strong> &rarr; Trigger file path autocomplete
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -1797,71 +1979,93 @@
 <section id="piping">
   <div class="container">
     <div class="section-number">08</div>
-    <h2 class="section-title">파이프(Pipe) 활용</h2>
+    <h2 class="section-title"><span class="lang-ko">파이프(Pipe) 활용</span><span class="lang-en">Using Pipes</span></h2>
     <p class="section-desc">
-      <code style="color:var(--accent)">claude -p</code>와 파이프(<code style="color:var(--accent)">|</code>)를 결합하면 터미널의 다른 명령어 출력을 Claude에게 바로 전달할 수 있습니다. 강력한 자동화 워크플로우를 만들 수 있는 기능입니다.
+      <span class="lang-ko"><code style="color:var(--accent)">claude -p</code>와 파이프(<code style="color:var(--accent)">|</code>)를 결합하면 터미널의 다른 명령어 출력을 Claude에게 바로 전달할 수 있습니다. 강력한 자동화 워크플로우를 만들 수 있는 기능입니다.</span>
+      <span class="lang-en">Combining <code style="color:var(--accent)">claude -p</code> with pipes (<code style="color:var(--accent)">|</code>) lets you pass the output of other terminal commands directly to Claude. This enables powerful automated workflows.</span>
     </p>
 
     <div class="analogy-box">
-      <h4>파이프(|)란?</h4>
-      <p>
-        파이프는 한 명령어의 출력을 다른 명령어의 입력으로 연결하는 터미널 기능입니다.<br><br>
-        <code style="color:var(--accent)">명령어A | 명령어B</code><br><br>
-        명령어A의 결과가 자동으로 명령어B로 전달됩니다. <code style="color:var(--accent)">claude -p</code>는 비대화형 출력 모드이므로 파이프의 수신 측으로 완벽하게 작동합니다.
-      </p>
+      <h4><span class="lang-ko">파이프(|)란?</span><span class="lang-en">What is a Pipe (|)?</span></h4>
+      <div class="lang-ko">
+        <p>
+          파이프는 한 명령어의 출력을 다른 명령어의 입력으로 연결하는 터미널 기능입니다.<br><br>
+          <code style="color:var(--accent)">명령어A | 명령어B</code><br><br>
+          명령어A의 결과가 자동으로 명령어B로 전달됩니다. <code style="color:var(--accent)">claude -p</code>는 비대화형 출력 모드이므로 파이프의 수신 측으로 완벽하게 작동합니다.
+        </p>
+      </div>
+      <div class="lang-en">
+        <p>
+          A pipe is a terminal feature that connects the output of one command to the input of another.<br><br>
+          <code style="color:var(--accent)">CommandA | CommandB</code><br><br>
+          The result of CommandA is automatically passed to CommandB. Since <code style="color:var(--accent)">claude -p</code> is a non-interactive output mode, it works perfectly as the receiving end of a pipe.
+        </p>
+      </div>
     </div>
 
     <div class="code-block">
       <div class="code-header">
         <div class="code-dots"><span></span><span></span><span></span></div>
-        <span>실전 파이프 예시</span>
+        <span><span class="lang-ko">실전 파이프 예시</span><span class="lang-en">Practical Pipe Examples</span></span>
       </div>
       <div class="code-body">
-<span class="comment"># 서버 로그를 실시간으로 Claude에게 보내서 오류 감지</span>
-<span class="keyword">tail</span> -f server.log | <span class="keyword">claude</span> -p <span class="string">"오류가 보이면 알려줘"</span>
+<span class="comment"># <span class="lang-ko">서버 로그를 실시간으로 Claude에게 보내서 오류 감지</span><span class="lang-en">Stream server logs to Claude in real time for error detection</span></span>
+<span class="keyword">tail</span> -f server.log | <span class="keyword">claude</span> -p <span class="string">"<span class="lang-ko">오류가 보이면 알려줘</span><span class="lang-en">Let me know if you see any errors</span>"</span>
 
-<span class="comment"># 변경된 파일 목록을 Claude에게 전달해서 보안 리뷰</span>
-<span class="keyword">git</span> diff main --name-only | <span class="keyword">claude</span> -p <span class="string">"변경된 파일들의 보안 이슈를 검토해줘"</span>
+<span class="comment"># <span class="lang-ko">변경된 파일 목록을 Claude에게 전달해서 보안 리뷰</span><span class="lang-en">Pass changed file list to Claude for a security review</span></span>
+<span class="keyword">git</span> diff main --name-only | <span class="keyword">claude</span> -p <span class="string">"<span class="lang-ko">변경된 파일들의 보안 이슈를 검토해줘</span><span class="lang-en">Review the changed files for security issues</span>"</span>
 
-<span class="comment"># 코드 파일을 읽어서 설명 요청</span>
-<span class="keyword">cat</span> app.py | <span class="keyword">claude</span> -p <span class="string">"이 코드를 설명해줘"</span>
+<span class="comment"># <span class="lang-ko">코드 파일을 읽어서 설명 요청</span><span class="lang-en">Read a code file and ask for an explanation</span></span>
+<span class="keyword">cat</span> app.py | <span class="keyword">claude</span> -p <span class="string">"<span class="lang-ko">이 코드를 설명해줘</span><span class="lang-en">Explain this code</span>"</span>
 
-<span class="comment"># 새 문자열을 프랑스어로 번역해서 PR 생성</span>
-<span class="keyword">claude</span> -p <span class="string">"새 문자열을 프랑스어로 번역하고 PR을 올려줘"</span>
+<span class="comment"># <span class="lang-ko">새 문자열을 프랑스어로 번역해서 PR 생성</span><span class="lang-en">Translate new strings to French and open a PR</span></span>
+<span class="keyword">claude</span> -p <span class="string">"<span class="lang-ko">새 문자열을 프랑스어로 번역하고 PR을 올려줘</span><span class="lang-en">Translate the new strings to French and create a PR</span>"</span>
 
-<span class="comment"># 로그 파일을 Claude에게 전달해서 분석</span>
-<span class="keyword">cat</span> logs.txt | <span class="keyword">claude</span> -p <span class="string">"이 로그를 분석해서 문제를 찾아줘"</span>
+<span class="comment"># <span class="lang-ko">로그 파일을 Claude에게 전달해서 분석</span><span class="lang-en">Pass a log file to Claude for analysis</span></span>
+<span class="keyword">cat</span> logs.txt | <span class="keyword">claude</span> -p <span class="string">"<span class="lang-ko">이 로그를 분석해서 문제를 찾아줘</span><span class="lang-en">Analyze this log and find any problems</span>"</span>
 
-<span class="comment"># 디렉토리 구조를 Claude에게 전달</span>
-<span class="keyword">find</span> . -type f -name "*.ts" | <span class="keyword">claude</span> -p <span class="string">"TypeScript 파일 목록을 보고 아키텍처를 설명해줘"</span>
+<span class="comment"># <span class="lang-ko">디렉토리 구조를 Claude에게 전달</span><span class="lang-en">Pass directory structure to Claude</span></span>
+<span class="keyword">find</span> . -type f -name "*.ts" | <span class="keyword">claude</span> -p <span class="string">"<span class="lang-ko">TypeScript 파일 목록을 보고 아키텍처를 설명해줘</span><span class="lang-en">Look at the TypeScript file list and describe the architecture</span>"</span>
 
-<span class="comment"># JSON 출력 형식으로 받아서 파싱</span>
-<span class="keyword">cat</span> data.json | <span class="keyword">claude</span> -p --output-format json <span class="string">"이 데이터를 요약해줘"</span> | <span class="keyword">jq</span> '.result'
+<span class="comment"># <span class="lang-ko">JSON 출력 형식으로 받아서 파싱</span><span class="lang-en">Get JSON output format and parse it</span></span>
+<span class="keyword">cat</span> data.json | <span class="keyword">claude</span> -p --output-format json <span class="string">"<span class="lang-ko">이 데이터를 요약해줘</span><span class="lang-en">Summarize this data</span>"</span> | <span class="keyword">jq</span> '.result'
       </div>
     </div>
 
     <div class="card-grid card-grid-2" style="margin-top: 32px;">
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x26A1;</div>
-        <h3>자동화 스크립트에서 활용</h3>
-        <p>CI/CD 파이프라인이나 쉘 스크립트 안에서 <code style="color:var(--accent)">claude -p</code>를 호출하면 AI 분석을 자동화된 워크플로우에 통합할 수 있습니다.</p>
+        <div class="lang-ko">
+          <h3>자동화 스크립트에서 활용</h3>
+          <p>CI/CD 파이프라인이나 쉘 스크립트 안에서 <code style="color:var(--accent)">claude -p</code>를 호출하면 AI 분석을 자동화된 워크플로우에 통합할 수 있습니다.</p>
+        </div>
+        <div class="lang-en">
+          <h3>Using in Automation Scripts</h3>
+          <p>Calling <code style="color:var(--accent)">claude -p</code> inside a CI/CD pipeline or shell script integrates AI analysis into your automated workflows.</p>
+        </div>
         <div class="code-block" style="margin-top: 16px;">
           <div class="code-body" style="font-size: 12px;">
 <span class="comment">#!/bin/bash</span>
-<span class="comment"># 배포 전 보안 체크 자동화</span>
+<span class="comment"># <span class="lang-ko">배포 전 보안 체크 자동화</span><span class="lang-en">Automate pre-deploy security check</span></span>
 <span class="keyword">git</span> diff HEAD~1 | <span class="keyword">claude</span> -p \
   --output-format json \
-  <span class="string">"보안 취약점이 있으면 JSON으로 리포트해줘"</span>
+  <span class="string">"<span class="lang-ko">보안 취약점이 있으면 JSON으로 리포트해줘</span><span class="lang-en">Report any security vulnerabilities as JSON</span>"</span>
           </div>
         </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1F4CA;</div>
-        <h3>JSON 출력으로 데이터 파싱</h3>
-        <p><code style="color:var(--accent)">--output-format json</code>을 사용하면 Claude의 응답을 다른 도구(<code style="color:var(--accent)">jq</code> 등)로 파싱해서 추가 처리할 수 있습니다.</p>
+        <div class="lang-ko">
+          <h3>JSON 출력으로 데이터 파싱</h3>
+          <p><code style="color:var(--accent)">--output-format json</code>을 사용하면 Claude의 응답을 다른 도구(<code style="color:var(--accent)">jq</code> 등)로 파싱해서 추가 처리할 수 있습니다.</p>
+        </div>
+        <div class="lang-en">
+          <h3>Parsing Data with JSON Output</h3>
+          <p>Using <code style="color:var(--accent)">--output-format json</code> lets you parse Claude's response with other tools like <code style="color:var(--accent)">jq</code> for further processing.</p>
+        </div>
         <div class="code-block" style="margin-top: 16px;">
           <div class="code-body" style="font-size: 12px;">
-<span class="keyword">claude</span> -p <span class="string">"쿼리"</span> \
+<span class="keyword">claude</span> -p <span class="string">"<span class="lang-ko">쿼리</span><span class="lang-en">query</span>"</span> \
   --output-format json \
   | <span class="keyword">jq</span> <span class="string">'.result'</span>
           </div>
@@ -1872,7 +2076,8 @@
     <div class="tip" style="margin-top: 24px;">
       <span class="tip-icon">&#x1F4A1;</span>
       <div>
-        <strong>핵심 차이:</strong> <code style="color:var(--accent)">claude</code>(인수 없음)는 대화형 세션을 시작하고, <code style="color:var(--accent)">claude -p "..."</code>는 응답만 출력하고 종료합니다. 파이프나 스크립트에서는 항상 <code style="color:var(--accent)">-p</code> 모드를 사용하세요.
+        <div class="lang-ko"><strong>핵심 차이:</strong> <code style="color:var(--accent)">claude</code>(인수 없음)는 대화형 세션을 시작하고, <code style="color:var(--accent)">claude -p "..."</code>는 응답만 출력하고 종료합니다. 파이프나 스크립트에서는 항상 <code style="color:var(--accent)">-p</code> 모드를 사용하세요.</div>
+        <div class="lang-en"><strong>Key difference:</strong> <code style="color:var(--accent)">claude</code> (no arguments) starts an interactive session, while <code style="color:var(--accent)">claude -p "..."</code> prints the response and exits. Always use <code style="color:var(--accent)">-p</code> mode in pipes or scripts.</div>
       </div>
     </div>
   </div>
@@ -1884,118 +2089,156 @@
 <section id="terminal-tips">
   <div class="container">
     <div class="section-number">09</div>
-    <h2 class="section-title">터미널 최적화 팁</h2>
+    <h2 class="section-title"><span class="lang-ko">터미널 최적화 팁</span><span class="lang-en">Terminal Optimization Tips</span></h2>
     <p class="section-desc">
-      Claude Code를 더 쾌적하게 사용하기 위한 터미널 앱 추천과 설정 팁입니다.
+      <span class="lang-ko">Claude Code를 더 쾌적하게 사용하기 위한 터미널 앱 추천과 설정 팁입니다.</span>
+      <span class="lang-en">Recommended terminal apps and configuration tips for a better Claude Code experience.</span>
     </p>
 
     <div class="card-grid card-grid-3">
       <div class="card">
         <div class="card-icon" style="background: var(--green-dim);">&#x1F34E;</div>
-        <h3>iTerm2 (macOS 추천)</h3>
-        <p>macOS 기본 터미널보다 훨씬 강력한 무료 터미널 앱입니다. Claude Code와의 호환성이 뛰어납니다.</p>
-        <div style="margin-top: 16px;">
-          <div class="tag-row">
-            <span class="tag tag-green">Option을 Meta로 설정</span>
+        <div class="lang-ko">
+          <h3>iTerm2 (macOS 추천)</h3>
+          <p>macOS 기본 터미널보다 훨씬 강력한 무료 터미널 앱입니다. Claude Code와의 호환성이 뛰어납니다.</p>
+          <div style="margin-top: 16px;">
+            <div class="tag-row">
+              <span class="tag tag-green">Option을 Meta로 설정</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">설정 → 프로필 → 키 → Left/Right Option 키를 "Esc+"로 설정하면 <code style="color:var(--accent)">Alt+B</code>, <code style="color:var(--accent)">Alt+F</code> 등 단축키를 사용할 수 있습니다.</p>
           </div>
-          <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">설정 → 프로필 → 키 → Left/Right Option 키를 "Esc+"로 설정하면 <code style="color:var(--accent)">Alt+B</code>, <code style="color:var(--accent)">Alt+F</code> 등 단축키를 사용할 수 있습니다.</p>
+        </div>
+        <div class="lang-en">
+          <h3>iTerm2 (Recommended for macOS)</h3>
+          <p>A free, much more powerful terminal app than the macOS default. Excellent compatibility with Claude Code.</p>
+          <div style="margin-top: 16px;">
+            <div class="tag-row">
+              <span class="tag tag-green">Set Option as Meta</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">Go to Settings → Profiles → Keys → Set Left/Right Option key to "Esc+" to enable shortcuts like <code style="color:var(--accent)">Alt+B</code> and <code style="color:var(--accent)">Alt+F</code>.</p>
+          </div>
         </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--accent-glow);">&#x26A1;</div>
-        <h3>Warp (macOS/Linux)</h3>
-        <p>AI 기능이 내장된 현대적인 터미널입니다. 명령어 자동완성과 블록 단위 출력이 특징입니다.</p>
-        <div style="margin-top: 16px;">
-          <div class="tag-row">
-            <span class="tag tag-purple">AI 자동완성 내장</span>
+        <div class="lang-ko">
+          <h3>Warp (macOS/Linux)</h3>
+          <p>AI 기능이 내장된 현대적인 터미널입니다. 명령어 자동완성과 블록 단위 출력이 특징입니다.</p>
+          <div style="margin-top: 16px;">
+            <div class="tag-row">
+              <span class="tag tag-purple">AI 자동완성 내장</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">Shift+Enter 지원을 위해 Claude Code 안에서 <code style="color:var(--accent)">/terminal-setup</code>을 실행해서 키 바인딩을 설치하세요.</p>
           </div>
-          <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">Shift+Enter 지원을 위해 Claude Code 안에서 <code style="color:var(--accent)">/terminal-setup</code>을 실행해서 키 바인딩을 설치하세요.</p>
+        </div>
+        <div class="lang-en">
+          <h3>Warp (macOS/Linux)</h3>
+          <p>A modern terminal with built-in AI features. Known for command autocomplete and block-based output.</p>
+          <div style="margin-top: 16px;">
+            <div class="tag-row">
+              <span class="tag tag-purple">Built-in AI autocomplete</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">Run <code style="color:var(--accent)">/terminal-setup</code> inside Claude Code to install key bindings for Shift+Enter support.</p>
+          </div>
         </div>
       </div>
       <div class="card">
         <div class="card-icon" style="background: var(--blue-dim);">&#x1FA9F;</div>
-        <h3>Windows Terminal (Windows 추천)</h3>
-        <p>Microsoft가 만든 현대적인 Windows 터미널입니다. 여러 탭과 PowerShell, WSL을 동시에 사용할 수 있습니다.</p>
-        <div style="margin-top: 16px;">
-          <div class="tag-row">
-            <span class="tag tag-blue">탭 지원</span>
-            <span class="tag tag-blue">WSL 통합</span>
+        <div class="lang-ko">
+          <h3>Windows Terminal (Windows 추천)</h3>
+          <p>Microsoft가 만든 현대적인 Windows 터미널입니다. 여러 탭과 PowerShell, WSL을 동시에 사용할 수 있습니다.</p>
+          <div style="margin-top: 16px;">
+            <div class="tag-row">
+              <span class="tag tag-blue">탭 지원</span>
+              <span class="tag tag-blue">WSL 통합</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">Microsoft Store에서 무료로 다운로드할 수 있습니다.</p>
           </div>
-          <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">Microsoft Store에서 무료로 다운로드할 수 있습니다.</p>
+        </div>
+        <div class="lang-en">
+          <h3>Windows Terminal (Recommended for Windows)</h3>
+          <p>A modern Windows terminal built by Microsoft. Supports multiple tabs, PowerShell, and WSL simultaneously.</p>
+          <div style="margin-top: 16px;">
+            <div class="tag-row">
+              <span class="tag tag-blue">Tab support</span>
+              <span class="tag tag-blue">WSL integration</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">Available for free from the Microsoft Store.</p>
+          </div>
         </div>
       </div>
     </div>
 
     <div style="margin-top: 40px;">
-      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">Claude Code 인터랙티브 모드 키보드 단축키</h3>
+      <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;"><span class="lang-ko">Claude Code 인터랙티브 모드 키보드 단축키</span><span class="lang-en">Claude Code Interactive Mode Keyboard Shortcuts</span></h3>
 
       <table class="skill-table">
         <thead>
           <tr>
-            <th style="width: 200px;">단축키</th>
-            <th>설명</th>
+            <th style="width: 200px;"><span class="lang-ko">단축키</span><span class="lang-en">Shortcut</span></th>
+            <th><span class="lang-ko">설명</span><span class="lang-en">Description</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="skill-name-cell">Ctrl+C</td>
-            <td style="color: var(--text-dim);">현재 입력 또는 생성 취소</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">현재 입력 또는 생성 취소</span><span class="lang-en">Cancel current input or generation</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Ctrl+D</td>
-            <td style="color: var(--text-dim);">Claude Code 세션 종료 (EOF)</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">Claude Code 세션 종료 (EOF)</span><span class="lang-en">Exit Claude Code session (EOF)</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Ctrl+G</td>
-            <td style="color: var(--text-dim);">기본 텍스트 편집기에서 프롬프트 열기</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">기본 텍스트 편집기에서 프롬프트 열기</span><span class="lang-en">Open the prompt in the default text editor</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Ctrl+L</td>
-            <td style="color: var(--text-dim);">터미널 화면 지우기 (대화 기록 유지)</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">터미널 화면 지우기 (대화 기록 유지)</span><span class="lang-en">Clear terminal screen (conversation history preserved)</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Ctrl+O</td>
-            <td style="color: var(--text-dim);">상세 출력 토글</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">상세 출력 토글</span><span class="lang-en">Toggle verbose output</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Ctrl+R</td>
-            <td style="color: var(--text-dim);">역방향 명령 기록 검색</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">역방향 명령 기록 검색</span><span class="lang-en">Reverse command history search</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Ctrl+B</td>
-            <td style="color: var(--text-dim);">bash 명령 및 에이전트를 백그라운드로 실행</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">bash 명령 및 에이전트를 백그라운드로 실행</span><span class="lang-en">Run bash commands and agents in the background</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Ctrl+T</td>
-            <td style="color: var(--text-dim);">작업 목록 토글</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">작업 목록 토글</span><span class="lang-en">Toggle task list</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Esc + Esc</td>
-            <td style="color: var(--text-dim);">되돌리기 또는 요약 (코드/대화를 이전 지점으로 복원)</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">되돌리기 또는 요약 (코드/대화를 이전 지점으로 복원)</span><span class="lang-en">Undo or summarize (restore code/conversation to a previous point)</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Shift+Tab</td>
-            <td style="color: var(--text-dim);">권한 모드 토글 (자동 수락 ↔ Plan Mode ↔ 일반)</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">권한 모드 토글 (자동 수락 ↔ Plan Mode ↔ 일반)</span><span class="lang-en">Toggle permission mode (auto-accept ↔ Plan Mode ↔ normal)</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Option+P (Alt+P)</td>
-            <td style="color: var(--text-dim);">프롬프트를 지우지 않고 모델 전환</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">프롬프트를 지우지 않고 모델 전환</span><span class="lang-en">Switch model without clearing the prompt</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">\ + Enter</td>
-            <td style="color: var(--text-dim);">여러 줄 입력 (모든 터미널에서 작동)</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">여러 줄 입력 (모든 터미널에서 작동)</span><span class="lang-en">Multi-line input (works in all terminals)</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Shift+Enter</td>
-            <td style="color: var(--text-dim);">여러 줄 입력 (iTerm2, WezTerm, Ghostty, Kitty 기본 지원)</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">여러 줄 입력 (iTerm2, WezTerm, Ghostty, Kitty 기본 지원)</span><span class="lang-en">Multi-line input (natively supported in iTerm2, WezTerm, Ghostty, Kitty)</span></td>
           </tr>
           <tr>
             <td class="skill-name-cell">Option+Enter</td>
-            <td style="color: var(--text-dim);">여러 줄 입력 (macOS 기본값)</td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">여러 줄 입력 (macOS 기본값)</span><span class="lang-en">Multi-line input (macOS default)</span></td>
           </tr>
           <tr>
-            <td class="skill-name-cell">Up/Down 화살표</td>
-            <td style="color: var(--text-dim);">명령 기록 탐색</td>
+            <td class="skill-name-cell"><span class="lang-ko">Up/Down 화살표</span><span class="lang-en">Up/Down Arrow</span></td>
+            <td style="color: var(--text-dim);"><span class="lang-ko">명령 기록 탐색</span><span class="lang-en">Navigate command history</span></td>
           </tr>
         </tbody>
       </table>
@@ -2004,12 +2247,22 @@
     <div class="tip" style="margin-top: 32px;">
       <span class="tip-icon">&#x2139;&#xFE0F;</span>
       <div>
-        <strong>Option/Alt 키 단축키 설정 (macOS):</strong> <code style="color:var(--accent)">Alt+B</code>, <code style="color:var(--accent)">Alt+F</code> 등의 단축키를 사용하려면 터미널에서 Option을 Meta로 설정해야 합니다.
-        <ul style="margin-top: 8px; padding-left: 20px; line-height: 2;">
-          <li><strong>iTerm2</strong>: 설정 → 프로필 → 키 → Left/Right Option 키를 "Esc+"로 설정</li>
-          <li><strong>Terminal.app</strong>: 설정 → 프로필 → 키보드 → "Option을 Meta 키로 사용" 체크</li>
-          <li><strong>VS Code</strong>: 설정 → 프로필 → 키 → Left/Right Option 키를 "Esc+"로 설정</li>
-        </ul>
+        <div class="lang-ko">
+          <strong>Option/Alt 키 단축키 설정 (macOS):</strong> <code style="color:var(--accent)">Alt+B</code>, <code style="color:var(--accent)">Alt+F</code> 등의 단축키를 사용하려면 터미널에서 Option을 Meta로 설정해야 합니다.
+          <ul style="margin-top: 8px; padding-left: 20px; line-height: 2;">
+            <li><strong>iTerm2</strong>: 설정 → 프로필 → 키 → Left/Right Option 키를 "Esc+"로 설정</li>
+            <li><strong>Terminal.app</strong>: 설정 → 프로필 → 키보드 → "Option을 Meta 키로 사용" 체크</li>
+            <li><strong>VS Code</strong>: 설정 → 프로필 → 키 → Left/Right Option 키를 "Esc+"로 설정</li>
+          </ul>
+        </div>
+        <div class="lang-en">
+          <strong>Setting up Option/Alt key shortcuts (macOS):</strong> To use shortcuts like <code style="color:var(--accent)">Alt+B</code> and <code style="color:var(--accent)">Alt+F</code>, you need to set Option as Meta in your terminal.
+          <ul style="margin-top: 8px; padding-left: 20px; line-height: 2;">
+            <li><strong>iTerm2</strong>: Settings → Profiles → Keys → Set Left/Right Option key to "Esc+"</li>
+            <li><strong>Terminal.app</strong>: Settings → Profiles → Keyboard → Check "Use Option as Meta key"</li>
+            <li><strong>VS Code</strong>: Settings → Profiles → Keys → Set Left/Right Option key to "Esc+"</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -2021,59 +2274,71 @@
 <section id="faq">
   <div class="container">
     <div class="section-number">10</div>
-    <h2 class="section-title">자주 묻는 질문</h2>
+    <h2 class="section-title"><span class="lang-ko">자주 묻는 질문</span><span class="lang-en">Frequently Asked Questions</span></h2>
     <p class="section-desc">
-      터미널을 처음 접하는 분들이 가장 많이 궁금해하는 것들
+      <span class="lang-ko">터미널을 처음 접하는 분들이 가장 많이 궁금해하는 것들</span>
+      <span class="lang-en">The most common questions from those new to the terminal</span>
     </p>
 
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          터미널이랑 콘솔이랑 같은 건가요?
+          <span class="lang-ko">터미널이랑 콘솔이랑 같은 건가요?</span><span class="lang-en">Are terminal and console the same thing?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            거의 같다고 보면 됩니다. 엄밀히 말하면 "터미널"은 텍스트 입출력 장치, "콘솔"은 컴퓨터에 직접 연결된 물리적 터미널, "셸(Shell)"은 명령어를 해석하는 프로그램을 의미합니다. 하지만 일상적으로는 셋 다 "글자로 명령을 내리는 검은 창"이라는 같은 의미로 사용됩니다. "터미널 열어", "콘솔 열어", "셸 열어" 모두 같은 뜻이라고 생각해도 무방합니다.
+            <div class="lang-ko">거의 같다고 보면 됩니다. 엄밀히 말하면 "터미널"은 텍스트 입출력 장치, "콘솔"은 컴퓨터에 직접 연결된 물리적 터미널, "셸(Shell)"은 명령어를 해석하는 프로그램을 의미합니다. 하지만 일상적으로는 셋 다 "글자로 명령을 내리는 검은 창"이라는 같은 의미로 사용됩니다. "터미널 열어", "콘솔 열어", "셸 열어" 모두 같은 뜻이라고 생각해도 무방합니다.</div>
+            <div class="lang-en">Pretty much, yes. Strictly speaking, a "terminal" is a text input/output device, a "console" is a physical terminal directly connected to a computer, and a "shell" is the program that interprets commands. But in everyday use, all three refer to the same "black window where you type commands." Saying "open the terminal," "open the console," or "open the shell" all mean the same thing.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          명령어를 잘못 입력하면 컴퓨터가 망가지나요?
+          <span class="lang-ko">명령어를 잘못 입력하면 컴퓨터가 망가지나요?</span><span class="lang-en">Will I break my computer if I type the wrong command?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            거의 그럴 일이 없습니다. 존재하지 않는 명령어를 입력하면 "command not found"(명령어를 찾을 수 없음)라고 알려주고, 아무 일도 일어나지 않습니다. 진짜 위험한 명령어(예: 시스템 파일 삭제)는 보통 관리자 권한(<code style="color:var(--accent)">sudo</code>)을 요구하기 때문에, 비밀번호를 입력하지 않는 한 실행되지 않습니다. 그러니 편하게 이것저것 입력해보세요. 실수해도 괜찮습니다!
+            <div class="lang-ko">거의 그럴 일이 없습니다. 존재하지 않는 명령어를 입력하면 "command not found"(명령어를 찾을 수 없음)라고 알려주고, 아무 일도 일어나지 않습니다. 진짜 위험한 명령어(예: 시스템 파일 삭제)는 보통 관리자 권한(<code style="color:var(--accent)">sudo</code>)을 요구하기 때문에, 비밀번호를 입력하지 않는 한 실행되지 않습니다. 그러니 편하게 이것저것 입력해보세요. 실수해도 괜찮습니다!</div>
+            <div class="lang-en">Almost never. If you type a command that doesn't exist, the terminal simply tells you "command not found" and nothing happens. Truly dangerous commands (like deleting system files) usually require administrator privileges (<code style="color:var(--accent)">sudo</code>), so they won't run unless you enter your password. Feel free to experiment — it's okay to make mistakes!</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          zsh랑 bash가 뭔가요?
+          <span class="lang-ko">zsh랑 bash가 뭔가요?</span><span class="lang-en">What are zsh and bash?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            둘 다 "셸(Shell)"의 종류입니다. 셸은 여러분이 입력한 명령어를 해석해서 컴퓨터에게 전달하는 통역사 같은 프로그램입니다. <strong>bash</strong>(Bourne Again Shell)는 오래되고 널리 쓰이는 셸이고, <strong>zsh</strong>(Z Shell)는 bash를 개선한 최신 버전입니다. macOS는 2019년부터 zsh가 기본이고, Linux는 보통 bash가 기본입니다. 초보자 입장에서 둘의 차이는 거의 느끼기 어렵고, 이 가이드의 모든 명령어는 둘 다에서 동일하게 작동합니다.
+            <div class="lang-ko">둘 다 "셸(Shell)"의 종류입니다. 셸은 여러분이 입력한 명령어를 해석해서 컴퓨터에게 전달하는 통역사 같은 프로그램입니다. <strong>bash</strong>(Bourne Again Shell)는 오래되고 널리 쓰이는 셸이고, <strong>zsh</strong>(Z Shell)는 bash를 개선한 최신 버전입니다. macOS는 2019년부터 zsh가 기본이고, Linux는 보통 bash가 기본입니다. 초보자 입장에서 둘의 차이는 거의 느끼기 어렵고, 이 가이드의 모든 명령어는 둘 다에서 동일하게 작동합니다.</div>
+            <div class="lang-en">Both are types of "shell." A shell is a program that acts like an interpreter, taking the commands you type and passing them to the computer. <strong>bash</strong> (Bourne Again Shell) is a well-established and widely-used shell, while <strong>zsh</strong> (Z Shell) is a modern version that improves on bash. macOS has used zsh as the default since 2019, and Linux typically defaults to bash. For beginners, the difference is barely noticeable, and all commands in this guide work the same in both.</div>
           </div>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" onclick="toggleAccordion(this)">
-          왜 개발자들은 터미널을 좋아하나요?
+          <span class="lang-ko">왜 개발자들은 터미널을 좋아하나요?</span><span class="lang-en">Why do developers love the terminal?</span>
           <span class="arrow">&#x25BC;</span>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            크게 세 가지 이유가 있습니다.<br><br>
-            <strong>1. 속도:</strong> 마우스로 폴더를 열고, 파일을 찾고, 클릭하는 동안 터미널에서는 한 줄 명령어로 끝납니다. 예를 들어 100개의 파일 이름을 한번에 바꾸려면? GUI에서는 하나씩 클릭해야 하지만, 터미널에서는 한 줄이면 됩니다.<br><br>
-            <strong>2. 자동화:</strong> 터미널 명령어들을 스크립트 파일에 적어두면, 복잡한 작업을 버튼 하나로 자동 실행할 수 있습니다. 반복 작업이 사라지죠.<br><br>
-            <strong>3. 정확한 제어:</strong> GUI에서는 제공하는 옵션만 쓸 수 있지만, 터미널에서는 프로그램의 모든 기능에 접근할 수 있습니다. 마치 자동 vs 수동 기어 차이와 비슷합니다.
+            <div class="lang-ko">
+              크게 세 가지 이유가 있습니다.<br><br>
+              <strong>1. 속도:</strong> 마우스로 폴더를 열고, 파일을 찾고, 클릭하는 동안 터미널에서는 한 줄 명령어로 끝납니다. 예를 들어 100개의 파일 이름을 한번에 바꾸려면? GUI에서는 하나씩 클릭해야 하지만, 터미널에서는 한 줄이면 됩니다.<br><br>
+              <strong>2. 자동화:</strong> 터미널 명령어들을 스크립트 파일에 적어두면, 복잡한 작업을 버튼 하나로 자동 실행할 수 있습니다. 반복 작업이 사라지죠.<br><br>
+              <strong>3. 정확한 제어:</strong> GUI에서는 제공하는 옵션만 쓸 수 있지만, 터미널에서는 프로그램의 모든 기능에 접근할 수 있습니다. 마치 자동 vs 수동 기어 차이와 비슷합니다.
+            </div>
+            <div class="lang-en">
+              There are three main reasons.<br><br>
+              <strong>1. Speed:</strong> While you're clicking through folders and files with a mouse, the terminal lets you do it in a single command. Want to rename 100 files at once? In a GUI you'd click one by one — in the terminal, one line does it.<br><br>
+              <strong>2. Automation:</strong> Write terminal commands into a script file and you can automate complex tasks with the press of a button. Repetitive work disappears.<br><br>
+              <strong>3. Precise control:</strong> A GUI only gives you the options it provides, but the terminal gives you access to every feature of a program. It's similar to the difference between automatic and manual transmission.
+            </div>
           </div>
         </div>
       </div>
@@ -2085,25 +2350,41 @@
 <section style="padding: 80px 0;">
   <div class="container">
     <div class="card" style="background: linear-gradient(135deg, rgba(196,160,255,0.08) 0%, rgba(125,211,160,0.08) 100%); border-color: rgba(196,160,255,0.15); text-align: center; padding: 60px 40px;">
-      <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
-        요약하면 이겁니다
-      </h2>
-      <p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
-        터미널 = 컴퓨터에게 <strong style="color: var(--accent)">글자로 명령을 내리는 도구</strong><br>
-        필수 명령어 = <strong style="color: var(--green)">pwd, ls, cd, mkdir, clear</strong><br>
-        핵심 가치 = <strong style="color: var(--orange)">빠르고 정확한 컴퓨터 제어</strong>
-      </p>
-      <p style="color: var(--text-muted); font-size: 14px;">
-        이제 터미널이 뭔지 알았으니, 다음 단계로 넘어가봅시다!<br>
-        <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">Claude Code가 뭔지 알아보러 가기 &rarr;</span>
-      </p>
+      <div class="lang-ko">
+        <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
+          요약하면 이겁니다
+        </h2>
+        <p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
+          터미널 = 컴퓨터에게 <strong style="color: var(--accent)">글자로 명령을 내리는 도구</strong><br>
+          필수 명령어 = <strong style="color: var(--green)">pwd, ls, cd, mkdir, clear</strong><br>
+          핵심 가치 = <strong style="color: var(--orange)">빠르고 정확한 컴퓨터 제어</strong>
+        </p>
+        <p style="color: var(--text-muted); font-size: 14px;">
+          이제 터미널이 뭔지 알았으니, 다음 단계로 넘어가봅시다!<br>
+          <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">Claude Code가 뭔지 알아보러 가기 &rarr;</span>
+        </p>
+      </div>
+      <div class="lang-en">
+        <h2 style="font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px;">
+          Here's the Summary
+        </h2>
+        <p style="color: var(--text-dim); font-size: 17px; max-width: 560px; margin: 0 auto 32px; line-height: 1.8;">
+          Terminal = <strong style="color: var(--accent)">a tool for giving commands to your computer in text</strong><br>
+          Essential commands = <strong style="color: var(--green)">pwd, ls, cd, mkdir, clear</strong><br>
+          Core value = <strong style="color: var(--orange)">fast, precise computer control</strong>
+        </p>
+        <p style="color: var(--text-muted); font-size: 14px;">
+          Now that you know what a terminal is, let's move on to the next step!<br>
+          <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px;">Learn what Claude Code is &rarr;</span>
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- =================== CHAPTER NAV =================== -->
 <div class="chapter-nav">
-  <a href="what-is-claude-code.html">다음: Claude Code가 뭔가요? &rarr;</a>
+  <a href="what-is-claude-code.html"><span class="lang-ko">다음: Claude Code가 뭔가요? &rarr;</span><span class="lang-en">Next: What is Claude Code? &rarr;</span></a>
 </div>
 
 <footer>
@@ -2155,5 +2436,6 @@ window.addEventListener('scroll', () => {
 
 <div id="community-widget"></div>
 <script src="community.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

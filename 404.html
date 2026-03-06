@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>404 — Claude Code 101</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
@@ -14,14 +15,17 @@ h1{font-size:1.5rem;font-weight:600;margin-bottom:1rem;color:#94a3b8}
 p{color:#64748b;margin-bottom:2rem;font-size:.95rem}
 a{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.25);border-radius:100px;color:#f97316;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.88rem;transition:all .3s}
 a:hover{background:rgba(249,115,22,.2);transform:translateY(-1px)}
+html[lang="ko"] .lang-en{display:none}
+html[lang="en"] .lang-ko{display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="code">404</div>
-  <h1>페이지를 찾을 수 없습니다</h1>
-  <p>요청하신 페이지가 존재하지 않거나 이동되었습니다.</p>
-  <a href="./">← 학습 페이지로 돌아가기</a>
+  <h1><span class="lang-ko">페이지를 찾을 수 없습니다</span><span class="lang-en">Page Not Found</span></h1>
+  <p><span class="lang-ko">요청하신 페이지가 존재하지 않거나 이동되었습니다.</span><span class="lang-en">The page you requested doesn't exist or has been moved.</span></p>
+  <a href="./"><span class="lang-ko">← 학습 페이지로 돌아가기</span><span class="lang-en">← Back to Learning</span></a>
 </div>
+<script src="lang.js"></script>
 </body>
 </html>
