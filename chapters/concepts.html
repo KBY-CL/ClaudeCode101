@@ -41,6 +41,81 @@
   --radius-sm: 8px;
   --font: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* theme.css에 없는 색상 직접 정의 */
+  --teal: #0d9488;
+  --teal-dim: rgba(13,148,136,.10);
+  --teal-border: rgba(13,148,136,.20);
+  --purple: var(--accent);
+  --purple-dim: var(--accent-glow);
+}
+[data-theme="dark"] {
+  --teal: #2dd4bf;
+  --teal-dim: rgba(45,212,191,.12);
+  --teal-border: rgba(45,212,191,.20);
+}
+
+/* ── 개념 관계도 ── */
+.rel-map {
+  position: relative;
+  aspect-ratio: 900 / 560;
+  width: 100%;
+  margin: 2rem 0 1rem;
+}
+.rel-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+.rel-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: .55rem .85rem;
+  text-align: center;
+  width: 112px;
+  transition: transform .2s, box-shadow .2s;
+  cursor: default;
+  user-select: none;
+}
+.rel-node:hover { transform: translate(-50%, -50%) translateY(-3px); box-shadow: var(--shadow-lg); }
+.rel-node-icon { font-size: 1.2rem; line-height: 1; margin-bottom: .2rem; }
+.rel-node-name { font-size: .74rem; font-weight: 700; color: var(--text); }
+.rel-node-sub  { font-size: .62rem; color: var(--text-muted); font-family: var(--mono); margin-top: .1rem; white-space: nowrap; }
+
+.rel-node-agent   { width: 148px; padding: .75rem 1rem; background: var(--accent-glow); border: 2px solid var(--accent-border); }
+.rel-node-agent .rel-node-name { font-size: .88rem; color: var(--accent); }
+.rel-node-context  { border-color: var(--blue-border);   background: var(--blue-dim);   }
+.rel-node-thinking { border-color: var(--accent-border); background: var(--accent-glow);}
+.rel-node-tools    { border-color: var(--teal-border);   background: var(--teal-dim);   }
+.rel-node-mcp      { border-color: var(--orange-border); background: var(--orange-dim); }
+.rel-node-hooks    { border-color: var(--pink-border);   background: var(--pink-dim);   }
+.rel-node-claudemd { border-color: var(--yellow-border); background: var(--yellow-dim); }
+.rel-node-skills   { border-color: var(--green-border);  background: var(--green-dim);  }
+.rel-node-subagent { border-color: var(--blue-border);   background: var(--blue-dim);   }
+
+.rel-legend {
+  display: flex; gap: 1.2rem; flex-wrap: wrap;
+  margin-top: 1.5rem; padding: .7rem 1rem;
+  background: var(--bg-surface); border-radius: 10px;
+  font-size: .76rem; color: var(--text-muted);
+}
+.rel-leg { display: flex; align-items: center; gap: .45rem; }
+.rel-leg-dot { width: 26px; height: 2.5px; border-radius: 2px; flex-shrink: 0; }
+
+@media (max-width: 600px) {
+  .rel-map { aspect-ratio: auto; min-height: 380px; }
+  .rel-node { width: 84px; padding: .4rem .55rem; }
+  .rel-node-icon { font-size: .95rem; }
+  .rel-node-name { font-size: .62rem; }
+  .rel-node-sub  { display: none; }
+  .rel-node-agent { width: 104px; }
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -205,6 +280,7 @@ hr.divider{border:none;border-top:1px solid var(--border)}
   <h1>Claude 핵심 개념<br><span class="hl">구체적 솔루션 가이드</span></h1>
   <p>Agent · Skills · MCP · Tools — 실제 연동 사례와 코드로 추상 개념을 완전히 이해합니다.</p>
   <div class="hero-toc">
+    <a class="toc-pill" href="#sec-map">🗺️ 관계도</a>
     <a class="toc-pill" href="#sec-agent">Agent</a>
     <a class="toc-pill" href="#sec-mcp">MCP 서버</a>
     <a class="toc-pill" href="#sec-skills">Skills 카탈로그</a>
@@ -214,6 +290,143 @@ hr.divider{border:none;border-top:1px solid var(--border)}
     <a class="toc-pill" href="#sec-workflow">실전 워크플로우</a>
   </div>
 </header>
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 0 — CONCEPT MAP
+═══════════════════════════════════════════════════ -->
+<section class="section fadein" id="sec-map">
+  <div class="section-label">00 · OVERVIEW</div>
+  <h2 class="section-title">개념 관계도</h2>
+  <p class="section-desc">Claude Code를 이루는 핵심 개념들이 어떤 관계로 연결되어 있는지 한눈에 봅니다. 가운데 Claude Agent를 중심으로 정보가 흐릅니다.</p>
+
+  <div class="rel-map">
+    <!-- ── SVG 연결선 레이어 ── -->
+    <svg class="rel-lines" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rm-arr" viewBox="0 0 10 8" refX="9" refY="4"
+                markerWidth="7" markerHeight="5" orient="auto-start-reverse">
+          <path d="M0,0 L10,4 L0,8 Z" fill="var(--border-bright)"/>
+        </marker>
+      </defs>
+
+      <!-- Context → Agent (파란색: 정보 공급) -->
+      <line x1="450" y1="96" x2="450" y2="244"
+            stroke="var(--blue)" stroke-width="2" stroke-dasharray="6,4"
+            opacity=".8" marker-end="url(#rm-arr)"/>
+      <text x="462" y="178" font-size="10" fill="var(--blue)" font-family="var(--mono)" opacity=".9">컨텍스트 주입</text>
+
+      <!-- Skills → Agent (초록: 지시 제공) -->
+      <line x1="156" y1="272" x2="374" y2="272"
+            stroke="var(--green)" stroke-width="2" stroke-dasharray="6,4"
+            opacity=".8" marker-end="url(#rm-arr)"/>
+      <text x="200" y="262" font-size="10" fill="var(--green)" font-family="var(--mono)" opacity=".9">지시 제공</text>
+
+      <!-- CLAUDE.md → Agent (노란색: 메모리) -->
+      <line x1="234" y1="436" x2="392" y2="314"
+            stroke="var(--yellow)" stroke-width="2" stroke-dasharray="6,4"
+            opacity=".8" marker-end="url(#rm-arr)"/>
+      <text x="270" y="402" font-size="10" fill="var(--yellow)" font-family="var(--mono)" opacity=".9">프로젝트 메모리</text>
+
+      <!-- Agent → Sub-Agents (파란색: 위임) -->
+      <line x1="384" y1="258" x2="214" y2="144"
+            stroke="var(--blue)" stroke-width="2" stroke-dasharray="6,4"
+            opacity=".8" marker-end="url(#rm-arr)"/>
+      <text x="252" y="214" font-size="10" fill="var(--blue)" font-family="var(--mono)" opacity=".9">위임</text>
+
+      <!-- Agent → Thinking (보라: 사용) -->
+      <line x1="516" y1="258" x2="686" y2="144"
+            stroke="var(--accent)" stroke-width="2" stroke-dasharray="6,4"
+            opacity=".8" marker-end="url(#rm-arr)"/>
+      <text x="594" y="210" font-size="10" fill="var(--accent)" font-family="var(--mono)" opacity=".9">복잡한 추론</text>
+
+      <!-- Agent → Tools (teal: 도구 호출) -->
+      <line x1="524" y1="280" x2="742" y2="280"
+            stroke="var(--teal)" stroke-width="2" stroke-dasharray="6,4"
+            opacity=".8" marker-end="url(#rm-arr)"/>
+      <text x="588" y="270" font-size="10" fill="var(--teal)" font-family="var(--mono)" opacity=".9">도구 호출</text>
+
+      <!-- Agent → Hooks (분홍: 이벤트) -->
+      <line x1="450" y1="318" x2="450" y2="466"
+            stroke="var(--pink)" stroke-width="2" stroke-dasharray="6,4"
+            opacity=".8" marker-end="url(#rm-arr)"/>
+      <text x="462" y="400" font-size="10" fill="var(--pink)" font-family="var(--mono)" opacity=".9">이벤트 트리거</text>
+
+      <!-- MCP → Tools (주황: 확장) -->
+      <line x1="726" y1="440" x2="800" y2="316"
+            stroke="var(--orange)" stroke-width="2" stroke-dasharray="4,5"
+            opacity=".8" marker-end="url(#rm-arr)"/>
+      <text x="778" y="394" font-size="10" fill="var(--orange)" font-family="var(--mono)" opacity=".9">확장</text>
+    </svg>
+
+    <!-- ── HTML 노드 ── -->
+    <!-- 중앙: Claude Agent -->
+    <div class="rel-node rel-node-agent" style="left:50%;top:50%">
+      <div class="rel-node-icon">🤖</div>
+      <div class="rel-node-name">Claude Agent</div>
+      <div class="rel-node-sub">Plan·Act·Observe</div>
+    </div>
+    <!-- 상단: Context Window -->
+    <div class="rel-node rel-node-context" style="left:50%;top:11.1%">
+      <div class="rel-node-icon">📖</div>
+      <div class="rel-node-name">Context Window</div>
+      <div class="rel-node-sub">최대 100만 토큰</div>
+    </div>
+    <!-- 우상단: Extended Thinking -->
+    <div class="rel-node rel-node-thinking" style="left:82.9%;top:22.1%">
+      <div class="rel-node-icon">🧠</div>
+      <div class="rel-node-name">Extended Thinking</div>
+      <div class="rel-node-sub">깊은 추론</div>
+    </div>
+    <!-- 우측: Tools -->
+    <div class="rel-node rel-node-tools" style="left:88.9%;top:50%">
+      <div class="rel-node-icon">🔧</div>
+      <div class="rel-node-name">Tools</div>
+      <div class="rel-node-sub">Bash·Edit·Read</div>
+    </div>
+    <!-- 우하단: MCP 서버 -->
+    <div class="rel-node rel-node-mcp" style="left:80.7%;top:81.3%">
+      <div class="rel-node-icon">🔌</div>
+      <div class="rel-node-name">MCP 서버</div>
+      <div class="rel-node-sub">외부 도구 확장</div>
+    </div>
+    <!-- 하단: Hooks -->
+    <div class="rel-node rel-node-hooks" style="left:50%;top:89.3%">
+      <div class="rel-node-icon">⚡</div>
+      <div class="rel-node-name">Hooks</div>
+      <div class="rel-node-sub">라이프사이클 자동화</div>
+    </div>
+    <!-- 좌하단: CLAUDE.md -->
+    <div class="rel-node rel-node-claudemd" style="left:19.3%;top:81.3%">
+      <div class="rel-node-icon">📋</div>
+      <div class="rel-node-name">CLAUDE.md</div>
+      <div class="rel-node-sub">프로젝트 메모리</div>
+    </div>
+    <!-- 좌측: Skills -->
+    <div class="rel-node rel-node-skills" style="left:11.1%;top:50%">
+      <div class="rel-node-icon">⚙️</div>
+      <div class="rel-node-name">Skills</div>
+      <div class="rel-node-sub">재사용 지시</div>
+    </div>
+    <!-- 좌상단: Sub-Agents -->
+    <div class="rel-node rel-node-subagent" style="left:17.1%;top:22.1%">
+      <div class="rel-node-icon">👥</div>
+      <div class="rel-node-name">Sub-Agents</div>
+      <div class="rel-node-sub">병렬 위임</div>
+    </div>
+  </div>
+
+  <!-- 범례 -->
+  <div class="rel-legend">
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--blue)"></div>컨텍스트·위임</div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--green)"></div>Skills 지시</div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--yellow)"></div>CLAUDE.md 메모리</div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--accent)"></div>Thinking 추론</div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--teal)"></div>Tools 호출</div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--orange)"></div>MCP 확장</div>
+    <div class="rel-leg"><div class="rel-leg-dot" style="background:var(--pink)"></div>Hooks 이벤트</div>
+  </div>
+</section>
+<hr class="divider">
 
 <!-- ═══════════════════════════════════════════════════
      SECTION 1 — AGENT
