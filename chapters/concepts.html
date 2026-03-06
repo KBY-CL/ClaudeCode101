@@ -125,15 +125,153 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .back-link{display:inline-flex;align-items:center;gap:6px;padding:14px 24px;font-size:14px;font-weight:500;color:var(--text-dim);text-decoration:none;transition:color .2s}
 .back-link:hover{color:var(--accent)}
 
-/* HERO */
-.hero{padding:3rem 1.5rem 3rem;text-align:center;max-width:800px;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:7px;padding:4px 14px;background:var(--accent-glow);border:1px solid var(--accent-border);border-radius:100px;font-size:.75rem;color:var(--accent);margin-bottom:1.2rem;font-family:var(--mono)}
-.hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.15;letter-spacing:-.03em;margin-bottom:.8rem}
-.hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{color:var(--text-dim);font-size:1rem;max-width:520px;margin:0 auto 2rem}
-.hero-toc{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
-.toc-pill{padding:5px 14px;border-radius:100px;border:1px solid var(--border);font-size:.78rem;color:var(--text-muted);text-decoration:none;transition:all .2s;font-family:var(--mono)}
-.toc-pill:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+/* ---- HERO ---- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  overflow: hidden;
+  text-align: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, var(--accent-glow-strong) 0%, transparent 65%);
+  pointer-events: none;
+  animation: pulse 6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:.6; transform:translateX(-50%) scale(1); }
+  50%      { opacity:1;  transform:translateX(-50%) scale(1.08); }
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  border: 1px solid var(--border-bright);
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: .04em;
+  margin-bottom: 32px;
+  position: relative; z-index: 1;
+  animation: fadeDown .8s ease;
+}
+.hero-badge .dot {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+@keyframes fadeDown {
+  from{opacity:0;transform:translateY(-16px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+.hero h1 {
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.03em;
+  position: relative; z-index: 1;
+  animation: fadeDown .8s ease .1s both;
+}
+.hero h1 .highlight { color: var(--accent); }
+.hero-sub {
+  font-size: clamp(16px, 2.2vw, 20px);
+  color: var(--text-dim);
+  max-width: 620px;
+  margin-top: 24px;
+  position: relative; z-index: 1;
+  animation: fadeDown .8s ease .2s both;
+}
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative; z-index: 1;
+  animation: fadeDown .8s ease .35s both;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  transition: all .25s ease;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-dim); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border-bright); }
+.btn-outline:hover { background: var(--surface-hover); border-color: var(--accent); }
+.scroll-hint {
+  position: absolute;
+  bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  animation: bounce 2s infinite 1.5s;
+}
+@keyframes bounce {
+  0%,100% { transform:translateX(-50%) translateY(0); }
+  50%      { transform:translateX(-50%) translateY(8px); }
+}
+.scroll-hint svg { width:20px; height:20px; stroke:var(--text-muted); }
+
+/* ---- STICKY NAV ---- */
+.sticky-nav {
+  position: sticky;
+  top: 0; z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display:none; }
+.nav-link {
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+}
+.nav-link:hover, .nav-link.active { color: var(--accent); border-bottom-color: var(--accent); }
+.nav-home { font-weight: 700; }
+
+/* ---- SECTION 교차 배경 ---- */
+section.section:nth-of-type(odd)  { background: #faf8ff; }
+section.section:nth-of-type(even) { background: #f6f3ff; }
+[data-theme="dark"] section.section:nth-of-type(odd)  { background: #0d0b12; }
+[data-theme="dark"] section.section:nth-of-type(even) { background: #100e15; }
 
 /* LAYOUT */
 .section{padding:4rem 1.5rem;max-width:1080px;margin:0 auto}
@@ -275,21 +413,37 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 <a href="../index.html" class="back-link">&larr; Claude Code 101로 돌아가기</a>
 
 <!-- HERO -->
-<header class="hero" style="animation:fadeUp .5s ease both">
-  <div class="hero-badge">🎨 VISUAL GUIDE 2026</div>
-  <h1>Claude 핵심 개념<br><span class="hl">구체적 솔루션 가이드</span></h1>
-  <p>Agent · Skills · MCP · Tools — 실제 연동 사례와 코드로 추상 개념을 완전히 이해합니다.</p>
-  <div class="hero-toc">
-    <a class="toc-pill" href="#sec-map">🗺️ 관계도</a>
-    <a class="toc-pill" href="#sec-agent">Agent</a>
-    <a class="toc-pill" href="#sec-mcp">MCP 서버</a>
-    <a class="toc-pill" href="#sec-skills">Skills 카탈로그</a>
-    <a class="toc-pill" href="#sec-tools">Tools</a>
-    <a class="toc-pill" href="#sec-context">Context</a>
-    <a class="toc-pill" href="#sec-thinking">Thinking</a>
-    <a class="toc-pill" href="#sec-workflow">실전 워크플로우</a>
+<div class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Module 11 &mdash; 핵심 개념 시각화
   </div>
-</header>
+  <h1>Claude 핵심 개념<br><span class="highlight">시각적 이해</span></h1>
+  <p class="hero-sub">Agent · Skills · MCP · Tools — 관계도와 실제 코드로 추상 개념을 완전히 이해합니다.</p>
+  <div class="hero-cta">
+    <a href="#sec-map" class="btn btn-primary">개념 관계도 보기</a>
+    <a href="#sec-agent" class="btn btn-outline">Agent부터 시작 &rarr;</a>
+  </div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    스크롤
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-link nav-home">🏠 홈</a>
+    <a href="#sec-map" class="nav-link">관계도</a>
+    <a href="#sec-agent" class="nav-link">Agent</a>
+    <a href="#sec-mcp" class="nav-link">MCP 서버</a>
+    <a href="#sec-skills" class="nav-link">Skills</a>
+    <a href="#sec-tools" class="nav-link">Tools</a>
+    <a href="#sec-context" class="nav-link">Context</a>
+    <a href="#sec-thinking" class="nav-link">Thinking</a>
+    <a href="#sec-workflow" class="nav-link">워크플로우</a>
+  </div>
+</nav>
 
 <!-- ═══════════════════════════════════════════════════
      SECTION 0 — CONCEPT MAP
