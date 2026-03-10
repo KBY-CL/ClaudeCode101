@@ -15,6 +15,7 @@
   const KAKAO_URL = 'https://open.kakao.com/o/pWK34Oji';
   const KAKAO_QR  = '../kakao-openchat-qr.jpg';
   const KAKAOPAY_QR = '../kakaopay-qr.jpg';
+  const GITHUB_SPONSORS_URL = 'https://github.com/sponsors/M1zz';
   const GISCUS_REPO = 'm1zz/ClaudeCode101';
   const GISCUS_REPO_ID = 'R_kgDORW3WvA';
   const GISCUS_CATEGORY = 'General';
@@ -130,6 +131,14 @@
   box-shadow: 0 8px 28px rgba(254,229,0,.6);
 }
 .ch-support-fab .fab-icon { font-size: 1rem; line-height: 1; }
+html[lang="en"] .ch-support-fab {
+  background: #6e40c9; color: #fff;
+  box-shadow: 0 4px 20px rgba(110,64,201,.4);
+}
+html[lang="en"] .ch-support-fab:hover {
+  background: #5a32a3;
+  box-shadow: 0 8px 28px rgba(110,64,201,.5);
+}
 
 /* ── 후원 오버레이 ── */
 .ch-support-overlay {
@@ -210,6 +219,25 @@
   font-size: .75rem; color: var(--text-muted, #94a3b8); margin-top: .6rem;
 }
 
+/* ── GitHub Sponsors 버튼 ── */
+.ch-gh-sponsor-btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  margin: .9rem 0 .4rem;
+  padding: 10px 22px;
+  background: #6e40c9; color: #fff;
+  border-radius: 100px;
+  font-size: .9rem; font-weight: 700;
+  text-decoration: none;
+  transition: all .25s;
+  box-shadow: 0 4px 16px rgba(110,64,201,.35);
+}
+.ch-gh-sponsor-btn:hover {
+  background: #5a32a3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(110,64,201,.5);
+  color: #fff;
+}
+
 @media (max-width: 480px) {
   .ch-support-modal { right: 1rem; left: 1rem; width: auto; bottom: 7rem; }
 }
@@ -224,7 +252,7 @@
     fab.className = 'ch-support-fab';
     fab.id = 'chSupportFab';
     fab.setAttribute('aria-label', '후원하기');
-    fab.innerHTML = '<span class="fab-icon">☕</span><span>후원</span>';
+    fab.innerHTML = '<span class="fab-icon lang-ko">☕</span><span class="lang-ko">후원</span><span class="fab-icon lang-en">💖</span><span class="lang-en">Sponsor</span>';
     fab.onclick = openSupport;
 
     const overlay = document.createElement('div');
@@ -239,25 +267,45 @@
     modal.setAttribute('aria-modal', 'true');
     modal.innerHTML = `
       <button class="ch-support-close" aria-label="닫기">✕</button>
-      <div class="ch-support-pulse">☕</div>
-      <h3 class="ch-support-title">학습이 즐거우셨나요?</h3>
-      <p class="ch-support-sub">
-        여러분의 후원 한 잔이<br>
-        <strong>다음 챕터를 더 빠르게</strong> 만듭니다.<br>
-        <span class="ch-support-sub-small">커피 한 잔 값이 콘텐츠 1시간을 앞당깁니다 ☕→📖</span>
-      </p>
-      <div class="ch-support-qr-wrap">
-        <img src="${KAKAOPAY_QR}" alt="카카오페이 후원 QR" class="ch-support-qr"/>
-        <div class="ch-support-qr-label">
-          <svg width="52" height="20" viewBox="0 0 52 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="10" cy="10" r="10" fill="#FEE500"/>
-            <path d="M10 4.5C6.96 4.5 4.5 6.46 4.5 8.88c0 1.54.97 2.9 2.44 3.73l-.62 2.3a.19.19 0 0 0 .28.21l2.68-1.78c.23.03.47.04.72.04 3.04 0 5.5-1.96 5.5-4.38S13.04 4.5 10 4.5z" fill="#3C1E1E"/>
-            <text x="24" y="14" font-family="Arial" font-weight="700" font-size="11" fill="#3C1E1E">pay</text>
-          </svg>
-          <span>카카오페이로 스캔</span>
+
+      <div class="lang-ko">
+        <div class="ch-support-pulse">☕</div>
+        <h3 class="ch-support-title">학습이 즐거우셨나요?</h3>
+        <p class="ch-support-sub">
+          여러분의 후원 한 잔이<br>
+          <strong>다음 챕터를 더 빠르게</strong> 만듭니다.<br>
+          <span class="ch-support-sub-small">커피 한 잔 값이 콘텐츠 1시간을 앞당깁니다 ☕→📖</span>
+        </p>
+        <div class="ch-support-qr-wrap">
+          <img src="${KAKAOPAY_QR}" alt="카카오페이 후원 QR" class="ch-support-qr"/>
+          <div class="ch-support-qr-label">
+            <svg width="52" height="20" viewBox="0 0 52 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="10" fill="#FEE500"/>
+              <path d="M10 4.5C6.96 4.5 4.5 6.46 4.5 8.88c0 1.54.97 2.9 2.44 3.73l-.62 2.3a.19.19 0 0 0 .28.21l2.68-1.78c.23.03.47.04.72.04 3.04 0 5.5-1.96 5.5-4.38S13.04 4.5 10 4.5z" fill="#3C1E1E"/>
+              <text x="24" y="14" font-family="Arial" font-weight="700" font-size="11" fill="#3C1E1E">pay</text>
+            </svg>
+            <span>카카오페이로 스캔</span>
+          </div>
         </div>
+        <p class="ch-support-thanks">후원해 주신 분들 덕분에 계속 쓸 수 있어요 🙏</p>
       </div>
-      <p class="ch-support-thanks">후원해 주신 분들 덕분에 계속 쓸 수 있어요 🙏</p>
+
+      <div class="lang-en">
+        <div class="ch-support-pulse">💖</div>
+        <h3 class="ch-support-title">Enjoying the content?</h3>
+        <p class="ch-support-sub">
+          Your support helps create<br>
+          <strong>more chapters faster</strong>.<br>
+          <span class="ch-support-sub-small">Even a small sponsorship makes a big difference 💖→📖</span>
+        </p>
+        <a href="${GITHUB_SPONSORS_URL}" target="_blank" rel="noopener noreferrer" class="ch-gh-sponsor-btn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+          </svg>
+          Sponsor on GitHub
+        </a>
+        <p class="ch-support-thanks">Thank you to all our sponsors! 🙏</p>
+      </div>
     `;
     modal.querySelector('.ch-support-close').onclick = closeSupport;
 

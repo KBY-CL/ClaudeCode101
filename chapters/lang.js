@@ -22,6 +22,28 @@
     document.documentElement.setAttribute('lang', lang);
     const btn = document.getElementById('langToggle');
     if (btn) updateBtnText(btn, lang);
+    updatePageTitle(lang);
+    updateTitleAttrs(lang);
+  }
+
+  function updatePageTitle(lang) {
+    const html = document.documentElement;
+    const titleKo = html.getAttribute('data-title-ko');
+    const titleEn = html.getAttribute('data-title-en');
+    if (lang === 'en' && titleEn) document.title = titleEn;
+    else if (lang === 'ko' && titleKo) document.title = titleKo;
+  }
+
+  function updateTitleAttrs(lang) {
+    document.querySelectorAll('[data-title-ko],[data-title-en]').forEach(function(el) {
+      if (el === document.documentElement) return;
+      var t = lang === 'en' ? el.getAttribute('data-title-en') : el.getAttribute('data-title-ko');
+      if (t) el.setAttribute('title', t);
+    });
+    document.querySelectorAll('[data-aria-ko],[data-aria-en]').forEach(function(el) {
+      var a = lang === 'en' ? el.getAttribute('data-aria-en') : el.getAttribute('data-aria-ko');
+      if (a) el.setAttribute('aria-label', a);
+    });
   }
 
   function updateBtnText(btn, lang) {
@@ -92,9 +114,16 @@ html[lang="en"] .lang-ko { display: none !important; }
   document.documentElement.setAttribute('lang', getLang());
   injectStyles();
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectButton);
-  } else {
+  function onReady() {
     injectButton();
+    const lang = getLang();
+    updatePageTitle(lang);
+    updateTitleAttrs(lang);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onReady);
+  } else {
+    onReady();
   }
 })();
