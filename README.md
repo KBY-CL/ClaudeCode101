@@ -3,9 +3,7 @@
 > **터미널을 처음 여는 비개발자부터 실전 프로젝트까지,**
 > **AI 에이전틱 코딩의 모든 것을 한국어로 마스터하세요.**
 
-**[사이트 바로가기 →](https://m1zz.github.io/ClaudeCode101/)**
-
-**[블로그: 이 사이트를 만든 이유](https://leeo.ghost.io/claude-code-101-hangugeo-ibmun-gaideureul-mandeun-iyu/)**
+원본 프로젝트: [m1zz/ClaudeCode101](https://github.com/m1zz/ClaudeCode101)
 
 ## 누구를 위한 가이드인가요?
 
@@ -37,15 +35,23 @@
 - 비개발자도 터미널 기초부터 시작 가능
 - 모듈마다 Step-by-Step 실습 + 체크리스트
 - 진행률 자동 저장 (브라우저 localStorage)
-- 단일 HTML 파일, 외부 의존성 없음
+- 한국어/영어 이중 언어 지원
 
-## 📁 구조
+## 프로젝트 구조
 
 ```
-├── index.html              # 학습 페이지
-├── blog-post.md            # 블로그 글 원문
+├── index.html              # 메인 페이지 (HTML 구조)
+├── css/
+│   └── main.css            # 전체 스타일시트
+├── js/
+│   ├── modules-data.js     # 12개 모듈 데이터 정의
+│   └── app.js              # 앱 로직 (렌더링, 테마, 스크롤, 진행률)
+├── lang.js                 # 언어 전환 (SSOT — 루트 + 챕터 공유)
+├── chapters/               # 상세 챕터 페이지 (14개)
+│   ├── community.js        # 커뮤니티 위젯 (카카오톡 + Giscus)
+│   ├── theme.js            # 챕터 테마 토글
+│   └── theme.css           # 챕터 테마 변수
 ├── 404.html                # 커스텀 404
-├── .nojekyll               # Jekyll 비활성화
 ├── robots.txt              # SEO
 ├── sitemap.xml             # SEO
 └── .github/workflows/
@@ -59,29 +65,15 @@
 open index.html
 ```
 
----
+## 배포
 
-## 💬 커뮤니티
+GitHub Pages로 자동 배포됩니다. `main` 브랜치에 push하면 GitHub Actions가 자동으로 배포합니다.
+
+## 커뮤니티
 
 - **오픈 카톡방**: [함께 공부해요 →](https://open.kakao.com/o/pWK34Oji) — 질문, 학습 인증, 정보 공유
 - **챕터 피드백**: 각 챕터 하단 Giscus 댓글 (GitHub 계정 필요)
 
-### Giscus 댓글 활성화 방법 (관리자용)
-
-1. Repo Settings → Features → **Discussions** 체크
-2. [github.com/apps/giscus](https://github.com/apps/giscus) 에서 앱 설치
-3. [giscus.app](https://giscus.app) 에서 `m1zz/ClaudeCode101` 입력 → **category-id** 복사
-4. `chapters/community.js` 의 `GISCUS_CATEGORY_ID` 값 교체
-
 ---
-
-## ☕ 후원
-
-이 가이드가 도움이 됐다면, 커피 한 잔으로 다음 콘텐츠 제작을 응원해 주세요.
-**여러분의 후원이 더 빠른 콘텐츠 업데이트를 가져옵니다.**
-
-카카오페이 QR 코드로 후원하기 👇
-
-![카카오페이 후원 QR](kakaopay-qr.jpg)
 
 > 강의, 피드백, 협업 문의: [leeo.ghost.io](https://leeo.ghost.io)

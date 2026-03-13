@@ -1,0 +1,589 @@
+/**
+ * Claude Code 101 — Module Definitions
+ * Contains all 12 module data (Pre + 00-11) for the learning roadmap.
+ */
+const modules = [
+{
+  id:'prereq',num:'Pre',title:'터미널이 처음이라면',desc:'비개발자를 위한 사전 준비',time:'1시간',chapterUrl:'chapters/terminal.html',
+  title_en:'New to Terminals?',desc_en:'Prerequisites for non-developers',
+  goals:['터미널 기본 사용법 익히기','개발 환경 설치 완료','왜 터미널인지 이해'],
+  goals_en:['Learn basic terminal usage','Complete development environment setup','Understand why we use the terminal'],
+  sections:[
+    {title:'터미널이란?',title_en:'What is a Terminal?',icon:'🖥️',iconClass:'green',subtitle:'컴퓨터에게 글자로 명령하는 도구',subtitle_en:'A tool to give your computer text commands',content:`
+      <p><strong>터미널(Terminal)</strong>은 컴퓨터에게 텍스트로 명령을 내리는 도구입니다. 마우스로 클릭하는 대신, 글자를 입력해서 폴더를 열고, 파일을 만들고, 프로그램을 실행합니다.</p>
+      <h4>터미널 여는 법</h4>
+      <div class="kv-item"><span class="kv-key">macOS</span><span class="kv-val">Spotlight(<code>⌘+Space</code>) → "터미널" 검색 → Enter</span></div>
+      <div class="kv-item"><span class="kv-key">Windows</span><span class="kv-val">시작 메뉴 → "PowerShell" 또는 "터미널" 검색</span></div>
+      <h4>꼭 알아야 할 명령어 5개</h4>
+      <table class="data-table"><thead><tr><th>명령어</th><th>뜻</th><th>비유</th></tr></thead><tbody>
+        <tr><td>pwd</td><td>현재 위치 확인</td><td>내가 어느 폴더에 있는지 (지도 앱의 현재 위치)</td></tr>
+        <tr><td>ls</td><td>파일 목록 보기</td><td>이 폴더에 뭐가 있는지 (탐색기 열기)</td></tr>
+        <tr><td>cd 폴더명</td><td>폴더 이동</td><td>그 폴더로 들어가기 (폴더 더블클릭)</td></tr>
+        <tr><td>mkdir 이름</td><td>새 폴더 만들기</td><td>마우스 우클릭 → 새 폴더</td></tr>
+        <tr><td>clear</td><td>화면 정리</td><td>터미널 깨끗하게 비우기</td></tr>
+      </tbody></table>
+      <div class="tip-box"><div class="tip-label">겁먹지 마세요</div><p>터미널은 무서운 게 아닙니다. 잘못 입력해도 컴퓨터가 고장나지 않습니다. "command not found" 에러가 뜰 뿐이에요. 다시 입력하면 됩니다.</p></div>`},
+    {title:'개발 환경 설치',title_en:'Setting Up Dev Environment',icon:'⚙️',iconClass:'blue',subtitle:'Homebrew와 Node.js (10분이면 끝)',subtitle_en:'Homebrew and Node.js (done in 10 min)',content:`
+      <p>Claude Code를 설치하려면 먼저 두 가지 도구가 필요합니다. 어렵지 않습니다 — 복사-붙여넣기만 하면 됩니다.</p>
+      <h4>Step 1: Homebrew 설치 (macOS)</h4>
+      <p>Homebrew는 macOS의 "앱스토어"와 비슷합니다. 터미널에서 프로그램을 설치할 때 사용합니다.</p>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># 터미널에 아래를 통째로 복사-붙여넣기 후 Enter</span>
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+<span class="comment"># 설치 확인 (버전 번호가 나오면 성공)</span>
+<span class="cmd">brew</span> <span class="flag">--version</span></pre></div>
+      <h4>Step 2: Node.js 설치</h4>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># macOS</span>
+<span class="cmd">brew</span> <span class="flag">install</span> node
+
+<span class="comment"># Windows — nodejs.org 에서 LTS 버전 다운로드 후 설치</span>
+
+<span class="comment"># 설치 확인 (v18 이상이면 OK)</span>
+<span class="cmd">node</span> <span class="flag">--version</span></pre></div>
+      <div class="warn-box"><div class="warn-label">Windows 사용자</div><p>Homebrew는 macOS 전용입니다. Windows는 <a href="https://nodejs.org" target="_blank">nodejs.org</a>에서 직접 다운로드하고, Claude Code는 <code>winget install Anthropic.ClaudeCode</code>로 설치합니다.</p></div>`},
+    {title:'왜 터미널에서 하나요?',title_en:'Why the Terminal?',icon:'💡',iconClass:'orange',subtitle:'claude.ai 웹이 있는데 왜 CLI를?',subtitle_en:"There's claude.ai — why use CLI?",content:`
+      <p>Claude는 <a href="https://claude.ai" target="_blank">claude.ai</a> 웹에서도 사용할 수 있습니다. 그런데 <strong>무언가를 직접 만들려면</strong> 터미널 버전인 Claude Code가 훨씬 강력합니다.</p>
+      <div class="kv-item"><span class="kv-key">claude.ai (웹)</span><span class="kv-val">채팅으로 대화 → 코드를 복사해서 직접 파일에 붙여넣기 → 수동 반복</span></div>
+      <div class="kv-item"><span class="kv-key">Claude Code (터미널)</span><span class="kv-val">프로젝트 안에서 대화 → 파일 읽기/만들기/수정을 자동 수행 → 바로 실행</span></div>
+      <p style="margin-top:.8rem">웹 버전은 <strong>"조언해주는 친구"</strong>이고, Claude Code는 <strong>"옆에 앉아서 같이 만들어주는 동료"</strong>입니다.</p>
+      <div class="tip-box"><div class="tip-label">코드를 몰라도 됩니다</div><p>"할 일 목록 앱 만들어줘"라고 말하면 Claude Code가 알아서 만듭니다. 여러분은 <strong>무엇을 만들지</strong>만 설명하면 됩니다. 이것이 바이브 코딩(Vibe Coding)입니다.</p></div>`}
+  ],
+  practice:{
+    summary:'터미널을 열고, 기본 명령어를 실행하고, 개발 환경을 설치해보세요.',
+    summary_en:'Open the terminal, run basic commands, and install your dev environment.',
+    steps:[
+      {title:'터미널 열기',title_en:'Open Terminal',desc:'macOS: <code>⌘+Space</code> → "터미널" 입력 → Enter. Windows: 시작 메뉴 → "PowerShell" 검색.',expected:'텍스트 화면이 열리고 커서가 깜빡이면 성공!',expected_en:'A text screen opens with a blinking cursor!'},
+      {title:'현재 위치 확인',desc:'<code>pwd</code>를 입력하고 Enter를 누르세요.',expected:'<code>/Users/이름</code> 같은 경로가 표시됩니다. 이게 지금 여러분이 있는 "폴더" 위치입니다.'},
+      {title:'파일 목록 보기',desc:'<code>ls</code>를 입력하고 Enter를 누르세요.',expected:'현재 폴더에 있는 파일과 폴더 이름들이 나열됩니다. Finder(탐색기)에서 보는 것과 같은 내용입니다.'},
+      {title:'폴더 만들고 이동하기',desc:'<code>mkdir my-first-project</code>를 입력 후 Enter. 그 다음 <code>cd my-first-project</code>를 입력하세요.',expected:'에러 없이 실행되면 성공. <code>pwd</code>로 확인하면 경로 끝에 my-first-project가 보입니다.'},
+      {title:'Homebrew 설치 (macOS)',desc:'위의 Homebrew 설치 명령어를 복사-붙여넣기하세요. 비밀번호를 물어보면 Mac 로그인 비밀번호를 입력합니다 (타이핑해도 화면에 안 보이는 게 정상).',expected:'<code>brew --version</code>을 입력하면 버전 번호가 표시됩니다. 설치에 5~10분 걸릴 수 있습니다.'},
+      {title:'Node.js 설치',desc:'<code>brew install node</code> (macOS) 또는 nodejs.org에서 다운로드 (Windows).',expected:'<code>node --version</code>으로 v18 이상이 표시되면 준비 완료!'}
+    ],
+    checklist:['터미널 열기 성공','pwd, ls, cd, mkdir 명령어 실행','Homebrew 설치 완료 (macOS)','Node.js v18+ 설치 확인','my-first-project 폴더 생성'],
+    checklist_en:['Open terminal successfully','Run pwd, ls, cd, mkdir commands','Install Homebrew (macOS)','Confirm Node.js v18+ installed','Create my-first-project folder']
+  }
+},
+{
+  id:'module0',num:'00',title:'Claude Code가 뭔가요?',desc:'개념, 역사, 왜 지금인가',time:'30분',chapterUrl:'chapters/what-is-claude-code.html',
+  title_en:'What is Claude Code?',desc_en:'Concepts, history, why now',
+  goals:['Claude Code의 정체와 기존 도구 차이점 이해','2026년 현재 생태계 파악'],
+  goals_en:['Understand Claude Code and how it differs from other tools','Survey the 2026 ecosystem'],
+  sections:[
+    {title:'Claude Code란?',title_en:'What is Claude Code?',icon:'💡',iconClass:'orange',subtitle:'에이전틱 코딩 도구의 핵심',subtitle_en:'The core of agentic coding tools',content:`
+      <p><strong>Claude Code</strong>는 터미널에서 동작하는 <strong>에이전틱(Agentic) 코딩 도구</strong>입니다. 코드 자동완성이 아니라, 코드베이스를 읽고 → 이해하고 → 계획하고 → 실행하고 → 검증하는 전 과정을 자율 수행합니다.</p>
+      <h4>기존 도구와의 차이</h4>
+      <div class="kv-item"><span class="kv-key">Copilot</span><span class="kv-val">타이핑 중 다음 줄 제안 → 수동적 보조</span></div>
+      <div class="kv-item"><span class="kv-key">Cursor</span><span class="kv-val">IDE 내 AI 채팅 → 편집기에 묶임</span></div>
+      <div class="kv-item"><span class="kv-key">Claude Code</span><span class="kv-val">터미널 에이전트 — 파일 읽기/쓰기, bash, git, 테스트까지 자율 수행</span></div>
+      <div class="tip-box"><div class="tip-label">핵심</div><p>"코드 써주는 도구"가 아닌 "시니어 개발자가 옆에 앉아서 같이 일하는 것"에 가깝습니다.</p></div>`},
+    {title:'타임라인 (2025~2026)',title_en:'Timeline (2025–2026)',icon:'📅',iconClass:'blue',subtitle:'1년간의 폭발적 진화',subtitle_en:'One year of explosive evolution',content:`
+      <div class="timeline">
+        <div class="timeline-item"><span class="timeline-date">2025.02</span><div class="timeline-text">최초 출시 (Preview)</div></div>
+        <div class="timeline-item"><span class="timeline-date">2025.05</span><div class="timeline-text">GA 정식 출시 + Claude 4</div></div>
+        <div class="timeline-item"><span class="timeline-date">2025.10</span><div class="timeline-text">Skills, Plugins 도입</div></div>
+        <div class="timeline-item"><span class="timeline-date">2025.11</span><div class="timeline-text">Opus 4.5 — 코딩 특화</div></div>
+        <div class="timeline-item"><span class="timeline-date">2026.01</span><div class="timeline-text">v2.1 — Agent Teams, Teleport</div></div>
+        <div class="timeline-item"><span class="timeline-date">2026.02</span><div class="timeline-text">Opus 4.6 + 1M Context + Worktree 격리</div></div>
+        <div class="timeline-item"><span class="timeline-date">2026.03</span><div class="timeline-text">공식 문서 전면 개정 + Skills·Hooks 심화</div></div>
+      </div>`}
+  ],
+  practice:{
+    summary:'Claude Code 공식 문서를 탐색하고 주요 기능을 정리해보세요.',
+    summary_en:'Explore the official docs and note the key features.',
+    steps:[
+      {title:'공식 사이트 방문',desc:'<a href="https://code.claude.com/docs" target="_blank">code.claude.com/docs</a>에 접속하세요.',expected:'Quickstart, Configuration, Hooks 등의 메뉴가 보입니다.'},
+      {title:'Quickstart 문서 읽기',desc:'Getting Started 섹션을 처음부터 끝까지 읽어보세요. 설치 방법, 로그인 방식, 첫 사용법을 파악합니다.',expected:'설치 명령어, 로그인 옵션(Claude.ai / Console / Bedrock), 기본 사용 흐름을 이해합니다.'},
+      {title:'핵심 개념 노트 작성',desc:'다음 질문에 답을 메모해보세요: (1) Claude Code는 무엇인가? (2) Copilot/Cursor와 어떻게 다른가? (3) 어떤 플랜이 필요한가?',expected:'자신만의 말로 Claude Code를 설명할 수 있게 됩니다.'}
+    ],
+    checklist:['공식 문서 Quickstart 읽기 완료','Claude Code vs Copilot vs Cursor 차이점 정리','필요한 플랜(Pro/Max) 결정'],
+    checklist_en:['Read official docs Quickstart','Summarize Claude Code vs Copilot vs Cursor','Decide on needed plan (Pro/Max)']
+  }
+},
+{
+  id:'module1',num:'01',title:'설치 & 첫 실행',desc:'환경설정, 로그인, 첫 대화',time:'1시간',chapterUrl:'chapters/install.html',
+  title_en:'Install & First Run',desc_en:'Setup, login, first conversation',
+  goals:['OS별 Claude Code 설치 완료','로그인 및 첫 세션 실행'],
+  goals_en:['Install Claude Code for your OS','Login and run the first session'],
+  sections:[
+    {title:'설치 방법',icon:'⬇️',iconClass:'green',subtitle:'OS별 커맨드',content:`
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># macOS (추천)</span>
+<span class="cmd">brew</span> <span class="flag">install</span> claude-code
+
+<span class="comment"># Windows</span>
+<span class="cmd">winget</span> <span class="flag">install</span> Anthropic.ClaudeCode
+
+<span class="comment"># 업데이트</span>
+<span class="cmd">claude</span> <span class="flag">update</span>
+
+<span class="comment"># 버전 확인</span>
+<span class="cmd">claude</span> <span class="flag">--version</span></pre></div>
+      <div class="warn-box"><div class="warn-label">⚠️ 주의</div><p><code>npm install -g @anthropic-ai/claude-code</code>는 더 이상 권장하지 않습니다.</p></div>`},
+    {title:'첫 실행 & 로그인',icon:'🚀',iconClass:'orange',subtitle:'프로젝트에서 claude 시작',content:`
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="cmd">cd</span> my-project
+<span class="cmd">claude</span>
+
+<span class="comment"># 유용한 첫 명령어</span>
+<span class="cmd">/help</span>    <span class="comment"># 명령어 목록</span>
+<span class="cmd">/status</span>  <span class="comment"># 모델 상태</span>
+<span class="cmd">/model</span>   <span class="comment"># 모델 변경</span></pre></div>
+      <p>로그인 옵션: <strong>Claude.ai 구독</strong>(추천) / Console API / Bedrock / Vertex AI</p>`},
+    {title:'IDE 연동',icon:'💻',iconClass:'purple',subtitle:'VS Code, JetBrains에서 사용하기',content:`
+      <p>Claude Code는 터미널 기반이지만, 익숙한 IDE 안에서도 바로 사용할 수 있습니다.</p>
+      <h4>VS Code</h4>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># VS Code 확장 설치</span>
+<span class="cmd">code</span> <span class="flag">--install-extension</span> anthropic.claude-code
+
+<span class="comment"># 또는 VS Code 내장 터미널에서 바로 실행</span>
+<span class="cmd">claude</span></pre></div>
+      <p>설치 후 VS Code 사이드바의 Claude Code 패널을 사용하거나, 내장 터미널에서 <code>claude</code>를 실행하세요.</p>
+      <h4>JetBrains (IntelliJ, WebStorm 등)</h4>
+      <p>Settings → Plugins → Marketplace에서 <strong>"Claude Code"</strong>를 검색하여 설치합니다. 내장 터미널에서도 바로 사용 가능합니다.</p>
+      <div class="tip-box"><div class="tip-label">팁</div><p>IDE 연동의 장점: 파일 탐색기와 Claude Code를 나란히 보며 작업할 수 있고, Claude가 수정한 파일이 즉시 에디터에 반영됩니다.</p></div>`}
+  ],
+  practice:{
+    summary:'실제로 Claude Code를 설치하고, 빈 프로젝트에서 첫 대화를 나눠보세요.',
+    steps:[
+      {title:'Node.js 확인',desc:'터미널에서 <code>node --version</code>을 실행하세요. v18 이상이어야 합니다. 없다면 <a href="https://nodejs.org" target="_blank">nodejs.org</a>에서 설치하세요.',expected:'<code>v18.x.x</code> 이상의 버전이 출력됩니다.'},
+      {title:'Claude Code 설치',desc:'macOS는 <code>brew install claude-code</code>, Windows는 <code>winget install Anthropic.ClaudeCode</code>를 실행하세요.',expected:'설치 완료 후 <code>claude --version</code>으로 버전 확인이 가능합니다.'},
+      {title:'빈 프로젝트 생성',desc:'<code>mkdir claude-test && cd claude-test</code>로 테스트 폴더를 만드세요.',expected:'빈 디렉토리가 생성됩니다.'},
+      {title:'Claude Code 시작 & 로그인',desc:'<code>claude</code>를 실행하고 로그인하세요. Claude.ai 구독이 가장 간편합니다.',expected:'웰컴 스크린이 표시되고 프롬프트 입력이 가능합니다.'},
+      {title:'첫 번째 대화',desc:'다음을 입력해보세요: <code>"이 폴더에 간단한 HTML 페이지를 만들어줘. Hello World를 표시하는 페이지."</code>',expected:'Claude가 index.html 파일을 생성합니다. 파일 생성 전 승인을 요청할 수 있습니다 (Normal Mode).'},
+      {title:'결과 확인',desc:'<code>ls</code> 명령어나 파일 탐색기로 생성된 파일을 확인하세요. 브라우저에서 열어보세요.',expected:'index.html이 생성되어 있고, 브라우저에서 "Hello World"가 표시됩니다.'}
+    ],
+    checklist:['Claude Code 설치 완료','로그인 성공','첫 번째 파일 생성 확인','/help, /status 명령어 테스트','IDE(VS Code 또는 JetBrains)에서 Claude Code 실행']
+  }
+},
+{
+  id:'module2',num:'02',title:'기본 사용법 마스터',desc:'명령어, 권한 모드, 세션 관리',time:'2시간',chapterUrl:'chapters/basics.html',
+  title_en:'Master the Basics',desc_en:'Commands, permission modes, session management',
+  goals:['핵심 슬래시 커맨드 활용','3가지 권한 모드 이해','세션 관리와 비대화형 모드'],
+  goals_en:['Use core slash commands','Understand 3 permission modes','Session management and headless mode'],
+  sections:[
+    {title:'슬래시 커맨드',icon:'⌨️',iconClass:'blue',subtitle:'가장 많이 쓰는 10개',content:`
+      <table class="data-table"><thead><tr><th>커맨드</th><th>설명</th></tr></thead><tbody>
+        <tr><td>/help</td><td>모든 커맨드 목록</td></tr>
+        <tr><td>/model</td><td>모델 변경 (Opus 4.6, Sonnet 4.6)</td></tr>
+        <tr><td>/clear</td><td>대화 히스토리 초기화</td></tr>
+        <tr><td>/compact</td><td>대화 압축 (토큰 절약)</td></tr>
+        <tr><td>/resume</td><td>이전 세션 이어하기</td></tr>
+        <tr><td>/init</td><td>CLAUDE.md 자동 생성</td></tr>
+        <tr><td>/plan</td><td>Plan Mode 진입</td></tr>
+        <tr><td>/config</td><td>설정 변경</td></tr>
+      </tbody></table>`},
+    {title:'권한 모드',icon:'🔐',iconClass:'orange',subtitle:'Shift+Tab으로 순환 전환',content:`
+      <div class="kv-item"><span class="kv-key">Normal</span><span class="kv-val">파일 수정/bash 실행 시 매번 승인 (기본, 안전)</span></div>
+      <div class="kv-item"><span class="kv-key">Auto-Accept</span><span class="kv-val">모든 도구 자동 승인 ⚠️ 숙련자만</span></div>
+      <div class="kv-item"><span class="kv-key">Plan Mode</span><span class="kv-val">읽기 전용 — 분석/계획만 (가장 안전)</span></div>
+      <div class="tip-box"><div class="tip-label">추천 흐름</div><p>Plan Mode → 계획 수립 → Normal Mode → 실행. 초보자는 Auto-Accept 절대 금지!</p></div>`},
+    {title:'키보드 단축키',icon:'⚡',iconClass:'purple',subtitle:'필수 단축키',content:`
+      <table class="data-table"><thead><tr><th>단축키</th><th>기능</th></tr></thead><tbody>
+        <tr><td>Shift+Tab</td><td>권한 모드 전환</td></tr>
+        <tr><td>Shift+Enter</td><td>프롬프트 내 줄바꿈</td></tr>
+        <tr><td>Ctrl+C</td><td>작업 중단</td></tr>
+        <tr><td>Ctrl+B</td><td>백그라운드 전환</td></tr>
+        <tr><td>Ctrl+O</td><td>사고 과정 보기</td></tr>
+      </tbody></table>`},
+    {title:'비대화형 모드 (Headless)',icon:'🤖',iconClass:'green',subtitle:'스크립트/CI에서 활용',content:`
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># 질문 후 결과만 출력</span>
+<span class="cmd">claude</span> <span class="flag">-p</span> <span class="string">"이 프로젝트 아키텍처를 분석해줘"</span>
+
+<span class="comment"># 파이프 연결</span>
+<span class="cmd">cat</span> error.log | <span class="cmd">claude</span> <span class="flag">-p</span> <span class="string">"이 에러를 분석해줘"</span>
+
+<span class="comment"># JSON 출력</span>
+<span class="cmd">claude</span> <span class="flag">-p --output-format json</span> <span class="string">"의존성 분석"</span></pre></div>`},
+    {title:'비용 & 토큰 관리',icon:'💰',iconClass:'orange',subtitle:'구독 vs API 과금 차이와 요금 폭탄 방지',content:`
+      <p>Claude Code를 사용하는 방법은 크게 두 가지입니다. <strong>과금 방식이 완전히 다르므로</strong> 반드시 이해하고 시작하세요.</p>
+      <h4>방법 1: Claude.ai 구독 (추천)</h4>
+      <p><strong>월 정액제</strong>로 사용량 한도 내에서 자유롭게 사용합니다. 한도 초과 시 속도 제한(Rate Limit)이 걸립니다.</p>
+      <table class="data-table"><thead><tr><th>플랜</th><th>가격</th><th>특징</th></tr></thead><tbody>
+        <tr><td>Pro</td><td>$20/월</td><td>Sonnet 중심, Opus 제한적. 가벼운 작업용</td></tr>
+        <tr><td>Max 5x</td><td>$100/월</td><td>Opus 사용 가능, 5배 사용량. 일반 개발자 추천</td></tr>
+        <tr><td>Max 20x</td><td>$200/월</td><td>Opus 넉넉히, 20배 사용량. 헤비 유저</td></tr>
+      </tbody></table>
+      <div class="tip-box"><div class="tip-label">구독의 장점</div><p>아무리 많이 써도 <strong>월 요금 이상 청구되지 않습니다.</strong> 한도 초과 시 속도만 느려질 뿐 추가 과금이 없어 초보자에게 안전합니다.</p></div>
+      <h4>방법 2: API (Console) 종량제</h4>
+      <p><strong>토큰 단위로 과금</strong>됩니다. 사용한 만큼 정확히 청구되므로 예산 관리가 필수입니다.</p>
+      <table class="data-table"><thead><tr><th>모델</th><th>입력 (1M 토큰)</th><th>출력 (1M 토큰)</th></tr></thead><tbody>
+        <tr><td>Opus 4.6</td><td>$15</td><td>$75</td></tr>
+        <tr><td>Sonnet 4.6</td><td>$3</td><td>$15</td></tr>
+        <tr><td>Haiku 4.5</td><td>$0.80</td><td>$4</td></tr>
+      </tbody></table>
+      <div class="warn-box"><div class="warn-label">API 과금 주의</div><p>Claude Code는 한 번의 작업에 수만~수십만 토큰을 사용할 수 있습니다. Opus로 큰 리팩토링을 하면 <strong>한 세션에 $5~$20</strong>이 나올 수 있습니다. 반드시 <a href="https://console.anthropic.com" target="_blank">Console</a>에서 <strong>월 예산 한도(Spend Limit)</strong>를 설정하세요.</p></div>
+      <h4>어떤 걸 선택해야 할까?</h4>
+      <div class="kv-item"><span class="kv-key">입문자/일반 개발자</span><span class="kv-val">→ <strong>Max 5x ($100/월)</strong> 추천. 예측 가능한 비용, Opus 사용 가능</span></div>
+      <div class="kv-item"><span class="kv-key">헤비 유저/팀</span><span class="kv-val">→ <strong>Max 20x ($200/월)</strong> 또는 API. 대량 작업 시 API가 더 저렴할 수 있음</span></div>
+      <div class="kv-item"><span class="kv-key">CI/CD 자동화</span><span class="kv-val">→ <strong>API 필수</strong>. 자동화 파이프라인은 구독으로 사용 불가</span></div>
+      <h4>사용량 확인 & 절약</h4>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># 현재 세션 토큰 사용량 확인</span>
+<span class="cmd">/cost</span>
+
+<span class="comment"># 대화 압축 (토큰 절약)</span>
+<span class="cmd">/compact</span>
+
+<span class="comment"># 커스텀 요약으로 압축</span>
+<span class="cmd">/compact</span> <span class="string">"인증 관련 내용만 유지해줘"</span></pre></div>
+      <div class="tip-box"><div class="tip-label">절약 팁</div><p>대화가 길어지면 <code>/compact</code>로 압축하세요. 단순 질문은 Sonnet, 복잡한 작업은 Opus로 모델을 전환하면 비용을 크게 줄일 수 있습니다.</p></div>`},
+    {title:'모델 선택 전략',icon:'🤖',iconClass:'blue',subtitle:'Opus vs Sonnet vs Haiku, 언제 뭘 쓸까',content:`
+      <p><code>/model</code>로 언제든 모델을 전환할 수 있습니다. 작업 유형에 따라 적절한 모델을 선택하면 비용과 속도를 최적화할 수 있습니다.</p>
+      <table class="data-table"><thead><tr><th>모델</th><th>적합한 작업</th><th>특징</th></tr></thead><tbody>
+        <tr><td>Opus 4.6</td><td>복잡한 아키텍처 설계, 대규모 리팩토링, 어려운 버그 수정</td><td>최고 품질, 느림, 비쌈</td></tr>
+        <tr><td>Sonnet 4.6</td><td>일반적인 코딩, 파일 수정, 테스트 작성</td><td>빠르고 균형 잡힌 성능, 가성비 최고</td></tr>
+        <tr><td>Haiku 4.5</td><td>간단한 질문, 코드 설명, 한 줄 수정</td><td>가장 빠르고 저렴</td></tr>
+      </tbody></table>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># 모델 변경</span>
+<span class="cmd">/model</span>                <span class="comment"># 대화형 선택</span>
+<span class="cmd">/model opus</span>           <span class="comment"># Opus로 변경</span>
+<span class="cmd">/model sonnet</span>         <span class="comment"># Sonnet으로 변경</span></pre></div>
+      <div class="tip-box"><div class="tip-label">추천 전략</div><p>평소에는 <strong>Sonnet</strong>으로 작업하고, 복잡한 설계나 디버깅이 필요할 때만 <strong>Opus</strong>로 전환하세요. 이것만으로 비용 50% 이상 절약 가능합니다.</p></div>`}
+  ],
+  practice:{
+    summary:'3가지 권한 모드를 직접 전환하며 차이를 체감하세요.',
+    steps:[
+      {title:'Plan Mode 실습',desc:'기존 프로젝트 폴더에서 <code>claude --permission-mode plan</code>으로 시작한 뒤 <code>"이 프로젝트의 구조를 분석해줘"</code>를 입력하세요.',expected:'Claude가 파일 구조를 읽고 분석 결과를 제시하지만, 어떤 파일도 수정하지 않습니다.'},
+      {title:'Normal Mode 전환',desc:'<code>Shift+Tab</code>을 눌러 Normal Mode로 전환하세요. <code>"README.md를 개선해줘"</code>를 입력합니다.',expected:'Claude가 파일 수정 전 "이 파일을 수정해도 될까요?" 같은 승인을 요청합니다.'},
+      {title:'키보드 단축키 테스트',desc:'<code>Shift+Enter</code>로 여러 줄 프롬프트를 작성해보세요. <code>Ctrl+O</code>로 사고 과정을 확인해보세요.',expected:'여러 줄 입력이 되고, Transcript 모드에서 Claude의 내부 사고 과정을 볼 수 있습니다.'},
+      {title:'비대화형 모드 테스트',desc:'별도 터미널에서 <code>claude -p "현재 디렉토리의 파일 목록을 알려줘"</code>를 실행하세요.',expected:'결과가 출력되고 자동으로 종료됩니다. 스크립트에서 활용 가능합니다.'},
+      {title:'세션 이어하기',desc:'<code>claude</code>를 실행하고 대화한 뒤 종료. 다시 <code>claude</code> 실행 후 <code>/resume</code>으로 이전 세션을 선택하세요.',expected:'이전 대화 목록이 보이고, 선택하면 컨텍스트가 복원됩니다.'}
+    ],
+    checklist:['Plan Mode에서 분석 실행','Normal Mode에서 파일 수정','Shift+Tab 모드 전환 3번 이상','비대화형 모드 (-p) 실행','/resume로 세션 이어하기','/cost로 토큰 사용량 확인','/model로 Opus ↔ Sonnet 전환 테스트']
+  }
+},
+{
+  id:'module3',num:'03',title:'CLAUDE.md — 프로젝트 메모리',desc:'컨텍스트 설정의 핵심',time:'1.5시간',chapterUrl:'chapters/claude-md.html',
+  title_en:'Project Configuration File (CLAUDE.md)',desc_en:'Give Claude persistent instructions',
+  goals:['CLAUDE.md 역할과 작성법 이해','프로젝트 컨텍스트 설계'],
+  goals_en:['Write a CLAUDE.md that fits your project','Understand global vs local configuration'],
+  sections:[
+    {title:'CLAUDE.md 개념',icon:'🧠',iconClass:'purple',subtitle:'세션마다 자동 로드되는 프로젝트 설명서',content:`
+      <p>프로젝트 루트의 <code>CLAUDE.md</code>는 매 세션 시작 시 자동으로 로드됩니다. <code>/init</code>으로 자동 생성할 수 있습니다.</p>
+      <div class="kv-item"><span class="kv-key">~/CLAUDE.md</span><span class="kv-val">전역 — 모든 프로젝트 공통</span></div>
+      <div class="kv-item"><span class="kv-key">프로젝트/CLAUDE.md</span><span class="kv-val">프로젝트 레벨</span></div>
+      <div class="kv-item"><span class="kv-key">하위폴더/CLAUDE.md</span><span class="kv-val">디렉토리 레벨 (오버라이드)</span></div>`},
+    {title:'작성 예시',icon:'📝',iconClass:'blue',subtitle:'실전 CLAUDE.md 템플릿',content:`
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot md"></span>CLAUDE.md</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># MyApp</span>
+
+<span class="keyword">## Quick Facts</span>
+- <span class="flag">Stack</span>: Swift, SwiftUI, SwiftData
+- <span class="flag">iOS</span>: 17+
+- <span class="flag">Architecture</span>: MVVM + Clean Architecture
+
+<span class="keyword">## Build & Test</span>
+- <span class="cmd">swift build</span>
+- <span class="cmd">swift test</span>
+- <span class="cmd">swiftlint</span>
+
+<span class="keyword">## Conventions</span>
+- View body 200줄 이내
+- public API에 /// 문서 주석
+- @MainActor 명시적 표기
+
+<span class="keyword">## DO NOT</span>
+- main 브랜치 직접 커밋 금지
+- Force unwrap (!) 금지
+- print() 커밋 금지</pre></div>
+      <div class="tip-box"><div class="tip-label">핵심 원칙</div><p>간결하게! 토큰 예산은 컨텍스트의 ~2%입니다. 실행 가능한 명령어와 "하지 말 것" 목록이 가장 중요합니다.</p></div>`}
+  ],
+  practice:{
+    summary:'자신의 프로젝트(또는 새 프로젝트)에 CLAUDE.md를 작성하고 효과를 검증하세요.',
+    steps:[
+      {title:'/init으로 자동 생성',desc:'프로젝트 폴더에서 <code>claude</code> 실행 → <code>/init</code> 입력. Claude가 프로젝트를 분석하고 CLAUDE.md 초안을 생성합니다.',expected:'프로젝트 루트에 CLAUDE.md가 생성됩니다. 스택, 구조, 빌드 명령어 등이 포함됩니다.'},
+      {title:'CLAUDE.md 커스터마이징',desc:'생성된 파일을 열어 위 템플릿을 참고하여 수정하세요. 특히 <strong>"코딩 컨벤션"</strong>과 <strong>"절대 하지 말 것"</strong> 섹션을 자신의 스타일에 맞게 작성합니다.',expected:'프로젝트에 맞는 맞춤형 CLAUDE.md가 완성됩니다.'},
+      {title:'효과 검증 — Before',desc:'CLAUDE.md 없이 <code>"새로운 API 엔드포인트를 만들어줘"</code>를 요청하고 결과를 기록하세요.',expected:'Claude가 자체 판단으로 코드를 생성합니다. 컨벤션이 맞지 않을 수 있습니다.'},
+      {title:'효과 검증 — After',desc:'CLAUDE.md를 작성한 후 같은 요청을 해보세요.',expected:'Claude가 CLAUDE.md의 컨벤션을 따르는 코드를 생성합니다. 명확한 차이를 체감할 수 있습니다.'},
+      {title:'전역 CLAUDE.md 작성 (선택)',desc:'<code>~/CLAUDE.md</code>에 모든 프로젝트에 공통으로 적용할 선호사항을 작성하세요. 예: "한국어로 응답해줘", "커밋 메시지는 영어로"',expected:'모든 프로젝트에서 자동으로 전역 설정이 적용됩니다.'}
+    ],
+    checklist:['/init으로 CLAUDE.md 자동 생성','코딩 컨벤션 섹션 커스터마이징','CLAUDE.md 유무에 따른 결과 차이 확인','빌드/테스트 명령어 정확히 기재']
+  }
+},
+{
+  id:'module4',num:'04',title:'효과적인 프롬프팅',desc:'좋은 프롬프트, Plan Mode, 컨텍스트',time:'2시간',chapterUrl:'chapters/prompting.html',
+  title_en:'Prompting Strategies',desc_en:'Context management, effective instructions',
+  goals:['Claude Code 최적화 프롬프트 작성','Plan Mode 전략','@ 멘션과 컨텍스트 관리'],
+  goals_en:['Write context-rich prompts','Understand token economy'],
+  sections:[
+    {title:'프롬프트 패턴 5가지',icon:'✍️',iconClass:'orange',subtitle:'결과를 결정하는 프롬프트 품질',content:`
+      <h4>❌ 나쁜 프롬프트</h4>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot txt"></span>prompt</span></div><pre>로그인 만들어줘</pre></div>
+      <h4>✅ 좋은 프롬프트</h4>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot txt"></span>prompt</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre>SwiftUI로 로그인 화면을 만들어줘.
+- 이메일 + 비밀번호 입력 필드
+- 로그인 버튼 (유효성 검증 후 활성)
+- 에러 메시지 영역
+- 비밀번호 표시/숨기기 토글
+- MVVM 패턴으로 LoginViewModel 분리
+- 유닛 테스트도 함께 생성</pre></div>
+      <div class="kv-item"><span class="kv-key">1. 구체적 요구</span><span class="kv-val">스택, 패턴, 제약조건 명시</span></div>
+      <div class="kv-item"><span class="kv-key">2. 단계적 지시</span><span class="kv-val">"먼저 ~하고, 그 다음 ~해줘"</span></div>
+      <div class="kv-item"><span class="kv-key">3. 출력 형식</span><span class="kv-val">"테스트 포함", "주석 달아줘"</span></div>
+      <div class="kv-item"><span class="kv-key">4. 컨텍스트</span><span class="kv-val">"@UserService.swift를 보면..."</span></div>
+      <div class="kv-item"><span class="kv-key">5. 부정 지시</span><span class="kv-val">"any 타입 사용 금지"</span></div>`},
+    {title:'Plan Mode 전략',icon:'🗺️',iconClass:'blue',subtitle:'먼저 계획, 그 다음 실행',content:`
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>workflow</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># 1단계: Plan Mode 분석</span>
+<span class="cmd">claude</span> <span class="flag">--permission-mode plan</span>
+<span class="prompt">> </span><span class="string">"인증 시스템을 분석하고 개선 방안 제안해줘"</span>
+
+<span class="comment"># 2단계: 확인 후 Normal Mode</span>
+<span class="comment"># Shift+Tab → Normal</span>
+<span class="prompt">> </span><span class="string">"위 계획대로 실행해줘"</span></pre></div>`},
+    {title:'컨텍스트 윈도우 이해',icon:'📊',iconClass:'green',subtitle:'대화가 길어지면 성능이 떨어지는 이유',content:`
+      <p>Claude Code는 매 요청마다 <strong>대화 전체 내용</strong>을 모델에 전송합니다. 대화가 길어지면 컨텍스트 윈도우가 차서 성능이 저하됩니다.</p>
+      <h4>컨텍스트 윈도우란?</h4>
+      <p>모델이 한 번에 처리할 수 있는 텍스트 양(토큰)의 한계입니다. 대화 + 파일 내용 + CLAUDE.md + MCP 도구 정의가 모두 이 안에 들어가야 합니다.</p>
+      <table class="data-table"><thead><tr><th>모델</th><th>컨텍스트</th></tr></thead><tbody>
+        <tr><td>Opus 4.6</td><td>200K (1M Beta)</td></tr>
+        <tr><td>Sonnet 4.6</td><td>200K</td></tr>
+      </tbody></table>
+      <h4>성능 저하 신호 & 해결법</h4>
+      <div class="kv-item"><span class="kv-key">이전 대화를 잊음</span><span class="kv-val"><code>/compact</code>로 압축 또는 <code>/clear</code> 후 새 세션</span></div>
+      <div class="kv-item"><span class="kv-key">응답이 느려짐</span><span class="kv-val">컨텍스트 가득 참 — <code>/cost</code>로 토큰 확인 후 압축</span></div>
+      <div class="kv-item"><span class="kv-key">엉뚱한 파일 수정</span><span class="kv-val">컨텍스트 혼잡 — 새 세션에서 작업 재시작</span></div>
+      <div class="tip-box"><div class="tip-label">핵심 원칙</div><p><strong>하나의 세션 = 하나의 작업.</strong> 기능 구현이 끝나면 새 세션을 시작하세요. 여러 작업을 하나의 세션에서 하면 컨텍스트가 오염됩니다. <code>/compact "요약 키워드"</code>로 필요한 맥락만 남길 수도 있습니다.</p></div>`}
+  ],
+  practice:{
+    summary:'같은 기능을 다양한 프롬프트로 요청하여 결과 차이를 분석하세요.',
+    steps:[
+      {title:'나쁜 프롬프트 테스트',desc:'<code>"할 일 목록 앱 만들어줘"</code>를 입력하고 결과를 저장(스크린샷)하세요.',expected:'Claude가 자체 판단으로 기본적인 앱을 만듭니다. 구조와 기술 선택이 여러분의 기대와 다를 수 있습니다.'},
+      {title:'좋은 프롬프트 테스트',desc:'<code>/clear</code> 후 다음을 입력하세요:<br>"SwiftUI + SwiftData로 할 일 목록 앱을 만들어줘. MVVM 패턴, 완료/미완료 필터링, 우선순위(높음/중간/낮음), 스와이프 삭제 지원. 테스트 포함."',expected:'훨씬 구체적이고 정확한 결과물이 나옵니다. 요청한 모든 기능이 포함됩니다.'},
+      {title:'Plan Mode 실습',desc:'<code>/plan</code>으로 진입 후 <code>"이 프로젝트에 푸시 알림 기능을 추가하려면 어떤 단계가 필요한지 분석해줘"</code>를 요청하세요.',expected:'실행 없이 상세한 계획과 단계가 제시됩니다.'},
+      {title:'@ 멘션 활용',desc:'프로젝트 내 특정 파일을 <code>@파일경로</code>로 참조하며 수정을 요청하세요.',expected:'Claude가 해당 파일의 맥락을 정확히 이해하고 수정합니다.'},
+      {title:'결과 비교 정리',desc:'나쁜 프롬프트와 좋은 프롬프트의 결과를 비교하여 차이점을 3가지 이상 적어보세요.',expected:'프롬프트 품질이 결과물 품질에 직접적으로 영향을 미친다는 것을 체감합니다.'}
+    ],
+    checklist:['나쁜 프롬프트 결과물 저장','좋은 프롬프트 결과물 저장','차이점 3가지 이상 정리','Plan Mode로 분석 실행','@ 멘션으로 파일 참조 사용','/compact로 대화 압축 실행','새 세션 시작으로 컨텍스트 리셋 체험']
+  }
+},
+{
+  id:'module5',num:'05',title:'MCP 서버 연결',desc:'GitHub, DB, API 등 외부 도구 통합',time:'2시간',chapterUrl:'chapters/mcp.html',
+  title_en:'MCP — External Tool Integration',desc_en:'Connect Slack, GitHub, databases and more',
+  goals:['MCP 개념 이해','외부 도구 연결 실습'],
+  goals_en:['Install and configure an MCP server','Use Claude Code with external services'],
+  sections:[
+    {title:'MCP 서버 추가',icon:'🔌',iconClass:'purple',subtitle:'외부 도구를 Claude Code에 연결',content:`
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># GitHub MCP 추가</span>
+<span class="cmd">claude mcp add</span> <span class="flag">--transport stdio</span> github -- \\
+  npx -y @anthropic-ai/mcp-server-github
+
+<span class="comment"># 관리 명령어</span>
+<span class="cmd">claude mcp list</span>     <span class="comment"># 목록</span>
+<span class="cmd">claude mcp remove</span> github  <span class="comment"># 제거</span>
+<span class="cmd">/mcp</span>                <span class="comment"># 세션 내 상태</span></pre></div>
+      <div class="warn-box"><div class="warn-label">⚠️ 컨텍스트 주의</div><p>MCP 10개 이상이면 컨텍스트가 급감합니다. 동시에 3~4개만 활성화하세요.</p></div>`}
+  ],
+  practice:{
+    summary:'GitHub MCP를 연결하고 이슈 기반 개발 워크플로우를 실습하세요.',
+    steps:[
+      {title:'GitHub 토큰 준비',desc:'GitHub Settings > Developer settings > Personal access tokens에서 토큰을 생성하세요. repo 권한을 부여합니다.',expected:'<code>ghp_...</code>로 시작하는 토큰이 생성됩니다.'},
+      {title:'환경변수 설정',desc:'<code>export GITHUB_TOKEN=ghp_your_token</code>을 실행하세요 (.zshrc에 추가 추천).',expected:'환경변수가 설정됩니다.'},
+      {title:'GitHub MCP 추가',desc:'<code>claude mcp add --transport stdio github -- npx -y @anthropic-ai/mcp-server-github</code>를 실행하세요.',expected:'<code>claude mcp list</code>에서 github이 보입니다.'},
+      {title:'이슈 기반 작업',desc:'Claude Code에서 <code>"내 레포 username/repo의 이슈 목록을 보여줘"</code>를 요청한 뒤, 특정 이슈를 골라 <code>"이 이슈를 해결하는 코드를 작성해줘"</code>를 요청하세요.',expected:'Claude가 GitHub에서 이슈를 읽고, 코드를 수정하여 해결합니다.'},
+      {title:'MCP 상태 확인',desc:'<code>/mcp</code>를 입력하여 연결 상태를 확인하세요.',expected:'github MCP가 connected 상태로 표시됩니다.'}
+    ],
+    checklist:['GitHub 토큰 생성','GitHub MCP 연결 성공','/mcp에서 상태 확인','이슈 목록 조회','이슈 기반 코드 수정']
+  }
+},
+{
+  id:'module6',num:'06',title:'서브에이전트 & 커스텀 에이전트',desc:'병렬 작업, 전문 에이전트',time:'2시간',chapterUrl:'chapters/agents.html',
+  title_en:'Agent System & Multi-agent',desc_en:'Parallel execution, orchestrator patterns',
+  goals:['서브에이전트 개념과 활용','커스텀 에이전트 직접 생성'],
+  goals_en:['Run background agents','Build an orchestrator + sub-agent pattern'],
+  sections:[
+    {title:'커스텀 에이전트 만들기',icon:'🛠️',iconClass:'blue',subtitle:'.claude/agents/ 에 마크다운으로 정의',content:`
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot md"></span>.claude/agents/code-reviewer.md</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment">---</span>
+<span class="keyword">name</span>: code-reviewer
+<span class="keyword">description</span>: 코드 리뷰 전문가. 품질, 보안, 유지보수성 검토.
+<span class="keyword">tools</span>: Read, Grep, Glob, Bash
+<span class="keyword">model</span>: inherit
+<span class="comment">---</span>
+
+당신은 시니어 코드 리뷰어입니다.
+1. <span class="cmd">git diff</span>로 변경사항 확인
+2. 타입 안전성, 에러 핸들링, 성능 분석
+3. 구체적 개선 제안과 함께 리뷰 결과 제출</pre></div>
+      <p>저장 위치: <code>.claude/agents/</code> (프로젝트) 또는 <code>~/.claude/agents/</code> (전역)</p>`}
+  ],
+  practice:{
+    summary:'3종류의 커스텀 에이전트를 직접 만들고 실행해보세요.',
+    steps:[
+      {title:'에이전트 폴더 생성',desc:'프로젝트 루트에서 <code>mkdir -p .claude/agents</code>를 실행하세요.',expected:'<code>.claude/agents/</code> 디렉토리가 생성됩니다.'},
+      {title:'코드 리뷰 에이전트 작성',desc:'위의 <code>code-reviewer.md</code> 예시를 <code>.claude/agents/</code>에 저장하세요.',expected:'파일이 저장됩니다.'},
+      {title:'문서화 에이전트 작성',desc:'<code>.claude/agents/doc-writer.md</code>를 만드세요. description에 "API 문서와 README를 작성하는 전문가"를 넣고, 지시사항에 "JSDoc/Swift 문서 주석 스타일로 작성"을 추가하세요.',expected:'두 번째 에이전트 파일이 생성됩니다.'},
+      {title:'에이전트 목록 확인',desc:'<code>claude agents</code>를 터미널에서 실행하세요.',expected:'code-reviewer, doc-writer 에이전트가 목록에 표시됩니다.'},
+      {title:'에이전트 실행',desc:'Claude Code 세션에서 코드를 수정한 후 <code>"@code-reviewer 방금 변경한 코드를 리뷰해줘"</code>를 요청하세요.',expected:'코드 리뷰 에이전트가 서브에이전트로 실행되어 리뷰 결과를 제출합니다.'},
+      {title:'백그라운드 실행',desc:'에이전트 실행 중 <code>Ctrl+B</code>를 눌러 백그라운드로 보내고, 메인 세션에서 다른 작업을 해보세요.',expected:'에이전트가 백그라운드에서 작업하는 동안 메인 프롬프트가 사용 가능합니다.'}
+    ],
+    checklist:['agents 폴더 생성','code-reviewer 에이전트 작성','doc-writer 에이전트 작성','claude agents로 목록 확인','에이전트 실행 성공','Ctrl+B 백그라운드 전환']
+  }
+},
+{
+  id:'module7',num:'07',title:'Skills & Hooks',desc:'자동 스킬, 라이프사이클 자동화',time:'2시간',chapterUrl:'chapters/skill.html',
+  title_en:'Skills — Complete Guide',desc_en:'Custom slash commands and automation',
+  goals:['Skills 온디맨드 로딩 이해','Hooks로 자동화 구축'],
+  goals_en:['Create a custom slash command','Build a reusable skill'],
+  sections:[
+    {title:'Skills 만들기',icon:'🎯',iconClass:'purple',subtitle:'작업에 따라 자동 활성화',content:`
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot md"></span>.claude/skills/swift-patterns/SKILL.md</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment">---</span>
+<span class="keyword">name</span>: swift-patterns
+<span class="keyword">description</span>: Swift/SwiftUI 코드 작성 시 사용.
+  MVVM, async/await, SwiftData 패턴 포함.
+<span class="comment">---</span>
+
+# Swift 코딩 패턴
+
+## MVVM 구조
+- View → ViewModel (ObservableObject) → Model
+- @Published로 상태 관리
+- View body는 200줄 이내
+
+## SwiftData 규칙
+- @Model 클래스에 기본값 지정
+- @Query는 View에서만 사용</pre></div>`},
+    {title:'Hooks 설정',icon:'🪝',iconClass:'orange',subtitle:'자동 포매팅, 브랜치 보호 등',content:`
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot json"></span>.claude/settings.json</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre>{
+  <span class="string">"hooks"</span>: {
+    <span class="string">"PreToolUse"</span>: [{
+      <span class="string">"matcher"</span>: <span class="string">"Edit|Write"</span>,
+      <span class="string">"hooks"</span>: [{
+        <span class="string">"type"</span>: <span class="string">"command"</span>,
+        <span class="string">"command"</span>: <span class="string">"[ \\"$(git branch --show-current)\\" != \\"main\\" ] || { echo '{\\\"block\\\":true,\\\"message\\\":\\\"main 브랜치 수정 금지\\\"}' >&2; exit 2; }"</span>,
+        <span class="string">"timeout"</span>: 5
+      }]
+    }]
+  }
+}</pre></div>
+      <table class="data-table"><thead><tr><th>이벤트</th><th>시점</th></tr></thead><tbody>
+        <tr><td>SessionStart</td><td>세션 시작</td></tr>
+        <tr><td>PreToolUse</td><td>도구 사용 전 (차단 가능)</td></tr>
+        <tr><td>PostToolUse</td><td>도구 사용 후</td></tr>
+        <tr><td>Stop</td><td>응답 완료</td></tr>
+        <tr><td>TaskCompleted</td><td>작업 완료</td></tr>
+      </tbody></table>`}
+  ],
+  practice:{
+    summary:'Skills와 Hooks를 각각 하나씩 만들어 자동화 효과를 체험하세요.',
+    steps:[
+      {title:'Skills 디렉토리 생성',desc:'<code>mkdir -p .claude/skills/my-patterns</code>을 실행하세요.',expected:'skills 디렉토리가 생성됩니다.'},
+      {title:'SKILL.md 작성',desc:'자신의 프로젝트에 맞는 SKILL.md를 작성하세요. <code>name</code>과 <code>description</code>을 정확히 적어야 자동 매칭됩니다.',expected:'SKILL.md 파일이 저장됩니다.'},
+      {title:'Skill 자동 로딩 테스트',desc:'Claude Code에서 Skill description에 매칭되는 작업을 요청하세요. 예: "SwiftUI View를 만들어줘".',expected:'Claude가 자동으로 Skill을 로드하고 패턴에 맞는 코드를 생성합니다.'},
+      {title:'Hook 설정 파일 생성',desc:'<code>.claude/settings.json</code>에 위의 main 브랜치 보호 Hook을 추가하세요.',expected:'settings.json이 저장됩니다.'},
+      {title:'Hook 동작 테스트',desc:'<code>git checkout main</code> 후 Claude Code에서 파일 수정을 요청하세요.',expected:'Hook이 수정을 차단하고 "main 브랜치 수정 금지" 메시지가 표시됩니다.'},
+      {title:'다른 브랜치에서 테스트',desc:'<code>git checkout -b test-hook</code> 후 같은 요청을 하세요.',expected:'정상적으로 파일이 수정됩니다. Hook이 main에서만 차단하는 것을 확인합니다.'}
+    ],
+    checklist:['SKILL.md 작성 완료','Skill 자동 로딩 확인','settings.json에 Hook 추가','main 브랜치에서 차단 확인','다른 브랜치에서 정상 동작 확인']
+  }
+},
+{
+  id:'module8',num:'08',title:'실전 워크플로우',desc:'Git, PR 리뷰, 디버깅 실전',time:'2시간',chapterUrl:'chapters/workflow.html',
+  title_en:'Real-world Workflow',desc_en:'From code review to deployment automation',
+  goals:['Git 연동 실무 패턴','디버깅/리팩토링/PR 워크플로우'],
+  goals_en:['Build a CI/CD automation workflow','Optimize git workflow with Claude Code'],
+  sections:[
+    {title:'Git + PR + 디버깅',icon:'🌿',iconClass:'green',subtitle:'실전 개발 플로우',content:`
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>실전 프롬프트</span></div><pre><span class="comment"># 기능 구현</span>
+<span class="prompt">> </span><span class="string">"feature/search 브랜치를 만들고 검색 기능을 구현해줘"</span>
+
+<span class="comment"># PR 생성</span>
+<span class="prompt">> </span><span class="string">"변경사항을 커밋하고 PR 설명을 작성해줘"</span>
+
+<span class="comment"># 디버깅</span>
+<span class="prompt">> </span><span class="string">"@src/Search.swift에서 검색 결과가 안 나와.
+   에러 로그: [로그]. 원인 분석하고 수정해줘"</span>
+
+<span class="comment"># CI/CD 연동</span>
+<span class="cmd">gh</span> pr diff 42 | <span class="cmd">claude</span> <span class="flag">-p</span> <span class="string">"시니어 개발자로 리뷰해줘"</span></pre></div>`}
+  ],
+  practice:{
+    summary:'실제 프로젝트에서 기능 추가 → 디버깅 → PR까지 전체 플로우를 실행하세요.',
+    steps:[
+      {title:'Feature 브랜치 생성',desc:'Claude Code에서 <code>"feature/practice 브랜치를 만들어줘"</code>를 요청하세요.',expected:'새 브랜치가 생성되고 체크아웃됩니다.'},
+      {title:'기능 구현 요청',desc:'구체적인 기능을 요청하세요. 예: <code>"사용자 프로필 화면을 만들어줘. 이름, 이메일, 프로필 사진 표시. MVVM 패턴."</code>',expected:'여러 파일이 생성됩니다.'},
+      {title:'의도적 버그 삽입',desc:'생성된 파일에 일부러 오타나 로직 에러를 넣으세요. 그 후 <code>"이 코드에 버그가 있어. 찾아서 수정해줘"</code>를 요청하세요.',expected:'Claude가 버그를 찾고 수정합니다.'},
+      {title:'테스트 추가',desc:'<code>"방금 만든 기능에 대한 유닛 테스트를 작성해줘"</code>를 요청하세요.',expected:'테스트 파일이 생성됩니다.'},
+      {title:'커밋 & PR 생성',desc:'<code>"변경사항을 기능별로 나누어 커밋하고, PR 설명을 작성해줘"</code>를 요청하세요.',expected:'깔끔한 커밋 히스토리와 상세한 PR 설명이 만들어집니다.'},
+      {title:'PR 리뷰 (CLI)',desc:'<code>gh pr diff HEAD | claude -p "이 PR을 리뷰해줘"</code>를 실행하세요.',expected:'코드 리뷰 결과가 출력됩니다.'}
+    ],
+    checklist:['Feature 브랜치 생성','기능 구현','버그 수정','테스트 추가','커밋 & PR 설명 작성','CLI PR 리뷰']
+  }
+},
+{
+  id:'module9',num:'09',title:'고급 기능 & 팀 협업',desc:'Agent Teams, Worktree, Teleport, Plugin',time:'2시간',chapterUrl:'chapters/advanced.html',
+  title_en:'Advanced Features',desc_en:'Hooks, extended thinking, enterprise usage',
+  goals:['Agent Teams 멀티에이전트','Worktree 격리','Teleport 원격 세션'],
+  goals_en:['Configure hooks for automation','Use extended thinking for complex problems'],
+  sections:[
+    {title:'Agent Teams + Worktree + Teleport',icon:'🚀',iconClass:'blue',subtitle:'2026 최신 고급 기능',content:`
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot bash"></span>bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><span class="comment"># Worktree 격리</span>
+<span class="cmd">claude</span> <span class="flag">-w</span>  <span class="comment"># 격리된 git worktree에서 작업</span>
+
+<span class="comment"># Teleport</span>
+<span class="cmd">/teleport</span>           <span class="comment"># 로컬 → claude.ai/code</span>
+<span class="cmd">claude --teleport</span>   <span class="comment"># 웹 → 로컬</span>
+
+<span class="comment"># Agent Teams (연구 프리뷰)</span>
+<span class="keyword">export</span> CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
+
+<span class="comment"># 1M 컨텍스트</span>
+<span class="comment"># Opus 4.6에서 기본 지원 (Beta)</span>
+
+<span class="comment"># 플러그인</span>
+<span class="cmd">/plugin marketplace add</span> username/plugin</pre></div>`}
+  ],
+  practice:{
+    summary:'커스텀 슬래시 커맨드 3개를 만들고, Worktree/Teleport를 체험하세요.',
+    steps:[
+      {title:'슬래시 커맨드 폴더 생성',desc:'<code>mkdir -p .claude/commands</code>를 실행하세요.',expected:'commands 디렉토리가 생성됩니다.'},
+      {title:'/review 커맨드 작성',desc:'<code>.claude/commands/review.md</code> 파일을 만드세요. description에 "코드 리뷰 실행"을 넣고, 본문에 git diff를 분석하는 지시를 작성하세요.',expected:'<code>/review</code> 커맨드가 사용 가능해집니다.'},
+      {title:'/test 커맨드 작성',desc:'<code>.claude/commands/test.md</code>를 만들어 "현재 변경사항에 대한 테스트를 작성하라"는 지시를 넣으세요.',expected:'<code>/test</code> 커맨드가 사용 가능해집니다.'},
+      {title:'커맨드 실행 테스트',desc:'Claude Code에서 <code>/review</code>와 <code>/test</code>를 실행해보세요.',expected:'각 커맨드가 정의된 대로 동작합니다.'},
+      {title:'Worktree 격리 체험 (선택)',desc:'<code>claude -w</code>로 격리된 worktree에서 작업해보세요. 메인 코드베이스에 영향 없이 실험할 수 있습니다.',expected:'별도의 git worktree에서 작업이 진행됩니다.'}
+    ],
+    checklist:['/review 커맨드 생성','/test 커맨드 생성','커맨드 실행 확인','Worktree 격리 체험 (선택)']
+  }
+},
+{
+  id:'module10',num:'10',title:'실전 프로젝트',desc:'처음부터 끝까지 앱 완성',time:'3시간',chapterUrl:'chapters/project.html',
+  title_en:'Real-world Project Build',desc_en:'End-to-end development with Claude Code',
+  goals:['모듈 1~9 종합 적용','실제 앱 처음부터 완성'],
+  goals_en:['Build a real project from scratch','Apply all learned techniques'],
+  sections:[
+    {title:'DailyMemo — 전체 과정',icon:'📱',iconClass:'orange',subtitle:'SwiftUI + SwiftData 메모 앱',content:`
+      <h4>Phase 1: 프로젝트 셋업</h4>
+      <div class="code-block"><div class="code-header"><span class="lang"><span class="dot txt"></span>prompt</span></div><pre><span class="prompt">> </span><span class="string">"SwiftUI + SwiftData로 DailyMemo 앱을 만들어줘.
+   iOS 17+ / MVVM / 메모 CRUD, 카테고리, 검색
+   먼저 CLAUDE.md를 작성해줘."</span></pre></div>
+      <h4>Phase 2~6</h4>
+      <div class="kv-item"><span class="kv-key">Phase 2</span><span class="kv-val">/plan으로 아키텍처 설계</span></div>
+      <div class="kv-item"><span class="kv-key">Phase 3</span><span class="kv-val">데이터 모델 + 화면 구현</span></div>
+      <div class="kv-item"><span class="kv-key">Phase 4</span><span class="kv-val">@code-reviewer 리뷰</span></div>
+      <div class="kv-item"><span class="kv-key">Phase 5</span><span class="kv-val">유닛 테스트 작성</span></div>
+      <div class="kv-item"><span class="kv-key">Phase 6</span><span class="kv-val">Hook + Git + PR</span></div>
+      <h4>최종 산출물</h4>
+      <div class="kv-item"><span class="kv-key">✅</span><span class="kv-val">빌드 가능한 DailyMemo 앱</span></div>
+      <div class="kv-item"><span class="kv-key">✅</span><span class="kv-val">CLAUDE.md + Skills + Hooks + Agent</span></div>
+      <div class="kv-item"><span class="kv-key">✅</span><span class="kv-val">테스트 커버리지 80%+</span></div>
+      <div class="kv-item"><span class="kv-key">✅</span><span class="kv-val">PR with 리뷰 코멘트</span></div>`}
+  ],
+  practice:{
+    summary:'DailyMemo 앱을 처음부터 끝까지 Claude Code로 만들어보세요.',
+    steps:[
+      {title:'Phase 1 — 프로젝트 생성',desc:'빈 폴더에서 <code>claude</code>를 실행하고 위의 프롬프트로 프로젝트를 생성하세요. CLAUDE.md가 먼저 만들어지는지 확인합니다.',expected:'프로젝트 구조와 CLAUDE.md가 생성됩니다.'},
+      {title:'Phase 2 — 설계',desc:'<code>/plan</code>으로 전체 아키텍처를 설계하세요. 데이터 모델, 화면 구성, 네비게이션 플로우를 정리합니다.',expected:'상세한 설계 문서가 제시됩니다.'},
+      {title:'Phase 3 — 핵심 기능 구현',desc:'설계를 바탕으로 핵심 기능을 구현하세요. 한 번에 하나씩: (1) 데이터 모델 (2) 목록 화면 (3) 작성/편집 (4) 검색',expected:'각 기능이 단계별로 구현됩니다.'},
+      {title:'Phase 4 — 코드 리뷰',desc:'모듈 6에서 만든 <code>@code-reviewer</code> 에이전트로 리뷰하세요.',expected:'리뷰 피드백이 제공됩니다.'},
+      {title:'Phase 5 — 테스트',desc:'<code>"모든 ViewModel에 유닛 테스트를 작성해줘. 각 메서드당 최소 3개 케이스."</code>를 요청하세요.',expected:'테스트 파일들이 생성됩니다.'},
+      {title:'Phase 6 — 자동화 & PR',desc:'모듈 7의 Hook을 설정하고, 기능별 커밋 → PR 생성을 요청하세요.',expected:'완성된 프로젝트가 깃 히스토리와 함께 PR로 정리됩니다.'}
+    ],
+    checklist:['프로젝트 + CLAUDE.md 생성','Plan Mode로 설계 완료','핵심 기능 4가지 구현','코드 리뷰 실행','유닛 테스트 작성','Hook 설정','커밋 & PR 완성']
+  }
+},
+{
+  id:'concepts',num:'11',title:'핵심 개념 시각화',desc:'Agent · Skills · Tools · MCP 시각적 이해',time:'30분',chapterUrl:'chapters/concepts.html',
+  title_en:'Core Concepts Visualized',desc_en:'Visual understanding of Agent · Skills · Tools · MCP',
+  goals:['추상 개념을 시각적으로 이해','각 개념의 관계와 차이 파악'],
+  goals_en:['Understand abstract concepts visually','Grasp the relationships and differences between concepts'],
+  sections:[
+    {title:'전체 생태계 한눈에 보기',icon:'🗺️',iconClass:'purple',subtitle:'전체 아키텍처 다이어그램',content:`<p><a href="chapters/bigpicture.html" style="color:var(--accent2)">→ 전체 생태계 다이어그램 보기</a> — Claude Model · Agent Loop · Skills · Tools · MCP · Extended Thinking · 외부 서비스가 한 화면에 표시됩니다.</p>`},
+    {title:'인터랙티브 개념 가이드',icon:'🎨',iconClass:'purple',subtitle:'관계도 · 카드 · 흐름도 · 비교표',content:`<p>Agent, Skills, Tools, MCP, Context Window, Extended Thinking 등 Claude 플랫폼의 핵심 개념을 인터랙티브 다이어그램으로 시각화합니다.</p>`}
+  ],
+  checklist:['전체 생태계 다이어그램 확인','개념 관계도 확인','Skills 3단계 구조 이해','MCP 서버 탭 탐색','Extended Thinking 토글 체험']
+}
+];

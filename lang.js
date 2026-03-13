@@ -1,5 +1,15 @@
 /**
- * Claude Code 101 — Language Toggle (ko / en)  [Root version for index.html]
+ * Claude Code 101 — Language Toggle (ko / en)
+ * SSOT: Single shared file for both index.html and chapter pages.
+ *
+ * Usage:
+ *   1. Add in <head>:
+ *        <script>(function(){var l=localStorage.getItem('cc101-lang')||'ko';document.documentElement.setAttribute('lang',l)})();</script>
+ *   2. Add before </body>:
+ *        <script src="lang.js"></script>       (from root)
+ *        <script src="../lang.js"></script>    (from chapters/)
+ *   3. Wrap Korean content:  <span class="lang-ko">...</span>
+ *      Add English content:  <span class="lang-en">...</span>
  */
 
 (function () {
@@ -53,7 +63,7 @@ html[lang="en"] .lang-ko { display: none !important; }
 
 #langToggle {
   position: fixed;
-  bottom: 9.5rem;
+  bottom: 5.5rem;
   right: 1.8rem;
   z-index: 1000;
   width: 44px;
@@ -78,6 +88,12 @@ html[lang="en"] .lang-ko { display: none !important; }
   border-color: var(--accent, #ea6c0a);
   transform: scale(1.1);
 }
+[data-theme="dark"] #langToggle {
+  background: var(--bg-card, #0d1219);
+  border-color: var(--border, #1a2233);
+  color: var(--text, #e2e8f0);
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
 `;
     document.head.appendChild(s);
   }
@@ -94,7 +110,7 @@ html[lang="en"] .lang-ko { display: none !important; }
     document.body.appendChild(btn);
   }
 
-  // Apply immediately
+  // Apply language immediately for FOUC prevention
   document.documentElement.setAttribute('lang', getLang());
   injectStyles();
 
