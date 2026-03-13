@@ -69,11 +69,3 @@ open index.html
 
 GitHub Pages로 자동 배포됩니다. `main` 브랜치에 push하면 GitHub Actions가 자동으로 배포합니다.
 
-## 커뮤니티
-
-- **오픈 카톡방**: [함께 공부해요 →](https://open.kakao.com/o/pWK34Oji) — 질문, 학습 인증, 정보 공유
-- **챕터 피드백**: 각 챕터 하단 Giscus 댓글 (GitHub 계정 필요)
-
----
-
-> 강의, 피드백, 협업 문의: [leeo.ghost.io](https://leeo.ghost.io)
